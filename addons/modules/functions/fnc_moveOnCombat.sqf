@@ -7,7 +7,7 @@ params [
 ];
 
 if (!isServer) exitWith {false};
-if (_units isEqualTo objNull) then {_units = [_units]};
+if (_units isEqualType objNull) then {_units = [_units]};
 
 private _groups = _units apply {group _x};
 _groups = _groups arrayIntersect _groups;
