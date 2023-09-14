@@ -1,7 +1,7 @@
 class MEH_ModuleFuelConsumption: Module_F {
     scope = 2;
     displayName = CSTRING(ModuleFuelConsumption_DisplayName);
-    icon = ""; // Todo: Add image
+    icon = "a3\armor_f_decade\mbt_02\data\ui\lowfuel_ca.paa";
     category = "MEH";
 
     function = QFUNC(FuelConsumption);
