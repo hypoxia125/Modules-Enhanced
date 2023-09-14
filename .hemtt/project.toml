@@ -1,0 +1,14 @@
+name = "Modules Enhanced"
+author = "Hypoxic"
+prefix = "MEH"
+mainprefix = "z"
+
+[version]
+major = 1
+minor = 0
+patch = 0
+git_hash = 0
+
+[lint.sqf]
+enabled = true
+exclude = []

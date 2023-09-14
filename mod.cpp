@@ -1,0 +1,12 @@
+name = "Modules Enhanced";
+action = "";
+actionName = "Github";
+author = "Hypoxic";
+hideName = 0;
+hidePicture = 0;
+logo = "";
+logoOver = "";
+logoSmall = "";
+overview = "Adds new useful 3DEN modules for mission makers and fixes outdated BI modules.";
+picture = "";
+tooltipOwned = "Adds new useful 3DEN modules for mission makers and fixes outdated BI modules.";
