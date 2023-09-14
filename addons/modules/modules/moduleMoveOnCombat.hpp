@@ -13,7 +13,7 @@ class MEH_moduleMoveOnCombat: Module_F {
 
     class Attributes: AttributesBase {
         class GVAR(ModuleMoveOnCombat_Delay): Edit {
-            property = GVAR(MODULEMOVEONCOMBAT_Delay);
+            property = QGVAR(MODULEMOVEONCOMBAT_Delay);
             displayName = CSTRING(MODULEMOVEONCOMBAT_DELAY_DISPLAYNAME);
             tooltip = CSTRING(MODULEMOVEONCOMBAT_DELAY_TOOLTIP);
             defaultValue = 0;
