@@ -1,0 +1,1 @@
+#include "\z\meh\addons\main\script_component.hpp"
