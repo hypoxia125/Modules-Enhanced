@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Modules Enhanced">
     <Package name="modules">
+        <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_DisplayName">
+            <English>Delete Respawn Position</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_ModuleDescription_Description">
+            <English>A module designed to remove positions added by a BI Respawn Position Module. Synchronize with one or more BI Respawn Position Modules.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_DisplayName">
+            <English>Fuel Consumption</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_DisplayName">
+            <English>Idle Fuel Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_Tooltip">
+            <English>The max time (minutes) fuel lasts when idle (0) speed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_DisplayName">
+            <English>Max Fuel Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_Tooltip">
+            <English>The max time (minutes) fuel lasts when moving at max speed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_ModuleDescription_Description">
+            <English>A module that increases vehicle fuel consumption to provide more vehicle customization. Synchronize one or more vehicles to this module.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_DisplayName">
+            <English>Tick Rate</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_Tooltip">
+            <English>The tick rate of calculation. Higher values increase network performance but at a cost of accuracy. (Min: 1 | Max: 5)</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_DisplayName">
             <English>Move On Combat</English>
         </Key>
@@ -12,36 +42,6 @@
         </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_ModuleDescription_Description">
             <English>A module that instructs units to remain in their designated positions until combat initiates.&lt;br/&gt;&lt;br/&gt;Sync one or more groups to this module.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_DisplayName">
-            <English>Delete Respawn Position</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_ModuleDescription_Description">
-            <English>A module designed to remove positions added by a BI Respawn Position Module. Synchronize with one or more BI Respawn Position Modules.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_DisplayName">
-            <English>Fuel Consumption</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_DisplayName">
-            <English>Max Fuel Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_Tooltip">
-            <English>The max time (minutes) fuel lasts when moving at max speed.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_DisplayName">
-            <English>Tick Rate</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_Tooltip">
-            <English>The tick rate of calculation. Higher values increase network performance but at a cost of accuracy. (Min: 1 | Max: 5)</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_ModuleDescription_Description">
-            <English>A module that increases vehicle fuel consumption to provide more vehicle customization. Synchronize one or more vehicles to this module.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_DisplayName">
-            <English>Idle Fuel Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_Tooltip">
-            <English>The max time (minutes) fuel lasts when idle (0) speed.</English>
         </Key>
     </Package>
 </Project>
