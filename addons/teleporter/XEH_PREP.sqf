@@ -1,2 +1,2 @@
 PREP(teleportPlayer);
-PREP(openTeleportMenu);
+//PREP(openTeleportMenu);

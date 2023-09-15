@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Modules Enhanced">
+    <Package name="teleporter">
+        <Key ID="STR_MEH_Teleporter_TeleportingNotification">
+            <English>Moving to location...&lt;br/&gt;ETA: %1 seconds</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportedNotification">
+            <English>Arrived</English>
+        </Key>
+    </Package>
+</Project>

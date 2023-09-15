@@ -7,13 +7,13 @@ params [
 
 if (!(local _unit)) exitWith {};
 
-private _travelTime = linearConversion [0, 1e5, _unit distance _teleTo, 0, 30, true];
+private _travelTime = round (linearConversion [0, 1e4, _unit distance _teleTo, 0, 30, true]);
 
 // Fade screen
 private _layer = QGVAR(blankScreen) call BIS_fnc_rscLayer;
 uiNamespace setVariable [QGVAR(blankScreen), _layer];
 _layer cutText [
-    localize (FORMAT_1(QGVAR(teleportingNotification), _travelTime)),
+    (FORMAT_1(LLSTRING(teleportingNotification), _travelTime)),
     "BLACK OUT", 3, true, true
 ];
 
