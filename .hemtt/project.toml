@@ -12,3 +12,32 @@ git_hash = 0
 [lint.sqf]
 enabled = true
 exclude = []
+
+[hemtt.launch.default]
+workshop = [
+    "623475643",
+    "2073243184",
+    "1387934106",
+    "463939057",
+    "2369477168",
+    "450814997",
+    "2613892572",
+    "1862880106",
+    "1751569185",
+    "2961167812",
+    "642912021",
+    "1251859358",
+    "1779063631",
+    "2018593688"
+]
+
+parameters = [
+    "-skipIntro",
+    "-noSplash",
+    "-showScriptErrors",
+    "-debug",
+    "-filePatching"
+]
+
+# executable = "arma3_x64"
+executable = "arma3diag_x64"

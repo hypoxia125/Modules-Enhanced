@@ -12,13 +12,7 @@ if (_teleporters isEqualTo []) exitWith {
     LOG("No teleporters synchronized to system");
 };
 
-// Add teleporter actions
+// Create lb variable
 _teleporters apply {
-    private _teleporter = _x;
     
-    _teleporter addAction [
-        LSTRING(TeleporterSystem_ActionName), {
-            
-        }
-    ]
 }
