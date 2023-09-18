@@ -7,7 +7,7 @@
 /* --------------------------------------------------
     Hide Object Teleport Event
 -------------------------------------------------- */
-[QGVAR(hideObjectForTeleportServer), {
+[QGVAR(hideObjectGlobal), {
     params ["_unit", "_value"];
 
     _unit hideObjectGlobal _value;
@@ -18,5 +18,5 @@
     params ["_unit", "_value"];
 
     _unit allowDamage (!_value);
-    [QGVAR(hideObjectForTeleportServer), [_unit, _value]] call CBA_fnc_serverEvent;
+    [QGVAR(hideObjectGlobal), [_unit, _value]] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addEventHandler;
