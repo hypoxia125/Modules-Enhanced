@@ -23,7 +23,9 @@ _respawnModules apply {
 
     // Module Respawn Position Cleanup
     deleteVehicle _module;
+    INFO_1("Module: %1 deleted", _module);
 };
 
 // DeleteRespawnPosition Module Cleanup
 deleteVehicle _module;
+INFO_1("Module: %1 deleted", _module);
