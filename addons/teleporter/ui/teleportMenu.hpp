@@ -7,6 +7,8 @@ class MEH_TeleportMenu {
 
     idd = 6969;
 
+    onLoad = "";
+
     class Controls {
         class MenuBackground: RscText
         {
