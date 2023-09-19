@@ -12,6 +12,6 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
 
-        skipWhenMissingDependencies = 0;
+        skipWhenMissingDependencies = 1;
     };
 };
