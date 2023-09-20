@@ -12,12 +12,12 @@ class MEH_moduleParadropVehicle: Module_F {
     is3DEN = 0;
 
     class Attributes: AttributesBase {
-        class Expression: EditCodeMulti3 {
-            property = QGVAR(ModuleParadropVehicle_Expression);
-            displayName = CSTRING(ModuleParadropVehicle_Expression_DisplayName);
-            tooltip = CSTRING(ModuleParadropVehicle_Expression_Tooltip);
-            defaultValue = QUOTE("");
-            typeName = "STRING";
+        class ParadropHeight: Edit {
+            property = QGVAR(ModuleParadropVehicle_ParadropHeight);
+            displayName = CSTRING(ModuleParadropVehicle_ParadropHeight_DisplayName);
+            tooltip = CSTRING(ModuleParadropVehicle_ParadropHeight_Tooltip);
+            defaultValue = 500;
+            typeName = "NUMBER";
         };
 
         class ParachuteHeight: Edit {
@@ -28,7 +28,31 @@ class MEH_moduleParadropVehicle: Module_F {
             typeName = "NUMBER";
         };
 
-        // Todo: Add edit line for classname
+        class Position: Combo {
+            property = QGVAR(ModuleParadropVehicle_Position);
+            displayName = CSTRING(ModuleParadropVehicle_Position_DisplayName);
+            tooltip = CSTRING(ModuleParadropVehicle_Position_Tooltip);
+            defaultValue = 0;
+            typeName = "NUMBER";
+            class Values {
+                class VehiclePosition {
+                    name = CSTRING(ModuleParadropVehicle_Position_Values_VehiclePosition_Name);
+                    value = 0;
+                };
+                class ModulePosition {
+                    name = CSTRING(ModuleParadropVehicle_Position_Values_ModulePosition_Name);
+                    value = 1;
+                };
+            };
+        };
+
+        class Expression: EditCodeMulti3 {
+            property = QGVAR(ModuleParadropVehicle_Expression);
+            displayName = CSTRING(ModuleParadropVehicle_Expression_DisplayName);
+            tooltip = CSTRING(ModuleParadropVehicle_Expression_Tooltip);
+            defaultValue = QUOTE("");
+            typeName = "STRING";
+        };
 
         class ModuleDescription: ModuleDescription {};
     };
