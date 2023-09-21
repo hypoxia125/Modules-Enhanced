@@ -91,10 +91,10 @@
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Civilian_DisplayName">
             <English>CIVILIAN</English>
         </Key>
-        <Key ID="ModuleParadropVehicle_CrewSide_DisplayName">
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CrewSide_DisplayName">
             <English>Crew Side</English>
         </Key>
-        <Key ID="ModuleParadropVehicle_CreateCrew_Tooltip">
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Tooltip">
             <English>Will assign the vehicle crew to a specific side, if a vehicle crew is created.</English>
         </Key>
     </Package>

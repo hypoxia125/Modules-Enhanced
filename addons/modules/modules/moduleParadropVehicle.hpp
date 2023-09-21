@@ -90,7 +90,6 @@ class MEH_moduleParadropVehicle: Module_F {
         description = CSTRING(ModuleParadropVehicle_ModuleDescription_Description);
         position = 1;
         direction = 0;
-        duplicate = 1;
         sync[] = {
             "AnyVehicle"
         };
