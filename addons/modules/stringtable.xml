@@ -43,5 +43,59 @@
         <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_Tooltip">
             <English>The max time (minutes) fuel lasts when idle (0) speed.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_DisplayName">
+            <English>Vehicle/Crate Classname</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_Tooltip">
+            <English>Single vehicle or crate classname.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_DisplayName">
+            <English>Paradrop Vehicle/Crate</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_DisplayName">
+            <English>Paradrop Height</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_Tooltip">
+            <English>Height (ATL) where the object will be dropped from.\n-1 to drop from module height.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParachuteHeight_DisplayName">
+            <English>Parachute Deployment Height</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParachuteHeight_Tooltip">
+            <English>Height (ATL) where the parachute will be deployed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_DisplayName">
+            <English>Expression</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_Tooltip">
+            <English>Code to pass to the object after its creation. Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ModuleDescription_Description">
+            <English>A module that will paradrop a vehicle or crate.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_DisplayName">
+            <English>Create Crew</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Tooltip">
+            <English>Will create a vehicle crew if a vehicle classname is passed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_West_DisplayName">
+            <English>BLUFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_East_DisplayName">
+            <English>OPFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Independent_DisplayName">
+            <English>GUER</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Civilian_DisplayName">
+            <English>CIVILIAN</English>
+        </Key>
+        <Key ID="ModuleParadropVehicle_CrewSide_DisplayName">
+            <English>Crew Side</English>
+        </Key>
+        <Key ID="ModuleParadropVehicle_CreateCrew_Tooltip">
+            <English>Will assign the vehicle crew to a specific side, if a vehicle crew is created.</English>
+        </Key>
     </Package>
 </Project>

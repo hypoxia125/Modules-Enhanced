@@ -2,72 +2,85 @@
 
 params [
     ["_module", objNull, [objNull]],
-    ["_vehicles", [], [objNull, []]],
+    "",
     ["_isActivated", false, [true]]
 ];
 
 if (!isServer) exitWith {};
 
 // Variables
+private _vehicleClass = call compile (_module getVariable [QUOTE(VehicleClass), ""]);
+private _createCrew = _module getVariable [QUOTE(CreateCrew), true];
+private _crewSide = _module getVariable [QUOTE(CrewSide), 1];
 private _paraHeight = _module getVariable [QUOTE(ParadropHeight), 500];
-private _parachuteHeight = _module getVariable [QUOTE(ParachuteHeight), 5];
-private _position = _module getVariable [QUOTE(Position), 0];
-private _expression = _module getVariable [QUOTE(Expression), ""];
-private _modulePos = getPosATL _module;
+private _parachuteHeight = _module getVariable [QUOTE(ParachuteHeight), 100];
+private _code = compile (_module getVariable [QUOTE(Expression), "true"]);
 
 // Verify variables
-if (_paraHeight <= 0) then {_paraHeight = 500};
-if (_parachuteHeight <= 0) {_parachuteHeight = 0};
-if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-if (count _vehicles > 0) exitWith {
-    ERROR_MSG_1("%1\nToo many vehicles synchronized to the module when using module position parameter.\nEither change the module to vehicle position or synchronize only one unit.", QFUNC(paradropVehicle));
+if (_vehicleClass isEqualTo "") exitWith {};
+if (_paraHeight <= 0 && _paraHeight != -1) then {_paraHeight = 500};
+if (_parachuteHeight <= 0) then {_parachuteHeight = 0};
+
+_crewSide = switch _crewSide do {
+    case 0: {east};
+    case 1: {west};
+    case 2: {independent};
+    case 3: {civilian};
 };
 
-// Hide and unsimulate objects
-_vehicles apply {
-    private _vehicle = _x;
+TRACE_4("Variables",_vehicleClass, _createCrew, _paraHeight, _parachuteHeight);
 
-    _vehicle hideObjectGlobal true;
-    _vehicle enableSimulationGlobal false;
-};
-
-// Move vehicles to their drop position
-_vehicles apply {
-    private _vehicle = _x;
-    // Which position - module or vehicle?
-    private _pos = [_modulePos, getPosATL _vehicle] select {_position == 0 || count _vehicles > 1};
-    if (_pos select 2 < 0) then {_pos set [2,0]};
-
+// Create vehicle
+private _pos = getPosATL _module;
+if !(_paraHeight == -1) then {
+    _pos set [2, 0];
     _pos = _pos vectorAdd [0,0,_paraHeight];
 };
 
-// Add parachute
-private _parachuteClass = "B_Parachute_02_F";
-private _attachPoint = [0,0,0];
+private _vehicle = createVehicle [_vehicleClass, _pos, [], 0, "NONE"];
 
-_vehicles apply {
-    private _vehicle = _x;
-    private _pos = getPosASL _vehicle;
-    private _parachute = createVehicle [_parachuteClass, _pos, [], 0, "NONE"];
+TRACE_2("Vehicle",_vehicle,_pos);
 
-    // Attach parachute
-    _vehicle attachTo [_parachute, _attachpoint];
+// Create crew
+private _crew = createGroup [_crewSide, true];
+if (_createCrew && {_vehicleClass isKindOf "LandVehicle"}) then {
+    _crew createVehicleCrew _vehicle;
+};
 
-    // Upon reaching ground, disconnection parachute
-    // Exit condition: if crate is null from being deleted by zeus or something
+TRACE_1("Vehicle Crew",units _crew);
+
+// Wait for parachute altitude
+[{
+    params ["_vehicle", "_parachuteHeight"];
+
+    if (isNull _vehicle) exitWith {true};
+    private _pos = getPosATL _vehicle;
+    (_pos select 2 <= _parachuteHeight)
+}, {
+    // Create parachute
+    params ["_vehicle"];
+
+    if (isNull _vehicle) exitWith {true};
+    private _parachute = createVehicle ["B_Parachute_02_F", getPosATL _vehicle, [], 0, "CAN_COLLIDE"];
+    _parachute setVelocityModelSpace (velocityModelSpace _vehicle);
+
+    private _attachPoint = [0,1,0];
+    _vehicle attachTo [_parachute, _attachPoint];
+
+    // Wait for vehicle to reach ground
     [{
-        params ["_crate", "", "_height"];
+        params ["_vehicle", "_parachute"];
 
-        private _valid = !isNull _crate;
-        private _activate = (getPosATL _crate select 2) <= _height || {(getPosASL _crate select 2) <= 0};
-
-        !_valid || {_activate};
+        if (isNull _vehicle) exitWith {true};
+        private _pos = getPosATL _vehicle;
+        (_pos select 2 <= 5)
     }, {
-        params ["_crate", "_parachute"];
+        // Detach parachute
+        params ["_vehicle", "_parachute"];
 
-        private _valid = (!isNull _crate) || {(!isNil "_crate")};
-        if (!_valid) exitWith {deleteVehicle _parachute};
-        
-        detach (_crate);
-    }, [_crate, _parachute, _height]] call CBA_fnc_waitUntilAndExecute;
-} // todo
+        detach _vehicle;
+    }, [_vehicle, _parachute]] call CBA_fnc_waitUntilAndExecute;
+}, [_vehicle, _parachuteHeight]] call CBA_fnc_waitUntilAndExecute;
+
+// Call user created code on vehicle
+[_vehicle, _crew] spawn _code;
