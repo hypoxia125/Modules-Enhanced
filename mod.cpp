@@ -1,5 +1,5 @@
 name = "Modules Enhanced";
-action = "";
+action = "https://github.com/hypoxia125/Modules-Enhanced";
 actionName = "Github";
 author = "Hypoxic";
 hideName = 0;
