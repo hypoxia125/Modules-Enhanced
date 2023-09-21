@@ -1,6 +1,6 @@
 class MEH_moduleMoveOnCombat: Module_F {
     scope = 2;
-    displayName = CSTRING(MODULEMOVEONCOMBAT_DISPLAYNAME);
+    displayName = CSTRING(ModuleMoveOnCombat_DisplayName);
     icon = "\z\meh\addons\modules\data\iconMoveOnCombat_ca.paa"; // Todo: Add image
     category = "MEH";
 
@@ -13,9 +13,9 @@ class MEH_moduleMoveOnCombat: Module_F {
 
     class Attributes: AttributesBase {
         class GVAR(ModuleMoveOnCombat_Delay): Edit {
-            property = QGVAR(MODULEMOVEONCOMBAT_Delay);
-            displayName = CSTRING(MODULEMOVEONCOMBAT_DELAY_DISPLAYNAME);
-            tooltip = CSTRING(MODULEMOVEONCOMBAT_DELAY_TOOLTIP);
+            property = QGVAR(ModuleMoveOnCombat_Delay);
+            displayName = CSTRING(ModuleMoveOnCombat_Delay_DisplayName);
+            tooltip = CSTRING(ModuleMoveOnCombat_Delay_Tooltip);
             defaultValue = 0;
             typeName = "NUMBER";
         };
@@ -24,7 +24,7 @@ class MEH_moduleMoveOnCombat: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(MODULEMOVEONCOMBAT_MODULEDESCRIPTION_DESCRIPTION);
+        description = CSTRING(ModuleMoveOnCombat_ModuleDescription_Description);
         position = 0;
         direction = 0;
         duplicate = 1;
