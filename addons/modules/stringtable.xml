@@ -55,7 +55,7 @@
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_East_DisplayName">
             <English>OPFOR</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Guer_DisplayName">
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Independent_DisplayName">
             <English>GUER</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_West_DisplayName">
