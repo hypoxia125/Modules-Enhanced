@@ -19,7 +19,7 @@ if (_timeDelay < 0) then {_timeDelay = 0};
 // Set vehicle's ammo to max
 _vehicles apply {
     private _vehicle = _x;
-    _vehicle setVehicleAmmo 1;
+    [QGVAR(rearmVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
 
     // Repeat handler
     if (_repeatable) then {
@@ -31,7 +31,7 @@ _vehicles apply {
                 _handle call CBA_fnc_removePerFrameHandler;
             };
 
-            _vehicle setVehicleAmmo 1;
+            [QGVAR(rearmVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
         }, _timeDelay, [_vehicle]] call CBA_fnc_addPerFrameHandler;
     };
 };
