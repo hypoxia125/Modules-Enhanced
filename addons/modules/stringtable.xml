@@ -104,7 +104,7 @@
             <English>Time Delay</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
-            <English>Time between vehicle rearms.\n(Does not account for reload times)</English>
+            <English>Time (seconds) between vehicle rearms.\n(Does not account for reload times)</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
             <English>Vehicle Rearm</English>

@@ -1,7 +1,7 @@
 class MEH_ModuleVehicleRearm: Module_F {
     scope = 2;
     displayName = CSTRING(ModuleVehicleRearm_DisplayName);
-    icon = "";
+    icon = "a3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
     category = "MEH";
 
     function = QFUNC(VehicleRearm);
