@@ -4,7 +4,7 @@ class MEH_moduleDeleteRespawnPosition: Module_F {
     icon = "a3\ui_f\data\map\diary\icons\diaryunassigntask_ca.paa"; // Todo: Add image
     category = "Multiplayer";
 
-    function = QFUNC(deleteRespawnPosition);
+    function = QFUNC(ModuleDeleteRespawnPosition);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;

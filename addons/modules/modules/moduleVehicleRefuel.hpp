@@ -4,7 +4,7 @@ class MEH_ModuleVehicleRefuel: Module_F {
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\refuel_ca.paa";
     category = "MEH";
 
-    function = QFUNC(VehicleRefuel);
+    function = QFUNC(ModuleVehicleRefuel);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;

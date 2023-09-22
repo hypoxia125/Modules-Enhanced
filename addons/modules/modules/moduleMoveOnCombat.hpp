@@ -4,7 +4,7 @@ class MEH_moduleMoveOnCombat: Module_F {
     icon = "\z\meh\addons\modules\data\iconMoveOnCombat_ca.paa"; // Todo: Add image
     category = "MEH";
 
-    function = QFUNC(moveOnCombat);
+    function = QFUNC(ModuleMoveOnCombat);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 0;

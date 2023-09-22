@@ -1,8 +1,8 @@
-PREP(deleteRespawnPosition);
-PREP(fuelConsumption);
-PREP(moveOnCombat);
-PREP(paradropVehicle);
-PREP(vehicleRearm);
-PREP(vehicleRefuel);
+PREP(moduleDeleteRespawnPosition);
+PREP(moduleFuelConsumption);
+PREP(moduleMoveOnCombat);
+PREP(moduleParadropVehicle);
+PREP(moduleVehicleRearm);
+PREP(moduleVehicleRefuel);
 
 INFO("PREP: Functions loaded successfully");

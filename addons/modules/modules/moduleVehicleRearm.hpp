@@ -4,7 +4,7 @@ class MEH_ModuleVehicleRearm: Module_F {
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
     category = "MEH";
 
-    function = QFUNC(VehicleRearm);
+    function = QFUNC(ModuleVehicleRearm);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;

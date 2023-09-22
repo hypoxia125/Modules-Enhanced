@@ -4,7 +4,7 @@ class MEH_ModuleFuelConsumption: Module_F {
     icon = "a3\armor_f_decade\mbt_02\data\ui\lowfuel_ca.paa";
     category = "MEH";
 
-    function = QFUNC(FuelConsumption);
+    function = QFUNC(ModuleFuelConsumption);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 0;

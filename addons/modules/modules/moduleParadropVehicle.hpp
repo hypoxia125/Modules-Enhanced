@@ -4,7 +4,7 @@ class MEH_moduleParadropVehicle: Module_F {
     icon = "a3\air_f_beta\parachute_01\data\ui\map_parachute_01_ca.paa";
     category = "MEH";
 
-    function = QFUNC(paradropVehicle);
+    function = QFUNC(ModuleParadropVehicle);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;
