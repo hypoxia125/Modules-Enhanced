@@ -1,6 +1,45 @@
 # Modules-Enhanced
+Modules Enhanced is a modification that introduces helpful modules for mission editors,
+along with improvements to modules created by BI.
 
-Modules Enhanced is a modification that introduces helpful modules for mission editors, along with improvements to modules created by BI.
+## Modules Added
+
+### Delete Vehicle Respawn
+Deletes the respawn that is created by the vanilla "Respawn Position" module.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Yes | Yes | Module(s) |
+
+### Fuel Consumption
+Allows for custom fuel consumption amount at both max speed, and idle speed.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional (Suggest: No) | Yes | Vehicle(s) |
+
+### Move On Combat
+Keeps units on position until they enter combat. Can add an optional delay to the movement after entering combat.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| No | Yes | Group Leaders |
+
+### Paradrop Vehicle/Crate
+Paradrops a vehicle or crate at customized height. If vehicle, crew can be customized
+with additional parameters and/or code.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional (Suggest: Yes) | N/A | N/A |
+
+### Vehicle Rearm
+Rearms a vehicle with a repeatable option. If repeating, choose a time delay before rearms.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional | Yes | Vehicle(s) |
+
+### Vehicle Refuel
+Refuels a vehicle with a repeatable option. If repeating, choose a time delay before refuels.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional | Yes | Vehicle(s) |
 
 ## Contributing
 ### Contribution Guidelines

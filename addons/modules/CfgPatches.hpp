@@ -12,7 +12,10 @@ class CfgPatches {
         units[] = {
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleFuelConsumption",
-            "MEH_ModuleMoveOnCombat"
+            "MEH_ModuleMoveOnCombat",
+            "MEH_ModuleParadropVehicle",
+            "MEH_ModuleVehicleRearm",
+            "MEH_ModuleVehicleRefuel"
         };
         weapons[] = {};
 

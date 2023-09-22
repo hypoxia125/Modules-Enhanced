@@ -31,17 +31,104 @@
         <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_Tooltip">
             <English>The tick rate of calculation. Higher values increase network performance but at a cost of accuracy. (Min: 1 | Max: 5)</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_DisplayName">
-            <English>Move On Combat</English>
-        </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_Delay_DisplayName">
             <English>Movement Delay</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_Delay_Tooltip">
             <English>The delay after the group engages in combat before they start moving.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_DisplayName">
+            <English>Move On Combat</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_ModuleDescription_Description">
             <English>A module that instructs units to remain in their designated positions until combat initiates.&lt;br/&gt;&lt;br/&gt;Sync one or more groups to this module.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_DisplayName">
+            <English>Create Crew</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Tooltip">
+            <English>Will create a vehicle crew if a vehicle classname is passed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Civilian_DisplayName">
+            <English>CIVILIAN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_East_DisplayName">
+            <English>OPFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_Guer_DisplayName">
+            <English>GUER</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CreateCrew_Values_West_DisplayName">
+            <English>BLUFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_CrewSide_DisplayName">
+            <English>Crew Side</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_DisplayName">
+            <English>Paradrop Vehicle/Crate</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_DisplayName">
+            <English>Expression</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_Tooltip">
+            <English>Code to pass to the object after its creation. Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ModuleDescription_Description">
+            <English>A module that will paradrop a vehicle or crate.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParachuteHeight_DisplayName">
+            <English>Parachute Deployment Height</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParachuteHeight_Tooltip">
+            <English>Height (ATL) where the parachute will be deployed.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_DisplayName">
+            <English>Paradrop Height</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_Tooltip">
+            <English>Height (ATL) where the object will be dropped from.\n-1 to drop from module height.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_DisplayName">
+            <English>Vehicle/Crate Classname</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_Tooltip">
+            <English>Single vehicle or crate classname.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_DisplayName">
+            <English>Repeatable</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_Tooltip">
+            <English>Will constantly rearm the vehicle. The delay is determined by the delay attribute below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_DisplayName">
+            <English>Time Delay</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
+            <English>Time (seconds) between vehicle rearms.\n(Does not account for reload times)</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
+            <English>Vehicle Rearm</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_DisplayName">
+            <English>Vehicle Refuel</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_Repeatable_DisplayName">
+            <English>Repeatable</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_Repeatable_Tooltip">
+            <English>Will constantly refuel the vehicle. The delay is determined by the delay attribute below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_DisplayName">
+            <English>Time Delay</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_Tooltip">
+            <English>Time (seconds) between vehicle refuels.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_ModuleDescription_Description">
+            <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
+            <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.</English>
         </Key>
     </Package>
 </Project>

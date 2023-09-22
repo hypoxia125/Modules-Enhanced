@@ -1,10 +1,10 @@
 class MEH_moduleDeleteRespawnPosition: Module_F {
     scope = 2;
-    displayName = CSTRING(MODULEDELETERESPAWNPOSITION_DISPLAYNAME);
+    displayName = CSTRING(ModuleDeleteRespawnPosition_DisplayName);
     icon = "a3\ui_f\data\map\diary\icons\diaryunassigntask_ca.paa"; // Todo: Add image
     category = "Multiplayer";
 
-    function = QFUNC(deleteRespawnPosition);
+    function = QFUNC(ModuleDeleteRespawnPosition);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;
@@ -16,7 +16,7 @@ class MEH_moduleDeleteRespawnPosition: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        displayName = CSTRING(MODULEDELETERESPAWNPOSITION_MODULEDESCRIPTION_DESCRIPTION);
+        displayName = CSTRING(ModuleDeleteRespawnPosition_ModuleDescription_Description);
         position = 0;
         direction = 0;
         duplicate = 1;
