@@ -2,8 +2,7 @@
 
 params [
     ["_module", objNull, [objNull]],
-    ["_vehicles", [], [objNull, []]],
-    ["_isActivated", false, [true]]
+    ["_vehicles", [], [objNull, []]]
 ];
 
 if (!isServer) exitWith {};

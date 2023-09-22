@@ -1,9 +1,7 @@
 #include "script_component.hpp"
 
 params [
-    ["_module", objNull, [objNull]],
-    "",
-    ["_isActivated", false, [true]]
+    ["_module", objNull, [objNull]]
 ];
 
 if (!isServer) exitWith {};
