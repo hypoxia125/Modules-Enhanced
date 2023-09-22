@@ -14,7 +14,8 @@ class CfgPatches {
             "MEH_ModuleFuelConsumption",
             "MEH_ModuleMoveOnCombat",
             "MEH_ModuleParadropVehicle",
-            "MEH_ModuleVehicleRearm"
+            "MEH_ModuleVehicleRearm",
+            "MEH_ModuleVehicleRefuel"
         };
         weapons[] = {};
 
