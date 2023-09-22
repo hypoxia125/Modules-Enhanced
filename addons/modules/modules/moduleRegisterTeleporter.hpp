@@ -4,7 +4,7 @@ class MEH_ModuleRegisterTeleporter: Module_F {
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\move_ca.paa";
     category = "MEH";
 
-    fucntion = QFUNC(RegisterTeleporter);
+    fucntion = QFUNC(ModuleRegisterTeleporter);
     functionPriority = 2;
     isGlobal = 1;
     isTriggerActivated = 1;

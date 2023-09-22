@@ -4,7 +4,7 @@ class MEH_ModuleTeleporterSystem: Module_F {
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\navigate_ca.paa";
     category = "MEH";
 
-    fucntion = QFUNC(TeleporterSystem);
+    fucntion = QFUNC(ModuleTeleporterSystem);
     functionPriority = 1;
     isGlobal = 1;
     isTriggerActivated = 0;
