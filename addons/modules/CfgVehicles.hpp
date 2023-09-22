@@ -24,4 +24,5 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleFuelConsumption.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
     #include "\z\meh\addons\modules\modules\moduleParadropVehicle.hpp"
+    #include "\z\meh\addons\modules\modules\moduleVehicleRearm.hpp"
 };

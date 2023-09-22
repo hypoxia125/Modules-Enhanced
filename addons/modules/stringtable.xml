@@ -94,5 +94,20 @@
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_Tooltip">
             <English>Single vehicle or crate classname.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_DisplayName">
+            <English>Repeatable</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_Tooltip">
+            <English>Will constantly rearm the vehicle. The delay is determined by the delay attribute below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_DisplayName">
+            <English>Time Delay</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
+            <English>Time (seconds) between vehicle rearms.\n(Does not account for reload times)</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
+            <English>Vehicle Rearm</English>
+        </Key>
     </Package>
 </Project>
