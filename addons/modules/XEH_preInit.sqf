@@ -14,3 +14,9 @@
 
     _vehicle setVehicleAmmo 1;
 }] call CBA_fnc_addEventHandler;
+
+[QGVAR(enableMine), {
+    params ["_mine", "_value"];
+
+    _mine enableSimulationGlobal _value;
+}] call CBA_fnc_addEventHandler;

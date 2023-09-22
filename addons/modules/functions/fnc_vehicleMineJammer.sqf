@@ -1,0 +1,42 @@
+#include "script_component.hpp"
+
+params [
+    ["_vehicles", [], [[], objNull]],
+    ["_distance", 25, [-1]],
+    ["_explode", false, [true]]
+];
+
+// Verify variables
+if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
+if (_distance < 0) then {_distance = 0};
+
+_vehicles apply {
+    // Frame handler for mines
+    [{
+        params ["_args", "_handle"];
+        _args params ["_vehicle", "_distance", "_explode"];
+
+        if (!alive _vehicle) exitWith {_handle call CBA_fnc_removePerFrameHandler};
+        if (allMines isEqualTo []) exitWith {};
+        
+        private _nearMines = allMines select {_x distance _vehicle <= _distance};
+
+        // Deactivate near mines
+        _nearMines apply {
+            if (_explode) then {
+                _x setDamage 1;
+                continue;
+            };
+            if (simulationEnabled _x) then {
+                [QGVAR(enableMine), [_vehicle, false]] call CBA_fnc_serverEvent;
+            };
+        };
+
+        // Reactivate distant mines
+        allMines - _nearMines apply {
+            if (!simulationEnabled _x) then {
+                [QGVAR(enableMine), [_vehicle, true]] call CBA_fnc_serverEvent;
+            };
+        };
+    }, [_vehicle, _distance, _explode]] call CBA_fnc_addPerFrameHandler;
+};
