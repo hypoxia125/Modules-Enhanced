@@ -18,8 +18,8 @@ _vehicles apply {
     private _vehicle = _x;
 
     if (_affectPlayer) then {
-        [QGVAR(vehicleCruiseControl), [_vehicle, _speed], vehicle call BIS_fnc_netID] call CBA_fnc_globalEventJIP;
-        [vehicle call BIS_fnc_netID, _vehicle] call CBA_fnc_removeGlobalEventJIP;
+        private _jip = [QGVAR(vehicleCruiseControl), [_vehicle, _speed]] call CBA_fnc_globalEventJIP;
+        [_jip, _vehicle] call CBA_fnc_removeGlobalEventJIP;
 
         LOG_2("Limiting %1's speed to %2 for players.", _vehicle, _speed);
     };
