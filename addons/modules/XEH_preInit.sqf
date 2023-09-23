@@ -20,3 +20,9 @@
 
     _mine enableSimulationGlobal _value;
 }] call CBA_fnc_addEventHandler;
+
+[QGVAR(vehicleCruiseControl), {
+    params ["_vehicle", "_speed"];
+
+    _vehicle setCruiseControl [_speed, false];
+}] call CBA_fnc_addEventHandler;

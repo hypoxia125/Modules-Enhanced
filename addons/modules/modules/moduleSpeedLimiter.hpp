@@ -1,0 +1,51 @@
+class MEH_ModuleSpeedLimiter: Module_F {
+    scope = 2;
+    displayName = CSTRING(ModuleSpeedLimiter_DisplayName);
+    icon = "\z\meh\addons\modules\data\iconSpeedLimiter_ca.paa";
+    category = "MEH";
+
+    function = QFUNC(ModuleSpeedLimiter);
+    functionPriority = 1;
+    isGlobal = 0;
+    isTriggerActivated = 1;
+    isDisposable = 1;
+    is3DEN = 0;
+
+    class Attributes: AttributesBase {
+        class Speed: Edit {
+            property = QGVAR(ModuleSpeedLimiter_Speed);
+            displayName = CSTRING(ModuleSpeedLimiter_Speed_DisplayName);
+            tooltip = CSTRING(ModuleSpeedLimiter_Speed_Tooltip);
+            defaultValue = 0;
+            typeName = "NUMBER";
+            verify = "NUMBER";
+        };
+
+        class AffectPlayer: Checkbox {
+            property = QGVAR(ModuleSpeedLimiter_AffectPlayer);
+            displayName = CSTRING(ModuleSpeedLimiter_AffectPlayer_DisplayName);
+            tooltip = CSTRING(ModuleSpeedLimiter_AffectPlayer_Tooltip);
+            defaultValue = 1;
+            typeName = "BOOL";
+        };
+
+        class AffectAI: Checkbox {
+            property = QGVAR(ModuleSpeedLimiter_AffectAI);
+            displayName = CSTRING(ModuleSpeedLimiter_AffectAI_DisplayName);
+            tooltip = CSTRING(ModuleSpeedLimiter_AffectAI_Tooltip);
+            defaultValue = 1;
+            typeName = "BOOL";
+        };
+
+        class ModuleDescription: ModuleDescription {};
+    };
+
+    class ModuleDescription: ModuleDescription {
+        description = CSTRING(ModuleSpeedLimiter_ModuleDescription_Description);
+        position = 0;
+        direction = 0;
+        sync[] = {
+            "AnyVehicle"
+        };
+    };
+};
