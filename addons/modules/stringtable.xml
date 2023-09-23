@@ -148,5 +148,29 @@
         <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_ModuleDescription_Description">
             <English>A module that will turn a vehicle into a mine jamming vehicle.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_DisplayName">
+            <English>Speed Limiter</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_DisplayName">
+            <English>Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
+            <English>The speed that the vehicle will be limited to.\n0 to disable.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
+            <English>Affect Players</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_Tooltip">
+            <English>Limits all player speeds in this vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_DisplayName">
+            <English>Affect AI</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_Tooltip">
+            <English>Limits all AI speeds in this vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_ModuleDescription_Description">
+            <English>A module that limits the speeds of connected vehicles for either all players, all AI, or both.</English>
+        </Key>
     </Package>
 </Project>
