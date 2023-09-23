@@ -8,11 +8,11 @@ class MEH_ModuleFuelConsumption: Module_F {
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 0;
-    isDisposable = 0;
+    isDisposable = 1;
     is3DEN = 0;
     
     class Attributes: AttributesBase {
-        class GVAR(ModuleFuelConsumption_MaxTime): Edit {
+        class MaxTime: Edit {
             property = QGVAR(ModuleFuelConsumption_MaxTime);
             displayName = CSTRING(ModuleFuelConsumption_MaxTime_DisplayName);
             tooltip = CSTRING(ModuleFuelConsumption_MaxTime_Tooltip);
@@ -20,7 +20,7 @@ class MEH_ModuleFuelConsumption: Module_F {
             typeName = "NUMBER";
         };
 
-        class GVAR(ModuleFuelConsumption_IdleTime): Edit {
+        class IdleTime: Edit {
             property = QGVAR(ModuleFuelConsumption_IdleTime);
             displayName = CSTRING(ModuleFuelConsumption_IdleTime_DisplayName);
             tooltip = CSTRING(ModuleFuelConsumption_IdleTime_Tooltip);
@@ -28,7 +28,7 @@ class MEH_ModuleFuelConsumption: Module_F {
             typeName = "NUMBER";
         };
 
-        class GVAR(ModuleFuelConsumption_TickRate): Edit {
+        class TickRate: Edit {
             property = QGVAR(ModuleFuelConsumption_Rate);
             displayName = CSTRING(ModuleFuelConsumption_Rate_DisplayName);
             tooltip = CSTRING(ModuleFuelConsumption_Rate_Tooltip);

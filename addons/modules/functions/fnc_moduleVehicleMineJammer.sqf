@@ -2,10 +2,12 @@
 
 params [
     ["_module", objNull, [objNull]],
-    ["_vehicles", [], [objNull, []]]
+    ["_vehicles", [], [objNull, []]],
+    ["_isActivated", false, [true]]
 ];
 
 if (!isServer) exitWith {};
+if (!_isActivated) exitWith {};
 
 // Variables
 private _distance = _module getVariable [QUOTE(Distance), 25];

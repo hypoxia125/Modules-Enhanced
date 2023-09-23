@@ -2,13 +2,15 @@
 
 params [
     ["_module", objNull, [objNull]],
-    ["_units", [], [objNull, []]]
+    ["_units", [], [objNull, []]],
+    ["_isActivated", false, [true]]
 ];
 
 if (!isServer) exitWith {false};
+if (!_isActivated) exitWith {};
 
 // Variables
-private _delay = _module getVariable [QGVAR(ModuleMoveOnCombat_Delay), 0];
+private _delay = _module getVariable [QUOTE(Delay), 0];
 
 // Validate variables
 if (_units isEqualType objNull) then {_units = [_units]};

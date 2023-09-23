@@ -1,10 +1,13 @@
 #include "script_component.hpp"
 
 params [
-    ["_module", objNull, [objNull]]
+    ["_module", objNull, [objNull]],
+    "",
+    ["_isActivated", false, [true]]
 ];
 
 if (!isServer) exitWith {};
+if (!_isActivated) exitWith {};
 
 // Variables
 private _vehicleClass = call compile (_module getVariable [QUOTE(VehicleClass), ""]);

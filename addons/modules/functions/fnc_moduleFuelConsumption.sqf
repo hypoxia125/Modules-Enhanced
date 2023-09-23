@@ -7,11 +7,12 @@ params [
 ];
 
 if (!isServer) exitWith {};
+if (!_isActivated) exitWith {};
 
 // Variables
-private _tickRate = _module getVariable [QGVAR(ModuleFuelConsumption_TickRate), 1];
-private _idleTime = _module getVariable [QGVAR(ModuleFuelConsumption_IdleTime), 60];
-private _maxTime = _module getVariable [QGVAR(ModuleFuelConsumption_MaxTime), 20];
+private _tickRate = _module getVariable [QUOTE(TickRate), 1];
+private _idleTime = _module getVariable [QUOTE(IdleTime), 60];
+private _maxTime = _module getVariable [QUOTE(MaxTime), 20];
 
 // Verify variables
 if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};

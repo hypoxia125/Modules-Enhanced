@@ -4,7 +4,7 @@ along with improvements to modules created by BI.
 
 ## Modules Added
 
-### Delete Vehicle Respawn
+### Delete Respawn Position
 Deletes the respawn that is created by the vanilla "Respawn Position" module.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type |
 | :-----: | :-----: | :-----: |
@@ -14,7 +14,7 @@ Deletes the respawn that is created by the vanilla "Respawn Position" module.
 Allows for custom fuel consumption amount at both max speed, and idle speed.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type |
 | :-----: | :-----: | :-----: |
-| Optional (Suggest: No) | Yes | Vehicle(s) |
+| No | Yes | Vehicle(s) |
 
 ### Move On Combat
 Keeps units on position until they enter combat. Can add an optional delay to the movement after entering combat.
@@ -28,6 +28,19 @@ with additional parameters and/or code.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type |
 | :-----: | :-----: | :-----: |
 | Optional (Suggest: Yes) | N/A | N/A |
+
+### Speed Limiter
+Limits the speed of a vehicle for players, AI, or both.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional | N/A | N/A |
+
+### Vehicle Mine Jammer
+Turns a vehicle into a mine jammer that disables mines based on distance.
+Has the option to destroy mines when jammed.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type |
+| :-----: | :-----: | :-----: |
+| Optional | N/A | N/A |
 
 ### Vehicle Rearm
 Rearms a vehicle with a repeatable option. If repeating, choose a time delay before rearms.
