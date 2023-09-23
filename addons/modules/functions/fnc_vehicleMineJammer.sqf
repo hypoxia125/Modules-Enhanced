@@ -11,6 +11,7 @@ if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
 if (_distance < 0) then {_distance = 0};
 
 _vehicles apply {
+    private _vehicle = _x;
     // Frame handler for mines
     [{
         params ["_args", "_handle"];
@@ -28,15 +29,15 @@ _vehicles apply {
                 continue;
             };
             if (simulationEnabled _x) then {
-                [QGVAR(enableMine), [_vehicle, false]] call CBA_fnc_serverEvent;
+                [QGVAR(enableMine), [_x, false]] call CBA_fnc_serverEvent;
             };
         };
 
         // Reactivate distant mines
         allMines - _nearMines apply {
             if (!simulationEnabled _x) then {
-                [QGVAR(enableMine), [_vehicle, true]] call CBA_fnc_serverEvent;
+                [QGVAR(enableMine), [_x, true]] call CBA_fnc_serverEvent;
             };
         };
-    }, [_vehicle, _distance, _explode]] call CBA_fnc_addPerFrameHandler;
+    }, 0, [_vehicle, _distance, _explode]] call CBA_fnc_addPerFrameHandler;
 };

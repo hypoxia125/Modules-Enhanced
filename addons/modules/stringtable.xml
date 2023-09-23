@@ -130,5 +130,23 @@
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
             <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_DisplayName">
+            <English>Vehicle Mine Jammer</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_DisplayName">
+            <English>Radius</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_Tooltip">
+            <English>Radius aroiund the vehicle that the jamming occurs.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_DisplayName">
+            <English>Explode On Jam</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_Tooltip">
+            <English>Detonates mines instead of jamming them.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_ModuleDescription_Description">
+            <English>A module that will turn a vehicle into a mine jamming vehicle.</English>
+        </Key>
     </Package>
 </Project>
