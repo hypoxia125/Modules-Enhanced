@@ -19,6 +19,7 @@ _vehicles apply {
 
     if (_affectPlayer) then {
         [QGVAR(vehicleCruiseControl), [_vehicle, _speed], FORMAT_1("speedLimiter_%1",_vehicle)] call CBA_fnc_globalEventJIP;
+        [FORMAT_1("speedLimiter_%1", _vehicle), _vehicle] call CBA_fnc_removeGlobalEventJIP;
 
         LOG_2("Limiting %1's speed to %2 for players.", _vehicle, _speed);
     };
