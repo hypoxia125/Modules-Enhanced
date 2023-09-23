@@ -2,7 +2,8 @@ class CfgPatches {
     class ADDON {
         name = "Modules Enhanced - Modules";
         author = "Hypoxic";
-        url = "";
+        url = "https://github.com/hypoxia125/Modules-Enhanced";
+        is3DENMod = 1;
 
         requiredVersion = 2.14;
         requiredAddons[] = {
