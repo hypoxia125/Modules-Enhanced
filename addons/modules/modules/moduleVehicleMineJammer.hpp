@@ -1,7 +1,7 @@
 class MEH_ModuleVehicleMineJammer: Module_F {
     scope = 2;
     displayName = CSTRING(ModuleVehicleMineJammer_DisplayName);
-    icon = "z\ace\addons\minedetector\ui\icon_minedetectoron.paa";
+    icon = "a3\ui_f\data\igui\cfg\simpletasks\types\mine_ca.paa";
     category = "MEH";
 
     function = QFUNC(ModuleVehicleMineJammer);

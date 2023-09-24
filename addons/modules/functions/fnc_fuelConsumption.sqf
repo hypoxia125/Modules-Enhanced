@@ -36,7 +36,8 @@ _vehicles apply {
         private _speedRatio = (_speed / _maxSpeed) min 1;
         private _fuelConsumed = ((1 / MIN_TO_SEC(_maxTime) * _speedRatio) * _tickRate) max (1 / MIN_TO_SEC(_idleTime) * _tickRate);
         private _newFuel = (_currFuel - _fuelConsumed) max 0;
-        [_vehicle, _newFuel] remoteExec ["setFuel", _vehicle];
+
+        [QGVAR(setFuel), [_vehicle, _newFuel], driver _vehicle] call CBA_fnc_targetEvent;
     }, _tickRate, [_vehicle, _maxSpeed, _idleTime, _maxTime, _tickRate]] call CBA_fnc_addPerFrameHandler;
 
     _vehicle setVariable [QGVAR(FuelConsumptionActive), true];
