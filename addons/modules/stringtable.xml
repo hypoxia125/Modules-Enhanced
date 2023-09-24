@@ -197,7 +197,7 @@
             <English>Will force the remove primary weapon pointer device and add the provided attachment below.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
-            <English>A module that changes the flashlight On/Off state of the unit's group.</English>
+            <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_DisplayName">
             <English>Force Add Flashlight</English>
