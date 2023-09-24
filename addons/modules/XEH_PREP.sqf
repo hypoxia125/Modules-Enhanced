@@ -1,4 +1,5 @@
 PREP(moduleDeleteRespawnPosition);
+PREP(moduleEnableDisableGunLights);
 PREP(moduleFuelConsumption);
 PREP(moduleMoveOnCombat);
 PREP(moduleParadropVehicle);
@@ -8,6 +9,7 @@ PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
 PREP(deleteRespawnPosition);
+PREP(enableDisableGunLights);
 PREP(fuelConsumption);
 PREP(moveOnCombat);
 PREP(paradropVehicle);

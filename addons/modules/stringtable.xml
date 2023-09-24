@@ -172,5 +172,38 @@
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_ModuleDescription_Description">
             <English>A module that limits the speeds of connected vehicles for either all players, all AI, or both.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_DisplayName">
+            <English>Enable/Disable Gun Lights</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_DisplayName">
+            <English>State</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Tooltip">
+            <English>State of the gun lights.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_Auto_Name">
+            <English>Auto</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOn_Name">
+            <English>Always On</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOff_Name">
+            <English>Always Off</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_DisplayName">
+            <English>Add Attachment</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
+            <English>Will force the remove primary weapon pointer device and add the provided attachment below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
+            <English>A module that changes the flashlight On/Off state of the unit's group.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_DisplayName">
+            <English>Force Add Flashlight</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
+            <English>Flashlight to add.</English>
+        </Key>
     </Package>
 </Project>
