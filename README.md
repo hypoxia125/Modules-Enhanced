@@ -10,6 +10,12 @@ Deletes the respawn that is created by the vanilla "Respawn Position" module.
 | :-----: | :-----: | :-----: | :-----: |
 | Yes | Yes | Module(s) | Multiplayer |
 
+### Enable/Disable Gun Lights
+Changes/forces synchronized groups' flashlights. Can force add a flashlight classname if desired.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
+| :-----: | :-----: | :-----: | :-----: |
+| Optional | Yes | Module(s) | Modules Enhanced |
+
 ### Fuel Consumption
 Allows for custom fuel consumption amount at both max speed, and idle speed.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
@@ -33,14 +39,14 @@ with additional parameters and/or code.
 Limits the speed of a vehicle for players, AI, or both.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
 | :-----: | :-----: | :-----: | :-----: |
-| Optional | N/A | N/A | Modules Enhanced |
+| Optional | Yes | Vehicle(s) | Modules Enhanced |
 
 ### Vehicle Mine Jammer
 Turns a vehicle into a mine jammer that disables mines based on distance.
 Has the option to destroy mines when jammed.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
 | :-----: | :-----: | :-----: | :-----: |
-| Optional | N/A | N/A | Modules Enhanced |
+| Optional | Yes | Vehicle(s) | Modules Enhanced |
 
 ### Vehicle Rearm
 Rearms a vehicle with a repeatable option. If repeating, choose a time delay before rearms.
