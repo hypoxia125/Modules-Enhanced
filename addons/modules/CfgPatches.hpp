@@ -13,7 +13,6 @@ class CfgPatches {
         units[] = {
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleEnableDisableGunLights",
-            "MEH_ModuleFuelConsumption",
             "MEH_ModuleMoveOnCombat",
             "MEH_ModuleParadropVehicle",
             "MEH_ModuleSpeedLimiter",

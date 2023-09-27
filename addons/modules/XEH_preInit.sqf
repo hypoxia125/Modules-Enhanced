@@ -11,12 +11,6 @@
     _vehicle setFuel 1;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(setFuel), {
-    params ["_vehicle", "_amount"];
-
-    _vehicle setFuel _amount;
-}] call CBA_fnc_addEventHandler;
-
 // Local Argument
 [QGVAR(rearmVehicle), {
     params ["_vehicle"];
