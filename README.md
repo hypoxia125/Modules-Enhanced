@@ -16,12 +16,6 @@ Changes/forces synchronized groups' flashlights. Can force add a flashlight clas
 | :-----: | :-----: | :-----: | :-----: |
 | Optional | Yes | Module(s) | Modules Enhanced |
 
-### Fuel Consumption
-Allows for custom fuel consumption amount at both max speed, and idle speed.
-| Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
-| :-----: | :-----: | :-----: | :-----: |
-| No | Yes | Vehicle(s) | Modules Enhanced |
-
 ### Move On Combat
 Keeps units on position until they enter combat. Can add an optional delay to the movement after entering combat.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
