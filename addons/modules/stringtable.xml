@@ -47,7 +47,7 @@
             <English>Expression</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_Tooltip">
-            <English>Code to pass to the object after its creation. Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
+            <English>Code to pass to the object after its creation in scheduled space (spawned). Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ModuleDescription_Description">
             <English>A module that will paradrop a vehicle or crate.</English>

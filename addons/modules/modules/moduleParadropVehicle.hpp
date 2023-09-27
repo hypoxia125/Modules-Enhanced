@@ -16,7 +16,7 @@ class MEH_moduleParadropVehicle: Module_F {
             property = QGVAR(ModuleParadropVehicle_VehicleClass);
             displayName = CSTRING(ModuleParadropVehicle_VehicleClass_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_VehicleClass_Tooltip);
-            defaultValue = "'""B_supplyCrate_F""'";
+            defaultValue = "'B_supplyCrate_F'";
             typeName = "STRING";
             validate = "STRING";
         };
@@ -59,7 +59,7 @@ class MEH_moduleParadropVehicle: Module_F {
             property = QGVAR(ModuleParadropVehicle_ParadropHeight);
             displayName = CSTRING(ModuleParadropVehicle_ParadropHeight_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_ParadropHeight_Tooltip);
-            defaultValue = 500;
+            defaultValue = 200;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -68,7 +68,7 @@ class MEH_moduleParadropVehicle: Module_F {
             property = QGVAR(ModuleParadropVehicle_ParachuteHeight);
             displayName = CSTRING(ModuleParadropVehicle_ParachuteHeight_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_ParachuteHeight_Tooltip);
-            defaultValue = 500;
+            defaultValue = 150;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
