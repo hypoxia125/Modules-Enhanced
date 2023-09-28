@@ -181,5 +181,44 @@
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
             <English>Flashlight to add.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
+            <English>Ambient Artillery (Virtual)</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_DisplayName">
+            <English>Shell Type</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_Tooltip">
+            <English>The classname of a CfgAmmo shell class.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName">
+            <English>Salvo Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
+            <English>The number of shots per salvo.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
+            <English>Salvo Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
+            <English>Interval between salvos.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
+            <English>Salvo Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to salvo interval.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
+            <English>Shot Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
+            <English>The time between salvos.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
+            <English>Shot Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to shot interval.</English>
+        </Key>
     </Package>
 </Project>

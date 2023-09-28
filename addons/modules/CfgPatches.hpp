@@ -11,6 +11,7 @@ class CfgPatches {
             "cba_main"
         };
         units[] = {
+            "MEH_moduleAmbientArtillery",
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleEnableDisableGunLights",
             "MEH_ModuleMoveOnCombat",
