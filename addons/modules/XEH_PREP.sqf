@@ -1,14 +1,20 @@
+PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleDeleteRespawnPosition);
-PREP(moduleFuelConsumption);
+PREP(moduleEnableDisableGunLights);
 PREP(moduleMoveOnCombat);
 PREP(moduleParadropVehicle);
+PREP(moduleSpeedLimiter);
+PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
+PREP(ambientArtilleryVirtual);
 PREP(deleteRespawnPosition);
-PREP(fuelConsumption);
+PREP(enableDisableGunLights);
 PREP(moveOnCombat);
 PREP(paradropVehicle);
+PREP(speedLimiter);
+PREP(vehicleMineJammer);
 PREP(vehicleRearm);
 PREP(vehicleRefuel);
 

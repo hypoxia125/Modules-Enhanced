@@ -1,6 +1,6 @@
 /*
     Author: Hypoxic
-    Module that initiates the vehicle refuel system for synchronized units.
+    Module that initiates the vehicle mine jammer system for synchronized units.
     
     Arguments:
     0: Module - OBJECT
@@ -25,10 +25,11 @@ if (!isServer) exitWith {};
 if (!_isActivated) exitWith {};
 
 // Variables
-private _timeDelay = _module getVariable [QUOTE(TimeDelay), 0];
+private _distance = _module getVariable [QUOTE(Distance), 25];
+private _explode = _module getVariable [QUOTE(Explode), false];
 
-// Validate variables
+// Verify variables
 if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-if (_timeDelay < 0) then {_timeDelay = 0};
+if (_distance < 0) then {_distance = 0};
 
-[_vehicles, _timeDelay] call FUNC(vehicleRefuel);
+[_vehicles, _distance, _explode] call FUNC(vehicleMineJammer);

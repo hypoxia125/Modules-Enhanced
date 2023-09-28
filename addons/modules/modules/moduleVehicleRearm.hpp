@@ -12,19 +12,11 @@ class MEH_ModuleVehicleRearm: Module_F {
     is3DEN = 0;
 
     class Attributes: AttributesBase {
-        class Repeatable: Checkbox {
-            property = QGVAR(ModuleVehicleRearm_Repeatable);
-            displayName = CSTRING(ModuleVehicleRearm_Repeatable_DisplayName);
-            tooltip = CSTRING(ModuleVehicleRearm_Repeatable_Tooltip);
-            defaultValue = 1;
-            typeName = "BOOL";
-        };
-
         class TimeDelay: Edit {
             property = QGVAR(ModuleVehicleRearm_TimeDelay);
             displayName = CSTRING(ModuleVehicleRearm_TimeDelay_DisplayName);
             tooltip = CSTRING(ModuleVehicleRearm_TimeDelay_Tooltip);
-            defaultValue = 600;
+            defaultValue = 0;
             typeName = "NUMBER";
             validate = "NUMBER";
         };

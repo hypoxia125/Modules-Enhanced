@@ -7,30 +7,6 @@
         <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_ModuleDescription_Description">
             <English>A module designed to remove positions added by a BI Respawn Position Module. Synchronize with one or more BI Respawn Position Modules.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_DisplayName">
-            <English>Fuel Consumption</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_DisplayName">
-            <English>Idle Fuel Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_IdleTime_Tooltip">
-            <English>The max time (minutes) fuel lasts when idle (0) speed.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_DisplayName">
-            <English>Max Fuel Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_MaxTime_Tooltip">
-            <English>The max time (minutes) fuel lasts when moving at max speed.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_ModuleDescription_Description">
-            <English>A module that increases vehicle fuel consumption to provide more vehicle customization. Synchronize one or more vehicles to this module.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_DisplayName">
-            <English>Tick Rate</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleFuelConsumption_Rate_Tooltip">
-            <English>The tick rate of calculation. Higher values increase network performance but at a cost of accuracy. (Min: 1 | Max: 5)</English>
-        </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_Delay_DisplayName">
             <English>Movement Delay</English>
         </Key>
@@ -71,7 +47,7 @@
             <English>Expression</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_Expression_Tooltip">
-            <English>Code to pass to the object after its creation. Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
+            <English>Code to pass to the object after its creation in scheduled space (spawned). Passed arguments are:\n[0: Vehicle - Object, 1: Crew - Group]</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ModuleDescription_Description">
             <English>A module that will paradrop a vehicle or crate.</English>
@@ -94,17 +70,11 @@
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_Tooltip">
             <English>Single vehicle or crate classname.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_DisplayName">
-            <English>Repeatable</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_Repeatable_Tooltip">
-            <English>Will constantly rearm the vehicle. The delay is determined by the delay attribute below.</English>
-        </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_DisplayName">
             <English>Time Delay</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
-            <English>Time (seconds) between vehicle rearms.\n(Does not account for reload times)</English>
+            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.\n(Does not account for reload times)</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
             <English>Vehicle Rearm</English>
@@ -112,23 +82,131 @@
         <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_DisplayName">
             <English>Vehicle Refuel</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_Repeatable_DisplayName">
-            <English>Repeatable</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_Repeatable_Tooltip">
-            <English>Will constantly refuel the vehicle. The delay is determined by the delay attribute below.</English>
-        </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_DisplayName">
             <English>Time Delay</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_Tooltip">
-            <English>Time (seconds) between vehicle refuels.</English>
+            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_ModuleDescription_Description">
             <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
             <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_DisplayName">
+            <English>Vehicle Mine Jammer</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_DisplayName">
+            <English>Radius</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_Tooltip">
+            <English>Radius aroiund the vehicle that the jamming occurs.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_DisplayName">
+            <English>Explode On Jam</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_Tooltip">
+            <English>Detonates mines instead of jamming them.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_ModuleDescription_Description">
+            <English>A module that will turn a vehicle into a mine jamming vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_DisplayName">
+            <English>Speed Limiter</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_DisplayName">
+            <English>Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
+            <English>The speed that the vehicle will be limited to.\n0 to disable.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
+            <English>Affect Players</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_Tooltip">
+            <English>Limits all player speeds in this vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_DisplayName">
+            <English>Affect AI</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_Tooltip">
+            <English>Limits all AI speeds in this vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_ModuleDescription_Description">
+            <English>A module that limits the speeds of connected vehicles for either all players, all AI, or both.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_DisplayName">
+            <English>Enable/Disable Gun Lights</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_DisplayName">
+            <English>State</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Tooltip">
+            <English>State of the gun lights.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_Auto_Name">
+            <English>Auto</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOn_Name">
+            <English>Always On</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOff_Name">
+            <English>Always Off</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_DisplayName">
+            <English>Add Attachment</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
+            <English>Will force the remove primary weapon pointer device and add the provided attachment below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
+            <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_DisplayName">
+            <English>Force Add Flashlight</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
+            <English>Flashlight to add.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
+            <English>Ambient Artillery (Virtual)</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_DisplayName">
+            <English>Shell Type</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_Tooltip">
+            <English>The classname of a CfgAmmo shell class.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName">
+            <English>Salvo Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
+            <English>The number of shots per salvo.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
+            <English>Salvo Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
+            <English>Interval between salvos.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
+            <English>Salvo Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to salvo interval.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
+            <English>Shot Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
+            <English>The time between salvos.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
+            <English>Shot Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to shot interval.</English>
         </Key>
     </Package>
 </Project>

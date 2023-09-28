@@ -1,6 +1,6 @@
 /*
     Author: Hypoxic
-    Module that initiates the vehicle refuel system for synchronized units.
+    Module that initiates the speed limiter system for synchronized units.
     
     Arguments:
     0: Module - OBJECT
@@ -25,10 +25,13 @@ if (!isServer) exitWith {};
 if (!_isActivated) exitWith {};
 
 // Variables
-private _timeDelay = _module getVariable [QUOTE(TimeDelay), 0];
+private _speed = _module getVariable [QUOTE(Speed), 0];
+private _affectPlayer = _module getVariable [QUOTE(AffectPlayer), true];
+private _affectAI = _module getVariable [QUOTE(AffectAI), true];
 
-// Validate variables
+// Verify variables
 if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-if (_timeDelay < 0) then {_timeDelay = 0};
+if (_speed < 0) then {_speed = abs _speed};
+if ((!_affectPlayer) && (!_affectAI)) exitWith {};
 
-[_vehicles, _timeDelay] call FUNC(vehicleRefuel);
+[_vehicles, _speed, _affectPlayer, _affectAI] call FUNC(speedLimiter);
