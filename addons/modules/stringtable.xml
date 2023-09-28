@@ -208,5 +208,29 @@
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
             <English>Random amount (0 to value) to add to shot interval.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_True">
+            <English>Trigger Activated: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_False">
+            <English>Trigger Activated: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Optional">
+            <English>Trigger Activated: Optional</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_True">
+            <English>Duplicates Allowed: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_False">
+            <English>Duplicates Allowed: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_MultipleSync_True">
+            <English>Sync Multiple Entities: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_MultipleSync_False">
+            <English>Sync Multiple Entities: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ModuleDescription_Description">
+            <English>This module creates ambient artillery fire without the need of any entities. Can be enabled and disabled with a single repeatable trigger, or by deleting the module object.</English>
+        </Key>
     </Package>
 </Project>

@@ -77,8 +77,11 @@ class MEH_moduleAmbientArtilleryVirtual: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleAmbientArtilleryVirtual_ModuleDescription_Description);
-        duplicate = 1;
+        description[] = {
+            CSTRING(ModuleAmbientArtilleryVirtual_ModuleDescription_Description),
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_DuplicatesAllowed_True)
+        };
         position = 1;
         direction = 1;
     };
