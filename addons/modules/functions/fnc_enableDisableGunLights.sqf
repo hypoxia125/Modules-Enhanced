@@ -1,3 +1,26 @@
+/*
+    Author: Hypoxic
+    Forces a gun light (flashlight) state of a group of units. Can add flashlight attachment if desired (removing other pointer attachments).
+    Affects Players && AI
+
+    Arguments:
+    0: Units - OBJECT or ARRAY
+    1: State - NUMBER
+        - 0: Auto
+        - 1: Force On
+        - 2: Force Off
+    2: Add Attachment - BOOL
+    3: Attachment Class - STRING
+
+    ReturnValue:
+    NONE
+
+    Example:
+    [squadLeader_1, squadLeader_2, squadLeader_3] call MEH_Modules_fnc_enableDisableGunLights
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [

@@ -1,3 +1,27 @@
+/*
+    Author: Hypoxic
+    Creates ambient artillery fire at the given location, either position [x,y,z] or object position (typically module). Can be disabled by deleting
+    the object, or by removing the per frame handler directing using the return.
+
+    Arguments:
+    0: Module, Object, or Position - OBJECT or POSITION
+    1: Area of Effect - ARRAY in format [a, b, angle, isRectangle, z]
+    2: Shell Classname - STRING
+    3: Salvo Size - NUMBER
+    4: Salvo Interval - NUMBER
+    5: Salvo Time Variation - NUMBER
+    6: Shot Interval - NUMBER
+    7: Shot Time Variation - NUMBER
+
+    ReturnValue:
+    0: Handle - CBA_fnc_addPerFrameHandler Handle - NUMBER
+
+    Example:
+    [myModule, [50, 25, 180, false, -1], "Sh_82mm_AMOS", 12, 3, 3, 0.5, 1] call MEH_Modules_fnc_ambientArtilleryVirtual;
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [

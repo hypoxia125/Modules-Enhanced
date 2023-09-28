@@ -13,3 +13,6 @@ if (!_isActivated) exitWith {};
 private _respawnModules = (_module call BIS_fnc_moduleModules) select {_x isKindOf "ModuleRespawnPosition_F"};
 
 [_respawnModules] call FUNC(deleteRespawnPosition);
+
+// Clean up module
+deleteVehicle _module;

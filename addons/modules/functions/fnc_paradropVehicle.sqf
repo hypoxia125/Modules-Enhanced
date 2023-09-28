@@ -1,3 +1,25 @@
+/*
+    Author: Hypoxic
+    Spawns and paradrops a given vehicle or crate at altitude. Additional code can be passed to the object being created.
+
+    Arguments:
+    0: Vehicle or Crate Classname - STRING
+    1: Create Crew - BOOL
+    2: Crew Side - SIDE
+    3: Position - ARRAY in format PositionATL
+    4: Parachute Height - NUMBER
+    5: Code - CODE
+
+    ReturnValue:
+    0: Vehicle - OBJECT
+    1: Crew - GROUP
+
+    Example:
+    [group_1, group_2, group_3, 300] call MEH_Modules_fnc_paradropVehicle;
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [
@@ -17,8 +39,9 @@ if (_parachuteHeight <= 0) then {_parachuteHeight = 0};
 private _vehicle = createVehicle [_vehicleClass, _pos, [], 0, "NONE"];
 
 // Create crew
-private _crew = createGroup [_crewSide, true];
+private _crew = grpNull;
 if (_createCrew && {_vehicleClass isKindOf "LandVehicle"}) then {
+    _crew = createGroup [_crewSide, true];
     _crew createVehicleCrew _vehicle;
 };
 
@@ -59,3 +82,6 @@ TRACE_1("Vehicle Crew",units _crew);
 
 // Call user created code on vehicle
 [_vehicle, _crew] spawn _code;
+
+// Return
+[_vehicle, _crew];

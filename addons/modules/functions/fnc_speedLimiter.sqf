@@ -1,3 +1,24 @@
+/*
+    Author: Hypoxic
+    Limits speed of a vehicle.
+    Affects Players And/Or AI
+    Adds for JIP
+
+    Arguments:
+    0: Vehicles - ARRAY or OBJECT
+    1: Speed - NUMBER
+    2: Affect Player - BOOL
+    3: Affect AI - BOOL
+
+    ReturnValue:
+    NONE
+
+    Example:
+    [vehicle_1, 30, true, true] call MEH_Modules_fnc_speedLimiter;
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [

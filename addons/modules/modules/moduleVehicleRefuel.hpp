@@ -12,19 +12,11 @@ class MEH_ModuleVehicleRefuel: Module_F {
     is3DEN = 0;
 
     class Attributes: AttributesBase {
-        class Repeatable: Checkbox {
-            property = QGVAR(ModuleVehicleRefuel_Repeatable);
-            displayName = CSTRING(ModuleVehicleRefuel_Repeatable_DisplayName);
-            tooltip = CSTRING(ModuleVehicleRefuel_Repeatable_Tooltip);
-            defaultValue = 1;
-            typeName = "BOOL";
-        };
-
         class TimeDelay: Edit {
             property = QGVAR(ModuleVehicleRefuel_TimeDelay);
             displayName = CSTRING(ModuleVehicleRefuel_TimeDelay_DisplayName);
             tooltip = CSTRING(ModuleVehicleRefuel_TimeDelay_Tooltip);
-            defaultValue = 600;
+            defaultValue = 0;
             typeName = "NUMBER";
             validate = "NUMBER";
         };

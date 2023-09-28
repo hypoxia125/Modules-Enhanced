@@ -1,3 +1,19 @@
+/*
+    Author: Hypoxic
+    Deletes vanilla BI "ModuleRespawnPosition_F" respawn and respawn position.
+
+    Arguments:
+    0: Modules - OBJECT or ARRAY
+
+    ReturnValue:
+    0: Handle - CBA_fnc_addPerFrameHandler Handle - NUMBER
+
+    Example:
+    [myRespawnPositionModule] call MEH_Modules_fnc_deleteRespawnPosition
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [
@@ -19,6 +35,3 @@ _respawnModules apply {
     // Module Respawn Position Cleanup
     deleteVehicle _module;
 };
-
-// DeleteRespawnPosition Module Cleanup
-deleteVehicle _module;

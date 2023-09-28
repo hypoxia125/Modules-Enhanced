@@ -1,3 +1,21 @@
+/*
+    Author: Hypoxic
+    Turns a vehicle into a mine jamming vehicle. Either the jamming will disable the mine, or can set it to explode instead.
+
+    Arguments:
+    0: Vehicles - ARRAY or OBJECT
+    1: Radius - NUMBER
+    2: Explode - BOOL
+
+    ReturnValue:
+    NONE
+
+    Example:
+    [vehicle_1, 5, true] call MEH_Modules_fnc_vehicleMineJammer;
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [
