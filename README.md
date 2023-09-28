@@ -4,6 +4,13 @@ along with improvements to modules created by BI.
 
 ## Modules Added
 
+### Ambient Artillery (Virtual)
+Creates ambient artillery at the given location without the use of entities. Can be enabled or disabled by a single repeatable trigger,
+or by deletion of the module.
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
+| :-----: | :-----: | :-----: | :-----: |
+| Yes | N/A | N/A | Modules Enhanced |
+
 ### Delete Respawn Position
 Deletes the respawn that is created by the vanilla "Respawn Position" module.
 | Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
@@ -65,6 +72,7 @@ Refuels a vehicle with a repeatable option. If repeating, choose a time delay be
 - Leave one empty line at the end of files
 - Use [CBA Macros](https://github.com/CBATeam/CBA_A3/blob/master/addons/main/script_macros_common.hpp)
 - Use CBA event system with CBA preInit to issue local/server/global commands - do not use remoteExec
+- Try and stay in Unscheduled Codespace
 
 ##### cpp \| hpp \| inc \| arma header
 
