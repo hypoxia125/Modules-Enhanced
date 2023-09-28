@@ -1,7 +1,7 @@
 class MEH_moduleEnableDisableGunLights: Module_F {
     scope = 2;
     displayName = CSTRING(ModuleEnableDisableGunLights_DisplayName);
-    icon = "a3\ui_f\data\igui\rsccustominfo\sensors\targets\lasertarget_ca.paa";
+    icon = "a3\3den\data\displays\display3den\toolbar\flashlight_off_ca.paa";
     category = "MEH";
 
     function = QFUNC(ModuleEnableDisableGunLights);
