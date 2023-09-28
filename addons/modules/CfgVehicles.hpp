@@ -20,6 +20,7 @@ class CfgVehicles {
         };
     };
 
+    #include "\z\meh\addons\modules\modules\moduleAmbientArtilleryVirtual.hpp"
     #include "\z\meh\addons\modules\modules\moduleDeleteRespawnPosition.hpp"
     #include "\z\meh\addons\modules\modules\moduleEnableDisableGunLights.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
