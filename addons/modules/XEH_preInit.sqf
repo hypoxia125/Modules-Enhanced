@@ -62,3 +62,10 @@
 
     _unit addPrimaryWeaponItem _attachment
 }] call CBA_fnc_addEventHandler;
+
+// Server Execution
+[QGVAR(HideObjectGlobal), {
+    params ["_object", "_value"];
+
+    _object hideObjectGlobal _value;
+}] call CBA_fnc_addEventHandler;
