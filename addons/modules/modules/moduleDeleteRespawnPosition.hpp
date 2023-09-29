@@ -1,4 +1,4 @@
-class MEH_moduleDeleteRespawnPosition: Module_F {
+class MEH_moduleDeleteRespawnPosition: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleDeleteRespawnPosition_DisplayName);
     icon = "a3\ui_f\data\map\diary\icons\diaryunassigntask_ca.paa"; // Todo: Add image
@@ -16,12 +16,21 @@ class MEH_moduleDeleteRespawnPosition: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        displayName = CSTRING(ModuleDeleteRespawnPosition_ModuleDescription_Description);
-        position = 0;
-        direction = 0;
-        duplicate = 1;
+        description[] = {
+            CSTRING(ModuleDeleteRespawnPosition_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_True),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         sync[] = {
+            "ModuleRespawnPosition_F",
             "ModuleRespawnPosition_F"
+        };
+
+        class ModuleRespawnPosition_F {
+            position = 0;
+            direction = 0;
+            duplicate = 1;
         };
     };
 };

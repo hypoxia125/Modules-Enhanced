@@ -1,4 +1,4 @@
-class MEH_ModuleFuelConsumption: Module_F {
+class MEH_ModuleFuelConsumption: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleFuelConsumption_DisplayName);
     icon = "a3\armor_f_decade\mbt_02\data\ui\lowfuel_ca.paa";
@@ -40,9 +40,17 @@ class MEH_ModuleFuelConsumption: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleFuelConsumption_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleFuelConsumption_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_False),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
-        duplicate = 1;
+        sync[] = {
+            "AnyVehicle",
+            "AnyVehicle"
+        };
     };
 };

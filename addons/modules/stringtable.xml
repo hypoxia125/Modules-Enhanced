@@ -223,11 +223,11 @@
         <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_False">
             <English>Duplicates Allowed: No</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_MultipleSync_True">
-            <English>Sync Multiple Entities: Yes</English>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_True">
+            <English>Repeatable: Yes</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_MultipleSync_False">
-            <English>Sync Multiple Entities: No</English>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_False">
+            <English>Repeatable: No</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ModuleDescription_Description">
             <English>This module creates ambient artillery fire without the need of any entities. Can be enabled and disabled with a single repeatable trigger, or by deleting the module object.</English>

@@ -15,8 +15,21 @@ class CfgVehicles {
             class Units;
         };
 
-        class ModuleDescription {
-            class AnyBrain;
+        class ModuleDescription;
+    };
+    class MEH_ModuleBase: Module_F {
+        author = "Hypoxic";
+        scope = 0;
+        scopeCurator = 0;
+        is3DEN = 0;
+        isGlobal = 0;
+        isTriggerActivated = 1;
+        curatorCanAttach = 0;
+
+        class ModuleDescription: ModuleDescription {
+            duplicate = 0;
+            duplicateEnabled = "";
+            duplicateDisabled = "";
         };
     };
 

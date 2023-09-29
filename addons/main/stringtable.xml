@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Modules Enhanced">
+    <Package name="main">
+        <Key ID="STR_MEH_Main_ModulesEnhanced">
+            <English>Modules Enhanced</English>
+        </Key>
+    </Package>
+</Project>

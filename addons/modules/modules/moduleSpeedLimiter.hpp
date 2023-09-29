@@ -1,4 +1,4 @@
-class MEH_ModuleSpeedLimiter: Module_F {
+class MEH_ModuleSpeedLimiter: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleSpeedLimiter_DisplayName);
     icon = "\z\meh\addons\modules\data\iconSpeedLimiter_ca.paa";
@@ -41,10 +41,16 @@ class MEH_ModuleSpeedLimiter: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleSpeedLimiter_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleSpeedLimiter_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
         sync[] = {
+            "AnyVehicle",
             "AnyVehicle"
         };
     };

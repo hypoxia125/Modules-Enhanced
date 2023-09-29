@@ -1,4 +1,4 @@
-class MEH_moduleEnableDisableGunLights: Module_F {
+class MEH_moduleEnableDisableGunLights: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleEnableDisableGunLights_DisplayName);
     icon = "a3\3den\data\displays\display3den\toolbar\flashlight_off_ca.paa";
@@ -7,7 +7,7 @@ class MEH_moduleEnableDisableGunLights: Module_F {
     function = QFUNC(ModuleEnableDisableGunLights);
     functionPriority = 1;
     isGlobal = 0;
-    isTriggerActivated = 0;
+    isTriggerActivated = 1;
     isDisposable = 1;
     is3DEN = 0;
 
@@ -54,12 +54,17 @@ class MEH_moduleEnableDisableGunLights: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleEnableDisableGunLights_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleEnableDisableGunLights_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
-        duplicate = 1;
         sync[] = {
-            "AnyVehicle"
+            "AnyPerson",
+            "AnyPerson"
         };
     };
 };
