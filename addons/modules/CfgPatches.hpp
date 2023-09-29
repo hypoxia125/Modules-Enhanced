@@ -17,6 +17,7 @@ class CfgPatches {
             "MEH_ModuleMoveOnCombat",
             "MEH_ModuleParadropVehicle",
             "MEH_ModuleSpeedLimiter",
+            "MEH_ModuleTrapInventory",
             "MEH_ModuleVehicleMineJammer",
             "MEH_ModuleVehicleRearm",
             "MEH_ModuleVehicleRefuel"

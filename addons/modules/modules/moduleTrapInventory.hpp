@@ -30,12 +30,28 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
             validate = "NUMBER";
         };
 
-        class CanDisable: Checkbox {
+        class CanDisable: Combo {
             property = QGVAR(ModuleTrapInventory_CanDisable);
             displayName = CSTRING(ModuleTrapInventory_CanDisable_DisplayName);
             tooltip = CSTRING(ModuleTrapInventory_CanDisable_Tooltip);
             defaultValue = 0;
-            typeName = "BOOL";
+            typeName = "NUMBER";
+            class Values {
+                class Any {
+                    name = CSTRING(ModuleTrapInventory_CanDisable_Values_Any_Name);
+                    tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Any_Tooltip);
+                    value = 0;
+                };
+                class Equipment {
+                    name = CSTRING(ModuleTrapInventory_CanDisable_Values_Equipment_Name);
+                    tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Equipment_Tooltip);
+                };
+                class Specialist {
+                    name = CSTRING(ModuleTrapInventory_CanDisable_Values_Specialist_Name);
+                    tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Specialist_Tooltip);
+                    value = 0;
+                };
+            };
         };
 
         class Persist: Checkbox {
@@ -44,7 +60,7 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
             tooltip = CSTRING(ModuleTrapInventory_Persist_Tooltip);
             defaultValue = 0;
             typeName = "BOOL";
-        }l
+        };
 
         class ModuleDescription: ModuleDescription {};
     };
