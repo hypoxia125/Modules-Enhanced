@@ -3,7 +3,8 @@
 params [
     ["_objects", [], [[], objNull]],
     ["_explosiveType", "", [""]],
-    ["_canDisable", false, [true]],
+    ["_explodeChance", 0.5, [-1]],
+    ["_canDisable", 0, [-1]],
     ["_persist", false, [true]]
 ];
 
@@ -18,7 +19,7 @@ if (isServer) then {
     _objects apply {
         private _object = _x;
         
-        _object setVariable [QGVAR(TrapInventory_Data), [_explosiveType, _explodeChance, _persist, true], true];
+        _object setVariable [QGVAR(TrapInventory_Data), [_explosiveType, _explodeChance, _canDisable, _persist, true], true];
     }; 
 };
 
@@ -30,65 +31,65 @@ if (hasInterface) then {
         private _trapData = _container getVariable QGVAR(TrapInventory_Data);
         if (isNil QUOTE(_trapData)) exitWith {};
 
-        _trapData params ["_explosiveType", "_explodeChance", "_persist", "_active"];
+        _trapData params ["_explosiveType", "_explodeChance", "_canDisable", "_persist", "_active"];
 
         if (!_active) exitWith {};
         
-        if (_explodeChance <= random 1) exitWith {
+        if (_explodeChance >= random 1) exitWith {
             private _explosive = createVehicle [_explosiveType, getPosASL _object vectorAdd [0,0,2], [], 0, "NONE"];
             [QGVAR(HideObjectGlobal), [_explosive, true]] call CBA_fnc_serverEvent;
             _explosive setDamage 1;
 
-            _trapData set [3, false];
+            _trapData set [4, false];
             _object setVariable [QGVAR(TrapInventory_Data), _trapData, true];
         };
 
-        hint LLSTRING(TrapInventory_SuccessUnknown);
         if (!_persist) then {
-            _trapData set [3, false];
+            _trapData set [4, false];
             _object setVariable [QGVAR(TrapInventory_Data), _trapData, true];
+            hint LLSTRING(TrapInventory_SuccessUnknown);
+        } else {
+            hint LLSTRING(TrapInventory_SuccessFailed);
         };
     }];
     player setVariable [QGVAR(TrapInventory_EH), ["InventoryOpened", _handle]];
 
     // Add disable action
-    private _holdAction = [_object,
-    LLSTRING(TrapInventory_Action_DisableTrap),
-    "a3\ui_f\data\igui\cfg\holdactions\holdaction_search_ca.paa",
-    "a3\ui_f\data\igui\cfg\holdactions\holdaction_search_ca.paa",
-    toString {
-        private _isActive = (_this getVariable QGVAR(TrapInventory_Data)) select 3;
-        if (isNil QUOTE(_isActive)) exitWith {false};
+    if (_canDisable >= 0) then {
+        _objects apply {
+            private _object = _x;
 
-        _isActive && {
-            _caller getUnitTrait "explosiveSpecialist" && {
-                items _caller findIf {_x in ["ToolKit", "ACE_DefusalKit"]} != -1 &&
-                items _caller findIf {_x in ["MineDetector"]} != -1;
-            }
+            private _holdAction = [_object,
+            LLSTRING(TrapInventory_Action_DisableTrap),
+            "a3\ui_f\data\igui\cfg\holdactions\holdaction_search_ca.paa",
+            "a3\ui_f\data\igui\cfg\holdactions\holdaction_search_ca.paa",
+            toString {
+                [_target, _this] call FUNC(trapInventoryActionShow)
+            }, // condition show
+            "true", // condition progress
+            {}, // code start
+            {}, // code progress
+            {
+                params ["_target", "_caller", "_actionId", "_arguments"];
+
+                private _data = _target getVariable QGVAR(TrapInventory_Data);
+                _data set [4, false];
+                _target setVariable [QGVAR(TrapInventory_Data), _data, true];
+                
+                hint LLSTRING(TrapInventory_TrapDisabled);
+
+                // Remove actions from all clients
+                private _JIP = [QGVAR(RemoveTrapDisableAction), _target] call CBA_fnc_globalEventJIP;
+                [_JIP, _target] call CBA_fnc_removeGlobalEventJIP;
+            }, // code completed
+            {}, // code interrupted
+            nil,
+            30,
+            1e6,
+            true,
+            false,
+            true] call BIS_fnc_holdActionAdd;
+            _object setVariable [QGVAR(TrapInventory_HoldAction), _holdAction];
         };
-    }, // condition show
-    toString {true}, // condition progress
-    {}, // code start
-    {}, // code progress
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"];
-
-        private _data = _target getVariable QGVAR(TrapInventory_Data);
-        _data set [3, false];
-        _target setVariable [QGVAR(TrapInventory_Data), _data, true];
-        
-        hint LLSTRING(TrapInventory_TrapDisabled);
-
-        // Remove actions from all clients
-        private _JIP = [QGVAR(RemoveTrapDisableAction), _target] call CBA_fnc_globalEventJIP;
-        [_JIP, _target] call CBA_fnc_removeGlobalEventJIP;
-    }, // code completed
-    {}, // code interrupted
-    nil,
-    30,
-    1e6,
-    true,
-    false,
-    true] call BIS_fnc_holdActionAdd;
-    _object setVariable [QGVAR(TrapInventory_HoldAction), _holdAction];
+    };
 };

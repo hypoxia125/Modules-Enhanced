@@ -24,7 +24,7 @@ params [
 // Variables
 private _explosiveType = _module getVariable [QUOTE(ExplosiveType), "GrenadeHand"];
 private _explodeChance = _module getVariable [QUOTE(ExplodeChance), 0.5];
-private _canDisable = _module getVariable [QUOTE(CanDisable), false];
+private _canDisable = _module getVariable [QUOTE(CanDisable), 0];
 private _persist = _module getVariable [QUOTE(Persist), false];
 
 // Verify variables

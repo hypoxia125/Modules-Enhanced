@@ -16,6 +16,7 @@ PREP(moveOnCombat);
 PREP(paradropVehicle);
 PREP(speedLimiter);
 PREP(trapInventory);
+PREP(trapInventoryActionShow);
 PREP(vehicleMineJammer);
 PREP(vehicleRearm);
 PREP(vehicleRefuel);

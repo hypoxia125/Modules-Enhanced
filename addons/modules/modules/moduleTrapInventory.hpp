@@ -37,19 +37,25 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
             defaultValue = 0;
             typeName = "NUMBER";
             class Values {
+                class Disabled {
+                    name = CSTRING(ModuleTrapInventory_CanDisable_Values_Disable_Name);
+                    tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Disable_Tooltip);
+                    value = 0;
+                };
                 class Any {
                     name = CSTRING(ModuleTrapInventory_CanDisable_Values_Any_Name);
                     tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Any_Tooltip);
-                    value = 0;
+                    value = 1;
                 };
                 class Equipment {
                     name = CSTRING(ModuleTrapInventory_CanDisable_Values_Equipment_Name);
                     tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Equipment_Tooltip);
+                    value = 2;
                 };
                 class Specialist {
                     name = CSTRING(ModuleTrapInventory_CanDisable_Values_Specialist_Name);
                     tooltip = CSTRING(ModuleTrapInventory_CanDisable_Values_Specialist_Tooltip);
-                    value = 0;
+                    value = 3;
                 };
             };
         };

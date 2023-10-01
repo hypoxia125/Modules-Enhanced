@@ -278,7 +278,7 @@
             <English>Does not remove the trap upon a successful opening of the inventory. Does not apply to disabled inventories.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_ModuleDescription_Description">
-            <English>This module causes inventories to have an explosive surprise.</English>
+            <English>This module causes inventories to have an explosive surprise. Can be used on crates, vehicles, units (armed when they die), etc</English>
         </Key>
         <Key ID="STR_MEH_Modules_TrapInventory_Action_DisableTrap">
             <English>Disable Trap</English>
@@ -287,7 +287,16 @@
             <English>Trap Disabled</English>
         </Key>
         <Key ID="STR_MEH_Modules_TrapInventory_SuccessUnknown">
-            <English>An wire trips as you open the crate.\nGood think it didn't go off!</English>
+            <English>A wire trips as you open.\nGood thing it didn't go off!</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Name">
+            <English>Disabled</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Tooltip">
+            <English>No one is able to defuse the trap.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_TrapInventory_SuccessFailed">
+            <English>A wire trips as you open.\nGood thing it didn't go off.\nIt looks like its still active though...</English>
         </Key>
     </Package>
 </Project>
