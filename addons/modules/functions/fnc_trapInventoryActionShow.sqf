@@ -37,8 +37,6 @@ private _hasEquipment = (
     items _caller findIf {_x in ["MineDetector"]} != -1
 );
 
-TRACE_4("Variables", _canDisable, _isActive, _isSpecialist, _hasEquipment);
-
 private _return = switch _canDisable do {
     case 0: {false};
     case 1: {true};

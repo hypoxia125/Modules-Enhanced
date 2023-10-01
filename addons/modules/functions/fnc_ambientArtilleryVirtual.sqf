@@ -84,15 +84,12 @@ private _handle = [{
             if (_lastRound) then {
                 private _salvoDelay = _salvoInterval + (random [0, _salvoTimeVariation / 2, _salvoTimeVariation]);
 
-                TRACE_1("Salvo Delay", _salvoDelay);
-
                 // Set module to not firing to trigger the next salvo
                 [{
                     params ["_module"];
 
                     _module setVariable [QGVAR(ambientArtillery_firing), false];
 
-                    TRACE_1("Ending Salvo", _module getVariable [QGVAR(ambientArtillery_firing), false]);
                 }, [_module], _salvoDelay] call CBA_fnc_waitAndExecute;
             };
         }, [_module, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _pos, _i], _shotDelay * _i] call CBA_fnc_waitAndExecute;
