@@ -1,4 +1,4 @@
-class MEH_ModuleVehicleRearm: Module_F {
+class MEH_ModuleVehicleRearm: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleVehicleRearm_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
@@ -25,10 +25,16 @@ class MEH_ModuleVehicleRearm: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleVehicleRearm_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleVehicleRearm_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
         sync[] = {
+            "AnyVehicle",
             "AnyVehicle"
         };
     };

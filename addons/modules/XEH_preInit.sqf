@@ -62,3 +62,18 @@
 
     _unit addPrimaryWeaponItem _attachment
 }] call CBA_fnc_addEventHandler;
+
+// Server Execution
+[QGVAR(HideObjectGlobal), {
+    params ["_object", "_value"];
+
+    _object hideObjectGlobal _value;
+}] call CBA_fnc_addEventHandler;
+
+// Global Execution
+[QGVAR(RemoveTrapDisableAction), {
+    params ["_object"];
+
+    private _holdAction = _object getVariable [QGVAR(TrapInventory_HoldAction), -1];
+    [_object, _holdAction] call BIS_fnc_holdActionRemove;
+}];

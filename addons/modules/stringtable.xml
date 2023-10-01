@@ -208,5 +208,95 @@
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
             <English>Random amount (0 to value) to add to shot interval.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_True">
+            <English>Trigger Activated: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_False">
+            <English>Trigger Activated: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Optional">
+            <English>Trigger Activated: Optional</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_True">
+            <English>Duplicates Allowed: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_False">
+            <English>Duplicates Allowed: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_True">
+            <English>Repeatable: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_False">
+            <English>Repeatable: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ModuleDescription_Description">
+            <English>This module creates ambient artillery fire without the need of any entities. Can be enabled and disabled with a single repeatable trigger, or by deleting the module object.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_DisplayName">
+            <English>Trap Inventory</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_DisplayName">
+            <English>Explosive Type</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_Tooltip">
+            <English>Classname of CfgAmmo explosive.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_DisplayName">
+            <English>Explode Chance</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_Tooltip">
+            <English>Chance (0 to 1) that the trap will explode when opening.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_DisplayName">
+            <English>Can Disable</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Tooltip">
+            <English>Allows the trap to be disabled. View tooltips of values for more information.</English>STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Specialist_Name
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Any_Name">
+            <English>Anyone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Any_Tooltip">
+            <English>Any player can disable the trap. No tool requirements.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Equipment_Name">
+            <English>Require Equipment</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Equipment_Tooltip">
+            <English>Requires "Tool Kit or ACE Defusal Kit" + "Mine Detector"</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Specialist_Name">
+            <English>Require Specialist</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Specialist_Tooltip">
+            <English>Equipment + the player must have the "ExplosiveSpecialist" trait.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_Persist_DisplayName">
+            <English>Persist After Opening</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_Persist_tooltip">
+            <English>Does not remove the trap upon a successful opening of the inventory. Does not apply to disabled inventories.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ModuleDescription_Description">
+            <English>This module causes inventories to have an explosive surprise. Can be used on crates, vehicles, units (armed when they die), etc</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_TrapInventory_Action_DisableTrap">
+            <English>Disable Trap</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_TrapInventory_TrapDisabled">
+            <English>Trap Disabled</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_TrapInventory_SuccessUnknown">
+            <English>A wire trips as you open.\nGood thing it didn't go off!</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Name">
+            <English>Disabled</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Tooltip">
+            <English>No one is able to defuse the trap.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_TrapInventory_SuccessFailed">
+            <English>A wire trips as you open.\nGood thing it didn't go off.\nIt looks like its still active though...</English>
+        </Key>
     </Package>
 </Project>

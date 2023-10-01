@@ -1,6 +1,6 @@
 class CfgFactionClasses {
     class MEH {
-        displayName = "Modules Enhanced"; // Todo: Localize String
+        displayName = ECSTRING(Main,ModulesEnhanced); // Todo: Localize String
         side = 7;
     };
 };

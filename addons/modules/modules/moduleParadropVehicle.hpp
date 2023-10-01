@@ -1,4 +1,4 @@
-class MEH_moduleParadropVehicle: Module_F {
+class MEH_ModuleParadropVehicle: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleParadropVehicle_DisplayName);
     icon = "a3\air_f_beta\parachute_01\data\ui\map_parachute_01_ca.paa";
@@ -87,11 +87,13 @@ class MEH_moduleParadropVehicle: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleParadropVehicle_ModuleDescription_Description);
-        position = 1;
-        direction = 0;
-        sync[] = {
-            "AnyVehicle"
+        description[] = {
+            CSTRING(ModuleParadropVehicle_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_True),
+            CSTRING(ModuleDescription_Repeatable_False)
         };
+        position = 0;
+        direction = 0;
     };
 };

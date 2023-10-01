@@ -20,7 +20,7 @@
 
 params [
     ["_vehicles", [], [[], objNull]],
-    ["_distance", 25, [-1]],
+    ["_distance", 10, [-1]],
     ["_explode", false, [true]]
 ];
 

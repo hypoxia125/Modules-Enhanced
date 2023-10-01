@@ -45,8 +45,6 @@ if (_createCrew && {_vehicleClass isKindOf "LandVehicle"}) then {
     _crew createVehicleCrew _vehicle;
 };
 
-TRACE_1("Vehicle Crew",units _crew);
-
 // Wait for parachute altitude
 [{
     params ["_vehicle", "_parachuteHeight"];

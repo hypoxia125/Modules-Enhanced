@@ -1,4 +1,4 @@
-class MEH_moduleAmbientArtilleryVirtual: Module_F {
+class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleAmbientArtilleryVirtual_DisplayName);
     icon = "a3\ui_f\data\gui\cfg\communicationmenu\artillery_ca.paa";
@@ -77,8 +77,12 @@ class MEH_moduleAmbientArtilleryVirtual: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleAmbientArtilleryVirtual_ModuleDescription_Description);
-        duplicate = 1;
+        description[] = {
+            CSTRING(ModuleAmbientArtilleryVirtual_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_Repeatable_True)
+        };
         position = 1;
         direction = 1;
     };

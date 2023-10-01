@@ -1,4 +1,4 @@
-class MEH_moduleMoveOnCombat: Module_F {
+class MEH_ModuleMoveOnCombat: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleMoveOnCombat_DisplayName);
     icon = "\z\meh\addons\modules\data\iconMoveOnCombat_ca.paa"; // Todo: Add image
@@ -24,12 +24,17 @@ class MEH_moduleMoveOnCombat: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleMoveOnCombat_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleMoveOnCombat_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_False),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
-        duplicate = 1;
         sync[] = {
-            "AnyVehicle"
+            "AnyPerson",
+            "AnyPerson"
         };
     };
 };

@@ -1,4 +1,4 @@
-class MEH_ModuleVehicleRefuel: Module_F {
+class MEH_ModuleVehicleRefuel: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleVehicleRefuel_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\refuel_ca.paa";
@@ -25,10 +25,16 @@ class MEH_ModuleVehicleRefuel: Module_F {
     };
 
     class ModuleDescription: ModuleDescription {
-        description = CSTRING(ModuleVehicleRefuel_ModuleDescription_Description);
+        description[] = {
+            CSTRING(ModuleVehicleRefuel_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
         position = 0;
         direction = 0;
         sync[] = {
+            "AnyVehicle",
             "AnyVehicle"
         };
     };
