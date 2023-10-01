@@ -1,4 +1,4 @@
-class MEH_moduleEnableDisableGunLights: MEH_ModuleBase {
+class MEH_ModuleEnableDisableGunLights: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleEnableDisableGunLights_DisplayName);
     icon = "a3\3den\data\displays\display3den\toolbar\flashlight_off_ca.paa";

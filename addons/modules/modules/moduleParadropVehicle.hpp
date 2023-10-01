@@ -1,4 +1,4 @@
-class MEH_moduleParadropVehicle: MEH_ModuleBase {
+class MEH_ModuleParadropVehicle: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleParadropVehicle_DisplayName);
     icon = "a3\air_f_beta\parachute_01\data\ui\map_parachute_01_ca.paa";

@@ -1,4 +1,4 @@
-class MEH_moduleDeleteRespawnPosition: MEH_ModuleBase {
+class MEH_ModuleDeleteRespawnPosition: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleDeleteRespawnPosition_DisplayName);
     icon = "a3\ui_f\data\map\diary\icons\diaryunassigntask_ca.paa"; // Todo: Add image

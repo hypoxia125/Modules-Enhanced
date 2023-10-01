@@ -1,4 +1,4 @@
-class MEH_moduleMoveOnCombat: MEH_ModuleBase {
+class MEH_ModuleMoveOnCombat: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleMoveOnCombat_DisplayName);
     icon = "\z\meh\addons\modules\data\iconMoveOnCombat_ca.paa"; // Todo: Add image

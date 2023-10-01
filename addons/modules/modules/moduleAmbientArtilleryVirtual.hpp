@@ -1,4 +1,4 @@
-class MEH_moduleAmbientArtilleryVirtual: MEH_ModuleBase {
+class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleAmbientArtilleryVirtual_DisplayName);
     icon = "a3\ui_f\data\gui\cfg\communicationmenu\artillery_ca.paa";
