@@ -42,6 +42,12 @@ Limits the speed of a vehicle for players, AI, or both.
 | :-----: | :-----: | :-----: | :-----: |
 | Optional | Yes | Vehicle(s) | Modules Enhanced |
 
+### Trap Inventory
+Turn an object's inventory into a trapped surprise. Can work on crates, vehicles, and units (armed when dead).
+| Trigger Activated | Sync Multiple Entities | Sync Entity Type | Editor Tab |
+| :-----: | :-----: | :-----: | :-----: |
+| No | Yes | Any Inventory Owner | Modules Enhanced |
+
 ### Vehicle Mine Jammer
 Turns a vehicle into a mine jammer that disables mines based on distance.
 Has the option to destroy mines when jammed.

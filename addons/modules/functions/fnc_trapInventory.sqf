@@ -1,3 +1,26 @@
+/*
+    Author: Hypoxic
+    Turn an object's inventory into a trapped surprise. Can work on crates, vehicles, and units (armed when dead).
+
+    Arguments:
+    0: Objects - ARRAY or OBJECT
+    1: Explosive Type - STRING - CfgAmmo Classname - ie. "grenadeHand", "Bo_GBU12_LGB"
+    2: Explosive Chance - NUMBER - 0 to 1 - ie. 0.3 (30% chance)
+    3: Can Disable - NUMBER
+        0: Disabled
+        1: Anyone
+        2: Require Equipment (ToolKit, ACE_DefusalKit, MineDetector)
+        3: Require Specialist + Equipment
+    
+    ReturnValue:
+    NONE
+
+    Example:
+    [vehicle_1, "grenadeHand", 0.3, 2] call MEH_Modules_fnc_trapInventory;
+
+    Public: Yes
+*/
+
 #include "script_component.hpp"
 
 params [
