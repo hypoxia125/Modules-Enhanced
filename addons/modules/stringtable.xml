@@ -298,5 +298,71 @@
         <Key ID="STR_MEH_Modules_TrapInventory_SuccessFailed">
             <English>A wire trips as you open.\nGood thing it didn't go off.\nIt looks like its still active though...</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_DisplayName">
+            <English>Effect - Fire</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_DisplayName">
+            <English>Color - Red</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_DisplayName">
+            <English>Color - Green</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_DisplayName">
+            <English>Color - Blue</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_DisplayName">
+            <English>Fire Damage</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_Tooltip">
+            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_DisplayName">
+            <English>Effect Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_Tooltip">
+            <English>Size Over Lifetime</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_DisplayName">
+            <English>Particle Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_Tooltip">
+            <English>How fast new particles are created.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_DisplayName">
+            <English>Particle Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_Tooltip">
+            <English>The time each particle lasts.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_DisplayName">
+            <English>Particle Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_Tooltip">
+            <English>The size of each particle created.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_DisplayName">
+            <English>Particle Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_Tooltip">
+            <English>The speed of a particles rise.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_DisplayName">
+            <English>Particle Orientation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_Tooltip">
+            <English>Direction of the particle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
+            <English>A updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor.</English>
+        </Key>
     </Package>
 </Project>
