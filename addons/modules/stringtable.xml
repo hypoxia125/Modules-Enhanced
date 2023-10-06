@@ -362,7 +362,85 @@
             <English>Direction of the particle.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
-            <English>A updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor.</English>
+            <English>An updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_DisplayName">
+            <English>Effect - Smoke</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_DisplayName">
+            <English>Color - Red</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_DisplayName">
+            <English>Color - Green</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_DisplayName">
+            <English>Color - Blue</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_DisplayName">
+            <English>Color - Alpha</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_DisplayName">
+            <English>Effect Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_Tooltip">
+            <English>Size Over Lifetime</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_DisplayName">
+            <English>Particle Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_Tooltip">
+            <English>How fast new particles are created.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_DisplayName">
+            <English>Particle Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_Tooltip">
+            <English>The time each particle lasts.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_DisplayName">
+            <English>Particle Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_Tooltip">
+            <English>The size of each particle created.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_DisplayName">
+            <English>Particle Expansion</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_Tooltip">
+            <English>Amount the particle expands away from center.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_DisplayName">
+            <English>Particle Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_Tooltip">
+            <English>The speed of a particle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_DisplayName">
+            <English>Particle Lifting</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_Tooltip">
+            <English>How much lift to give to each particle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_DisplayName">
+            <English>Wind Effect</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_Tooltip">
+            <English>How much does wind effect the particle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ModuleDescription_Description">
+            <English>An updated version of BI's "Smoke" module. It now functions to preview what the smoke looks like in the editor.</English>
         </Key>
     </Package>
 </Project>
