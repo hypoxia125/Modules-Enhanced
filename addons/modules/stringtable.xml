@@ -362,7 +362,7 @@
             <English>Direction of the particle.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
-            <English>A updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor.</English>
+            <English>An updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_DisplayName">
             <English>Effect - Smoke</English>
@@ -438,6 +438,9 @@
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
             <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ModuleDescription_Description">
+            <English>An updated version of BI's "Smoke" module. It now functions to preview what the smoke looks like in the editor.</English>
         </Key>
     </Package>
 </Project>
