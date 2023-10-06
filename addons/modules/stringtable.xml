@@ -448,5 +448,92 @@
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ModuleDescription_Description">
             <English>An updated version of BI's "Smoke" module. It now functions to preview what the smoke looks like in the editor. Delete the module mid-mission to stop the effect.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_DisplayName">
+            <English>Effect - Lightpoint</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_DisplayName">
+            <English>Use Lightpoint</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_Tooltip">
+            <English>Create a lightpoint with the below parameters.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_DisplayName">
+            <English>Lightpoint Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_Tooltip">
+            <English>Color of the lightpoint itself.\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_DisplayName">
+            <English>Lightpoint Ambient Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_Tooltip">
+            <English>Color of the ambient light around the lightpoint.\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_DisplayName">
+            <English>Lightpoint Intensity</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_Tooltip">
+            <English>Overall brightness of the lightpoint.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_DisplayName">
+            <English>Use Flare</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_Tooltip">
+            <English>Enable flare at lightpoint position.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_DisplayName">
+            <English>Flare Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_Tooltip">
+            <English>Size in meters of the flare.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_DisplayName">
+            <English>Flare Max Distance</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_Tooltip">
+            <English>Maximum distance in meters that the flare is rendered.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
+            <English>Use Light Cone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_Tooltip">
+            <English>Use a light cone to create directional light.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_DisplayName">
+            <English>Light Cone Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
+            <English>Color of the light cone itself.\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
+            <English>Light Cone Ambient Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
+            <English>Color of the ambient light around the light cone.\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
+            <English>Light Cone Intensity</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
+            <English>Overall brightness of the light cone.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
+            <English>Light Cone Params</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
+            <English>Sets the light cone params.\nArray [outerAngle, innerAngle, fadeCoef]</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
+            <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_DisplayName">
+            <English>Show During Daylight</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_Tooltip">
+            <English>Sets if light can be seen during the day. Only for the light itself, not the flare.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_Reminder">
+            <English>Reminder: The Effect - Lightpoint Module is best seen when the scenario is set to a darker time of the day!</English>
+        </Key>
     </Package>
 </Project>

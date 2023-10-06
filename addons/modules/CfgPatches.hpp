@@ -14,6 +14,7 @@ class CfgPatches {
             "MEH_moduleAmbientArtillery",
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleEffectFire",
+            "MEH_ModuleEffectLightpoint.hpp",
             "MEH_ModuleEffectSmoke",
             "MEH_ModuleEnableDisableGunLights",
             "MEH_ModuleMoveOnCombat",
