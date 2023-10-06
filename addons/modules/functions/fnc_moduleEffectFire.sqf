@@ -144,34 +144,6 @@ switch _mode do {
         _module setVariable [QGVAR(moduleEffectFire_Light), _light];
     };
 
-    case "dragged3DEN": {
-        private _emitter = _module getVariable [QGVAR(moduleEffectFire_Emitter), objNull];
-        private _light = _module getVariable [QGVAR(moduleEffectFire_Light), objNull];
-
-        [_emitter, _light] apply {deleteVehicle _x};
-
-        // Create emitter
-        private _emitter = "#particlesource" createVehicleLocal _pos;
-
-        // fire
-        _emitter setParticleParams _particleParams;
-        _emitter setParticleRandom _particleRandom;
-        _emitter setDropInterval (1 / _particleDensity);
-
-        // light
-        private _lightSize = (_particleSize + _effectSize) / 2;
-        _light = "#lightpoint" createVehicleLocal _pos;
-        _light setPos [_pos select 0, _pos select 1, (_pos select 2) + 0.5];
-        _light setLightIntensity (50 + 400 * _lightSize);
-        _light setLightColor [1, 0.65, 0.4];
-        _light setLightAmbient [0.15, 0.05, 0];
-        _light setLightAttenuation [0, 0, 0, 1];
-        _light setLightDayLight false;
-
-        _module setVariable [QGVAR(moduleEffectFire_Emitter), _emitter];
-        _module setVariable [QGVAR(moduleEffectFire_Light), _light];
-    };
-
     case "unregisteredFromWorld3DEN": {
         private _emitter = _module getVariable [QGVAR(moduleEffectFire_Emitter), objNull];
         private _light = _module getVariable [QGVAR(moduleEffectFire_Light), objNull];

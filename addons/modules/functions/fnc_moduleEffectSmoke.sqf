@@ -115,21 +115,6 @@ switch _mode do {
         _module setVariable [QGVAR(moduleEffectFire_Emitter), _emitter];
     };
 
-    case "dragged3DEN": {
-        private _emitter = _module getVariable [QGVAR(moduleEffectFire_Emitter), objNull];
-        deleteVehicle _emitter;
-
-        // Create emitter
-        private _emitter = "#particlesource" createVehicleLocal _pos;
-
-        // smoke
-        _emitter setParticleParams _particleParams;
-        _emitter setParticleRandom _particleRandom;
-        _emitter setDropInterval (1 / _particleDensity);
-
-        _module setVariable [QGVAR(moduleEffectFire_Emitter), _emitter];
-    };
-
     case "unregisteredFromWorld3DEN": {
         private _emitter = _module getVariable [QGVAR(moduleEffectFire_Emitter), objNull];
         deleteVehicle _emitter;
