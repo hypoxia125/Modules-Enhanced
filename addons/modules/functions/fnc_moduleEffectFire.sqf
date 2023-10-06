@@ -10,6 +10,8 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
+if (!is3DEN && {!_isActivated}) exitWith {};
+
 // Variables
 private _pos = ASLToAGL (getPosASL _module);
 private _colorRed = _module getVariable [QUOTE(ColorRed), 0.5];
@@ -76,8 +78,6 @@ private _particleRandom = [
 ];
 
 // Execute
-if (!is3DEN && {!_isActivated}) exitWith {};
-
 switch _mode do {
     case "init": {
         // Create emitter
