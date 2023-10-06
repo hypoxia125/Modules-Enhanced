@@ -78,13 +78,13 @@ switch _mode do {
         if (!is3DEN) then {
             [{
                 params ["_args", "_handle"];
-                _args params ["_module", "_lightpoint"];
+                _args params ["_module", "_lightpoint", "_lightcone"];
 
                 if (isNull _module) then {
                     deleteVehicle _lightpoint;
                     _handle call CBA_fnc_removePerFrameHandler;
                 };
-            }, 0, [_lightpoint, _lightcone]] call CBA_fnc_addPerFrameHandler;
+            }, 0, [_module, _lightpoint, _lightcone]] call CBA_fnc_addPerFrameHandler;
         };
     };
 
