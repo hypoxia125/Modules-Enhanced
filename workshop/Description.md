@@ -1,4 +1,4 @@
-[h1]Current Version - v0.1.0[/h1]
+[h1]Current Version - v0.2.0[/h1]
 
 [h1]Description[/h1]
 
@@ -32,6 +32,11 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
         [td]Enable/Disable Gun Lights[/td]
     [/tr]
     [tr]
+        [td]Effect - Fire[/td]
+        [td]Effect - Lightpoint[/td]
+        [td]Effect - Smoke[/td]
+    [/tr]
+    [tr]
         [td]Move On Combat[/td]
         [td]Paradrop Vehicle/Crate[/td]
         [td]Speed Limiter[/td]
@@ -47,18 +52,6 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 [/table]
 
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Modules-List]Wiki[/url]
-
-[h2]Upcoming Modules - v0.2.0[/h2]
-List Updated As I Push Feat to Develop
-
-Effects - Recreating BI's effects modules to allow for realtime preview in editor
-
-[table]
-    [tr]
-        [td]Effect - Fire[/td]
-        [td]Effect - Smoke[/td]
-    [/tr]
-[/table]
 
 [h3]Contact Me:[/h3]
 Message Me On Discord: [b]hypoxic[/b]
