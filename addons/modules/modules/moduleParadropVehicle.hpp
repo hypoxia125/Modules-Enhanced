@@ -91,6 +91,7 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
             CSTRING(ModuleParadropVehicle_ModuleDescription_Description),
             "",
             CSTRING(ModuleDescription_TriggerActivated_True),
+            CSTRING(ModuleDescription_TriggerActivated_Server),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         position = 0;
