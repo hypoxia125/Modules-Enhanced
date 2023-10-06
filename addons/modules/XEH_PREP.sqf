@@ -1,6 +1,7 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
+PREP(moduleEffectSmoke);
 PREP(moduleEnableDisableGunLights);
 PREP(moduleMoveOnCombat);
 PREP(moduleParadropVehicle);
