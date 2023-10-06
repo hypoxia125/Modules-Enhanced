@@ -208,6 +208,12 @@
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
             <English>Random amount (0 to value) to add to shot interval.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
+            <English>Trigger "Server Only": On</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Local">
+            <English>Trigger "Server Only": Off</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_True">
             <English>Trigger Activated: Yes</English>
         </Key>

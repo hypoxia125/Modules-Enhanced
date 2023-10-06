@@ -29,6 +29,7 @@ class MEH_ModuleVehicleRearm: MEH_ModuleBase {
             CSTRING(ModuleVehicleRearm_ModuleDescription_Description),
             "",
             CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_TriggerActivated_Server),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         position = 0;

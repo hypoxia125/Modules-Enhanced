@@ -72,6 +72,8 @@ private _particleRandom = [
 ];
 
 // Execute
+if (!is3DEN && {!_isActivated}) exitWith {};
+
 switch _mode do {
     case "init": {
         // Create emitter

@@ -7,7 +7,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
     function = QFUNC(ModuleEffectSmoke);
     functionPriority = 1;
     isGlobal = 1;
-    isTriggerActivated = 0;
+    isTriggerActivated = 1;
     isDisposable = 1;
     is3DEN = 1;
 
@@ -127,7 +127,8 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
         description[] = {
             CSTRING(ModuleEffectSmoke_ModuleDescription_Description),
             "",
-            CSTRING(ModuleDescription_TriggerActivated_False),
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_TriggerActivated_Local),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         position = 1;
