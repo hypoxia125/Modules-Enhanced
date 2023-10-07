@@ -245,7 +245,7 @@
             <English>Explosive Type</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_Tooltip">
-            <English>Classname of CfgAmmo explosive.</English>
+            <English>Classname of CfgAmmo explosive. If using a grenade, the grenade fuse will have to burn before explosion (not instant).</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_DisplayName">
             <English>Explode Chance</English>

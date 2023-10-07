@@ -76,7 +76,8 @@ allUnits apply {
         private _explode = _explodeChance >= random 1;
         if (_explode) exitWith {
             // Create explosion
-            private _explosive = createVehicle [_explosiveType, getPosASL _object vectorAdd [0,0,0.2], [], 0, "NONE"];
+            private _position = (ASLToAGL (getPosASL _object));
+            private _explosive = createVehicle [_explosiveType, _position, [], 0, "NONE"];
             // Hide explosive if not a grenade
             if (!(_explosiveType isKindOf "Grenade")) then {
                 [QGVAR(HideObjectGlobal), [_explosive, true]] call CBA_fnc_serverEvent;
