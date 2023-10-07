@@ -18,6 +18,10 @@
     Example:
     [vehicle_1, "grenadeHand", 0.3, 2] call MEH_Modules_fnc_trapInventory;
 
+    Public Events:
+        "MEH_Modules_TrapInventory_Created"
+            Passed Variables: [Object, [_explosiveType, _explodeChance, _canDisable, _persist, _isActive]]
+
     Public: Yes
 */
 
@@ -42,31 +46,49 @@ if (isServer) then {
     _objects apply {
         private _object = _x;
         
-        _object setVariable [QGVAR(TrapInventory_Data), [_explosiveType, _explodeChance, _canDisable, _persist, true], true];
-    }; 
+        private _data = [_explosiveType, _explodeChance, _canDisable, _persist, true];
+        _object setVariable [QGVAR(TrapInventory_Data), _data, true];
+
+        // Broadcast event for modders
+        [QGVAR(TrapInventory_Created), [_object, _data]] call CBA_fnc_globalEvent;
+    };
 };
 
-if (hasInterface) then {
-    // Add event handler
-    private _handle = player addEventHandler ["InventoryOpened", {
+// Make handler exist globally
+allUnits apply {
+    private _unit = _x;
+
+    private _handle = _unit addEventHandler ["InventoryOpened", {
         params ["_object", "_container", "_secondaryContainer"];
 
+        // Check locality
+        if (!local _object) exitWith {};
+
+        // Check if container is a trap
         private _trapData = _container getVariable QGVAR(TrapInventory_Data);
         if (isNil QUOTE(_trapData)) exitWith {};
 
+        // Check if trap is active
         _trapData params ["_explosiveType", "_explodeChance", "_canDisable", "_persist", "_active"];
+        if (!_active) exitWith {INFO_1("Inventory Trap: %1 is no longer active", _container)};
 
-        if (!_active) exitWith {};
-        
-        if (_explodeChance >= random 1) exitWith {
-            private _explosive = createVehicle [_explosiveType, getPosASL _object vectorAdd [0,0,2], [], 0, "NONE"];
-            [QGVAR(HideObjectGlobal), [_explosive, true]] call CBA_fnc_serverEvent;
+        // Check explode chance - if exploding, exit early
+        private _explode = _explodeChance >= random 1;
+        if (_explode) exitWith {
+            // Create explosion
+            private _explosive = createVehicle [_explosiveType, getPosASL _object vectorAdd [0,0,0.2], [], 0, "NONE"];
+            // Hide explosive if not a grenade
+            if (!(_explosiveType isKindOf "Grenade")) then {
+                [QGVAR(HideObjectGlobal), [_explosive, true]] call CBA_fnc_serverEvent;
+            };
             _explosive setDamage 1;
 
+            // Set trap data to inactive
             _trapData set [4, false];
             _object setVariable [QGVAR(TrapInventory_Data), _trapData, true];
         };
 
+        // If not exploding, set peristance
         if (!_persist) then {
             _trapData set [4, false];
             _object setVariable [QGVAR(TrapInventory_Data), _trapData, true];
@@ -75,7 +97,12 @@ if (hasInterface) then {
             hint LLSTRING(TrapInventory_SuccessFailed);
         };
     }];
-    player setVariable [QGVAR(TrapInventory_EH), ["InventoryOpened", _handle]];
+    // Store handle in object namespace
+    _unit setVariable [QGVAR(TrapInventory_EH), ["InventoryOpened", _handle]];
+};
+
+// Add disable interface to players
+if (hasInterface) then {
 
     // Add disable action
     if (_canDisable >= 0) then {
@@ -107,7 +134,7 @@ if (hasInterface) then {
             }, // code completed
             {}, // code interrupted
             nil,
-            30,
+            8,
             1e6,
             true,
             false,

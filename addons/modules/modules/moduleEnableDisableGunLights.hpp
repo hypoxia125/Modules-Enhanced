@@ -38,7 +38,7 @@ class MEH_ModuleEnableDisableGunLights: MEH_ModuleBase {
             property = QGVAR(ModuleEnableDisableGunLights_AddAttachment);
             displayName = CSTRING(ModuleEnableDisableGunLights_AddAttachment_DisplayName);
             tooltip = CSTRING(ModuleEnableDisableGunLights_AddAttachment_Tooltip);
-            defaultValue = 0;
+            defaultValue = "false";
             typeName = "BOOL";
         };
 
