@@ -25,7 +25,7 @@ class MEH_ModuleSpeedLimiter: MEH_ModuleBase {
             property = QGVAR(ModuleSpeedLimiter_AffectPlayer);
             displayName = CSTRING(ModuleSpeedLimiter_AffectPlayer_DisplayName);
             tooltip = CSTRING(ModuleSpeedLimiter_AffectPlayer_Tooltip);
-            defaultValue = 1;
+            defaultValue = "true";
             typeName = "BOOL";
         };
 
@@ -33,7 +33,7 @@ class MEH_ModuleSpeedLimiter: MEH_ModuleBase {
             property = QGVAR(ModuleSpeedLimiter_AffectAI);
             displayName = CSTRING(ModuleSpeedLimiter_AffectAI_DisplayName);
             tooltip = CSTRING(ModuleSpeedLimiter_AffectAI_Tooltip);
-            defaultValue = 1;
+            defaultValue = "true";
             typeName = "BOOL";
         };
 
@@ -45,6 +45,7 @@ class MEH_ModuleSpeedLimiter: MEH_ModuleBase {
             CSTRING(ModuleSpeedLimiter_ModuleDescription_Description),
             "",
             CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_TriggerActivated_Server),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         position = 0;

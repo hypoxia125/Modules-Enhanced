@@ -25,7 +25,7 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
             property = QGVAR(ModuleParadropVehicle_CreateCrew);
             displayName = CSTRING(ModuleParadropVehicle_CreateCrew_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_CreateCrew_Tooltip);
-            defaultValue = 1;
+            defaultValue = "true";
             typeName = "BOOL";
         };
 
@@ -91,6 +91,7 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
             CSTRING(ModuleParadropVehicle_ModuleDescription_Description),
             "",
             CSTRING(ModuleDescription_TriggerActivated_True),
+            CSTRING(ModuleDescription_TriggerActivated_Server),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         position = 0;

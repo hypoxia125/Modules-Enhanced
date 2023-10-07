@@ -20,6 +20,7 @@ class MEH_ModuleDeleteRespawnPosition: MEH_ModuleBase {
             CSTRING(ModuleDeleteRespawnPosition_ModuleDescription_Description),
             "",
             CSTRING(ModuleDescription_TriggerActivated_True),
+            CSTRING(ModuleDescription_TriggerActivated_Server),
             CSTRING(ModuleDescription_Repeatable_False)
         };
         sync[] = {
