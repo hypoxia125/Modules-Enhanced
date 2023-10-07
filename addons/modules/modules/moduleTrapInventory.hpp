@@ -64,7 +64,7 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
             property = QGVAR(ModuleTrapInventory_Persist);
             displayName = CSTRING(ModuleTrapInventory_Persist_DisplayName);
             tooltip = CSTRING(ModuleTrapInventory_Persist_Tooltip);
-            defaultValue = 0;
+            defaultValue = "false";
             typeName = "BOOL";
         };
 

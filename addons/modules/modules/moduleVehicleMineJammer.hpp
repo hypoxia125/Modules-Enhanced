@@ -25,7 +25,7 @@ class MEH_ModuleVehicleMineJammer: MEH_ModuleBase {
             property = QGVAR(ModuleVehicleMineJammer_Explode);
             displayName = CSTRING(ModuleVehicleMineJammer_Explode_DisplayName);
             tooltip = CSTRING(ModuleVehicleMineJammer_Explode_Tooltip);
-            defaultValue = 0;
+            defaultValue = "false";
             typeName = "BOOL";
         };
 
