@@ -1,4 +1,4 @@
-[h1]Current Version - v0.2.0[/h1]
+[h1]Current Version - v0.2.1[/h1]
 
 [h1]Description[/h1]
 
