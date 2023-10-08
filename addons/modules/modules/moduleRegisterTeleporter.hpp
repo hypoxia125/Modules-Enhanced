@@ -12,7 +12,17 @@ class MEH_ModuleRegisterTeleporter: Module_F {
     is3DEN = 0;
 
     class Attributes: AttributesBase {
+        class Name: Edit {
+            property = QGVAR(ModuleRegisterTeleporter_Name);
+            displayName = CSTRING(ModuleRegisterTeleporter_Name_DisplayName);
+            tooltip = CSTRING(ModuleRegisterTeleporter_Name_DisplayName);
+            defaultValue = "";
+            typeName = "STRING";
+            verify = "STRING";
+        };
+
         class Side: Combo {
+            property = QGVAR(ModuleRegisterTeleporter_Side);
             displayName = CSTRING(ModuleRegisterTeleporter_Side_DisplayName);
             tooltip = CSTRING(ModuleRegisterTeleporter_Side_Tooltip);
             defaultValue = 1;
@@ -37,27 +47,19 @@ class MEH_ModuleRegisterTeleporter: Module_F {
             };
         };
 
-        class Way: Combo {
-            displayName = CSTRING(ModuleRegisterTeleporter_Way_DisplayName);
-            tooltip = CSTRING(ModuleRegisterTeleporter_Way_Tooltip);
-            defaultValue = 0;
-            typeName = "NUMBER";
-            class Values {
-                class OneWay {
-                    name = CSTRING(ModuleRegisterTeleporter_Way_OneWay);
-                    value = 0;
-                };
-                class TwoWay {
-                    name = CSTRING(ModuleRegisterTeleporter_Way_TwoWay);
-                    value = 1;
-                };
-            };
+        class Bidirectional: Checkbox {
+            property = QGVAR(ModuleRegisterTeleporter_Bidirectional);
+            displayName = CSTRING(ModuleRegisterTeleporter_Bidirectional_DisplayName);
+            tooltip = CSTRING(ModuleRegisterTeleporter_Bidirectional_Tooltip);
+            defaultValue = "true";
+            typeName = "BOOL";
         };
 
         class TravelTime: Edit {
+            property = QGVAR(ModuleRegisterTeleporter_TravelTime);
             displayName = CSTRING(ModuleRegisterTeleporter_TravelTime_DisplayName);
             tooltip = CSTRING(ModuleRegisterTeleporter_TravelTime_Tooltip);
-            defaultValue = 0;
+            defaultValue = -1;
             typeName = "NUMBER";
         };
     };

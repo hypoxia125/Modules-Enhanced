@@ -2,12 +2,23 @@
 
 params [
     ["_module", objNull, [objNull]],
-    ["_obj", [], [objNull]],
+    ["_object", objNull, [objNull]],
     ["_isActivated", false, [true]]
 ];
 
-if (isNil {missionNamespace getVariable QGVAR(TeleporterSystem)}) exitWith {
-    LOG_1("No %1 module found for %2", QGVAR(ModuleTeleporterSystem), QGVAR(ModuleRegisterTeleporter));
+// Variables
+private _name = _module getVariable [QUOTE(Name), ""];
+private _side = _module getVariable [QUOTE(Side), west];
+private _bidirectional = _module getVariable [QUOTE(Bidirectional), true];
+private _travelTime = _module getVariable [QUOTE(TravelTime), -1];
+
+// Verify variables
+if (isNull _object) then {_object = _module};
+private _pos = getPosASL _object;
+
+// Teleporter naming
+if (_name isEqualTo "") then {
+    _name = mapGridPosition _object
 };
 
 // Merge data with transporterData
@@ -15,10 +26,8 @@ if (isNil QEGVAR(teleporter,teleporterData)) then {
     EGVAR(teleporter,teleporterData) = [];
 };
 
-private _pos = getPosATL _obj;
-private _grid = mapGridPosition _obj;
-private _name = _module getVariable [QUOTE(displayName), _grid];
-private _bidirectional = parseNumber (_module getVariable [QUOTE(bidirectional), 1]);
+EGVAR(teleporter, teleporterData) pushBackUnique [_name, _pos, _side, _bidirectional, _travelTime];
+publicVariable QEGVAR(teleporter, teleporterData);
 
-EGVAR(meh,teleporterData) pushBackUnique [_name, _pos, _bidirectional];
-
+// Execute the teleporter system
+call EFUNC(teleporter, teleporterInit);
