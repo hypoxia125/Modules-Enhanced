@@ -11,7 +11,8 @@ class CfgPatches {
             "cba_main"
         };
         units[] = {
-            "MEH_moduleAmbientArtillery",
+            "MEH_ModuleAmbientArtillery",
+            "MEH_ModuleCreateMinefield",
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleEffectFire",
             "MEH_ModuleEffectLightpoint.hpp",

@@ -535,5 +535,59 @@
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_Reminder">
             <English>Reminder: The Effect - Lightpoint Module is best seen when the scenario is set to a darker time of the day!</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_DisplayName">
+            <English>Create Minefield</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_DisplayName">
+            <English>Placed By</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_East_Name">
+            <English>OPFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_West_Name">
+            <English>BLUFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Independent_Name">
+            <English>GUER</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Civilian_Name">
+            <English>CIVILIAN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Unknown_Name">
+            <English>UNKNOWN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_DisplayName">
+            <English>Mine Classes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_Tooltip">
+            <English>Array of mine classnames.\nARRAY of STRINGS</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_DisplayName">
+            <English>Mine Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_DisplayName">
+            <English>Mark On Map For</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_None_Name">
+            <English>None</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Allies_Name">
+            <English>Allies</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Everyone_Name">
+            <English>Everyone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Tooltip">
+            <English>What side placed the mines.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_Tooltip">
+            <English>Density of the mines.\nMines / 100 meters^2</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Tooltip">
+            <English>What sides can see the minefield's area.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
+            <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
+        </Key>
     </Package>
 </Project>
