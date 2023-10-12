@@ -38,15 +38,10 @@ private _shotInterval = _module getVariable [QUOTE(ShotInterval), 1];
 private _shotTimeVariation = _module getVariable [QUOTE(ShotTimeVariation), 1];
 
 if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {call EFUNC(Error,invalidArgs)};
+if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {call EFUNC(Error,invalidArgs)};
 
 switch _mode do {
     case "init": {
-        if (_salvoSize <= 0) exitWith {};
-        if (_salvoInterval < 0) then {_salvoInterval = 0};
-        if (_salvoTimeVariation < 0) then {_salvoTimeVariation = 0};
-        if (_shotInterval < 0) then {_shotInterval = 0};
-        if (_shotTimeVariation < 0) then {_shotTimeVariation = 0};
-
         // Execute
         if (_isActivated) then {
             private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] call FUNC(ambientArtilleryVirtual);

@@ -182,31 +182,31 @@
             <English>Salvo Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
-            <English>The number of shots per salvo.</English>
+            <English>The number of shots per salvo.\n\nWhole Number &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
             <English>Salvo Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
-            <English>Interval between salvos.</English>
+            <English>Interval between salvos.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
             <English>Salvo Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to salvo interval.</English>
+            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
             <English>Shot Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
-            <English>The time between salvos.</English>
+            <English>The time between salvos.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
             <English>Shot Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to shot interval.</English>
+            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
             <English>Trigger "Server Only": On</English>
