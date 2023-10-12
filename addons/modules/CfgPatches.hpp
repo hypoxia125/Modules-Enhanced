@@ -5,10 +5,12 @@ class CfgPatches {
         url = "https://github.com/hypoxia125/Modules-Enhanced";
         is3DENMod = 1;
 
-        requiredVersion = 2.14;
+        requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "A3_Functions_F",
-            "cba_main"
+            "cba_main",
+            "meh_main",
+            "meh_common"
         };
         units[] = {
             "MEH_ModuleAmbientArtillery",
