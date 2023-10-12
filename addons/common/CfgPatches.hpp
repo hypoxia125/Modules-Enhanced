@@ -8,8 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "A3_Functions_F",
-            "cba_main",
-            "meh_common"
+            "cba_main"
         };
         units[] = {};
         weapons[] = {};

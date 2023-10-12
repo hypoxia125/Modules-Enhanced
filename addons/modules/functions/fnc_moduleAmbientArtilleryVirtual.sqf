@@ -16,12 +16,17 @@
 #include "script_component.hpp"
 
 params [
+    ["_mode", "", [""]],
+    ["_input", [], [[]]]
+];
+_input params [
     ["_module", objNull, [objNull]],
-    "",
-    ["_isActivated", false, [true]]
+    ["_isActivated", false, [true]],
+    ["_isCuratorPlaced", false, [true]]
 ];
 
 if (!isServer) exitWith {};
+if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
 private _area = _module getVariable [QUOTE(ObjectArea), [100, 100, 0, false, -1]];
@@ -32,24 +37,28 @@ private _salvoTimeVariation = _module getVariable [QUOTE(SalvoTimeVariation), 5]
 private _shotInterval = _module getVariable [QUOTE(ShotInterval), 1];
 private _shotTimeVariation = _module getVariable [QUOTE(ShotTimeVariation), 1];
 
-// Verify variables
-if (
-    !isClass (configFile >> "CfgAmmo" >> _shell) ||
-    _salvoSize <= 0 ||
-    _salvoInterval < 0 ||
-    _salvoTimeVariation < 0 ||
-    _shotInterval < 0 ||
-    _shotTimeVariation < 0
-) exitWith {};
+if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {call EFUNC(Error,invalidArgs)};
 
-// Execute
-if (_isActivated) then {
-    private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] call FUNC(ambientArtilleryVirtual);
-    _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), _handle];
-} else {
-    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), nil];
-    if (!isNil "_handle") then {
-        _handle call CBA_fnc_removePerFrameHandler;
-        _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), nil];
+switch _mode do {
+    case "init": {
+        if (_salvoSize <= 0) exitWith {};
+        if (_salvoInterval < 0) then {_salvoInterval = 0};
+        if (_salvoTimeVariation < 0) then {_salvoTimeVariation = 0};
+        if (_shotInterval < 0) then {_shotInterval = 0};
+        if (_shotTimeVariation < 0) then {_shotTimeVariation = 0};
+
+        // Execute
+        if (_isActivated) then {
+            private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] call FUNC(ambientArtilleryVirtual);
+            _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), _handle];
+        } else {
+            private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), nil];
+            if (!isNil "_handle") then {
+                _handle call CBA_fnc_removePerFrameHandler;
+                _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), nil];
+            };
+        };
     };
+    
+    default {};
 };
