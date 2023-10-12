@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Modules Enhanced">
     <Package name="error">
+        <Key ID="STR_MEH_Error_InvalidArgs">
+            <English>Modules Enhanced: Invalid Argument Detected</English>
+        </Key>
+        <Key ID="STR_MEH_Error_InvalidSync">
+            <English>Modules Enhanced: Invalid Object Synced to Module</English>
+        </Key>
     </Package>
 </Project>
