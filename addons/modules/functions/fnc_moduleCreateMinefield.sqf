@@ -11,17 +11,23 @@ _input params [
 ];
 
 if (!isServer) exitWith {};
+if (_mode isEqualTo "dragged3DEN") exitWith {};
 
 // Variables
 private _area = _module getVariable [QUOTE(ObjectArea), [50, 50, 0, false, -1]];
 private _placedBy = _module getVariable [QUOTE(PlacedBy), 4];
-private _mineClasses = call compile (_module getVariable [QUOTE(MineClasses), "['APERSMine']"]);
+private _mineClasses = call compile (_module getVariable [QUOTE(MineClasses), "[""APERSMine""]"]);
 private _mineDensity = _module getVariable [QUOTE(MineDensity), 10];
 private _markMap = _module getVariable [QUOTE(MarkMap), 0];
 
-// Verify variables
+if (
+    isNil "_mineClasses" ||
+    {!(_mineClasses isEqualType [])}
+) then {
+    [typeOf _module] call EFUNC(Error,invalidArgs);
+};
+
 _area = [getPosASL _module] + _area;
-if (!(_mineClasses isEqualType [])) exitWith {};
 _placedBy = switch _placedBy do {
     case 0: {west};
     case 1: {east};
@@ -80,10 +86,12 @@ if (is3DEN) then {
 // Execute
 switch _mode do {
     case "init": {
-        if (!is3DEN) exitWith {
-            [_area, _placedBy, _mineClasses, _mineDensity, _markMap] call FUNC(createMinefield);
-        };
+        if (is3DEN) exitWith {};
 
+        [_area, _placedBy, _mineClasses, _mineDensity, _markMap] call FUNC(createMinefield);
+    };
+
+    case "registeredToWorld3DEN": {
         [_module, _mineDensity] call _createMarkers;
     };
 
@@ -95,4 +103,6 @@ switch _mode do {
     case "unregisteredFromWorld3DEN": {
         [_module] call _deleteMarkers;
     };
+
+    default {};
 };

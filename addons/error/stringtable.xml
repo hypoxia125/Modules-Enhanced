@@ -2,10 +2,10 @@
 <Project name="Modules Enhanced">
     <Package name="error">
         <Key ID="STR_MEH_Error_InvalidArgs">
-            <English>Modules Enhanced: Invalid Argument Detected</English>
+            <English>Modules Enhanced | %1 | Invalid Argument Detected</English>
         </Key>
         <Key ID="STR_MEH_Error_InvalidSync">
-            <English>Modules Enhanced: Invalid Object Synced to Module</English>
+            <English>%1 | Invalid Object Synced to Module</English>
         </Key>
     </Package>
 </Project>

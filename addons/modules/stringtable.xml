@@ -560,7 +560,7 @@
             <English>Mine Classes</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_Tooltip">
-            <English>Array of mine classnames.\nARRAY of STRINGS</English>
+            <English>Array of mine classnames.\n\nArray of Strings</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_DisplayName">
             <English>Mine Density</English>

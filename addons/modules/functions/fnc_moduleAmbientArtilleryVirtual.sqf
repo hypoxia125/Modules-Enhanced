@@ -37,12 +37,13 @@ private _salvoTimeVariation = _module getVariable [QUOTE(SalvoTimeVariation), 5]
 private _shotInterval = _module getVariable [QUOTE(ShotInterval), 1];
 private _shotTimeVariation = _module getVariable [QUOTE(ShotTimeVariation), 1];
 
-if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {call EFUNC(Error,invalidArgs)};
-if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {call EFUNC(Error,invalidArgs)};
+if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
+if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
 
 switch _mode do {
     case "init": {
-        // Execute
+        if (is3DEN) exitWith {};
+        
         if (_isActivated) then {
             private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] call FUNC(ambientArtilleryVirtual);
             _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), _handle];

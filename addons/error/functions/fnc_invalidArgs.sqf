@@ -1,7 +1,9 @@
 #include "script_component.hpp"
 
+params [["_module", "", [objNull, ""]]];
+
 if (is3DEN) then {
-    [LLSTRING(InvalidArgs), 1, 5, true] call BIS_fnc_3DENNotification;
+    [FORMAT_1(LLSTRING(InvalidArgs),_module), 1, 5, true] call BIS_fnc_3DENNotification;
 } else {
-    [QGVAR(SystemMsg), LLSTRING(InvalidArgs)] call CBA_fnc_globalEvent;
+    [QGVAR(SystemMsg), FORMAT_1(LLSTRING(InvalidArgs),_module)] call CBA_fnc_globalEvent;
 };
