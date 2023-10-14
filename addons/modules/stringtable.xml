@@ -119,7 +119,7 @@
             <English>Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
-            <English>The speed that the vehicle will be limited to.\n0 to disable.</English>
+            <English>The speed that the vehicle will be limited to.\n0 to disable.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
             <English>Affect Players</English>
