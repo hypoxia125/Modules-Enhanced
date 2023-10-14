@@ -9,7 +9,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
     isGlobal = 0;
     isTriggerActivated = 1;
     isDisposable = 0;
-    is3DEN = 0;
+    is3DEN = 1;
 
     canSetArea = 1;
     canSetAreaShape = 1;

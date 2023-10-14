@@ -60,7 +60,7 @@ if (_createCrew && {_vehicleClass isKindOf "LandVehicle"}) then {
     private _parachute = createVehicle ["B_Parachute_02_F", getPosATL _vehicle, [], 0, "CAN_COLLIDE"];
     _parachute setVelocityModelSpace (velocityModelSpace _vehicle);
 
-    private _attachPoint = [0,1,0];
+    private _attachPoint = [0,0,1];
     _vehicle attachTo [_parachute, _attachPoint];
 
     // Wait for vehicle to reach ground
