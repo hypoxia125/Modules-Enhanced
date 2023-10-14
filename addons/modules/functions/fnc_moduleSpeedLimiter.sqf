@@ -44,6 +44,7 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
+        if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
         [_vehicles, _speed, _affectPlayer, _affectAI] call FUNC(speedLimiter);
     };
 
