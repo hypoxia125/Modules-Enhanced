@@ -9,14 +9,14 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
     isGlobal = 0;
     isTriggerActivated = 1;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class VehicleClass: Edit {
             property = QGVAR(ModuleParadropVehicle_VehicleClass);
             displayName = CSTRING(ModuleParadropVehicle_VehicleClass_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_VehicleClass_Tooltip);
-            defaultValue = "'B_supplyCrate_F'";
+            defaultValue = """B_supplyCrate_F""";
             typeName = "STRING";
             validate = "STRING";
         };
@@ -78,7 +78,7 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
             property = QGVAR(ModuleParadropVehicle_Expression);
             displayName = CSTRING(ModuleParadropVehicle_Expression_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_Expression_Tooltip);
-            defaultValue = "true";
+            defaultValue = """true""";
             typeName = "STRING";
             validate = "EXPRESSION";
         };
