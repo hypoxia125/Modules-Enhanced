@@ -158,7 +158,7 @@
             <English>Add Attachment</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
-            <English>Will force the remove primary weapon pointer device and add the provided attachment below.</English>
+            <English>Will force remove primary weapon pointer device and add the provided attachment below.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
             <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
@@ -167,7 +167,7 @@
             <English>Force Add Flashlight</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
-            <English>Flashlight to add.</English>
+            <English>The CfgWeapons class flashlight to add.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
             <English>Ambient Artillery (Virtual)</English>
