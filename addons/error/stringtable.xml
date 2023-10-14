@@ -13,5 +13,11 @@
         <Key ID="STR_MEH_Error_InvalidSync_Short">
             <English>%1 | Invalid Object Synced to Module</English>
         </Key>
+        <Key ID="STR_MEH_Error_RequiresSync">
+            <English>Modules Enhanced | %1 | Module Requires Synced Objects</English>
+        </Key>
+        <Key ID="STR_MEH_Error_RequiresSync_Short">
+            <English>%1 | Module Requires Synced Objects</English>
+        </Key>
     </Package>
 </Project>

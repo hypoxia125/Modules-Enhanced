@@ -43,7 +43,7 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         // Get groups
-        if (_units isEqualTo []) exitWith {};
+        if (_units isEqualTo []) exitWith {[typeOf _module] call EFUNC(Error,requiresSync)};
         private _groups = _units apply {group _x};
         _groups = _groups arrayIntersect _groups;
 
