@@ -188,25 +188,25 @@
             <English>Salvo Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
-            <English>Interval between salvos.\n\nNumber &gt; 0</English>
+            <English>Interval between salvos.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
             <English>Salvo Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt; 0</English>
+            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
             <English>Shot Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
-            <English>The time between salvos.\n\nNumber &gt; 0</English>
+            <English>The time between salvos.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
             <English>Shot Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt; 0</English>
+            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
             <English>Trigger "Server Only": On</English>
@@ -329,7 +329,7 @@
             <English>Fire Damage</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_Tooltip">
-            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1\n\nNumber &gt; 0</English>
+            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_DisplayName">
             <English>Effect Size</English>
@@ -359,7 +359,7 @@
             <English>Particle Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_Tooltip">
-            <English>The speed of a particles rise.\n\nNumber &gt; 0</English>
+            <English>The speed of a particles rise.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_DisplayName">
             <English>Particle Orientation</English>
@@ -398,49 +398,49 @@
             <English>Effect Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_Tooltip">
-            <English>Size Over Lifetime</English>
+            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_DisplayName">
             <English>Particle Density</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_Tooltip">
-            <English>How fast new particles are created.</English>
+            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_DisplayName">
             <English>Particle Time</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_Tooltip">
-            <English>The time each particle lasts.</English>
+            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_DisplayName">
             <English>Particle Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_Tooltip">
-            <English>The size of each particle created.</English>
+            <English>The size of each particle created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_DisplayName">
             <English>Particle Expansion</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_Tooltip">
-            <English>Amount the particle expands away from center.</English>
+            <English>Amount the particle expands away from center.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_DisplayName">
             <English>Particle Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_Tooltip">
-            <English>The speed of a particle.</English>
+            <English>The speed of a particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_DisplayName">
             <English>Particle Lifting</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_Tooltip">
-            <English>How much lift to give to each particle.</English>
+            <English>How much lift to give to each particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_DisplayName">
             <English>Wind Effect</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_Tooltip">
-            <English>How much does wind effect the particle.</English>
+            <English>How much does wind effect the particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
             <English>Value: 0-1</English>

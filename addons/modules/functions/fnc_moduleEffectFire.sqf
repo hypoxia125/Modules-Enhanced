@@ -109,15 +109,17 @@ private _createFire = {
     _module setVariable [QGVAR(moduleEffectFire_Light), _light];
 
     // delete ingame when module is deleted
-    [{
-        params ["_args", "_handle"];
-        _args params ["_module", "_emitter", "_light"];
+    if (!is3DEN) then {
+        [{
+            params ["_args", "_handle"];
+            _args params ["_module", "_emitter", "_light"];
 
-        if (isNull _module) then {
-            [_emitter, _light] apply {deleteVehicle _x};
-            _handle call CBA_fnc_removePerFrameHandler;
-        };
-    }, 1, [_module, _emitter, _light]] call CBA_fnc_addPerFrameHandler;
+            if (isNull _module) then {
+                [_emitter, _light] apply {deleteVehicle _x};
+                _handle call CBA_fnc_removePerFrameHandler;
+            };
+        }, 1, [_module, _emitter, _light]] call CBA_fnc_addPerFrameHandler;
+    };
 
     [_emitter, _light];
 };
