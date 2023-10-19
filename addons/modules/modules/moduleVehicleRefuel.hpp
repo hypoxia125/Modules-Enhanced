@@ -9,7 +9,7 @@ class MEH_ModuleVehicleRefuel: MEH_ModuleBase {
     isGlobal = 0;
     isTriggerActivated = 1;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class TimeDelay: Edit {

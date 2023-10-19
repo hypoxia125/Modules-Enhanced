@@ -9,7 +9,7 @@ class MEH_ModuleMoveOnCombat: MEH_ModuleBase {
     isGlobal = 0;
     isTriggerActivated = 0;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class Delay: Edit {

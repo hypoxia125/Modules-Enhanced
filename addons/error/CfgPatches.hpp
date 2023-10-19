@@ -1,6 +1,6 @@
 class CfgPatches {
     class ADDON {
-        name = "Modules Enhanced - Main";
+        name = "Modules Enhanced - Error";
         author = "Hypoxic";
         url = "https://github.com/hypoxia125/Modules-Enhanced";
         is3DENMod = 1;
@@ -8,7 +8,8 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "A3_Functions_F",
-            "cba_main"
+            "cba_main",
+            "meh_common"
         };
         units[] = {};
         weapons[] = {};

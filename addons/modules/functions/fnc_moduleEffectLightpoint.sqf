@@ -11,6 +11,7 @@ _input params [
 ];
 
 if (!is3DEN && {!_isActivated}) exitWith {};
+if (_mode isEqualTo "dragged3DEN") exitWith {};
 
 // Variables
 private _pos = ASLToAGL (getPosASL _module);
@@ -28,6 +29,14 @@ private _lightconeColor = call compile (_module getVariable [QUOTE(LightconeColo
 private _lightconeAmbientColor = call compile (_module getVariable [QUOTE(LightconeAmbientColor), "[1,1,1]"]);
 private _lightconeIntensity = _module getVariable [QUOTE(LightconeIntensity), 1000];
 private _lightconePars = call compile (_module getVariable [QUOTE(LightconePars), "[120,30,1]"]);
+
+private _argsLightpoint = [_pos, _lightpointColor, _lightpointAmbientColor, _lightpointIntensity, _showDaytime, _useFlare, _flareSize, _flareMaxDistance];
+private _argsLightcone = [_pos, _vector, _lightconeColor, _lightconeAmbientColor, _lightconeIntensity, _lightconePars];
+
+// Verify variables
+if ([_lightpointColor, _lightpointAmbientColor, _lightconeColor, _lightconeAmbientColor, _lightconePars] findIf {isNil {_x} || {!(_x isEqualType [])}} != -1) then {[typeOf _module] call EFUNC(Error,invalidArgs)};
+if ([_lightpointColor, _lightpointAmbientColor, _lightconeColor, _lightconeAmbientColor, _lightconePars] findIf {!(_x isEqualTypeAll -1)} != -1) then {[typeOf _module] call EFUNC(Error,invalidArgs)};
+if ([_lightpointIntensity, _flareSize, _flareMaxDistance, _lightconeIntensity] findIf {_x < 0} != -1) then {[typeOf _module] call EFUNC(Error,invalidArgs)};
 
 // Functions
 private _createLightpoint = {
@@ -63,14 +72,14 @@ switch _mode do {
         // Create lightpoint
         private _lightpoint = objNull;
         if (_useLightpoint) then {
-            _lightpoint = [_pos, _lightpointColor, _lightpointAmbientColor, _lightpointIntensity, _showDaytime, _useFlare, _flareSize, _flareMaxDistance] call _createLightpoint;
+            _lightpoint = _argsLightpoint call _createLightpoint;
             _module setVariable [QGVAR(moduleEffectLightpoint_Lightpoint), _lightpoint];
         };
 
         // Create lightcone
         private _lightcone = objNull;
         if (_useLightcone) then {
-            _lightcone = [_pos, _vector, _lightconeColor, _lightconeAmbientColor, _lightconeIntensity, _lightconePars] call _createLightcone;
+            _lightcone = _argsLightcone call _createLightcone;
             _module setVariable [QGVAR(moduleEffectLightpoint_lightcone), _lightcone];
         };
 
@@ -97,14 +106,14 @@ switch _mode do {
         // Create lightpoint
         private _lightpoint = objNull;
         if (_useLightpoint) then {
-            _lightpoint = [_pos, _lightpointColor, _lightpointAmbientColor, _lightpointIntensity, _showDaytime, _useFlare, _flareSize, _flareMaxDistance] call _createLightpoint;
+            _lightpoint = _argsLightpoint call _createLightpoint;
             _module setVariable [QGVAR(moduleEffectLightpoint_Lightpoint), _lightpoint];
         };
 
         // Create lightcone
         private _lightcone = objNull;
         if (_useLightcone) then {
-            _lightcone = [_pos, _vector, _lightconeColor, _lightconeAmbientColor, _lightconeIntensity, _lightconePars] call _createLightcone;
+            _lightcone = _argsLightcone call _createLightcone;
             _module setVariable [QGVAR(moduleEffectLightpoint_lightcone), _lightcone];
         };
     };

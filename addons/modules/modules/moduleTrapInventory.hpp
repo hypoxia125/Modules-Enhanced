@@ -9,14 +9,14 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
     isGlobal = 1;
     isTriggerActivated = 0;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class ExplosiveType: Edit {
             property = QGVAR(ModuleTrapInventory_ExplosiveType);
             displayName = CSTRING(ModuleTrapInventory_ExplosiveType_DisplayName);
             tooltip = CSTRING(ModuleTrapInventory_ExplosiveType_Tooltip);
-            defaultValue = "'GrenadeHand'";
+            defaultValue = """GrenadeHand""";
             typeName = "STRING";
             validate = "STRING";
         };

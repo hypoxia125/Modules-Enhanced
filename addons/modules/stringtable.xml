@@ -56,13 +56,13 @@
             <English>Parachute Deployment Height</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParachuteHeight_Tooltip">
-            <English>Height (ATL) where the parachute will be deployed.</English>
+            <English>Height (ATL) where the parachute will be deployed.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_DisplayName">
             <English>Paradrop Height</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_ParadropHeight_Tooltip">
-            <English>Height (ATL) where the object will be dropped from.\n-1 to drop from module height.</English>
+            <English>Height (ATL) where the object will be dropped from.\n\nNumber &gt; Parachute Deployment Height\n-1 to drop from module height.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_DisplayName">
             <English>Vehicle/Crate Classname</English>
@@ -119,7 +119,7 @@
             <English>Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
-            <English>The speed that the vehicle will be limited to.\n0 to disable.</English>
+            <English>The speed that the vehicle will be limited to.\n0 to disable.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
             <English>Affect Players</English>
@@ -158,7 +158,7 @@
             <English>Add Attachment</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
-            <English>Will force the remove primary weapon pointer device and add the provided attachment below.</English>
+            <English>Will force remove primary weapon pointer device and add the provided attachment below.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
             <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
@@ -167,7 +167,7 @@
             <English>Force Add Flashlight</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
-            <English>Flashlight to add.</English>
+            <English>The CfgWeapons class flashlight to add.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
             <English>Ambient Artillery (Virtual)</English>
@@ -182,31 +182,31 @@
             <English>Salvo Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
-            <English>The number of shots per salvo.</English>
+            <English>The number of shots per salvo.\n\nWhole Number &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
             <English>Salvo Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
-            <English>Interval between salvos.</English>
+            <English>Interval between salvos.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
             <English>Salvo Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to salvo interval.</English>
+            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
             <English>Shot Interval</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
-            <English>The time between salvos.</English>
+            <English>The time between salvos.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
             <English>Shot Time Variation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to shot interval.</English>
+            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
             <English>Trigger "Server Only": On</English>
@@ -329,43 +329,43 @@
             <English>Fire Damage</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_Tooltip">
-            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1</English>
+            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_DisplayName">
             <English>Effect Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_Tooltip">
-            <English>Size Over Lifetime</English>
+            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_DisplayName">
             <English>Particle Density</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_Tooltip">
-            <English>How fast new particles are created.</English>
+            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_DisplayName">
             <English>Particle Time</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_Tooltip">
-            <English>The time each particle lasts.</English>
+            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_DisplayName">
             <English>Particle Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_Tooltip">
-            <English>The size of each particle created.</English>
+            <English>The size of each particle created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_DisplayName">
             <English>Particle Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_Tooltip">
-            <English>The speed of a particles rise.</English>
+            <English>The speed of a particles rise.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_DisplayName">
             <English>Particle Orientation</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_Tooltip">
-            <English>Direction of the particle.</English>
+            <English>Direction of the particle.\n\nNumber</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
             <English>An updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor. Delete the module mid-mission to stop the effect.</English>
@@ -398,49 +398,49 @@
             <English>Effect Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_Tooltip">
-            <English>Size Over Lifetime</English>
+            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_DisplayName">
             <English>Particle Density</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_Tooltip">
-            <English>How fast new particles are created.</English>
+            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_DisplayName">
             <English>Particle Time</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_Tooltip">
-            <English>The time each particle lasts.</English>
+            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_DisplayName">
             <English>Particle Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_Tooltip">
-            <English>The size of each particle created.</English>
+            <English>The size of each particle created.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_DisplayName">
             <English>Particle Expansion</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_Tooltip">
-            <English>Amount the particle expands away from center.</English>
+            <English>Amount the particle expands away from center.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_DisplayName">
             <English>Particle Speed</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_Tooltip">
-            <English>The speed of a particle.</English>
+            <English>The speed of a particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_DisplayName">
             <English>Particle Lifting</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_Tooltip">
-            <English>How much lift to give to each particle.</English>
+            <English>How much lift to give to each particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_DisplayName">
             <English>Wind Effect</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_Tooltip">
-            <English>How much does wind effect the particle.</English>
+            <English>How much does wind effect the particle.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
             <English>Value: 0-1</English>
@@ -461,19 +461,19 @@
             <English>Lightpoint Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_Tooltip">
-            <English>Color of the lightpoint itself.\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the lightpoint itself.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_DisplayName">
             <English>Lightpoint Ambient Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_Tooltip">
-            <English>Color of the ambient light around the lightpoint.\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the ambient light around the lightpoint.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_DisplayName">
             <English>Lightpoint Intensity</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_Tooltip">
-            <English>Overall brightness of the lightpoint.</English>
+            <English>Overall brightness of the lightpoint.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_DisplayName">
             <English>Use Flare</English>
@@ -485,13 +485,13 @@
             <English>Flare Size</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_Tooltip">
-            <English>Size in meters of the flare.</English>
+            <English>Size in meters of the flare.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_DisplayName">
             <English>Flare Max Distance</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_Tooltip">
-            <English>Maximum distance in meters that the flare is rendered.</English>
+            <English>Maximum distance in meters that the flare is rendered.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
             <English>Use Light Cone</English>
@@ -503,25 +503,25 @@
             <English>Light Cone Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
-            <English>Color of the light cone itself.\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the light cone itself.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
             <English>Light Cone Ambient Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
-            <English>Color of the ambient light around the light cone.\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the ambient light around the light cone.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
             <English>Light Cone Intensity</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
-            <English>Overall brightness of the light cone.</English>
+            <English>Overall brightness of the light cone.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
             <English>Light Cone Params</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
-            <English>Sets the light cone params.\nArray [outerAngle, innerAngle, fadeCoef]</English>
+            <English>Sets the light cone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
             <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
@@ -534,6 +534,60 @@
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_Reminder">
             <English>Reminder: The Effect - Lightpoint Module is best seen when the scenario is set to a darker time of the day!</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_DisplayName">
+            <English>Create Minefield</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_DisplayName">
+            <English>Placed By</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_East_Name">
+            <English>OPFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_West_Name">
+            <English>BLUFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Independent_Name">
+            <English>GUER</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Civilian_Name">
+            <English>CIVILIAN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Unknown_Name">
+            <English>UNKNOWN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_DisplayName">
+            <English>Mine Classes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_Tooltip">
+            <English>Array of mine classnames.\n\nArray of Strings</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_DisplayName">
+            <English>Mine Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_DisplayName">
+            <English>Mark On Map For</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_None_Name">
+            <English>None</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Allies_Name">
+            <English>Allies</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Everyone_Name">
+            <English>Everyone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Tooltip">
+            <English>What side placed the mines.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_Tooltip">
+            <English>Density of the mines.\nMines / 100 meters^2</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Tooltip">
+            <English>What sides can see the minefield's area.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
+            <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
         </Key>
     </Package>
 </Project>

@@ -9,7 +9,7 @@ class MEH_ModuleEnableDisableGunLights: MEH_ModuleBase {
     isGlobal = 0;
     isTriggerActivated = 1;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class State: Combo {
@@ -46,7 +46,7 @@ class MEH_ModuleEnableDisableGunLights: MEH_ModuleBase {
             property = QGVAR(ModuleEnableDisableGunLights_Attachment);
             displayName = CSTRING(ModuleEnableDisableGunLights_Attachment_DisplayName);
             tooltip = CSTRING(ModuleEnableDisableGunLights_Attachment_Tooltip);
-            defaultValue = "'acc_flashlight'";
+            defaultValue = """acc_flashlight""";
             typeName = "STRING";
         };
 

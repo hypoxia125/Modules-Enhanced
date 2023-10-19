@@ -1,4 +1,5 @@
 PREP(moduleAmbientArtilleryVirtual);
+PREP(moduleCreateMinefield);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
 PREP(moduleEffectLightpoint);
@@ -13,8 +14,10 @@ PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
 PREP(ambientArtilleryVirtual);
+PREP(createMinefield);
 PREP(deleteRespawnPosition);
 PREP(enableDisableGunLights);
+PREP(get3DENAreaModule);
 PREP(moveOnCombat);
 PREP(paradropVehicle);
 PREP(speedLimiter);
