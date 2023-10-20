@@ -6,7 +6,7 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
 
     function = QFUNC(ModuleTrapInventory);
     functionPriority = 1;
-    isGlobal = 1;
+    isGlobal = 2;
     isTriggerActivated = 0;
     isDisposable = 1;
     is3DEN = 1;
