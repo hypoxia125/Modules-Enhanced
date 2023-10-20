@@ -7,6 +7,7 @@ PREP(moduleEffectSmoke);
 PREP(moduleEnableDisableGunLights);
 PREP(moduleMoveOnCombat);
 PREP(moduleParadropVehicle);
+PREP(moduleRegisterTeleporter);
 PREP(moduleSpeedLimiter);
 PREP(moduleTrapInventory);
 PREP(moduleVehicleMineJammer);

@@ -2,12 +2,16 @@
 
 params [
     ["_unit", objNull, [objNull]],
-    ["_teleTo", [0,0,0], [[]]]
+    ["_teleTo", [0,0,0], [[]]],
+    ["_travelTime", -1, [-1]]
 ];
 
 if (!(local _unit)) exitWith {};
 
-private _travelTime = round (linearConversion [0, 1e4, _unit distance _teleTo, 0, 30, true]);
+if (_teleTo isEqualTo [0,0,0]) exitWith {};
+if (_travelTime == -1) then {
+    _travelTime = [_unit, _teleTo] call FUNC(getTravelTime);
+};
 
 // Fade screen
 private _layer = QGVAR(blankScreen) call BIS_fnc_rscLayer;
@@ -32,6 +36,8 @@ _layer cutText [
 
     _unit setPosATL _pos;
     _unit setDir (getDir _unit + (_unit getRelDir _teleTo));
+
+    [QGVAR(teleportedUnit), [_unit, _pos]] call CBA_fnc_globalEvent;
 
     [{
         params ["_unit"];

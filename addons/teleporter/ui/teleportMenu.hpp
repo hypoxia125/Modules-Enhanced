@@ -7,7 +7,7 @@ class MEH_TeleportMenu {
 
     idd = 6969;
 
-    onLoad = "";
+    onLoad = "_this call MEH_Teleporter_fnc_teleportMenu_onLoad";
 
     class Controls {
         class MenuBackground: RscText
@@ -38,7 +38,7 @@ class MEH_TeleportMenu {
         class MenuTxt: RscText
         {
             idc = 1001;
-            text = "Modules Enhanced - Teleporter Menu"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_MenuTxt);
             x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-11.08 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(33 * GUI_GRID_W);
@@ -58,7 +58,7 @@ class MEH_TeleportMenu {
         class CurrGridTxt: RscText
         {
             idc = 1003;
-            text = "Current Grid:"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_CurrentGrid);
             x = QUOTE(-8 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-7.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(7.5 * GUI_GRID_W);
@@ -68,7 +68,7 @@ class MEH_TeleportMenu {
         class CurrGrid: RscText
         {
             idc = 1004;
-            text = """173637"""; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_NA);
             x = QUOTE(0.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-7.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(7.5 * GUI_GRID_W);
@@ -78,7 +78,7 @@ class MEH_TeleportMenu {
         class AvailLocTxt: RscText
         {
             idc = 1007;
-            text = "Available Locations"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_AvailableLocations);
             x = QUOTE(-15.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(14.5 * GUI_GRID_W);
@@ -89,7 +89,7 @@ class MEH_TeleportMenu {
         class DestInfoTxt: RscText
         {
             idc = 1008;
-            text = "Destination Info"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_DestinationInfo);
             x = QUOTE(1 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(14.5 * GUI_GRID_W);
@@ -105,6 +105,7 @@ class MEH_TeleportMenu {
             w = QUOTE(13.5 * GUI_GRID_W);
             h = QUOTE(11 * GUI_GRID_H);
             colorBackground[] = {-1,-1,-1,1};
+            onLBSelChanged = "_this call MEH_Teleporter_fnc_teleportMenu_updateInfo";
         };
         class DestBack: RscText
         {
@@ -118,7 +119,7 @@ class MEH_TeleportMenu {
         class DestTxt: RscText
         {
             idc = 1010;
-            text = "Grid Location:"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_Destination);
             x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-3 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -129,7 +130,7 @@ class MEH_TeleportMenu {
         class DestGrid: RscText
         {
             idc = 1011;
-            text = """183474"""; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_NA);
             x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(-3 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -140,7 +141,7 @@ class MEH_TeleportMenu {
         class DistTxt: RscText
         {
             idc = 1012;
-            text = "Travel Distance"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_Distance);
             x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(0 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -151,7 +152,7 @@ class MEH_TeleportMenu {
         class Dist: RscText
         {
             idc = 1013;
-            text = "1837 Meters"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_NA);
             x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(0 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -162,7 +163,7 @@ class MEH_TeleportMenu {
         class TravelTimeTxt: RscText
         {
             idc = 1014;
-            text = "Travel Time:"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_TravelTime);
             x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(3 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -173,7 +174,7 @@ class MEH_TeleportMenu {
         class TravelTime: RscText
         {
             idc = 1015;
-            text = "23 Seconds"; //--- ToDo: Localize;
+            text = CSTRING(TeleportMenu_NA);
             x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(3 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(6 * GUI_GRID_W);
@@ -181,16 +182,24 @@ class MEH_TeleportMenu {
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class ViewOnMap: RscButton
+        class ViewOnMap: RscButtonMenu
         {
             idc = 1016;
-            text = "View On Map"; //--- ToDo: Localize;
-            x = QUOTE(6 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(6 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(5 * GUI_GRID_W);
+            text = CSTRING(TeleportMenu_ViewOnMap);
+            x = QUOTE(2.5 * GUI_GRID_W + GUI_GRID_X);
+            y = QUOTE(5.5 * GUI_GRID_H + GUI_GRID_Y);
+            w = QUOTE(11.5 * GUI_GRID_W);
             h = QUOTE(1 * GUI_GRID_H);
             colorBackground[] = {-1,-1,-1,-1};
+            onButtonClick = "_this call MEH_Teleporter_fnc_teleportMenu_onViewMap";
             style = QUOTE(ST_CENTER);
+
+            class Attributes
+            {
+                font = "RobotoCondensed";
+                align = "center";
+                shadow = "false";
+            };
         };
         class RscButtonMenuOK_2600: RscButtonMenuOK
         {
@@ -199,6 +208,7 @@ class MEH_TeleportMenu {
             w = QUOTE(5 * GUI_GRID_W);
             h = QUOTE(1.5 * GUI_GRID_H);
             colorBackground[] = {0,0,0,1};
+            onButtonClick = "_this call MEH_Teleporter_fnc_teleportMenu_onConfirm";
         };
         class RscButtonMenuCancel_2700: RscButtonMenuCancel
         {

@@ -1,1 +1,1 @@
-#include "\z\meh\addons\main\script_component.hpp"
+#include "\z\meh\addons\teleporter\script_component.hpp"

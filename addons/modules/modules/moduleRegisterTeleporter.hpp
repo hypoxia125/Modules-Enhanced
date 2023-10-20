@@ -4,19 +4,19 @@ class MEH_ModuleRegisterTeleporter: Module_F {
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\move_ca.paa";
     category = "MEH";
 
-    fucntion = QFUNC(ModuleRegisterTeleporter);
-    functionPriority = 2;
+    function = QFUNC(ModuleRegisterTeleporter);
+    functionPriority = 1;
     isGlobal = 1;
     isTriggerActivated = 1;
-    isDisposable = 0;
-    is3DEN = 0;
+    isDisposable = 1;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class Name: Edit {
             property = QGVAR(ModuleRegisterTeleporter_Name);
             displayName = CSTRING(ModuleRegisterTeleporter_Name_DisplayName);
             tooltip = CSTRING(ModuleRegisterTeleporter_Name_DisplayName);
-            defaultValue = "";
+            defaultValue = """""";
             typeName = "STRING";
             verify = "STRING";
         };
@@ -62,5 +62,19 @@ class MEH_ModuleRegisterTeleporter: Module_F {
             defaultValue = -1;
             typeName = "NUMBER";
         };
+
+        class ModuleDescription: ModuleDescription {};
+    };
+
+    class ModuleDescription: ModuleDescription {
+        description[] = {
+            CSTRING(ModuleRegisterTeleporter_ModuleDescription_Description),
+            "",
+            CSTRING(ModuleDescription_TriggerActivated_Optional),
+            CSTRING(ModuleDescription_TriggerActivated_Local),
+            CSTRING(ModuleDescription_Repeatable_False)
+        };
+        position = 0;
+        direction = 0;
     };
 };

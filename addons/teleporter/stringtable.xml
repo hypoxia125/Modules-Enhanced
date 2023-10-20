@@ -7,5 +7,47 @@
         <Key ID="STR_MEH_Teleporter_TeleportedNotification">
             <English>Arrived</English>
         </Key>
+        <Key ID="STR_MEH_Teleporter_OpenTeleportMenu">
+            <English>Open Travel Menu</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_MenuTxt">
+            <English>Modules Enhanced - Travel Menu</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_CurrentGrid">
+            <English>Current Grid:</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_NA">
+            <English>N/A</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_AvailableLocations">
+            <English>Available Locations</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_DestinationInfo">
+            <English>Destination Info</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_Destination">
+            <English>Grid Location:</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_Distance">
+            <English>Travel Distance:</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_TravelTime">
+            <English>Travel Time:</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_ViewOnMap">
+            <English>View On Map</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_Unavailable">
+            <English>Unavailable</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportUnavailable">
+            <English>Teleport Unavailable\nTeleporter Is One Directional</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_Marker_CurrentPos">
+            <English>Current Position</English>
+        </Key>
+        <Key ID="STR_MEH_Teleporter_TeleportMenu_Marker_EndPos">
+            <English>Destination</English>
+        </Key>
     </Package>
 </Project>

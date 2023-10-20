@@ -1,2 +1,12 @@
+PREP(createTeleporterAction);
+PREP(getTeleporterData);
+PREP(getTravelTime);
+PREP(openTeleportMenu);
+PREP(setTeleporterData);
+PREP(teleportMenu_onConfirm);
+PREP(teleportMenu_onLoad);
+PREP(teleportMenu_onViewMap);
+PREP(teleportMenu_updateInfo);
 PREP(teleportPlayer);
-//PREP(openTeleportMenu);
+
+INFO("PREP: Functions loaded successfully");
