@@ -6,7 +6,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
 
     function = QFUNC(ModuleEffectLightpoint);
     functionPriority = 1;
-    isGlobal = 1;
+    isGlobal = 2;
     isTriggerActivated = 1;
     isDisposable = 1;
     is3DEN = 1;
