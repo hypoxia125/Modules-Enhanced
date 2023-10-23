@@ -21,5 +21,5 @@ private _actionID = _object addAction [
     5, false, "", ""
 ];
 
-INFO_1("Teleporter Action Created For: %1", _object);
+INFO_2("(%1) Teleporter Action Created For: %2",QFUNC(createTeleporterAction),_object);
 [QGVAR(TeleportActionCreated), [_object, _actionID]] call CBA_fnc_localEvent;

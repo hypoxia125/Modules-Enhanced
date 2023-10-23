@@ -26,19 +26,20 @@ _side = switch _sideNum do {
 };
 
 // Verify variables
-private _object = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
+private _object = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F" || _x isKindOf "CAManBase")};
 if (count _object > 1 || _travelTime < -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
 _object = _object select 0;
 
+// Register
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
         
-        INFO_1("Registering Teleporter: %1", _object);
+        INFO_2("(%1) Registering Teleporter: %2",QFUNC(moduleRegisterTeleporter),_object);
 
         // Teleporter naming
         if (_name isEqualTo "") then {
-            _name = FORMAT_1("Grid: %2",str mapGridPosition _object);
+            _name = FORMAT_1("Grid: %1",str mapGridPosition _object);
         };
 
         // Merge data with transporterData
@@ -46,9 +47,25 @@ switch _mode do {
             EGVAR(teleporter,teleporterData) = [];
         };
 
+        // Check if name is present in data array, if so change it
+        private _i = 2;
+        while {_name in (EGVAR(teleporter,teleporterData) apply {_x select 0})} do {
+            _name = FORMAT_2("%1 %2",_name,_i);
+            _i = _i + 1;
+        };
+
         EGVAR(teleporter,teleporterData) pushBackUnique [_name, _object, _side, _bidirectional, _travelTime, true];
 
-        INFO_1("Registering Teleporter: %1 - Complete", _object);
+        // Global event handler for vehicle death - owner change compat
+        _object addEventHandler ["Killed", {
+            params ["_unit", "_killer", "_instigator", "_useEffects"];
+            
+            if (local _unit) then {
+                ["object", _unit] call EFUNC(teleporter,deleteTeleportData);
+            };
+        }];
+        
+        INFO_2("(%1) Registering Teleporter Complete: %2",QFUNC(moduleRegisterTeleporter),_object);
         [QGVAR(teleporterRegistered), [_name, _object, _side, _bidirectional, _travelTime, true]] call CBA_fnc_localEvent;
 
         // Execute the teleporter system
@@ -57,7 +74,7 @@ switch _mode do {
 
     case "connectionChanged3DEN": {
         private _synced = get3DENConnections _module apply {_x select 1};
-        private _invalid = _synced select {(_x isKindOf "Module_F")};
+        private _invalid = _synced select {(_x isKindOf "Module_F" || _x isKindOf "CAManBase")};
         if (_invalid isNotEqualTo []) then {
             [typeOf _module] call EFUNC(Error,invalidSync);
 

@@ -11,5 +11,10 @@ _data params ["_name", "_object", "_side", "_bidirectional", "_travelTime", "_ac
 if (!_active) exitWith {
     hint LLSTRING(TeleportUnavailable);
 };
+if (_object isKindOf "AllVehicles") then {
+    if ([_object, ""] call FUNC(findOpenVehiclePosition) <= 0 && {!(player in (_object getVariable [QGVAR(currentTravelers), []]))}) exitWith {
+        hint LLSTRING(NoAvailableVehicleSlots);
+    };
+};
 
-[player, getPosATL _object, _travelTime] call FUNC(teleportPlayer);
+[player, _object, _travelTime] call FUNC(teleportPlayer);

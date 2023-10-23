@@ -1,4 +1,6 @@
 PREP(createTeleporterAction);
+PREP(deleteTeleportData);
+PREP(findOpenVehiclePosition);
 PREP(getTeleporterData);
 PREP(getTravelTime);
 PREP(openTeleportMenu);

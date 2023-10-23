@@ -49,5 +49,8 @@
         <Key ID="STR_MEH_Teleporter_TeleportMenu_Marker_EndPos">
             <English>Destination</English>
         </Key>
+        <Key ID="STR_MEH_Teleporter_NoAvailableVehicleSlots">
+            <English>No Vehicle Slots Available</English>
+        </Key>
     </Package>
 </Project>

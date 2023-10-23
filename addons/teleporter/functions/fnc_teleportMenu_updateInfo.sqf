@@ -18,7 +18,7 @@ if (_travelTime == -1) then {
 };
 
 // Set grid location
-(ctrlParent _control displayCtrl IDC_DESTGRID) ctrlSetText _gridLoc;
+(ctrlParent _control displayCtrl IDC_DESTGRID) ctrlSetText (str _gridLoc);
 // Set grid distance
 (ctrlParent _control displayCtrl IDC_DESTDIST) ctrlSetText (FORMAT_1("%1 meters", round _travelDistance));
 // Set travel time

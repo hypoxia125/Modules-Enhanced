@@ -13,7 +13,7 @@ private _data = GVAR(teleporterData);
 
 // Current Grid
 
-(_display displayCtrl IDC_CURRENTGRID) ctrlSetText (mapGridPosition player);
+(_display displayCtrl IDC_CURRENTGRID) ctrlSetText (str mapGridPosition player);
 
 // Locations List
 _data apply {
@@ -22,8 +22,18 @@ _data apply {
     private _index = (_display displayCtrl IDC_LOCLIST) lbAdd _name;
 
     if (
+        !alive _object ||
         !_active ||
-        {_side isNotEqualTo side group player}
+        side group player isNotEqualTo _side
+    ) then {
+        continue;
+    };
+
+    if (
+        _object isKindOf "AllVehicles" &&
+        {
+            [_object, ""] call FUNC(findOpenVehiclePosition) <= 0 && {!(player in (_object getVariable [QGVAR(currentTravelers), []]))}
+        }
     ) then {
         (_display displayCtrl IDC_LOCLIST) lbSetColor [_index, [0.9,0,0,1]];
     } else {
