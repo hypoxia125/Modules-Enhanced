@@ -25,14 +25,16 @@ _layer cutText [
 
     [QGVAR(hideObjectForTeleport), [_unit, true]] call CBA_fnc_localEvent;
 
-    // Set vehicle to have a traveler
-    private _travelers = _object getVariable [QGVAR(currentTravelers), []];
-    _travelers pushBackUnique player;
-    _object setVariable [QGVAR(currentTravelers), _travelers, true];
+    if (_object isKindOf "AllVehicles") then {
+        // Set vehicle to have a traveler
+        private _travelers = _object getVariable [QGVAR(currentTravelers), []];
+        _travelers pushBackUnique player;
+        _object setVariable [QGVAR(currentTravelers), _travelers, true];
 
-    // Update all open teleport menus
-    if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers <= 0) then {
-        [QGVAR(updatelbColor), [_object, "red"]] call CBA_fnc_globalEvent;
+        // Update all open teleport menus
+        if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers <= 0) then {
+            [QGVAR(updatelbColor), [_object, "red"]] call CBA_fnc_globalEvent;
+        };
     };
 
     [{
@@ -72,14 +74,16 @@ _layer cutText [
             [QGVAR(teleportedUnit), [_unit, _pos]] call CBA_fnc_globalEvent;
         };
 
-        // Remove a traveler
-        private _travelers = _object getVariable [QGVAR(currentTravelers), []];
-        _travelers = _travelers - [player];
-        _object setVariable [QGVAR(currentTravelers), _travelers, true];
+        if (_object isKindOf "AllVehicles") then {
+            // Remove a traveler
+            private _travelers = _object getVariable [QGVAR(currentTravelers), []];
+            _travelers = _travelers - [player];
+            _object setVariable [QGVAR(currentTravelers), _travelers, true];
 
-        // Update all open teleport menus
-        if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers > 0) then {
-            [QGVAR(updatelbColor), [_object, "green"]] call CBA_fnc_globalEvent;
+            // Update all open teleport menus
+            if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers > 0) then {
+                [QGVAR(updatelbColor), [_object, "green"]] call CBA_fnc_globalEvent;
+            };
         };
         
         [QGVAR(hideObjectForTeleport), [_unit, false]] call CBA_fnc_localEvent;

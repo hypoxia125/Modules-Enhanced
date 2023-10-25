@@ -27,7 +27,8 @@ _side = switch _sideNum do {
 
 // Verify variables
 private _object = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F" || _x isKindOf "CAManBase")};
-if (count _object > 1 || _travelTime < -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
+if (count _object > 1) exitWith {[typeOf _module] call EFUNC(Error,invalidSync)};
+if (_travelTime < -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
 _object = _object select 0;
 
 // Register
