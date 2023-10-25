@@ -1,0 +1,1 @@
+![Modules Enhanced Logo](https://github.com/hypoxia125/Modules-Enhanced/blob/main/photoshop/imgModulesEnhanced-1024x512_ca.png)
