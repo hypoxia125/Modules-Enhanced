@@ -30,27 +30,33 @@ _layer cutText [
     _travelers pushBackUnique player;
     _object setVariable [QGVAR(currentTravelers), _travelers, true];
 
+    // Update all open teleport menus
+    if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers <= 0) then {
+        [QGVAR(updatelbColor), [_object, "red"]] call CBA_fnc_globalEvent;
+    };
+
     [{
         params ["_unit", "_object", "_travelTime"];
+
+        private _openCargo = [_object, "cargo"] call FUNC(findOpenVehiclePosition) > 0;
+        private _openCommander = [_object, "commander"] call FUNC(findOpenVehiclePosition) > 0;
+        private _openGunner = [_object, "gunner"] call FUNC(findOpenVehiclePosition) > 0;
+        private _openDriver = [_object, "driver"] call FUNC(findOpenVehiclePosition) > 0;
+        private _openAny = [_object, ""] call FUNC(findOpenVehiclePosition) > 0;
 
         if (vehicle _unit isNotEqualTo _unit) then {
             moveOut _unit;
             _unit setVelocity [0,0,0];
         };
 
-        if (
-            alive _object &&
-            {
-                _object isKindOf "AllVehicles" &&
-                [_object, ""] call FUNC(findOpenVehiclePosition) > 0
-            }
-        ) then {
-            if ([_object, "cargo"] call FUNC(findOpenVehiclePosition) > 0) then {
-                _unit moveInCargo _object;
-            } else {
-                _unit moveInAny _object;
+        if (alive _object && _object isKindOf "AllVehicles" && _openAny) then {            
+            switch true do {
+                case _openCargo: {_unit moveInCargo _object};
+                case _openCommander: {_unit moveInCommander _object};
+                case _openGunner: {_unit moveInGunner _object};
+                case _openDriver: {_unit moveInDriver _object};
+                case _openAny: {_unit moveInAny _object};
             };
-            [QGVAR(teleportedUnit), [_unit, _object]] call CBA_fnc_globalEvent;
         } else {
             private _pos = [
                 getPosATL _object,
@@ -70,6 +76,11 @@ _layer cutText [
         private _travelers = _object getVariable [QGVAR(currentTravelers), []];
         _travelers = _travelers - [player];
         _object setVariable [QGVAR(currentTravelers), _travelers, true];
+
+        // Update all open teleport menus
+        if (([_object, ""] call FUNC(findOpenVehiclePosition)) - count _travelers > 0) then {
+            [QGVAR(updatelbColor), [_object, "green"]] call CBA_fnc_globalEvent;
+        };
         
         [QGVAR(hideObjectForTeleport), [_unit, false]] call CBA_fnc_localEvent;
 
