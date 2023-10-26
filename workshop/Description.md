@@ -1,4 +1,6 @@
-[h1]Current Version - v0.3.0[/h1]
+[img]https://i.imgur.com/NrstAKw.gif[/img]
+
+[h1]Current Version - v0.4.0[/h1]
 
 [h1]Description[/h1]
 
@@ -19,7 +21,7 @@ This is currently the beta version as there are many modules still in developmen
 - CBA's event system instead of remoteExec (which can be blocked by [url=https://community.bistudio.com/wiki/Arma_3:_CfgRemoteExec]CfgRemoteExec[/url]).
 - CBA's system allows for easy hooks into this mod. Other mod makers have an easier time adding their mods on top of mine.
 
-[h2]Have A Module You Want Added?[/h2]
+[h2]Have A Module You Want Added? Want To Help Contribute?[/h2]
 
 Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issues Page[/url] and put in a request. I'm always looking for additional things to add.
 
@@ -42,11 +44,12 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
         [td]Paradrop Vehicle/Crate[/td]
     [/tr]
     [tr]
+        [td]Register Teleporter[/td]
         [td]Speed Limiter[/td]
         [td]Trap Inventory[/td]
-        [td]Vehicle Mine Jammer[/td]
     [/tr]
     [tr]
+        [td]Vehicle Mine Jammer[/td]
         [td]Vehicle Rearm[/td]
         [td]Vehicle Refuel[/td]
     [/tr]

@@ -494,34 +494,34 @@
             <English>Maximum distance in meters that the flare is rendered.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
-            <English>Use Light Cone</English>
+            <English>Use Lightcone</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_Tooltip">
-            <English>Use a light cone to create directional light.</English>
+            <English>Use a lightcone to create directional light.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_DisplayName">
-            <English>Light Cone Color</English>
+            <English>Lightcone Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
-            <English>Color of the light cone itself.\n\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the lightcone itself.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
-            <English>Light Cone Ambient Color</English>
+            <English>Lightcone Ambient Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
-            <English>Color of the ambient light around the light cone.\n\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the ambient light around the lightcone.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
-            <English>Light Cone Intensity</English>
+            <English>Lightcone Intensity</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
-            <English>Overall brightness of the light cone.\n\nNumber &gt; 0</English>
+            <English>Overall brightness of the lightcone.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
-            <English>Light Cone Params</English>
+            <English>Lightcone Params</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
-            <English>Sets the light cone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
+            <English>Sets the lightcone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
             <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
@@ -588,6 +588,45 @@
         </Key>
         <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
             <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_DisplayName">
+            <English>Register Teleporter</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_DisplayName">
+            <English>Name</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_Tooltip">
+            <English>Name of the teleporter that will show in list menu.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_DisplayName">
+            <English>Side</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Tooltip">
+            <English>What side can access this teleporter?</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_East">
+            <English>Opfor</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_West">
+            <English>Blufor</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Resistance">
+            <English>Independent</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Civilian">
+            <English>Civilian</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_DisplayName">
+            <English>Bi-Directional</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_Tooltip">
+            <English>Can the teleporter be traveled through a second time?</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_DisplayName">
+            <English>Travel Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_Tooltip">
+            <English>Time in seconds of how long it takes to reach this destination.\n-1 to calculate based on distance\nNumber &gt;= 0</English>
         </Key>
     </Package>
 </Project>

@@ -83,6 +83,19 @@ allUnits apply {
                 [QGVAR(HideObjectGlobal), [_explosive, true]] call CBA_fnc_serverEvent;
             };
             _explosive setDamage 1;
+            // If in vehicle, kill the unit
+            if (vehicle _object isNotEqualTo _object) then {
+                _explosive attachTo [_object, [0,0,0]];
+                [{
+                    params ["_object", "_explosive"];
+
+                    isNull _explosive;
+                }, {
+                    params ["_object", "_explosive"];
+                    
+                    _object setDamage 1;
+                }, [_object, _explosive], 20, {}] call CBA_fnc_waitUntilAndExecute;
+            };
 
             // Set trap data to inactive
             _trapData set [4, false];

@@ -22,6 +22,7 @@ class CfgPatches {
             "MEH_ModuleEnableDisableGunLights",
             "MEH_ModuleMoveOnCombat",
             "MEH_ModuleParadropVehicle",
+            "MEH_ModuleRegisterTeleporter",
             "MEH_ModuleSpeedLimiter",
             "MEH_ModuleTrapInventory",
             "MEH_ModuleVehicleMineJammer",
