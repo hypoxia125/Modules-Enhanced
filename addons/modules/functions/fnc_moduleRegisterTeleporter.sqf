@@ -50,7 +50,7 @@ switch _mode do {
 
         // Check if name is present in data array, if so change it
         private _i = 2;
-        while {_name in (EGVAR(teleporter,teleporterData) apply {_x select 0})} do {
+        while {toLowerANSI _name in (EGVAR(teleporter,teleporterData) apply {toLowerANSI (_x select 0)})} do {
             _name = FORMAT_2("%1 %2",_name,_i);
             _i = _i + 1;
         };
