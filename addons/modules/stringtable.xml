@@ -494,34 +494,34 @@
             <English>Maximum distance in meters that the flare is rendered.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
-            <English>Use Light Cone</English>
+            <English>Use Lightcone</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_Tooltip">
-            <English>Use a light cone to create directional light.</English>
+            <English>Use a lightcone to create directional light.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_DisplayName">
-            <English>Light Cone Color</English>
+            <English>Lightcone Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
-            <English>Color of the light cone itself.\n\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the lightcone itself.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
-            <English>Light Cone Ambient Color</English>
+            <English>Lightcone Ambient Color</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
-            <English>Color of the ambient light around the light cone.\n\nArray [R,G,B] - Values: 0-1</English>
+            <English>Color of the ambient light around the lightcone.\n\nArray [R,G,B] - Values: 0-1</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
-            <English>Light Cone Intensity</English>
+            <English>Lightcone Intensity</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
-            <English>Overall brightness of the light cone.\n\nNumber &gt; 0</English>
+            <English>Overall brightness of the lightcone.\n\nNumber &gt; 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
-            <English>Light Cone Params</English>
+            <English>Lightcone Params</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
-            <English>Sets the light cone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
+            <English>Sets the lightcone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
             <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
