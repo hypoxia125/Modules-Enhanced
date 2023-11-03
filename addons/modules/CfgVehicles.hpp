@@ -40,6 +40,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleEffectLightpoint.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectSmoke.hpp"
     #include "\z\meh\addons\modules\modules\moduleEnableDisableGunLights.hpp"
+    #include "\z\meh\addons\modules\modules\moduleLightningStorm.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
     #include "\z\meh\addons\modules\modules\moduleParadropVehicle.hpp"
     #include "\z\meh\addons\modules\modules\moduleRegisterTeleporter.hpp"
