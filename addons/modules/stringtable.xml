@@ -628,5 +628,29 @@
         <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_Tooltip">
             <English>Time in seconds of how long it takes to reach this destination.\n-1 to calculate based on distance\nNumber &gt;= 0</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_DisplayName">
+            <English>Lightning Storm</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_DisplayName">
+            <English>Time Between Strikes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_Tooltip">
+            <English>Time (seconds) between each strike of lightning.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_DisplayName">
+            <English>Strike Randomness</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_Tooltip">
+            <English>Time (seconds) to add to "Time Between Shots". Randomly between input 0 and input value.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_DisplayName">
+            <English>Damage Area</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_Tooltip">
+            <English>Area around each strike to vaporize objects.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_ModuleDescription_Description">
+            <English>Module that creates a lightning storm in the designated area.</English>
+        </Key>
     </Package>
 </Project>

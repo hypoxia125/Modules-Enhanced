@@ -10,7 +10,8 @@ class CfgPatches {
             "A3_Functions_F",
             "cba_main",
             "meh_main",
-            "meh_common"
+            "meh_common",
+            "meh_effects"
         };
         units[] = {
             "MEH_ModuleAmbientArtillery",
@@ -20,6 +21,7 @@ class CfgPatches {
             "MEH_ModuleEffectLightpoint.hpp",
             "MEH_ModuleEffectSmoke",
             "MEH_ModuleEnableDisableGunLights",
+            "MEH_ModuleLightningStorm",
             "MEH_ModuleMoveOnCombat",
             "MEH_ModuleParadropVehicle",
             "MEH_ModuleRegisterTeleporter",
