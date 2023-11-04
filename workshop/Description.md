@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.4.0[/h1]
+[h1]Current Version - v0.5.0[/h1]
 
 Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
@@ -42,19 +42,22 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
     [/tr]
     [tr]
         [td]Effect - Smoke[/td]
+        [td]Lightning Storm[/td]
         [td]Move On Combat[/td]
-        [td]Paradrop Vehicle/Crate[/td]
     [/tr]
     [tr]
+        [td]Paradrop Vehicle/Crate[/td]
         [td]Register Teleporter[/td]
         [td]Speed Limiter[/td]
-        [td]Trap Inventory[/td]
     [/tr]
     [tr]
+        [td]Trap Inventory[/td]
         [td]Vehicle Mine Jammer[/td]
         [td]Vehicle Rearm[/td]
-        [td]Vehicle Refuel[/td]
     [/tr]
+    [tr]
+        [td]Vehicle Refuel[/td]
+    [/td]
 [/table]
 
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
