@@ -57,7 +57,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
     [/tr]
     [tr]
         [td]Vehicle Refuel[/td]
-    [/td]
+    [/tr]
 [/table]
 
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
