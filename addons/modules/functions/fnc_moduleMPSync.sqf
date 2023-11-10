@@ -15,7 +15,7 @@ if (_mode isEqualTo "dragged3DEN") exitWith {};
 
 // Variables
 private _minPlayers = _module getVariable ["MinPlayers", 1];
-private _timeout = _module getVariable ["Timeout", 60];
+private _timeout = _module getVariable ["Timeout", 30];
 
 switch _mode do {
     case "init": {

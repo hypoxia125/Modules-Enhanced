@@ -26,7 +26,7 @@ class MEH_ModuleMPSync: MEH_ModuleBase {
 			property = QGVAR(ModuleMPSync_Timeout);
 			displayName = CSTRING(ModuleMPSync_Timeout_DisplayName);
 			tooltip = CSTRING(ModuleMPSync_Timeout_Tooltip);
-            defaultValue = 60;
+            defaultValue = 30;
 			typeName = "NUMBER";
 			validate = "NUMBER";
 		};

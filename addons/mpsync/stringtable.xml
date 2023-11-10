@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Modules Enhanced">
     <Package name="mpsync">
+        <Key ID="MEH_MPSync_Client_SyncComplete">
+            <English>Synchronization Complete\nEnjoy!</English>
+        </Key>
+        <Key ID="MEH_MPSync_Client_WaitingForPlayers">
+            <English>Waiting for players or timeout...</English>
+        </Key>
     </Package>
 </Project>

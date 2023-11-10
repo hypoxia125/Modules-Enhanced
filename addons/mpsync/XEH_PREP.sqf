@@ -1,4 +1,4 @@
-PREP(createBlankScreen);
+PREP(blankScreen);
 PREP(getRespawnConfig);
 PREP(init);
 PREP(initClient);

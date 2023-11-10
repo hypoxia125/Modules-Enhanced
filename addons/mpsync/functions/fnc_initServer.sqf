@@ -1,9 +1,6 @@
 #include "script_component.hpp"
 
-params [
-    ["_minPlayers", 1, [-1]],
-    ["_timeOut", 60, [-1]]
-];
+params ["_minPlayers","_timeout"];
 
 [{
     params ["_minPlayers", "_timeout"];

@@ -2,7 +2,7 @@
 
 params [
     ["_minPlayers", 1, [-1]],
-    ["_timeout", 60, [-1]]
+    ["_timeout", 30, [-1]]
 ];
 
 if (!isMultiplayer) exitWith {};

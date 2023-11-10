@@ -1,12 +1,9 @@
 #include "script_component.hpp"
 
-params [
-    ["_minPlayers", 1, [-1]],
-    ["_timeout", 60, [-1]]
-];
+params ["_minPlayers","_timeout"];
 
 // Initialize blanks screen
-[1, LLSTRING(client_waitingForPlayers)] call FUNC(createBlankScreen);
+[1, LLSTRING(client_waitingForPlayers)] call FUNC(blankScreen);
 
 // Mute client
 [true] call FUNC(muteClient);
@@ -59,14 +56,14 @@ _respawnCfg params ["_respawnOnStart", "_templates"];
     missionNamespace getVariable [QGVAR(syncComplete), false];
 }, {
     // Wake up player
-    [0, LLSTRING(client_syncComplete)] call FUNC(createBlankScreen);
+    [0, LLSTRING(client_syncComplete)] call FUNC(blankScreen);
     [false] call FUNC(muteClient);
     // Allow shooting
     [player, "enable"] call FUNC(playerLMB);
     player enableSimulation true;
 }, [], _timeOut, {
     // Wake up player
-    [0, LLSTRING(client_syncComplete)] call FUNC(createBlankScreen);
+    [0, LLSTRING(client_syncComplete)] call FUNC(blankScreen);
     [false] call FUNC(muteClient);
     // Allow shooting
     [player, "enable"] call FUNC(playerLMB);

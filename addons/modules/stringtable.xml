@@ -652,5 +652,23 @@
         <Key ID="STR_MEH_Modules_ModuleLightningStorm_ModuleDescription_Description">
             <English>Module that creates a lightning storm in the designated area.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_DisplayName">
+            <English>Multiplayer Sync</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_DisplayName">
+            <English>Minimum Players</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_Tooltip">
+            <English>Minimum players to start the game.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_DisplayName">
+            <English>Timeout</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_Tooltip">
+            <English>Max time (s) to wait before starting mission.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_ModuleDescription_Description">
+            <English>The Multiplayer Sync module disables players until the required player count is loaded and spawned. This is so any scripted elements can be experienced by all players, no matter their load times.</English>
+        </Key>
     </Package>
 </Project>
