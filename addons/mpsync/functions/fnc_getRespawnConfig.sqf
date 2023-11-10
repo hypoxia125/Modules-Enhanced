@@ -8,3 +8,6 @@ private _templates = getArray (missionConfigFile >> "respawnTemplates");
 if (isClass (missionConfigFile >> FORMAT_1("respawnTemplates%1", _side))) then {
     _templates = getArray (missionConfigFile >> FORMAT_1("respawnTemplates%1", _side));
 };
+
+// Return
+[_respawnOnStart, _templates];
