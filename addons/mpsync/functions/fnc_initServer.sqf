@@ -5,27 +5,19 @@ params [
     ["_timeOut", 60, [-1]]
 ];
 
-{{
+[{
     params ["_minPlayers", "_timeout"];
 
-    private _players = (allUnits + allDead) select {isPlayer _x}
-    // Wait for a player to join
-    count _players > 0 &&
+    private _players = (allUnits + allDead) select {isPlayer _x};
+    private _playersNotEmpty = count _players > 0;
+    private _aPlayerHasSpawned = _players findIf {_x getVariable [QGVAR(playerSpawned), false]} != -1;
+    private _enoughPlayersSpawned = ({ (_x getVariable [QGVAR(playerSpawned), false]) } count _players >= _minPlayers);
 
-    // Wait for a player to spawn
-    {
-        _players findIf {
-            _x getVariable [QGVAR(playerSpawned), false]
-        } != -1 &&
-
-        // Wait for enough players to spawn
-        {
-            { !(_x getVariable [QGVAR(playerSpawned), false]) } count _players >= _minPlayers;
-        }
-    }
+    _playersNotEmpty && { _aPlayerHasSpawned && { _enoughPlayersSpawned}};
+    
 }, {
     missionNamespace setVariable [QGVAR(syncComplete), true, true];
 }, [_minPlayers, _timeout], _timeOut, {
     // Timeout
     missionNamespace setVariable [QGVAR(syncComplete), true, true];
-}} call CBA_fnc_waitUntilAndExecute;
+}] call CBA_fnc_waitUntilAndExecute;

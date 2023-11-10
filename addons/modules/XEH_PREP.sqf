@@ -7,6 +7,7 @@ PREP(moduleEffectSmoke);
 PREP(moduleEnableDisableGunLights);
 PREP(moduleLightningStorm);
 PREP(moduleMoveOnCombat);
+PREP(moduleMPSync);
 PREP(moduleParadropVehicle);
 PREP(moduleRegisterTeleporter);
 PREP(moduleSpeedLimiter);
