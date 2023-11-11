@@ -1,9 +1,9 @@
 #include "script_component.hpp"
 
-params ["_minPlayers","_timeout"];
+params ["_minPlayers","_timeout", "_variableToPass"];
 
 [{
-    params ["_minPlayers", "_timeout"];
+    params ["_minPlayers", "_timeout", "_variableToPass"];
 
     private _players = (allUnits + allDead) select {isPlayer _x};
     private _playersNotEmpty = count _players > 0;
@@ -13,8 +13,11 @@ params ["_minPlayers","_timeout"];
     _playersNotEmpty && { _aPlayerHasSpawned && { _enoughPlayersSpawned}};
     
 }, {
-    missionNamespace setVariable [QGVAR(syncComplete), true, true];
-}, [_minPlayers, _timeout], _timeOut, {
+    params ["_minPlayers", "_timeout", "_variableToPass"];
+
+    missionNamespace setVariable [_variableToPass, true, true];
+}, [_minPlayers, _timeout, _variableToPass], _timeOut, {
+    params ["_minPlayers", "_timeout", "_variableToPass"];
     // Timeout
-    missionNamespace setVariable [QGVAR(syncComplete), true, true];
+    missionNamespace setVariable [_variableToPass, true, true];
 }] call CBA_fnc_waitUntilAndExecute;

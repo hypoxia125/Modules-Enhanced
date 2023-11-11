@@ -16,12 +16,13 @@ if (_mode isEqualTo "dragged3DEN") exitWith {};
 // Variables
 private _minPlayers = _module getVariable ["MinPlayers", 1];
 private _timeout = _module getVariable ["Timeout", 30];
+private _variableToPass = _module getVariable ["VariableToPass", QEGVAR(MPSync,syncComplete)];
 
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
-        [_minPlayers, _timeout] call EFUNC(MPSync,init);
+        [_minPlayers, _timeout, _variableToPass] call EFUNC(MPSync,init);
     };
 
     case "connectionChanged3DEN": {

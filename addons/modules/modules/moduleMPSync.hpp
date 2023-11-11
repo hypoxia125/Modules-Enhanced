@@ -1,7 +1,7 @@
 class MEH_ModuleMPSync: MEH_ModuleBase {
 	scope = 2;
 	displayName = CSTRING(ModuleMPSync_DisplayName);
-	icon = "";
+	icon = "\a3\Modules_f\data\iconRespawn_ca.paa";
 	category = "MEH";
 
 	function = QFUNC(ModuleMPSync);
@@ -30,6 +30,15 @@ class MEH_ModuleMPSync: MEH_ModuleBase {
 			typeName = "NUMBER";
 			validate = "NUMBER";
 		};
+
+        class VariableToPass: Edit {
+            property = QGVAR(ModuleMPSync_VariableToPass);
+            displayName = CSTRING(ModuleMPSync_VariableToPass_DisplayName);
+            tooltip = CSTRING(ModuleMPSync_VariableToPass_Tooltip);
+            defaultValue = """MEH_MPSync_SyncComplete""";
+            typeName = "STRING";
+            validate = "STRING";
+        };
 
 		class ModuleDescription: ModuleDescription{};
 	};

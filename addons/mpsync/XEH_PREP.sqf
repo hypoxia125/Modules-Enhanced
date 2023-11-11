@@ -1,4 +1,5 @@
 PREP(blankScreen);
+PREP(clientConditionals);
 PREP(getRespawnConfig);
 PREP(init);
 PREP(initClient);

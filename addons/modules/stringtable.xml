@@ -670,5 +670,11 @@
         <Key ID="STR_MEH_Modules_ModuleMPSync_ModuleDescription_Description">
             <English>The Multiplayer Sync module disables players until the required player count is loaded and spawned. This is so any scripted elements can be experienced by all players, no matter their load times.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_DisplayName">
+            <English>Variable To Set</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_Tooltip">
+            <English>The variable to set TRUE when sync is complete. Use this variable to start your mission scripts.\n\nExample:\n\nwaitUntil { myVariable }</English>
+        </Key>
     </Package>
 </Project>
