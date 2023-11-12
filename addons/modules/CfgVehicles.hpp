@@ -42,6 +42,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleEnableDisableGunLights.hpp"
     #include "\z\meh\addons\modules\modules\moduleLightningStorm.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
+    #include "\z\meh\addons\modules\modules\moduleMPSync.hpp"
     #include "\z\meh\addons\modules\modules\moduleParadropVehicle.hpp"
     #include "\z\meh\addons\modules\modules\moduleRegisterTeleporter.hpp"
     #include "\z\meh\addons\modules\modules\moduleSpeedLimiter.hpp"
