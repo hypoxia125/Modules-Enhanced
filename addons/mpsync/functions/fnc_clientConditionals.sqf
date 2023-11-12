@@ -1,3 +1,11 @@
+/*
+    fnc_clientConditionals.sqf
+
+    Author: Hypoxic
+
+    This is a recursive function that checks conditions in order until the end result is made. Used because of how respawn templates work.
+*/
+
 #include "script_component.hpp"
 
 params [
