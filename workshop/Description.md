@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.5.0[/h1]
+[h1]Current Version - v0.6.0[/h1]
 
 Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
@@ -46,16 +46,17 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
         [td]Move On Combat[/td]
     [/tr]
     [tr]
+        [td]Multiplayer Sync[/td]
         [td]Paradrop Vehicle/Crate[/td]
         [td]Register Teleporter[/td]
-        [td]Speed Limiter[/td]
     [/tr]
     [tr]
+        [td]Speed Limiter[/td]
         [td]Trap Inventory[/td]
         [td]Vehicle Mine Jammer[/td]
-        [td]Vehicle Rearm[/td]
     [/tr]
     [tr]
+        [td]Vehicle Rearm[/td]
         [td]Vehicle Refuel[/td]
     [/tr]
 [/table]
