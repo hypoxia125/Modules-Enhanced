@@ -676,5 +676,8 @@
         <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_Tooltip">
             <English>The variable to set TRUE when sync is complete. Use this variable to start your mission scripts.\n\nExample:\n\nwaitUntil { myVariable }</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_ModuleDescription_Description">
+            <English>Registers the synchronized object to the teleporter pool. Activates the teleporter system if it has not been activated yet. Synchronized objects can be static, or vehicle.</English>
+        </Key>
     </Package>
 </Project>
