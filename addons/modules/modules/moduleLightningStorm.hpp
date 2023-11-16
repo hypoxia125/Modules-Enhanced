@@ -45,6 +45,8 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             typeName = "NUMBER";
             validate = "NUMBER";
         };
+
+        class ModuleDescription: ModuleDescription {};
     };
 
     class ModuleDescription: ModuleDescription {

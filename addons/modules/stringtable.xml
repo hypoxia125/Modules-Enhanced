@@ -89,10 +89,10 @@
             <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_ModuleDescription_Description">
-            <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.\n0 to disable.</English>
+            <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
-            <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.\n0 to disable.</English>
+            <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_DisplayName">
             <English>Vehicle Mine Jammer</English>
@@ -675,6 +675,9 @@
         </Key>
         <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_Tooltip">
             <English>The variable to set TRUE when sync is complete. Use this variable to start your mission scripts.\n\nExample:\n\nwaitUntil { myVariable }</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_ModuleDescription_Description">
+            <English>Registers the synchronized object to the teleporter pool. Activates the teleporter system if it has not been activated yet. Synchronized objects can be static, or vehicle.</English>
         </Key>
     </Package>
 </Project>
