@@ -35,6 +35,23 @@ _object = _object select 0;
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
+
+        // Register if no synced object
+        if (isNil "_object") then {
+            // Create object
+            private _flagClass = switch _side do {
+                case east: {"Flag_Red_F"};
+                case west: {"Flag_Blue_F"};
+                case independent: {"Flag_Green_F"};
+                default {"Flag_White_F"};
+            };
+            private _pos = getPosATL _module; _pos set [2, 0];
+            private _flag = createVehicle [_flagClass, _pos, [], 0, "NONE"];
+
+            _object = _flag;
+
+            INFO_2("(%1) No object synced, creating dummy flag for use: %2",QFUNC(moduleRegisterTeleporter),_object);
+        };
         
         INFO_2("(%1) Registering Teleporter: %2",QFUNC(moduleRegisterTeleporter),_object);
 
