@@ -1,7 +1,7 @@
-#include "RscClasses.hpp"
-#include "Grid.hpp"
-#include "ControlStyles.hpp"
-#include "ControlTypes.hpp"
+#include "\z\meh\addons\common\ui\RscClasses.hpp"
+#include "\z\meh\addons\common\ui\Grid.hpp"
+#include "\z\meh\addons\common\ui\ControlStyles.hpp"
+#include "\z\meh\addons\common\ui\ControlTypes.hpp"
 
 class MEH_TeleportMenu {
 
