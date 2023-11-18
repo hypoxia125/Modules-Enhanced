@@ -3,12 +3,6 @@ author = "Hypoxic"
 prefix = "meh"
 mainprefix = "z"
 
-[version]
-major = 0
-minor = 6
-patch = 1
-git_hash = 0
-
 [lint.sqf]
 enabled = true
 exclude = []
