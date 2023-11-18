@@ -16,7 +16,8 @@ private _actionID = _object addAction [
     nil, 1e6, true, true, "",
     toString {
         private _data = ["object", _target] call FUNC(getTeleporterData);
-        _data param [3, false];
+        side group _this == (_data param [2, sideUnknown]) &&
+        {_data param [3, false]}
     },
     5, false, "", ""
 ];

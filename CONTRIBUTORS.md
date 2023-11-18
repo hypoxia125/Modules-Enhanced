@@ -7,3 +7,7 @@ request, please include an email address.
 
 ## CORE TEAM
 Hypoxic (Hypoxia125) <martini_a@outlook.com>
+
+
+## Contributors
+R3vo (R3voA3)

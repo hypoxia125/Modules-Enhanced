@@ -19,8 +19,6 @@ private _data = GVAR(teleporterData);
 _data apply {
     _x params ["_name", "_object", "_side", "_bidirectional", "_travelTime", "_active"];
 
-    private _index = (_display displayCtrl IDC_LOCLIST) lbAdd _name;
-
     if (
         !alive _object ||
         !_active ||
@@ -28,6 +26,8 @@ _data apply {
     ) then {
         continue;
     };
+    
+    private _index = (_display displayCtrl IDC_LOCLIST) lbAdd _name;
 
     if (
         _object isKindOf "AllVehicles" &&
