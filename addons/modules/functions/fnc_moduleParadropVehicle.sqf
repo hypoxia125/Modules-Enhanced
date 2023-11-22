@@ -1,18 +1,3 @@
-/*
-    Author: Hypoxic
-    Module that initiates the paradrop vehicle system for given arguments from module.
-    
-    Arguments:
-    0: Module - OBJECT
-    1: Unused
-    2: Activated - BOOL
-
-    ReturnValue:
-    NONE
-
-    Public: No
-*/
-
 #include "script_component.hpp"
 
 params [

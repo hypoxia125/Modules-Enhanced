@@ -1,18 +1,3 @@
-/*
-    Author: Hypoxic
-    Module that initiates the vehicle refuel system for synchronized units.
-    
-    Arguments:
-    0: Module - OBJECT
-    1: Vehicles - ARRAY or OBJECT
-    2: Activated - BOOL
-
-    ReturnValue:
-    NONE
-
-    Public: No
-*/
-
 #include "script_component.hpp"
 
 params [

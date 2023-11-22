@@ -1,18 +1,3 @@
-/*
-    Author: Hypoxic
-    Module that initiates the enable/disable gun lights function on given synchronized units.
-
-    Arguments:
-    0: Module - OBJECT
-    1: Units - ARRAY or OBJECT
-    2: Activated - BOOL
-
-    ReturnValue:
-    NONE
-
-    Public: No
-*/
-
 #include "script_component.hpp"
 
 params [
