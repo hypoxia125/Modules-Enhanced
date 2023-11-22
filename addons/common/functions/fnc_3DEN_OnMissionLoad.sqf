@@ -3,8 +3,6 @@
 // Check mission version
 private _missionVersion = "Scenario" get3DENMissionAttribute QGVAR(MissionVersion);
 
-systemChat str [_missionVersion, CURRENT_VERSION];
-
 if (_missionVersion isEqualTo "") exitWith {
     INFO("No mission version found: creating on next save...");
 };
