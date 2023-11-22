@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 params ["_unit"];
 
 private _handle = _unit addEventHandler ["InventoryOpened", {

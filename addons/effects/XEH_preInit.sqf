@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-#include "XEH_PREP.sqf"
+#include "XEH_PREP.hpp"
 
 [QGVAR(lightningStrike_Local), {
     params ["_pos", "_dir", "_class"];
