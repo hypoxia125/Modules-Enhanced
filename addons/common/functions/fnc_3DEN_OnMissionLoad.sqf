@@ -10,4 +10,4 @@ if (_missionVersion isEqualTo CURRENT_VERSION) exitWith {
     INFO("Mission version and current version match");
 };
 
-systemChat FORMAT_2(LELSTRING(Error,MismatchedVersions),_missionVersion,CURRENT_VERSION);
+[FORMAT_2(LELSTRING(Error,MismatchedVersions),_missionVersion,CURRENT_VERSION), 1, 15, true] call BIS_fnc_3DENNotification;
