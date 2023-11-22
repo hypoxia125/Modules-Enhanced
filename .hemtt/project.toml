@@ -3,6 +3,9 @@ author = "Hypoxic"
 prefix = "meh"
 mainprefix = "z"
 
+[version]
+git_hash = 0
+
 [lint.sqf]
 enabled = true
 exclude = []
