@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Modules Enhanced">
     <Package name="common">
+        <Key ID="STR_MEH_Common_About">
+            <English>Modules Enhanced</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_Changelog">
+            <English>Changelog | Releases</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_Steam">
+            <English>Steam Workshop</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_Contributing">
+            <English>Contribute</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_Documentation">
+            <English>Documentation</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_Credits">
+            <English>Credits</English>
+        </Key>
+        <Key ID="STR_MEH_Common_About_BugReport">
+            <English>Report Issue</English>
+        </Key>
     </Package>
 </Project>

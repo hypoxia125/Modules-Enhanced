@@ -86,3 +86,4 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
         };
     };
 };
+

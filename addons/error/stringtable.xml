@@ -19,5 +19,8 @@
         <Key ID="STR_MEH_Error_RequiresSync_Short">
             <English>%1 | Module Requires Synced Objects</English>
         </Key>
+        <Key ID="STR_MEH_Error_MismatchedVersions">
+            <English>Modules Enhanced&lt;br/&gt;Your mission has saved modules from an older version: %1. Upon saving, version will be updated to: %2.&lt;br/&gt;Make sure to check modules for changes!</English>
+        </Key>
     </Package>
 </Project>

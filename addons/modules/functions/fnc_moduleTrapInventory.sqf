@@ -1,18 +1,3 @@
-/*
-    Author: Hypoxic
-    Module that traps an inventory. Chance to explode on next opening.
-    
-    Arguments:
-    0: Module - OBJECT
-    1: Objects - ARRAY or OBJECT
-    2: Activated - BOOL
-
-    ReturnValue:
-    NONE
-
-    Public: No
-*/
-
 #include "script_component.hpp"
 
 params [

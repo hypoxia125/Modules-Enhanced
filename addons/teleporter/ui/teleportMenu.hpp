@@ -1,7 +1,7 @@
-#include "RscClasses.hpp"
-#include "Grid.hpp"
-#include "ControlStyles.hpp"
-#include "ControlTypes.hpp"
+#include "\z\meh\addons\common\ui\RscClasses.hpp"
+#include "\z\meh\addons\common\ui\Grid.hpp"
+#include "\z\meh\addons\common\ui\ControlStyles.hpp"
+#include "\z\meh\addons\common\ui\ControlTypes.hpp"
 
 class MEH_TeleportMenu {
 
@@ -97,7 +97,7 @@ class MEH_TeleportMenu {
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};ackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class AvailLocListbox: RscListbox
+        class AvailLocListbox: RscListBox
         {
             idc = 1500;
             x = QUOTE(-15 * GUI_GRID_W + GUI_GRID_X);
