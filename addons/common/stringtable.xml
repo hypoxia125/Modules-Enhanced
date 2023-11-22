@@ -2,7 +2,7 @@
 <Project name="Modules Enhanced">
     <Package name="common">
         <Key ID="STR_MEH_Common_About">
-            <English>About Modules Enhanced</English>
+            <English>Modules Enhanced</English>
         </Key>
         <Key ID="STR_MEH_Common_About_Changelog">
             <English>Changelog | Releases</English>
