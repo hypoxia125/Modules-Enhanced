@@ -12,10 +12,9 @@ if (isNil {player getVariable QGVAR(mapIconAlphas)}) then {
 private _display = findDisplay IDD_MAIN_MAP;
 private _mapCtrl = _display displayCtrl IDC_MAP;
 
-private _ctrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
+private _mapCtrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
 
     params ["_mapCtrl"];
-    TRACE_1("Map Control",_mapCtrl);
 
     // UI Stuff
     private _mapCenter = _mapCtrl ctrlMapScreenToWorld [0.5, 0.5];
@@ -24,8 +23,6 @@ private _ctrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
     if (_alphas isEqualTo []) exitWith {};
     _alpha = selectMax _alphas;
 
-    TRACE_3("UI Vars",_mapCenter,_screenSize,_alpha);
-
     // Texture + Icon
     private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
     _mapCtrl drawIcon [_texture, [1,1,1,_alpha], _mapCenter, _screenSize, _screenSize, 0, "", 0];
@@ -33,17 +30,36 @@ private _ctrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
 
 /* ----- GPS Icon ----- */
 private _display = uiNamespace getVariable ["RscCustomInfoMiniMap", displayNull];
+private _miniMapControlGroup = _display displayCtrl 13301;
+private _gpsCtrl = _miniMapControlGroup controlsGroupCtrl 101;
+
+private _gpsCtrlHandler = _gpsCtrl ctrlAddEventHandler ["Draw", {
+
+    params ["_ctrl"];
+
+    // UI stuff
+    private _center = _ctrl ctrlMapScreenToWorld (ctrlPosition _ctrl select [0,2]);
+    private _size = 512;
+    private _alphas = (player getVariable [QGVAR(mapIconAlphas), []]) apply {_x select 1};
+    if (_alphas isEqualTo []) exitWith {};
+    _alpha = selectMax _alphas;
+
+    // Texture + Icon
+    private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
+    _ctrl drawIcon [_texture, [1,1,1,_alpha], _center, _size, _size, 0, "", 0];
+}];
 
 /* ----- Calculate Alpha ------ */
 [{
     params ["_args", "_handle"];
-    _args params ["_module", "_object", "_area", "_mapCtrl", "_ctrlHandler"];
+    _args params ["_module", "_object", "_area", "_mapCtrl", "_mapCtrlHandler", "_gpsCtrl", "_gpsCtrlHandler"];
 
     // Early exits + destruction of handlers
     if (!alive _module || !alive _object) exitWith {
         INFO_1("%1 | Module or Object Deleted - Destroying Handlers",QFUNC(initCommJammer));
         _handle call CBA_fnc_removePerFrameHandler;
         _mapCtrl ctrlRemoveEventHandler ["Draw", _ctrlHandler];
+        _gpsCtrl ctrlRemoveEventHandler ["Draw", _gpsCtrlHandler];
 
         private _data = player getVariable [QGVAR(mapIconAlphas), []];
         private _index = _data findIf {_object isEqualTo (_x select 0)};
@@ -78,4 +94,4 @@ private _display = uiNamespace getVariable ["RscCustomInfoMiniMap", displayNull]
     };
     player setVariable [QGVAR(mapIconAlphas), _data];
 
-}, 0, [_module, _object, _area, _mapCtrl, _ctrlHandler]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_module, _object, _area, _mapCtrl, _mapCtrlHandler, _gpsCtrl, _gpsCtrlHandler]] call CBA_fnc_addPerFrameHandler;
