@@ -1,7 +1,7 @@
 class MEH_ModuleCommunicationJammer: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleCommunicationJammer_DisplayName);
-    icon = "";
+    icon = "a3\ui_f\data\gui\rsc\rscdisplayarsenal\radio_ca.paa";
     category = "MEH";
 
     function = QFUNC(ModuleCommunicationJammer);
