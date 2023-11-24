@@ -71,7 +71,7 @@ switch _mode do {
 
         // Triggers
         private _syncedTriggers = _synced select {_x isKindOf "EmptyDetector"};
-        if (count _syncedTriggers > 1) then {
+        if (count _syncedTriggers > 0) then {
             [typeOf _module] call EFUNC(Error,invalidSync);
             remove3DENConnection ["Sync", [_syncedTriggers select (count _syncedTriggers - 1)], _module];
         };
