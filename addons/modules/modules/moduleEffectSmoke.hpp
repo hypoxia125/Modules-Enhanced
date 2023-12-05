@@ -12,6 +12,44 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
     is3DEN = 1;
 
     class Attributes: AttributesBase {
+        class Class: Combo {
+            property = QGVAR(ModuleEffectSmoke_Class);
+            displayName = CSTRING(ModuleEffectSmoke_Class_DisplayName);
+            tooltip = CSTRING(ModuleEffectSmoke_Class_Tooltip);
+            defaultValue = 0;
+            typeName = "NUMBER";
+            class Values {
+                class Default {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_Default_DisplayName);
+                    value = 0;
+                };
+                class OilSmall {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_OilSmall_DisplayName);
+                    value = 1;
+                };
+                class OilMed {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_OilMed_DisplayName);
+                    value = 2;
+                };
+                class OilLrg {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_OilLrg_DisplayName);
+                    value = 3;
+                };
+                class WoodSmall {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_WoodSmall_DisplayName);
+                    value = 4;
+                };
+                class WoodMed {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_WoodMed_DisplayName);
+                    value = 5;
+                };
+                class WoodLrg {
+                    name = CSTRING(ModulesEffectSmoke_Class_Values_WoodLrg_DisplayName);
+                    value = 6;
+                };
+            };
+        };
+
         class ColorRed: Edit {
             property = QGVAR(ModuleEffectSmoke_ColorRed);
             displayName = CSTRING(ModuleEffectSmoke_ColorRed_DisplayName);
