@@ -685,5 +685,32 @@
         <Key ID="STR_MEH_Modules_ModuleCommunicationJammer_ModuleDescription_Description">
             <English>The communication jammer module creates a jamming field around an object/area. As the player gets closer to the center of the field, map/GPS will begin to be unreadable and comms will be scrambled.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_DisplayName">
+            <English>Smoke Class</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_Tooltip">
+            <English>Preset smoke class to modify</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_Default_DisplayName">
+            <English>Default</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilSmall_DisplayName">
+            <English>Oil - Small</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilMed_DisplayName">
+            <English>Oil - Medium</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilLrg_DisplayName">
+            <English>Oil - Large</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodSmall_DisplayName">
+            <English>Wood - Small</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodMed_DisplayName">
+            <English>Wood - Medium</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodLrg_DisplayName">
+            <English>Wood - Large</English>
+        </Key>
     </Package>
 </Project>
