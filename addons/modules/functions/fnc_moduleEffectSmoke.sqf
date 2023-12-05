@@ -15,6 +15,7 @@ if (_mode isEqualTo "dragged3DEN") exitWith {};
 
 // Variables
 private _pos = ASLToAGL (getPosASL _module);
+private _class = _module getVariable [QUOTE(Class), 0];
 private _colorRed = _module getVariable [QUOTE(ColorRed), 0.5];
 private _colorGreen = _module getVariable [QUOTE(ColorGreen), 0.5];
 private _colorBlue = _module getVariable [QUOTE(ColorBlue), 0.5];
@@ -39,7 +40,7 @@ if (_colorAlpha > 1) then {_colorAlpha = 1};
 if (_colorAlpha < 0) then {_colorAlpha = 0};
 if ([_effectSize, _particleDensity, _particleTime, _particleSize, _effectExpansion, _particleSpeed, _particleLifting, _windEffect] findIf {_x < 0} != -1) then {[typeOf _module] call EFUNC(Error,invalidArgs)};
 
-private _args = [_module, _pos, _colorRed, _colorBlue, _colorAlpha, _effectSize, _particleDensity, _particleTime, _particleSize, _effectExpansion, _particleSpeed, _particleLifting, _windEffect];
+private _args = [_module, _pos, _colorRed, _colorBlue, _colorAlpha, _effectSize, _particleDensity, _particleTime, _particleSize, _effectExpansion, _particleSpeed, _particleLifting, _windEffect, _class];
 
 // Execute
 switch _mode do {
