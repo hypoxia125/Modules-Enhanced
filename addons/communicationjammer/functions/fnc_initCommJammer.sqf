@@ -180,3 +180,38 @@ addMissionEventHandler ["HandleChatMessage", {
     player setVariable [QGVAR(signal_jamAmounts), _data];
 
 }, 0, [_module, _object, _area, _mapCtrl, _mapCtrlHandler, _gpsCtrl, _gpsCtrlHandler]] call CBA_fnc_addPerFrameHandler;
+
+// Handle vanilla voice comm blocking
+[{
+    params ["_args", "_handle"];
+    _args params ["_module", "_object", "_area", "_mapCtrl", "_mapCtrlHandler", "_gpsCtrl", "_gpsCtrlHandler"];
+
+    // Early exits + destruction of handlers
+    if (!alive _module || !alive _object) exitWith {
+        INFO_1("%1 | Module or Object Deleted - Destroying Handlers",QFUNC(initCommJammer));
+        _handle call CBA_fnc_removePerFrameHandler;
+    };
+
+    // Update area + location of object
+    _area set [0, getPosATL _object];
+
+    // See if player is in area
+    private _playerInArea = player inArea _area;
+
+    // Disable/Enable voice channels
+    if (_playerInArea) then {
+        // Disable
+        for "_i" from 0 to 15 do {
+            if (channelEnabled _i select 1) then {
+                _i enableChannel [true, false]
+            };
+        };
+    } else {
+        // Enable
+        for "_i" from 0 to 15 do {
+            if !(channelEnabled _i select 1) then {
+                _i enableChannel [true, true]
+            };
+        };
+    };
+}, 0, [_module, _object, _area, _mapCtrl, _mapCtrlHandler, _gpsCtrl, _gpsCtrlHandler]] call CBA_fnc_addPerFrameHandler;
