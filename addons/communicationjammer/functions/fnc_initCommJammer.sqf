@@ -184,7 +184,7 @@ addMissionEventHandler ["HandleChatMessage", {
 // Handle vanilla voice comm blocking
 [{
     params ["_args", "_handle"];
-    _args params ["_module", "_object", "_area", "_mapCtrl", "_mapCtrlHandler", "_gpsCtrl", "_gpsCtrlHandler"];
+    _args params ["_module", "_object", "_area"];
 
     // Early exits + destruction of handlers
     if (!alive _module || !alive _object) exitWith {
@@ -214,4 +214,4 @@ addMissionEventHandler ["HandleChatMessage", {
             };
         };
     };
-}, 0, [_module, _object, _area, _mapCtrl, _mapCtrlHandler, _gpsCtrl, _gpsCtrlHandler]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_module, _object, _area]] call CBA_fnc_addPerFrameHandler;
