@@ -16,28 +16,28 @@ switch _class do {
         _particleCircle = [0, [0, 0, 0]];
         _particleRandom = [_particleTime/2, [0.25*_effectSize, 0.25*_effectSize, 0*_effectSize], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
         _particleParams = [["\A3\data_f\ParticleEffects\Universal\Universal_02", 8, 1, 8], "", "Billboard", 1, _particleTime, [0, 0, 0], [0, 0, 1.5*_particleSpeed], 0, 10, 7.9*_particleLifting, 0.066*_windEffect, [1*_particleSize, 3* _particleSize, 6], [[0.1*_colorRed, 0.1*_colorGreen, 0.1*_colorBlue, 1*_colorAlpha], [0.25*_colorRed, 0.25*_colorGreen, 0.25*_colorBlue, 0.5*_colorAlpha], [0.5*_colorRed, 0.5*_colorGreen, 0.5*_colorBlue, 0*_colorAlpha]], [0.125], 1, 0.08*_effectExpansion, "", "", ""];        
-        _particleDropInterval = 0.05;
+        _particleDropInterval = 1 / _particleDensity;
     };
     case 2: {
         // Med Oily Smoke - Modified From Zeus Enhanced
         _particleCircle = [0, [0, 0, 0]];
         _particleRandom = [_particleTime/2, [0.25*_effectSize, 0.25*_effectSize, 0*_effectSize], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
         _particleParams = [["\A3\data_f\ParticleEffects\Universal\Universal_02", 8, 1, 8], "", "Billboard", 1, _particleTime, [0, 0, 0], [0, 0, 2.5*_particleSpeed], 0, 10, 7.9*_particleLifting, 0.066*_windEffect, [2*_particleSize, 6* _particleSize, 12], [[0.1*_colorRed, 0.1*_colorGreen, 0.1*_colorBlue, 1*_colorAlpha], [0.25*_colorRed, 0.25*_colorGreen, 0.25*_colorBlue, 0.5*_colorAlpha], [0.5*_colorRed, 0.5*_colorGreen, 0.5*_colorBlue, 0*_colorAlpha]], [0.125], 1, 0.08*_effectExpansion, "", "", ""];
-        _particleDropInterval = 0.1;
+        _particleDropInterval = 1 / _particleDensity;
     };
     case 3: {
         // Large Oily Smoke - Modified From Zeus Enhanced
         _particleCircle = [0, [0, 0, 0]];
         _particleRandom = [_particleTime/2, [0.5*_effectSize, 0.5*_effectSize, 0*_effectSize], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
         _particleParams = [["\A3\data_f\ParticleEffects\Universal\Universal_02", 8, 1, 6], "", "Billboard", 1, _particleTime, [0, 0, 0], [0, 0, 4.5*_particleSpeed], 0, 10, 7.9*_particleLifting, 0.5*_windEffect, [4*_particleSize, 12* _particleSize, 20], [[0.1*_colorRed, 0.1*_colorGreen, 0.1*_colorBlue, 0.8*_colorAlpha], [0.25*_colorRed, 0.25*_colorGreen, 0.25*_colorBlue, 0.5*_colorAlpha], [0.5*_colorRed, 0.5*_colorGreen, 0.5*_colorBlue, 0*_colorAlpha]], [0.125], 1, 0.08*_effectExpansion, "", "", ""];
-        _particleDropInterval = 0.1;
+        _particleDropInterval = 1 / _particleDensity;
     };
     case 4: {
         // Small Wood Smoke - Modified From Zeus Enhanced
         _particleCircle = [0, [0, 0, 0]];
         _particleRandom = [_particleTime/2, [0.25*_effectSize, 0.25*_effectSize, 0*_effectSize], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
         _particleParams = [["\A3\data_f\ParticleEffects\Universal\Universal_02", 8, 3, 1], "", "Billboard", 1, _particleTime, [0, 0, 0], [0, 0, 1.5*_particleSpeed], 0, 10, 7.9*_particleLifting, 0.066*_windEffect, [1*_particleSize, 3* _particleSize, 6], [[0.5*_colorRed, 0.5*_colorGreen, 0.5*_colorBlue, 0.15*_colorAlpha], [0.75*_colorRed, 0.75*_colorGreen, 0.75*_colorBlue, 0.075*_colorAlpha], [1*_colorRed, 1*_colorGreen, 1*_colorBlue, 0*_colorAlpha]], [0.125], 1, 0.08*_effectExpansion, "", "", ""];
-        _particleDropInterval = 0.05;
+        _particleDropInterval = 1 / _particleDensity;
     };
     case 5: {
         // Medium Wood Smoke - Modified From Zeus Enhanced
@@ -51,7 +51,7 @@ switch _class do {
         _particleCircle = [0, [0, 0, 0]];
         _particleRandom = [_particleTime/2, [0.5*_effectSize, 0.5*_effectSize, 0*_effectSize], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
         _particleParams = [["\A3\data_f\ParticleEffects\Universal\Universal_02", 8, 3, 1], "", "Billboard", 1, _particleTime, [0, 0, 0], [0, 0, 4.5*_particleSpeed], 0, 10, 7.9*_particleLifting, 0.5*_windEffect, [4*_particleSize, 12* _particleSize, 20], [[0.5*_colorRed, 0.5*_colorGreen, 0.5*_colorBlue, 0.5*_colorAlpha], [0.75*_colorRed, 0.75*_colorGreen, 0.75*_colorBlue, 0.25*_colorAlpha], [1*_colorRed, 1*_colorGreen, 1*_colorBlue, 0*_colorAlpha]], [0.125], 1, 0.08*_effectExpansion, "", "", ""];
-        _particleDropInterval = 0.1;
+        _particleDropInterval = 1 / _particleDensity;
     };
 };
 
