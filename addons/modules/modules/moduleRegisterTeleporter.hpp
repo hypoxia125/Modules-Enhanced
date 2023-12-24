@@ -1,4 +1,4 @@
-class MEH_ModuleRegisterTeleporter: Module_F {
+class MEH_ModuleRegisterTeleporter: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleRegisterTeleporter_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\move_ca.paa";
