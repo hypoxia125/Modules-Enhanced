@@ -30,28 +30,29 @@ if (_delay < 0) then {_delay = 0};
 // Execute on groups
 _groups apply {
     private _group = _x;
-    private _units = units _group;
 
-    _units apply {
+    _group setVariable [QGVAR(moveOnCombat_delay), _delay];
+
+    units _group apply {
         _x disableAI "PATH";
     };
 
-    [{
-        params ["_group", "_delay"];
-        private _condValid = units _group findIf {alive _x} != -1;
-        private _activate = combatBehaviour _group in ["COMBAT", "STEALTH"];
-        _activate || {(!(_condValid))};
-    }, {
-        params ["_group", "_delay"];
-        private _condValid = units _group findIf {alive _x} != -1;
-        if (!(_condValid)) exitWith {};
+    _group addEventHandler ["CombatModeChanged", {
+        params ["_group", "_newMode"];
+
+        if !(_newMode in ["COMBAT","STEALTH"]) exitWith {};
+
+        private _delay = _group getVariable [QGVAR(moveOnCombat_delay), 0];
+
         [{
             params ["_group"];
             units _group apply {
                 _x enableAI "PATH";
             };
         }, [_group], _delay] call CBA_fnc_waitAndExecute;
-    }, [_group, _delay]] call CBA_fnc_waitUntilAndExecute;
+
+        _group removeEventHandler [_thisEvent, _thisEventHandler];
+    }];
 };
 
 [_groups, _delay];
