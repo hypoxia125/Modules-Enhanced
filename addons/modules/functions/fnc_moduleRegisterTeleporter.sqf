@@ -45,7 +45,7 @@ switch _mode do {
                 case independent: {"Flag_Green_F"};
                 default {"Flag_White_F"};
             };
-            private _pos = getPosATL _module; _pos set [2, 0];
+            private _pos = getPosATL _module;
             private _flag = createVehicle [_flagClass, _pos, [], 0, "NONE"];
 
             _object = _flag;

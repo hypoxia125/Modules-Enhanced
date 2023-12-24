@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.7.0[/h1]
+[h1]Current Version - v0.7.2[/h1]
 
 Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
