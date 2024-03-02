@@ -15,6 +15,11 @@ private _data = GVAR(teleporterData);
 
 (_display displayCtrl IDC_CURRENTGRID) ctrlSetText (str mapGridPosition player);
 
+// Sort Data By Name
+_data = [_data, nil, {
+    _x select 0
+}, "ASCEND"] call BIS_fnc_sortBy;
+
 // Locations List
 _data apply {
     _x params ["_name", "_object", "_side", "_bidirectional", "_travelTime", "_active"];
