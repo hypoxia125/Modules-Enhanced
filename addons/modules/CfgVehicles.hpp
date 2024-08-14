@@ -41,6 +41,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleEffectLightpoint.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectSmoke.hpp"
     #include "\z\meh\addons\modules\modules\moduleEnableDisableGunLights.hpp"
+    #include "\z\meh\addons\modules\modules\moduleHealingArea.hpp"
     #include "\z\meh\addons\modules\modules\moduleLightningStorm.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
     #include "\z\meh\addons\modules\modules\moduleMPSync.hpp"
