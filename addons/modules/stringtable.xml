@@ -712,5 +712,26 @@
         <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodLrg_DisplayName">
             <English>Wood - Large</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_DisplayName">
+            <English>Healing Area</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_DisplayName">
+            <English>Affected Units</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Tooltip">
+            <English>Types of units the healing area will affect.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Values_FootSoldiers_DisplayName">
+            <English>Foot Soldiers</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_DisplayName">
+            <English>Healing Rate</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_Tooltip">
+            <English>Healing percent per second.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_ModuleDescription_Description">
+            <English>This module creates a healing area in game. Every second, affected units are healed by given percent.</English>
+        </Key>
     </Package>
 </Project>
