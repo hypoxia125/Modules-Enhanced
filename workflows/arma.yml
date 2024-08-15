@@ -1,0 +1,16 @@
+name: Arma
+
+on:
+  push:
+      branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out source code
+      uses: actions/checkout@v4
+    - name: Validate SQF
+      run: python 3 tools/sqf_validator.py
