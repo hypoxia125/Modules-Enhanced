@@ -1,7 +1,7 @@
 class MEH_ModuleHealingArea: MEH_ModuleBase {
     scope = 2;
-    displayName = "Healing Area"; // TODO: localize
-    icon = ""; // TODO
+    displayName = CSTRING(ModuleHealingArea_DisplayName); // TODO: localize
+    icon = "a3\ui_f\data\igui\cfg\actions\heal_ca.paa";
     category = "MEH";
 
     function = QFUNC(ModuleHealingArea);
@@ -21,13 +21,13 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
     class Attributes: AttributesBase {
         class Affected: Combo {
             property = QGVAR(ModuleHealingArea_Class);
-            displayName = "Affected Units"; // TODO: localize
-            tooltip = ""; // TODO: Tooltip
+            displayName = CSTRING(ModuleHealingArea_Affected_DisplayName);
+            tooltip = CSTRING(ModuleHealingArea_Affected_Tooltip);
             defaultValue = 0;
             typeName = "NUMBER";
             class Values {
                 class FootSoldiers {
-                    name = "Foot Soldiers"; // TODO: localize
+                    name = CSTRING(ModuleHealingArea_Affected_Values_FootSoldiers_DisplayName);
                     value = 0;
                 };
                 // class Vehicles {
@@ -38,9 +38,9 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
         };
 
         class Rate: Edit {
-            property = QGVAR(ModulesHealingArea_Rate);
-            displayName = "Healing Rate"; // TODO: localize
-            tooltip = "Healing Percent Per Second"; // TODO: localize
+            property = QGVAR(ModuleHealingArea_Rate);
+            displayName = CSTRING(ModuleHealingArea_Rate_DisplayName);
+            tooltip = CSTRING(ModuleHealingArea_Rate_Tooltip);
             defaultValue = 0.10;
             typeName = "NUMBER";
             validate = "NUMBER";
@@ -59,7 +59,7 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
 
     class ModuleDescription: ModuleDescription {
         description[] = {
-            "Heals foot soldiers or vehicles within an area at a given rate. Not ACE Compatible.", // TODO: localize
+            CSTRING(ModuleHealingArea_ModuleDescription_Description),
             "",
             CSTRING(MEH_Modules_ModuleDescription_TriggerActivated_False),
             CSTRING(ModuleDescription_Repeatable_False)
