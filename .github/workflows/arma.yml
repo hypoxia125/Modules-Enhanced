@@ -13,4 +13,4 @@ jobs:
     - name: Check out source code
       uses: actions/checkout@v4
     - name: Validate SQF
-      run: python3 tools/sqf_validator.py
+      run: python 3 tools/sqf_validator.py
