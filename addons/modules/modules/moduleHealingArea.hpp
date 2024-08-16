@@ -13,6 +13,7 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
 
     canSetArea = 1;
     canSetAreaShape = 1;
+    canSetAreaHeight = 1;
     class AttributeValues {
         size3[] = {20, 20, -1};
         isRectangle = 0;
@@ -30,10 +31,6 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
                     name = CSTRING(ModuleHealingArea_Affected_Values_FootSoldiers_DisplayName);
                     value = 0;
                 };
-                // class Vehicles {
-                //     name = "Vehicles" // TODO: localize
-                //     value = 1;
-                // };
             };
         };
 
@@ -46,13 +43,13 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
             validate = "NUMBER";
         };
 
-        // class ShowArea: Checkbox {
-        //     property = QGVAR(ModuleHealingArea_ShowArea);
-        //     displayName = "Show Area"; // TODO: localize
-        //     tooltip = "Shows physical area in 3D when in game."; // TODO: localize
-        //     defaultValue = "true";
-        //     typeName = "BOOL";
-        // };
+        class ShowArea: Checkbox {
+            property = QGVAR(ModuleHealingArea_ShowArea);
+            displayName = "Show Area"; // TODO: localize
+            tooltip = "Shows physical area in 3D when in game."; // TODO: localize
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
 
         class ModuleDescription: ModuleDescription {};
     };
