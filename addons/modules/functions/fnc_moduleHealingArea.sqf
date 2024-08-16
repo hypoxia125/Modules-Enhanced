@@ -30,4 +30,4 @@ switch _mode do {
     };
 
     default {};
-}
+};
