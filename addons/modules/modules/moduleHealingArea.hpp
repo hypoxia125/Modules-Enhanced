@@ -43,9 +43,17 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
             validate = "NUMBER";
         };
 
-        class ShowArea: Checkbox {
-            property = QGVAR(ModuleHealingArea_ShowArea);
-            displayName = "Show Area"; // TODO: localize
+        class ShowAreaMarker: Checkbox {
+            property = QGVAR(ModuleHealingArea_ShowAreaMarker);
+            displayName = "Show Area Marker"; // TODO: localize
+            tooltip = "Draws map marker for healing area."; // TODO: localize
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
+
+        class ShowArea3D: Checkbox {
+            property = QGVAR(ModuleHealingArea_ShowArea3D);
+            displayName = "Show Area 3D"; // TODO: localize
             tooltip = "Shows physical area in 3D when in game."; // TODO: localize
             defaultValue = "true";
             typeName = "BOOL";

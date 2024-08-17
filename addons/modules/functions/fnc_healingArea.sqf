@@ -5,7 +5,8 @@ params [
     ["_area", [20, 20, 0, false, -1], [[]], 5],
     ["_affected", 0, [-1]],
     ["_rate", 0.10, [-1]],
-    ["_showArea", true]
+    ["_showAreaMarker", true],
+    ["_showArea3D", true]
 ];
 
 if (!isServer) exitWith {};
@@ -15,7 +16,23 @@ _area = [ASLToAGL getPosASL _object] + _area;
 if (_rate < 0) then {_rate = 0};
 if (_rate > 1) then {_rate = 1};
 
-if (_showArea) then {
+if (_showAreaMarker) then {
+    // map marker
+    private _marker = createMarkerLocal [format[QGVAR(HealingArea_Marker_%1_Area), _object], _area#0];
+    _marker setMarkerBrushLocal "FDiagonal";
+    _marker setMarkerDirLocal _area#3;
+    _marker setMarkerSizeLocal [_area#1, _area#2];
+    _marker setMarkerShapeLocal "ELLIPSE";
+    _marker setMarkerText "Healing Area";
+
+    private _marker = createMarkerLocal [format[QGVAR(HealingArea_Marker_%1_Border), _object], _area#0];
+    _marker setMarkerBrushLocal "Border";
+    _marker setMarkerDirLocal _area#3;
+    _marker setMarkerShapeLocal "ELLIPSE";
+    _marker setMarkerSize [_area#1, _area#2];
+};
+
+if (_showArea3D) then {
     // 3d objects
     private _height = _area#5;
     if (_height == -1) then {_height = 20};
@@ -55,7 +72,7 @@ if (_showArea) then {
 // Execute
 [{
     params ["_args", "_handle"];
-    _args params ["_object", "_area", "_rate", "_showArea"];
+    _args params ["_object", "_area", "_rate"];
 
     // Early exits
     if (!alive _object) exitWith {
@@ -79,4 +96,4 @@ if (_showArea) then {
             _unit setDamage 0;
         };
     };
-}, 1, [_object, _area, _rate, _showArea]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_object, _area, _rate]] call CBA_fnc_addPerFrameHandler;
