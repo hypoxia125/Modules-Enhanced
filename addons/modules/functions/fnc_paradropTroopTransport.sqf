@@ -28,31 +28,37 @@ private _paradrop = {
 };
 
 if (hasInterface) then {
-    player addAction [
-        "Paradrop",
-        {
-            params ["_target", "_caller", "_actionID", "_args"];
-            _args params ["_chuteOpenHeight", "_chuteType", "_paradrop"];
+    [{
+        alive player
+    }, {
+        params ["_chuteOpenHeight", "_chuteType", "_paradrop"];
 
-            private _leader = leader group _caller;
+        private _handle = player addAction [
+            "Paradrop",
+            {
+                params ["_target", "_caller", "_actionID", "_args"];
+                _args params ["_chuteOpenHeight", "_chuteType", "_paradrop"];
 
-            if (_leader == _caller) then {
-                units group _caller apply {
-                    [_x, _chuteOpenHeight, _chuteType] call _paradrop;
+                private _leader = leader group _caller;
+
+                if (_leader == _caller) then {
+                    units group _caller apply {
+                        [_x, _chuteOpenHeight, _chuteType] call _paradrop;
+                    };
+                } else {
+                    [_caller, _chuteOpenHeight, _chuteType] call _paradrop;
                 };
-            } else {
-                [_caller, _chuteOpenHeight, _chuteType] call _paradrop;
-            };
-        },
-        [_chuteOpenHeight, _chuteType, _paradrop],
-        0,
-        false,
-        true,
-        "",
-        toString {_target getVariable ["meh_modules_paradropTroopTransport_Enabled", false] && _this in _target},
-        -1,
-        false,
-        "",
-        ""
-    ];
+            },
+            [_chuteOpenHeight, _chuteType, _paradrop],
+            0,
+            false,
+            true,
+            "",
+            toString {_target getVariable ["meh_modules_paradropTroopTransport_Enabled", false] && _this in _target},
+            -1,
+            false,
+            "",
+            ""
+        ];
+    }, [_chuteOpenHeight, _chuteType, _paradrop], 60, {}] call CBA_fnc_waitUntilAndExecute;
 };
