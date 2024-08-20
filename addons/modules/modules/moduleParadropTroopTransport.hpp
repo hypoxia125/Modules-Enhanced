@@ -39,6 +39,28 @@ class MEH_ModuleParadropToopTransport: MEH_ModuleBase {
             };
         };
 
+        class TrailingSmoke: Combo {
+            property = QGVAR(ModuleParadropTroopTransport_TrailingSmoke);
+            displayName = "Trailing Smoke";
+            tooltip = "Options for trailing smoke.";
+            defaultValue = 0;
+            typeName = "NUMBER";
+            class Values {
+                class None {
+                    name = "None";
+                    value = 0;
+                };
+                class SquadLeader {
+                    name = "Squad Leader Only";
+                    value = 1;
+                };
+                class AllUnits {
+                    name = "All Units In Group";
+                    value = 2;
+                };
+            };
+        };
+
         class ModuleDescription: ModuleDescription {};
     };
 

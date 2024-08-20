@@ -13,6 +13,7 @@ _input params [
 // Variables
 private _chuteOpenHeight = _module getVariable "ChuteOpenHeight";
 private _chuteType = _module getVariable "ChuteType";
+private _trailingSmoke = _module getVariable "TrailingSmoke";
 
 _chuteType = ["NonSteerable_Parachute_F", "Steerable_Parachute_F"] select (_chuteType == 0);
 
@@ -22,7 +23,7 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
-        [_vehicles, _chuteOpenHeight, _chuteType] call FUNC(ParadropTroopTransport);
+        [_vehicles, _chuteOpenHeight, _chuteType, _trailingSmoke] call FUNC(ParadropTroopTransport);
     };
 
     case "connectionChanged3DEN": {
