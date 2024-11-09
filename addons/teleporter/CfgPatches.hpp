@@ -4,7 +4,7 @@ class CfgPatches {
         author = "Hypoxic";
         url = "";
 
-        requiredVersion = 2.14;
+        requiredVersion = 2.18;
         requiredAddons[] = {
             "A3_Functions_F",
             "cba_main",

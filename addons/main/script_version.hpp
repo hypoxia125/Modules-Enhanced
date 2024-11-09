@@ -1,5 +1,5 @@
 #define MAJOR 0
-#define MINOR 7
-#define PATCH 4
+#define MINOR 9
+#define PATCH 0
 
-#define CURRENT_VERSION "v0.7.4"
+#define CURRENT_VERSION "v0.9.0"

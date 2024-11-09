@@ -77,3 +77,15 @@
     private _holdAction = _object getVariable [QGVAR(TrapInventory_HoldAction), -1];
     [_object, _holdAction] call BIS_fnc_holdActionRemove;
 }];
+
+// Local Execution
+[QGVAR(HealingArea_HealUnit), {
+    params ["_unit", "_hitPoint", "_value"];
+    
+    _unit setHitPointDamage [_hitPoint, _value];
+
+    private _soundPlaying = _unit getVariable [QGVAR(HealingArea_SoundPlaying), objNull];
+    if (isNull (_unit getVariable [QGVAR(HealingArea_SoundPlaying), objNull])) then {
+        _unit setVariable [QGVAR(HealingArea_SoundPlaying), playSound "meh_heal"];
+    };
+}] call CBA_fnc_addEventHandler;
