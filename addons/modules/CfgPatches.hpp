@@ -15,6 +15,7 @@ class CfgPatches {
         };
         units[] = {
             "MEH_ModuleAmbientArtillery",
+            "MEH_ModuleAntiTroll",
             "MEH_ModuleCreateMinefield",
             "MEH_ModuleDeleteRespawnPosition",
             "MEH_ModuleEffectFire",
