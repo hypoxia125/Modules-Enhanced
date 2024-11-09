@@ -5,7 +5,7 @@
 
 class MEH_TeleportMenu {
 
-    idd = 6969;
+    idd = 5165189;
 
     onLoad = "_this call MEH_Teleporter_fnc_teleportMenu_onLoad";
 
@@ -40,9 +40,9 @@ class MEH_TeleportMenu {
             idc = 1001;
             text = CSTRING(TeleportMenu_MenuTxt);
             x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-11.08 * GUI_GRID_H + GUI_GRID_Y);
+            y = QUOTE(-9.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(33 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            h = QUOTE(1 * GUI_GRID_H);
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
             style = QUOTE(ST_CENTER);
         };
@@ -53,7 +53,7 @@ class MEH_TeleportMenu {
             y = QUOTE(-8 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(17.5 * GUI_GRID_W);
             h = QUOTE(2 * GUI_GRID_H);
-            colorBackground[] = {-1,-1,-1,1};
+            colorBackground[] = {-1,-1,-1,0.5};
         };
         class CurrGridTxt: RscText
         {
@@ -104,7 +104,7 @@ class MEH_TeleportMenu {
             y = QUOTE(-3.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(13.5 * GUI_GRID_W);
             h = QUOTE(11 * GUI_GRID_H);
-            colorBackground[] = {-1,-1,-1,1};
+            colorBackground[] = {-1,-1,-1,0.5};
             onLBSelChanged = "_this call MEH_Teleporter_fnc_teleportMenu_updateInfo";
         };
         class DestBack: RscText
@@ -114,7 +114,7 @@ class MEH_TeleportMenu {
             y = QUOTE(-3.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(13.5 * GUI_GRID_W);
             h = QUOTE(11 * GUI_GRID_H);
-            colorBackground[] = {-1,-1,-1,1};
+            colorBackground[] = {-1,-1,-1,0.5};
         };
         class DestTxt: RscText
         {
@@ -201,22 +201,68 @@ class MEH_TeleportMenu {
                 shadow = "false";
             };
         };
-        class RscButtonMenuOK_2600: RscButtonMenuOK
+        class RscButtonMenuOK_2600: RscShortcutButton
         {
             x = QUOTE(11.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(9.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(5 * GUI_GRID_W);
             h = QUOTE(1.5 * GUI_GRID_H);
-            colorBackground[] = {0,0,0,1};
-            onButtonClick = "_this call MEH_Teleporter_fnc_teleportMenu_onConfirm";
+
+            text = "Confirm";
+            class TextPos {
+                left = QUOTE(0.5 * GUI_GRID_W);
+                top = QUOTE(0.25 * GUI_GRID_H);
+                right = 0;
+                bottom = 0;
+            };
+            class ShortcutPos {
+                left = QUOTE(3.75 * GUI_GRID_W);
+                top = QUOTE(0.125 * GUI_GRID_H);
+                w = QUOTE(1 * GUI_GRID_W);
+                h = QUOTE(1 * GUI_GRID_H);
+            };
+
+            colorBackground[] = {0,0.5,0,1};
+            colorBackgroundFocused[] = {0,0.5,0,1};
+            colorBackground2[] = {0,1,0,1};
+            textureNoShortcut = "a3\3den\data\controls\ctrlcheckbox\baseline_texturechecked_ca.paa";
+
+            onButtonClick = QUOTE(\
+                params ['_ctrl'];
+                _this call MEH_Teleporter_fnc_teleportMenu_onConfirm;\
+                ctrlParent _ctrl closeDisplay 1;\
+            );
         };
-        class RscButtonMenuCancel_2700: RscButtonMenuCancel
+        class RscButtonMenuCancel_2700: RscShortcutButton
         {
             x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
             y = QUOTE(9.5 * GUI_GRID_H + GUI_GRID_Y);
             w = QUOTE(5 * GUI_GRID_W);
             h = QUOTE(1.5 * GUI_GRID_H);
-            colorBackground[] = {0,0,0,1};
+
+            text = "Cancel";
+            class TextPos {
+                left = QUOTE(0.5 * GUI_GRID_W);
+                top = QUOTE(0.25 * GUI_GRID_H);
+                right = 0;
+                bottom = 0;
+            };
+            class ShortcutPos {
+                left = QUOTE(3.75 * GUI_GRID_W);
+                top = QUOTE(0.4 * GUI_GRID_H);
+                w = QUOTE(0.75 * GUI_GRID_W);
+                h = QUOTE(0.75 * GUI_GRID_H);
+            };
+
+            colorBackground[] = {0.5,0,0,1};
+            colorBackgroundFocused[] = {0.5,0,0,1};
+            colorBackground2[] = {1,0,0,1};
+            textureNoShortcut = "a3\ui_f\data\gui\cfg\cursors\hc_unsel_gs.paa";
+
+            onButtonClick = QUOTE(\
+                params ['_ctrl'];
+                ctrlParent _ctrl closeDisplay 2;\
+            );
         };
     };
 };
