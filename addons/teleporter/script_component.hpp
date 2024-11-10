@@ -3,7 +3,7 @@
 #include "\z\meh\addons\main\script_mod.hpp"
 
 // Displays
-#define IDD_TELEPORTMENU (6969)
+#define IDD_TELEPORTMENU (5165189)
     #define IDC_CURRENTGRID (1004)
     #define IDC_LOCLIST (1500)
     #define IDC_DESTGRID (1011)
