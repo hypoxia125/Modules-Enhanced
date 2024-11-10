@@ -2,4 +2,4 @@
 #define MINOR 9
 #define PATCH 1
 
-#define CURRENT_VERSION "v0.9.1"
+#define CURRENT_VERSION "v0.9.2"
