@@ -120,13 +120,13 @@ switch _mode do {
         [{
             params ["_args", "_handle"];
             _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
-
-            private _timeTillNextLaunch = _module getVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeBetweenLaunches];
             
             if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
             if (isGamePaused) exitWith {};
 
-            if !(_timeTillNextLaunch <= 0) exitWith {
+            private _timeTillNextLaunch = _module getVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeBetweenLaunches];
+            private _flaresShot = _module getVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), 0];
+            if (_flaresShot > 0 && !(_timeTillNextLaunch <= 0)) exitWith {
                 _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeTillNextLaunch - TICKRATE];
             };
 
@@ -154,6 +154,9 @@ switch _mode do {
             [_round, _pitch, 0] call BIS_fnc_setPitchBank;
             _round setVelocityModelSpace [0, 900, 0];
 
+            _flaresShot = _flaresShot + 1;
+            _module setVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), _flaresShot];
+
             [{
                 params ["_round", "_flareDeployHeight"];
                 _flareDeployHeight params ["_min", "_max"];
@@ -170,10 +173,11 @@ switch _mode do {
 
             // Determine new wait time
             private _newValue = _timeBetweenLaunches;
+            private _randomness = random _launchRandomness;
             if (random 1 < 0.5) then {
-                _newValue = _newValue - (random _launchRandomness);
+                _newValue = _newValue - _randomness;
             } else {
-                _newValue = _newValue + (random _launchRandomness);
+                _newValue = _newValue + _randomness;
             };
             _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _newValue];
 
