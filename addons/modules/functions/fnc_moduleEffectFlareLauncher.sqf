@@ -48,20 +48,75 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         private _flareClasses = switch _flareColor do {
-            case 0: {["F_40mm_Green"]};
-            case 1: {["F_40mm_Red"]};
-            case 2: {["F_40mm_White"]};
-            case 3: {["F_40mm_Yellow"]};
-            case 4;
-            case 5: {["F_40mm_Green", "F_40mm_Red", "F_40mm_White", "F_40mm_Yellow"]};
+            // Blue
+            case 0: {["MEH_40mm_Blue_60"]};
+            case 1: {["MEH_40mm_Blue_180"]};
+            case 2: {["MEH_40mm_Blue_300"]};
+            // Green
+            case 3: {["MEH_40mm_Green_60"]};
+            case 4: {["MEH_40mm_Green_180"]};
+            case 5: {["MEH_40mm_Green_300"]};
+            // Orange
+            case 6: {["MEH_40mm_Orange_60"]};
+            case 7: {["MEH_40mm_Orange_180"]};
+            case 8: {["MEH_40mm_Orange_300"]};
+            // Purple
+            case 9: {["MEH_40mm_Purple_60"]};
+            case 10: {["MEH_40mm_Purple_180"]};
+            case 11: {["MEH_40mm_Purple_300"]};
+            // Red
+            case 12: {["MEH_40mm_Red_60"]};
+            case 13: {["MEH_40mm_Red_180"]};
+            case 14: {["MEH_40mm_Red_300"]};
+            // White
+            case 15: {["MEH_40mm_White_60"]};
+            case 16: {["MEH_40mm_White_180"]};
+            case 17: {["MEH_40mm_White_300"]};
+            // Yellow
+            case 18: {["MEH_40mm_Yellow_60"]};
+            case 19: {["MEH_40mm_Yellow_180"]};
+            case 20: {["MEH_40mm_Yellow_300"]};
+            // Random
+            case 21: {[
+                "MEH_40mm_Blue_60", "MEH_40mm_Green_60", "MEH_40mm_Orange_60",
+                "MEH_40mm_Purple_60", "MEH_40mm_Red_60", "MEH_40mm_White_60",
+                "MEH_40mm_Yellow_60"
+            ]};
+            case 22: {[
+                "MEH_40mm_Blue_180", "MEH_40mm_Green_180", "MEH_40mm_Orange_180",
+                "MEH_40mm_Purple_180", "MEH_40mm_Red_180", "MEH_40mm_White_180",
+                "MEH_40mm_Yellow_180"
+            ]};
+            case 23: {[
+                "MEH_40mm_Blue_300", "MEH_40mm_Green_300", "MEH_40mm_Orange_300",
+                "MEH_40mm_Purple_300", "MEH_40mm_Red_300", "MEH_40mm_White_300",
+                "MEH_40mm_Yellow_300"
+            ]};
+            // Cycle (Order of Rainbow)
+            case 24: {[
+                "MEH_40mm_Red_60", "MEH_40mm_Orange_60", "MEH_40mm_Yellow_60", 
+                "MEH_40mm_Green_60", "MEH_40mm_Blue_60", "MEH_40mm_Purple_60",
+                "MEH_40mm_White_60"
+            ]};
+            case 25: {[
+                "MEH_40mm_Red_180", "MEH_40mm_Orange_180", "MEH_40mm_Yellow_180", 
+                "MEH_40mm_Green_180", "MEH_40mm_Blue_180", "MEH_40mm_Purple_180",
+                "MEH_40mm_White_180"
+            ]};
+            case 26: {[
+                "MEH_40mm_Red_300", "MEH_40mm_Orange_300", "MEH_40mm_Yellow_300", 
+                "MEH_40mm_Green_300", "MEH_40mm_Blue_300", "MEH_40mm_Purple_300",
+                "MEH_40mm_White_300"
+            ]};
         };
 
         private _cycle = false;
-        if (_flareColor == 4) then { _cycle = true };
+        if (_flareColor in [24, 25, 26]) then { _cycle = true };
 
         private _random = false;
-        if (_flareColor == 5) then { _random = true };
+        if (_flareColor in [21, 22, 23]) then { _random = true };
 
+        // Start per frame handler
         [{
             params ["_args", "_handle"];
             _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
