@@ -5,3 +5,4 @@
 #include "Display3DEN.hpp"
 #include "Cfg3DEN.hpp"
 #include "CfgSounds.hpp"
+#include "CfgAmmo.hpp"

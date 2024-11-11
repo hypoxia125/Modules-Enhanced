@@ -4,6 +4,7 @@ PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
+PREP(moduleEffectFlareLauncher);
 PREP(moduleEffectLightpoint);
 PREP(moduleEffectSmoke);
 PREP(moduleEnableDisableGunLights);
