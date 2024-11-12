@@ -12,6 +12,11 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
+// Pre-Execution Checks
+//------------------------------------------------------------------------------------------------
+if (!isServer) exitWith {};
+if !(_mode in ["init", "connectionChanged3DEN"]) exitWith {};
+
 // Functions
 //------------------------------------------------------------------------------------------------
 private _deleteRespawnPosition = {
@@ -35,12 +40,10 @@ private _deleteRespawnPosition = {
 
 // Code Start
 //------------------------------------------------------------------------------------------------
-if (!isServer) exitWith {};
-if (!_isActivated) exitWith {};
-
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
+        if (!_isActivated) exitWith {};
 
         private _respawnModules = (_module call BIS_fnc_moduleModules) select {_x isKindOf "ModuleRespawnPosition_F"};
         [_respawnModules] call _deleteRespawnPosition;
