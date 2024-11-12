@@ -23,7 +23,6 @@ PREP(moduleVehicleRefuel);
 
 PREP(ambientArtilleryVirtual);
 PREP(createMinefield);
-PREP(deleteRespawnPosition);
 PREP(enableDisableGunLights);
 PREP(healingArea);
 PREP(lightningStorm);
