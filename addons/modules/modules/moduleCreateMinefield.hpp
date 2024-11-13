@@ -53,7 +53,7 @@ class MEH_ModuleCreateMinefield: MEH_ModuleBase {
             property = QGVAR(ModuleCreateMinefield_MineClasses);
             displayName = CSTRING(ModuleCreateMinefield_MineClasses_DisplayName);
             tooltip = CSTRING(ModuleCreateMinefield_MineClasses_Tooltip);
-            defaultValue = """[""""APERSMine""""]""";
+            defaultValue = "'[APERSMine]'";
             typeName = "STRING";
             validate = "STRING";
         };
