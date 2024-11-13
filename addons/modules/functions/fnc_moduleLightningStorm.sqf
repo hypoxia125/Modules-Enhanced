@@ -15,8 +15,8 @@ if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
 private _area = _module getVariable ["ObjectArea", [100, 100, 0, false, -1]];
-private _timeBetweenStrikes = _module getVariable ["TimeBetweenStrikes", 0.25];
-private _strikeRandomness = _module getVariable ["StrikeRandomness", 0.5];
+private _timeBetweenStrikes = _module getVariable ["TimeBetweenStrikes", 5];
+private _strikeRandomness = _module getVariable ["StrikeRandomness", 5];
 private _areaDamage = _module getVariable ["AreaDamage", 15];
 
 if (
