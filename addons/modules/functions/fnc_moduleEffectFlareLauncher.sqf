@@ -12,6 +12,8 @@
 
 #define TICKRATE    0.1
 
+// Parameters
+//------------------------------------------------------------------------------------------------
 params [
     ["_mode", "", [""]],
     ["_input", [], [[]]]
@@ -22,9 +24,13 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
+// Pre-Execution Checks
+//------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
 if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
+// Variables
+//------------------------------------------------------------------------------------------------
 private _flareColor = _module getVariable ["FlareColor", DEFAULT_FLARECOLOR];
 private _timeBetweenLaunches = _module getVariable ["TimeBetweenLaunches", DEFAULT_TIMEBETWEENLAUNCHES];
 private _launchRandomness = _module getVariable ["LaunchRandomness", DEFAULT_LAUNCHRANDOMNESS];
@@ -43,6 +49,8 @@ if (_launchRandomness < 0) then {_launchRandomness = 0};
 if (_launchDispersion < 0) then {_launchDispersion = 0};
 if (_launchDispersion >= 90) then {_launchDispersion = 89};
 
+// Code Start
+//------------------------------------------------------------------------------------------------
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
