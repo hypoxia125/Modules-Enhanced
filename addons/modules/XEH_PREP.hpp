@@ -22,7 +22,6 @@ PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
 PREP(healingArea);
-PREP(lightningStorm);
 PREP(get3DENAreaModule);
 PREP(moveOnCombat);
 PREP(paradropTroopTransport);
