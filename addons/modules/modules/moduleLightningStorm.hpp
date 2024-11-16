@@ -23,7 +23,7 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             property = QGVAR(ModuleLightningStorm_TimeBetweenStrikes);
             displayName = CSTRING(ModuleLightningStorm_TimeBetweenStrikes_DisplayName);
             tooltip = CSTRING(ModuleLightningStorm_TimeBetweenStrikes_Tooltip);
-            defaultValue = "0.25";
+            defaultValue = 5;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -32,7 +32,7 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             property = QGVAR(ModuleLightningStorm_StrikeRandomness);
             displayName = CSTRING(ModuleLightningStorm_StrikeRandomness_DisplayName);
             tooltip = CSTRING(ModuleLightningStorm_StrikeRandomness_Tooltip);
-            defaultValue = "0.5";
+            defaultValue = 5;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -41,7 +41,7 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             property = QGVAR(ModuleLightningStorm_AreaDamage);
             displayName = CSTRING(ModuleLightningStorm_AreaDamage_DisplayName);
             tooltip = CSTRING(ModuleLightningStorm_AreaDamage_Tooltip);
-            defaultValue = "15";
+            defaultValue = 15;
             typeName = "NUMBER";
             validate = "NUMBER";
         };

@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+#define TICKRATE 0.1
+
 params [
     ["_module", objNull, [objNull, []]],
     ["_area", [100, 100, 0, false, -1], [[]], 5],
@@ -24,10 +26,17 @@ _area = [getPosATL _module] + _area;
 // Execute
 private _handle = [{
     params ["_args", "_handle"];
-    _args params ["_module", "_area", "_areaDamage"];
+    _args params ["_module", "_area", "_timeBetweenStrikes", "_strikeRandomness", "_areaDamage"];
 
     // Exit code if module is dead
     if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
+    if (isGamePaused) exitWith {};
+
+    private _timeTillNextStrike = _module getVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeBetweenStrikes];
+    private _totalStrikes = _module getVariable [QGVAR(ModuleLightningStorm_TotalStrikes), 0];
+    if (_totalStrikes > 0 && !(_timeTillNextStrike <= 0)) exitWith {
+        _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeTillNextStrike - TICKRATE];
+    };
 
     private _strikes = 1;
     if (random 1 < 0.10) then {_strikes = 2};
@@ -50,7 +59,21 @@ private _handle = [{
     _nearObjects insert [-1, _terrainObjects];
     _nearObjects = _nearObjects select {!(_x isKindOf "Logic")};
     _nearObjects apply {_x setDamage 1};
-}, _timeBetweenStrikes + (random _strikeRandomness), [_module, _area, _areaDamage]] call CBA_fnc_addPerFrameHandler;
+
+    _totalStrikes = _totalStrikes + 1;
+    _module setVariable [QGVAR(ModuleLightningStorm_TotalStrikes), _totalStrikes];
+
+    // Determine new wait time
+    private _newValue = _timeBetweenStrikes;
+    private _randomness = random _strikeRandomness;
+    if (random 1 < 0.5) then {
+        _newValue = _newValue - _randomness;
+    } else {
+        _newValue = _newValue + _randomness;
+    };
+    _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _newValue];
+
+}, TICKRATE, [_module, _area, _timeBetweenStrikes, _strikeRandomness, _areaDamage]] call CBA_fnc_addPerFrameHandler;
 
 // Return
 _handle
