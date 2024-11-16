@@ -2,51 +2,71 @@
 
 #include "XEH_PREP.hpp"
 
-/* ----- Events - Replaces remoteExec ----- */
+// Misc
+//------------------------------------------------------------------------------------------------
+[QGVAR(HideObjectGlobal), {
+    params ["_object", "_value"];
 
-// Local Argument
+    _object hideObjectGlobal _value;
+}] call CBA_fnc_addEventHandler;
+
+// RefuelVehicle
+//------------------------------------------------------------------------------------------------
 [QGVAR(refuelVehicle), {
     params ["_vehicle"];
 
     _vehicle setFuel 1;
 }] call CBA_fnc_addEventHandler;
 
-// Local Argument
+// RearmVehicle
+//------------------------------------------------------------------------------------------------
 [QGVAR(rearmVehicle), {
     params ["_vehicle"];
 
     _vehicle setVehicleAmmo 1;
 }] call CBA_fnc_addEventHandler;
 
-// Server Only Argument
+// VehicleMineJammer
+//------------------------------------------------------------------------------------------------
 [QGVAR(enableMine), {
     params ["_mine", "_value"];
 
     _mine enableSimulationGlobal _value;
 }] call CBA_fnc_addEventHandler;
 
-// Local Argument - Local Effect
+// SpeedLimiter
+//------------------------------------------------------------------------------------------------
 [QGVAR(vehicleCruiseControl), {
     params ["_vehicle", "_speed"];
 
     _vehicle setCruiseControl [_speed, false];
 }] call CBA_fnc_addEventHandler;
 
-// Local Argument
-[QGVAR(EnableGunLights), {
+// EnableDisableGunLights
+//------------------------------------------------------------------------------------------------
+[QGVAR(EnableGunLightsAI), {
     params ["_group", "_state"];
 
     _group enableGunLights _state;
 }] call CBA_fnc_addEventHandler;
 
-// Local Argument
 [QGVAR(EnableGunLightsPlayer), {
-    params ["_unit"];
+    params ["_unit", "_lightState"];
 
-    _unit action ["GunLightOn", _unit];
+    switch _lightState do {
+        case "ForceOn": {
+            _unit action ["GunLightOn", _unit];
+            [QGVAR(WeaponLightState), [_unit, true], _unit] call CBA_fnc_globalEvent;
+        };
+        case "ForceOff": {
+            _unit action ["GunLightOff", _unit];
+            [QGVAR(WeaponLightState), [_unit, false], _unit] call CBA_fnc_globalEvent;
+        };
+    };
+
+    LOG_2("EnableDisableGunLights:: Unit [%1] - WeaponLightState [%2]", _unit, _lightState);
 }] call CBA_fnc_addEventHandler;
 
-// Local Argument
 [QGVAR(AddFlashlightAttachment), {
     params ["_unit", "_attachment"];
 
@@ -63,14 +83,8 @@
     _unit addPrimaryWeaponItem _attachment
 }] call CBA_fnc_addEventHandler;
 
-// Server Execution
-[QGVAR(HideObjectGlobal), {
-    params ["_object", "_value"];
-
-    _object hideObjectGlobal _value;
-}] call CBA_fnc_addEventHandler;
-
-// Global Execution
+// TrapInventory
+//------------------------------------------------------------------------------------------------
 [QGVAR(RemoveTrapDisableAction), {
     params ["_object"];
 
@@ -78,7 +92,8 @@
     [_object, _holdAction] call BIS_fnc_holdActionRemove;
 }];
 
-// Local Execution
+// HealingArea
+//------------------------------------------------------------------------------------------------
 [QGVAR(HealingArea_HealUnit), {
     params ["_unit", "_hitPoint", "_value"];
     

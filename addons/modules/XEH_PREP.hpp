@@ -21,9 +21,6 @@ PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
-PREP(ambientArtilleryVirtual);
-PREP(createMinefield);
-PREP(enableDisableGunLights);
 PREP(healingArea);
 PREP(lightningStorm);
 PREP(get3DENAreaModule);
