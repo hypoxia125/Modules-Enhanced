@@ -23,7 +23,6 @@ PREP(moduleVehicleRefuel);
 
 PREP(healingArea);
 PREP(get3DENAreaModule);
-PREP(moveOnCombat);
 PREP(paradropTroopTransport);
 PREP(paradropVehicle);
 PREP(speedLimiter);
