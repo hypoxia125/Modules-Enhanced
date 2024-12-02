@@ -17,7 +17,7 @@ private _boundingZ = abs ((_min select 2) max (_max select 2));
 
 // create area around box for later use + make it slightly bigger
 private _center = ASLToAGL (getPosASL _target);
-private _area = [_center, _boundingX + 2, _boundingY + 2, getdir _target, true, _boundingZ + 2];
+private _area = [_center, _boundingX + 2, _boundingY + 2, getDir _target, true, _boundingZ + 2];
 
 if (!(_caller inArea _area)) exitWith {false};
 

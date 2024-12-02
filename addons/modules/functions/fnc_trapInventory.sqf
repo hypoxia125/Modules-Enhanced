@@ -11,7 +11,7 @@
         1: Anyone
         2: Require Equipment (ToolKit, ACE_DefusalKit, MineDetector)
         3: Require Specialist + Equipment
-    
+
     ReturnValue:
     NONE
 
@@ -45,7 +45,7 @@ if (isServer) then {
     // Set variables and broadcast
     _objects apply {
         private _object = _x;
-        
+
         private _data = [_explosiveType, _explodeChance, _canDisable, _persist, true];
         _object setVariable [QGVAR(TrapInventory_Data), _data, true];
 
@@ -70,7 +70,7 @@ allUnits apply {
 
         // Check if trap is active
         _trapData params ["_explosiveType", "_explodeChance", "_canDisable", "_persist", "_active"];
-        if (!_active) exitWith {INFO_1("Inventory Trap: %1 is no longer active", _container)};
+        if (!_active) exitWith {INFO_1("Inventory Trap: %1 is no longer active",_container)};
 
         // Check explode chance - if exploding, exit early
         private _explode = _explodeChance >= random 1;
@@ -92,7 +92,7 @@ allUnits apply {
                     isNull _explosive;
                 }, {
                     params ["_object", "_explosive"];
-                    
+
                     _object setDamage 1;
                 }, [_object, _explosive], 20, {}] call CBA_fnc_waitUntilAndExecute;
             };
@@ -139,7 +139,7 @@ if (hasInterface) then {
                 private _data = _target getVariable QGVAR(TrapInventory_Data);
                 _data set [4, false];
                 _target setVariable [QGVAR(TrapInventory_Data), _data, true];
-                
+
                 hint LLSTRING(TrapInventory_TrapDisabled);
 
                 // Remove actions from all clients

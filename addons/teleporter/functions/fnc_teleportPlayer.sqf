@@ -16,7 +16,7 @@ if (_travelTime == -1) then {
 private _layer = QGVAR(blankScreen) call BIS_fnc_rscLayer;
 uiNamespace setVariable [QGVAR(blankScreen), _layer];
 _layer cutText [
-    (FORMAT_1(LLSTRING(teleportingNotification), _travelTime)),
+    (FORMAT_1(LLSTRING(teleportingNotification),_travelTime)),
     "BLACK OUT", 3, true, true
 ];
 
@@ -51,7 +51,7 @@ _layer cutText [
             _unit setVelocity [0,0,0];
         };
 
-        if (alive _object && _object isKindOf "AllVehicles" && _openAny) then {            
+        if (alive _object && _object isKindOf "AllVehicles" && _openAny) then {
             switch true do {
                 case _openCargo: {_unit moveInCargo _object};
                 case _openCommander: {_unit moveInCommander _object};
@@ -86,15 +86,15 @@ _layer cutText [
                         private _nearWallsY = count (lineIntersectsSurfaces [_candidate vectorAdd [0,-5,1], _candidate vectorAdd [0,5,1], _unit, _object, true, 1, "GEOM", "NONE"]) > 0;
 
                         if (_nearWallsX || _nearWallsY) then {
-                            TRACE_1("MEH_Teleporter:: Position In Building Too Close To Walls: %1", _candidate);
+                            TRACE_1("MEH_Teleporter:: Position In Building Too Close To Walls: %1",_candidate);
                             continue;
                         } else {
-                            TRACE_1("MEH_Teleporter:: Position In Building Found: %1", _candidate);
+                            TRACE_1("MEH_Teleporter:: Position In Building Found: %1",_candidate);
                             _pos = _candidate; break
                         };
                     };
                     case (!_nearToTerrainObjects && !_nearToObjects): {
-                        TRACE_1("MEH_Teleporter:: Position Outside Found: %1", _candidate);
+                        TRACE_1("MEH_Teleporter:: Position Outside Found: %1",_candidate);
                         _pos = _candidate; break
                     };
                 };
@@ -117,7 +117,7 @@ _layer cutText [
                 [QGVAR(updatelbColor), [_object, "green"]] call CBA_fnc_globalEvent;
             };
         };
-        
+
         [QGVAR(hideObjectForTeleport), [_unit, false]] call CBA_fnc_localEvent;
 
         // Fade screen in

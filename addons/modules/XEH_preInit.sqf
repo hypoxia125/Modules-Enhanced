@@ -50,7 +50,7 @@
 [QGVAR(AddFlashlightAttachment), {
     params ["_unit", "_attachment"];
 
-    if (_attachment isEqualTo "") exitwith {};
+    if (_attachment isEqualTo "") exitWith {};
 
     private _primary = primaryWeapon _unit;
     private _primaryItems = primaryWeaponItems _unit;
@@ -81,7 +81,7 @@
 // Local Execution
 [QGVAR(HealingArea_HealUnit), {
     params ["_unit", "_hitPoint", "_value"];
-    
+
     _unit setHitPointDamage [_hitPoint, _value];
 
     private _soundPlaying = _unit getVariable [QGVAR(HealingArea_SoundPlaying), objNull];

@@ -227,6 +227,7 @@ class MEH_TeleportMenu {
             colorBackground2[] = {0,1,0,1};
             textureNoShortcut = "a3\3den\data\controls\ctrlcheckbox\baseline_texturechecked_ca.paa";
 
+            #pragma hemtt suppress pw3_padded_arg
             onButtonClick = QUOTE(\
                 params ['_ctrl'];
                 _this call MEH_Teleporter_fnc_teleportMenu_onConfirm;\
@@ -259,6 +260,7 @@ class MEH_TeleportMenu {
             colorBackground2[] = {1,0,0,1};
             textureNoShortcut = "a3\ui_f\data\gui\cfg\cursors\hc_unsel_gs.paa";
 
+            #pragma hemtt suppress pw3_padded_arg
             onButtonClick = QUOTE(\
                 params ['_ctrl'];
                 ctrlParent _ctrl closeDisplay 2;\
