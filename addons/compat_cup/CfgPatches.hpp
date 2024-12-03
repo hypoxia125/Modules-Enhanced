@@ -1,13 +1,13 @@
 class CfgPatches {
     class ADDON {
-        name = "Modules Enhanced - Spearhead 1944 Compatibility";
+        name = "Modules Enhanced - CUP Compatibility";
         author = "Hypoxic";
         url = "https://github.com/hypoxia125/Modules-Enhanced";
         is3DENMod = 1;
 
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "WW2_SPE_Core_c_Core_c",
+            "CUP_Misc_e_Config",
             "meh_modules"
         };
         units[] = {};

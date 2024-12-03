@@ -1,6 +1,6 @@
 class CfgPatches {
     class ADDON {
-        name = "Modules Enhanced - ACE Compat";
+        name = "Modules Enhanced - ACE Compatibility";
         author = "Hypoxic";
         url = "https://github.com/hypoxia125/Modules-Enhanced";
         is3DENMod = 1;
