@@ -1,5 +1,6 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
+PREP(moduleChangeFlag);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleDeleteRespawnPosition);
