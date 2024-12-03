@@ -34,12 +34,12 @@ class MEH_ModuleChangeFlag: MEH_ModuleBase {
             property = QGVAR(ModuleChangeFlag_FlagToReplace);
             displayName = "New Flag";
             tooltip = "Flag to replace current flag with.";
-            defaultValue = "''";
+            defaultValue = "Flag_MEH_F";
             typeName = "STRING";
             class Values {
                 class Custom {
                     name = "Custom Flag (Fill Below)";
-                    value = "''";
+                    value = "";
                 };
                 class AAF {
                     name = "AAF";
@@ -217,6 +217,14 @@ class MEH_ModuleChangeFlag: MEH_ModuleBase {
                     name = "White";
                     value = "Flag_White_F";
                 };
+                class MEH {
+                    name = "Modules Enhanced";
+                    value = "Flag_MEH_F";
+                };
+                class MEH_Inverted {
+                    name = "Modules Enhanced (Inverted)";
+                    value = "Flag_MEH_Inverted_F";
+                };
             };
         };
 
@@ -224,7 +232,7 @@ class MEH_ModuleChangeFlag: MEH_ModuleBase {
             property = QGVAR(ModuleChangeFlag_CustomTexture);
             displayName = "Custom Texture Path";
             tooltip = "Path to custom texture.";
-            defaultValue = "";
+            defaultValue = "'\z\meh\addons\common\data\textures\flags\flag_MEH_co.paa'";
             typeName = "STRING";
         };
 

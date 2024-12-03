@@ -1,17 +1,14 @@
 class CfgPatches {
     class ADDON {
-        name = "Modules Enhanced - Modules";
+        name = "Modules Enhanced - Spearhead 1944 Compat";
         author = "Hypoxic";
         url = "https://github.com/hypoxia125/Modules-Enhanced";
         is3DENMod = 1;
 
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "A3_Functions_F",
-            "cba_main",
-            "meh_main",
-            "meh_common",
-            "meh_effects"
+            "WW2_SPE_Core_c_Core_c",
+            "meh_modules"
         };
         units[] = {};
         weapons[] = {};

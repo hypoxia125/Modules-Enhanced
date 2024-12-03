@@ -19,5 +19,5 @@ class CfgVehicles {
         class ModuleDescription;
     };
 
-    #include "\z\meh\addons\acecompat\modules\moduleChangeFlag.hpp"
+    #include "\z\meh\addons\ww2_spe_compat\modules\moduleChangeFlag.hpp"
 };
