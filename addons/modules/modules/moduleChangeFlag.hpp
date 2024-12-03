@@ -218,11 +218,11 @@ class MEH_ModuleChangeFlag: MEH_ModuleBase {
                     value = "Flag_White_F";
                 };
                 class MEH {
-                    name = "Modules Enhanced";
+                    name = "MEH - Modules Enhanced";
                     value = "Flag_MEH_F";
                 };
                 class MEH_Inverted {
-                    name = "Modules Enhanced (Inverted)";
+                    name = "MEH - Modules Enhanced (Inverted)";
                     value = "Flag_MEH_Inverted_F";
                 };
             };
