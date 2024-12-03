@@ -1,11 +1,479 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Modules Enhanced">
     <Package name="modules">
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
+            <English>Ambient Artillery (Virtual)</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ModuleDescription_Description">
+            <English>This module creates ambient artillery fire without the need of any entities. Can be enabled and disabled with a single repeatable trigger, or by deleting the module object.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
+            <English>Salvo Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
+            <English>Interval between salvos.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName">
+            <English>Salvo Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
+            <English>The number of shots per salvo.\n\nWhole Number &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
+            <English>Salvo Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_DisplayName">
+            <English>Shell Type</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_Tooltip">
+            <English>The classname of a CfgAmmo shell class.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
+            <English>Shot Interval</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
+            <English>The time between salvos.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
+            <English>Shot Time Variation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
+            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCommunicationJammer_DisplayName">
+            <English>Communication Jammer</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCommunicationJammer_ModuleDescription_Description">
+            <English>The communication jammer module creates a jamming field around an object/area. As the player gets closer to the center of the field, map/GPS will begin to be unreadable and comms will be scrambled.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_DisplayName">
+            <English>Create Minefield</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_DisplayName">
+            <English>Mark On Map For</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Tooltip">
+            <English>What sides can see the minefield's area.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Allies_Name">
+            <English>Allies</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Everyone_Name">
+            <English>Everyone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_None_Name">
+            <English>None</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_DisplayName">
+            <English>Mine Classes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_Tooltip">
+            <English>Array of mine classnames.\n\nArray of Strings</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_DisplayName">
+            <English>Mine Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_Tooltip">
+            <English>Density of the mines.\nMines / 100 meters^2</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
+            <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_DisplayName">
+            <English>Placed By</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Tooltip">
+            <English>What side placed the mines.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Civilian_Name">
+            <English>CIVILIAN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_East_Name">
+            <English>OPFOR</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Independent_Name">
+            <English>GUER</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Unknown_Name">
+            <English>UNKNOWN</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_West_Name">
+            <English>BLUFOR</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_DisplayName">
             <English>Delete Respawn Position</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleDeleteRespawnPosition_ModuleDescription_Description">
             <English>A module designed to remove positions added by a BI Respawn Position Module. Synchronize with one or more BI Respawn Position Modules.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_False">
+            <English>Duplicates Allowed: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_True">
+            <English>Duplicates Allowed: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_False">
+            <English>Repeatable: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_True">
+            <English>Repeatable: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_False">
+            <English>Trigger Activated: No</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Local">
+            <English>Trigger "Server Only": Off</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Optional">
+            <English>Trigger Activated: Optional</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
+            <English>Trigger "Server Only": On</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_True">
+            <English>Trigger Activated: Yes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_DisplayName">
+            <English>Color - Blue</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_DisplayName">
+            <English>Color - Green</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_DisplayName">
+            <English>Color - Red</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_DisplayName">
+            <English>Effect - Fire</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_DisplayName">
+            <English>Effect Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_Tooltip">
+            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_DisplayName">
+            <English>Fire Damage</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_Tooltip">
+            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
+            <English>An updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor. Delete the module mid-mission to stop the effect.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_DisplayName">
+            <English>Particle Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_Tooltip">
+            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_DisplayName">
+            <English>Particle Orientation</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_Tooltip">
+            <English>Direction of the particle.\n\nNumber</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_DisplayName">
+            <English>Particle Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_Tooltip">
+            <English>The size of each particle created.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_DisplayName">
+            <English>Particle Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_Tooltip">
+            <English>The speed of a particles rise.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_DisplayName">
+            <English>Particle Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_Tooltip">
+            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_DisplayName">
+            <English>Effect - Lightpoint</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_DisplayName">
+            <English>Flare Max Distance</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_Tooltip">
+            <English>Maximum distance in meters that the flare is rendered.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_DisplayName">
+            <English>Flare Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_Tooltip">
+            <English>Size in meters of the flare.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
+            <English>Lightcone Ambient Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
+            <English>Color of the ambient light around the lightcone.\n\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_DisplayName">
+            <English>Lightcone Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
+            <English>Color of the lightcone itself.\n\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
+            <English>Lightcone Intensity</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
+            <English>Overall brightness of the lightcone.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
+            <English>Lightcone Params</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
+            <English>Sets the lightcone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_DisplayName">
+            <English>Lightpoint Ambient Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_Tooltip">
+            <English>Color of the ambient light around the lightpoint.\n\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_DisplayName">
+            <English>Lightpoint Color</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_Tooltip">
+            <English>Color of the lightpoint itself.\n\nArray [R,G,B] - Values: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_DisplayName">
+            <English>Lightpoint Intensity</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_Tooltip">
+            <English>Overall brightness of the lightpoint.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
+            <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_Reminder">
+            <English>Reminder: The Effect - Lightpoint Module is best seen when the scenario is set to a darker time of the day!</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_DisplayName">
+            <English>Show During Daylight</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_Tooltip">
+            <English>Sets if light can be seen during the day. Only for the light itself, not the flare.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_DisplayName">
+            <English>Use Flare</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_Tooltip">
+            <English>Enable flare at lightpoint position.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
+            <English>Use Lightcone</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_Tooltip">
+            <English>Use a lightcone to create directional light.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_DisplayName">
+            <English>Use Lightpoint</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_Tooltip">
+            <English>Create a lightpoint with the below parameters.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_DisplayName">
+            <English>Smoke Class</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_Tooltip">
+            <English>Preset smoke class to modify</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_DisplayName">
+            <English>Color - Alpha</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_DisplayName">
+            <English>Color - Blue</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_DisplayName">
+            <English>Color - Green</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_DisplayName">
+            <English>Color - Red</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_Tooltip">
+            <English>Value: 0-1</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_DisplayName">
+            <English>Effect - Smoke</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_DisplayName">
+            <English>Effect Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_Tooltip">
+            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ModuleDescription_Description">
+            <English>An updated version of BI's "Smoke" module. It now functions to preview what the smoke looks like in the editor. Delete the module mid-mission to stop the effect.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_DisplayName">
+            <English>Particle Density</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_Tooltip">
+            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_DisplayName">
+            <English>Particle Expansion</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_Tooltip">
+            <English>Amount the particle expands away from center.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_DisplayName">
+            <English>Particle Lifting</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_Tooltip">
+            <English>How much lift to give to each particle.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_DisplayName">
+            <English>Particle Size</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_Tooltip">
+            <English>The size of each particle created.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_DisplayName">
+            <English>Particle Speed</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_Tooltip">
+            <English>The speed of a particle.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_DisplayName">
+            <English>Particle Time</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_Tooltip">
+            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_DisplayName">
+            <English>Wind Effect</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_Tooltip">
+            <English>How much does wind effect the particle.\n\nNumber &gt;= 0</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_DisplayName">
+            <English>Add Attachment</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
+            <English>Will force remove primary weapon pointer device and add the provided attachment below.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_DisplayName">
+            <English>Force Add Flashlight</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
+            <English>The CfgWeapons class flashlight to add.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_DisplayName">
+            <English>Enable/Disable Gun Lights</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
+            <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_DisplayName">
+            <English>State</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Tooltip">
+            <English>State of the gun lights.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOff_Name">
+            <English>Always Off</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOn_Name">
+            <English>Always On</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_Auto_Name">
+            <English>Auto</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_DisplayName">
+            <English>Affected Units</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Tooltip">
+            <English>Types of units the healing area will affect.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Values_FootSoldiers_DisplayName">
+            <English>Foot Soldiers</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_DisplayName">
+            <English>Healing Area</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_ModuleDescription_Description">
+            <English>This module creates a healing area in game. Every second, affected units are healed by given percent.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_DisplayName">
+            <English>Healing Rate</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_Tooltip">
+            <English>Healing percent per second.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_DisplayName">
+            <English>Damage Area</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_Tooltip">
+            <English>Area around each strike to vaporize objects.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_DisplayName">
+            <English>Lightning Storm</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_ModuleDescription_Description">
+            <English>Module that creates a lightning storm in the designated area.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_DisplayName">
+            <English>Strike Randomness</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_Tooltip">
+            <English>Time (seconds) to add to "Time Between Shots". Randomly between input 0 and input value.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_DisplayName">
+            <English>Time Between Strikes</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_Tooltip">
+            <English>Time (seconds) between each strike of lightning.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_DisplayName">
+            <English>Multiplayer Sync</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_DisplayName">
+            <English>Minimum Players</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_Tooltip">
+            <English>Minimum players to start the game.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_ModuleDescription_Description">
+            <English>The Multiplayer Sync module disables players until the required player count is loaded and spawned. This is so any scripted elements can be experienced by all players, no matter their load times.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_DisplayName">
+            <English>Timeout</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_Tooltip">
+            <English>Max time (s) to wait before starting mission.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_DisplayName">
+            <English>Variable To Set</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_Tooltip">
+            <English>The variable to set TRUE when sync is complete. Use this variable to start your mission scripts.\n\nExample:\n\nwaitUntil { myVariable }</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleMoveOnCombat_Delay_DisplayName">
             <English>Movement Delay</English>
@@ -70,62 +538,47 @@
         <Key ID="STR_MEH_Modules_ModuleParadropVehicle_VehicleClass_Tooltip">
             <English>Single vehicle or crate classname.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_DisplayName">
-            <English>Time Delay</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_DisplayName">
+            <English>Bi-Directional</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
-            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.\n(Does not account for reload times)</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_Tooltip">
+            <English>Can the teleporter be traveled through a second time?</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
-            <English>Vehicle Rearm</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_DisplayName">
+            <English>Register Teleporter</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_DisplayName">
-            <English>Vehicle Refuel</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_ModuleDescription_Description">
+            <English>Registers the synchronized object to the teleporter pool. Activates the teleporter system if it has not been activated yet. Synchronized objects can be static, or vehicle.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_DisplayName">
-            <English>Time Delay</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_DisplayName">
+            <English>Name</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_Tooltip">
-            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_Tooltip">
+            <English>Name of the teleporter that will show in list menu.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_ModuleDescription_Description">
-            <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Civilian">
+            <English>Civilian</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
-            <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_DisplayName">
+            <English>Side</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_DisplayName">
-            <English>Vehicle Mine Jammer</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_East">
+            <English>Opfor</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_DisplayName">
-            <English>Radius</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Resistance">
+            <English>Independent</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_Tooltip">
-            <English>Radius aroiund the vehicle that the jamming occurs.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Tooltip">
+            <English>What side can access this teleporter?</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_DisplayName">
-            <English>Explode On Jam</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_West">
+            <English>Blufor</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_Tooltip">
-            <English>Detonates mines instead of jamming them.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_DisplayName">
+            <English>Travel Time</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_ModuleDescription_Description">
-            <English>A module that will turn a vehicle into a mine jamming vehicle.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_DisplayName">
-            <English>Speed Limiter</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_DisplayName">
-            <English>Speed</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
-            <English>The speed that the vehicle will be limited to.\n0 to disable.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
-            <English>Affect Players</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_Tooltip">
-            <English>Limits all player speeds in this vehicle.</English>
+        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_Tooltip">
+            <English>Time in seconds of how long it takes to reach this destination.\n-1 to calculate based on distance\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_DisplayName">
             <English>Affect AI</English>
@@ -133,137 +586,41 @@
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectAI_Tooltip">
             <English>Limits all AI speeds in this vehicle.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_DisplayName">
+            <English>Affect Players</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_AffectPlayer_Tooltip">
+            <English>Limits all player speeds in this vehicle.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_DisplayName">
+            <English>Speed Limiter</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_ModuleDescription_Description">
             <English>A module that limits the speeds of connected vehicles for either all players, all AI, or both.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_DisplayName">
-            <English>Enable/Disable Gun Lights</English>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_DisplayName">
+            <English>Speed</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_DisplayName">
-            <English>State</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Tooltip">
-            <English>State of the gun lights.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_Auto_Name">
-            <English>Auto</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOn_Name">
-            <English>Always On</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_State_Values_AlwaysOff_Name">
-            <English>Always Off</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_DisplayName">
-            <English>Add Attachment</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_AddAttachment_Tooltip">
-            <English>Will force remove primary weapon pointer device and add the provided attachment below.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_ModuleDescription_Description">
-            <English>A module that changes the flashlight On/Off state of the unit's group. Affects player units as well.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_DisplayName">
-            <English>Force Add Flashlight</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEnableDisableGunLights_Attachment_Tooltip">
-            <English>The CfgWeapons class flashlight to add.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_DisplayName">
-            <English>Ambient Artillery (Virtual)</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_DisplayName">
-            <English>Shell Type</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_Shell_Tooltip">
-            <English>The classname of a CfgAmmo shell class.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName">
-            <English>Salvo Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip">
-            <English>The number of shots per salvo.\n\nWhole Number &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName">
-            <English>Salvo Interval</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip">
-            <English>Interval between salvos.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName">
-            <English>Salvo Time Variation</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to salvo interval.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName">
-            <English>Shot Interval</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip">
-            <English>The time between salvos.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName">
-            <English>Shot Time Variation</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip">
-            <English>Random amount (0 to value) to add to shot interval.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Server">
-            <English>Trigger "Server Only": On</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Local">
-            <English>Trigger "Server Only": Off</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_True">
-            <English>Trigger Activated: Yes</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_False">
-            <English>Trigger Activated: No</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_TriggerActivated_Optional">
-            <English>Trigger Activated: Optional</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_True">
-            <English>Duplicates Allowed: Yes</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_DuplicatesAllowed_False">
-            <English>Duplicates Allowed: No</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_True">
-            <English>Repeatable: Yes</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleDescription_Repeatable_False">
-            <English>Repeatable: No</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleAmbientArtilleryVirtual_ModuleDescription_Description">
-            <English>This module creates ambient artillery fire without the need of any entities. Can be enabled and disabled with a single repeatable trigger, or by deleting the module object.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_DisplayName">
-            <English>Trap Inventory</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_DisplayName">
-            <English>Explosive Type</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_Tooltip">
-            <English>Classname of CfgAmmo explosive. If using a grenade, the grenade fuse will have to burn before explosion (not instant).</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_DisplayName">
-            <English>Explode Chance</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_Tooltip">
-            <English>Chance (0 to 1) that the trap will explode when opening.</English>
+        <Key ID="STR_MEH_Modules_ModuleSpeedLimiter_Speed_Tooltip">
+            <English>The speed that the vehicle will be limited to.\n0 to disable.\n\nNumber &gt;= 0</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_DisplayName">
             <English>Can Disable</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Tooltip">
-            <English>Allows the trap to be disabled. View tooltips of values for more information.</English>STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Specialist_Name
+            <English>Allows the trap to be disabled. View tooltips of values for more information.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Any_Name">
             <English>Anyone</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Any_Tooltip">
             <English>Any player can disable the trap. No tool requirements.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Name">
+            <English>Disabled</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Tooltip">
+            <English>No one is able to defuse the trap.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Equipment_Name">
             <English>Require Equipment</English>
@@ -277,461 +634,104 @@
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Specialist_Tooltip">
             <English>Equipment + the player must have the "ExplosiveSpecialist" trait.</English>
         </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_DisplayName">
+            <English>Trap Inventory</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_DisplayName">
+            <English>Explode Chance</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplodeChance_Tooltip">
+            <English>Chance (0 to 1) that the trap will explode when opening.</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_DisplayName">
+            <English>Explosive Type</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ExplosiveType_Tooltip">
+            <English>Classname of CfgAmmo explosive. If using a grenade, the grenade fuse will have to burn before explosion (not instant).</English>
+        </Key>
+        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ModuleDescription_Description">
+            <English>This module causes inventories to have an explosive surprise. Can be used on crates, vehicles, units (armed when they die), etc</English>
+        </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_Persist_DisplayName">
             <English>Persist After Opening</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleTrapInventory_Persist_tooltip">
             <English>Does not remove the trap upon a successful opening of the inventory. Does not apply to disabled inventories.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_ModuleDescription_Description">
-            <English>This module causes inventories to have an explosive surprise. Can be used on crates, vehicles, units (armed when they die), etc</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_DisplayName">
+            <English>Vehicle Mine Jammer</English>
         </Key>
-        <Key ID="STR_MEH_Modules_TrapInventory_Action_DisableTrap">
-            <English>Disable Trap</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_DisplayName">
+            <English>Explode On Jam</English>
         </Key>
-        <Key ID="STR_MEH_Modules_TrapInventory_TrapDisabled">
-            <English>Trap Disabled</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Explode_Tooltip">
+            <English>Detonates mines instead of jamming them.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_TrapInventory_SuccessUnknown">
-            <English>A wire trips as you open.\nGood thing it didn't go off!</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_ModuleDescription_Description">
+            <English>A module that will turn a vehicle into a mine jamming vehicle.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Name">
-            <English>Disabled</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_DisplayName">
+            <English>Radius</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleTrapInventory_CanDisable_Values_Disable_Tooltip">
-            <English>No one is able to defuse the trap.</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleMineJammer_Radius_Tooltip">
+            <English>Radius aroiund the vehicle that the jamming occurs.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_TrapInventory_SuccessFailed">
-            <English>A wire trips as you open.\nGood thing it didn't go off.\nIt looks like its still active though...</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_DisplayName">
+            <English>Vehicle Rearm</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_DisplayName">
-            <English>Effect - Fire</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_ModuleDescription_Description">
+            <English>A module that will either rearm the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_DisplayName">
-            <English>Color - Red</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_DisplayName">
+            <English>Time Delay</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorRed_Tooltip">
-            <English>Value: 0-1</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRearm_TimeDelay_Tooltip">
+            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.\n(Does not account for reload times)</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_DisplayName">
-            <English>Color - Green</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_DisplayName">
+            <English>Vehicle Refuel</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorGreen_Tooltip">
-            <English>Value: 0-1</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_ModuleDescription_Description">
+            <English>A module that will either refuel the synchronized vehicles once, or on a repeatable timer.&lt;br/&gt;0 to disable.</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_DisplayName">
-            <English>Color - Blue</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_DisplayName">
+            <English>Time Delay</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ColorBlue_Tooltip">
-            <English>Value: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_DisplayName">
-            <English>Fire Damage</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_FireDamage_Tooltip">
-            <English>Core Intensity: 0.6*Value\nCore Distance: 0.25*Value\nDamage Time: 0.1\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_DisplayName">
-            <English>Effect Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_EffectSize_Tooltip">
-            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_DisplayName">
-            <English>Particle Density</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleDensity_Tooltip">
-            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_DisplayName">
-            <English>Particle Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleTime_Tooltip">
-            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_DisplayName">
-            <English>Particle Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSize_Tooltip">
-            <English>The size of each particle created.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_DisplayName">
-            <English>Particle Speed</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleSpeed_Tooltip">
-            <English>The speed of a particles rise.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_DisplayName">
-            <English>Particle Orientation</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ParticleOrientation_Tooltip">
-            <English>Direction of the particle.\n\nNumber</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectFire_ModuleDescription_Description">
-            <English>An updated version of BI's "Fire" module. It now functions to preview what the fire looks like in the editor. Delete the module mid-mission to stop the effect.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_DisplayName">
-            <English>Effect - Smoke</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_DisplayName">
-            <English>Color - Red</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorRed_Tooltip">
-            <English>Value: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_DisplayName">
-            <English>Color - Green</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorGreen_Tooltip">
-            <English>Value: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_DisplayName">
-            <English>Color - Blue</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_DisplayName">
-            <English>Color - Alpha</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorAlpha_Tooltip">
-            <English>Value: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_DisplayName">
-            <English>Effect Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_EffectSize_Tooltip">
-            <English>Size of the emitter over its lifetime.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_DisplayName">
-            <English>Particle Density</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleDensity_Tooltip">
-            <English>How fast new particles are created.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_DisplayName">
-            <English>Particle Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleTime_Tooltip">
-            <English>The time each particle lasts.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_DisplayName">
-            <English>Particle Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSize_Tooltip">
-            <English>The size of each particle created.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_DisplayName">
-            <English>Particle Expansion</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleExpansion_Tooltip">
-            <English>Amount the particle expands away from center.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_DisplayName">
-            <English>Particle Speed</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleSpeed_Tooltip">
-            <English>The speed of a particle.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_DisplayName">
-            <English>Particle Lifting</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ParticleLifting_Tooltip">
-            <English>How much lift to give to each particle.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_DisplayName">
-            <English>Wind Effect</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_WindEffect_Tooltip">
-            <English>How much does wind effect the particle.\n\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ColorBlue_Tooltip">
-            <English>Value: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_ModuleDescription_Description">
-            <English>An updated version of BI's "Smoke" module. It now functions to preview what the smoke looks like in the editor. Delete the module mid-mission to stop the effect.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_DisplayName">
-            <English>Effect - Lightpoint</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_DisplayName">
-            <English>Use Lightpoint</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightpoint_Tooltip">
-            <English>Create a lightpoint with the below parameters.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_DisplayName">
-            <English>Lightpoint Color</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointColor_Tooltip">
-            <English>Color of the lightpoint itself.\n\nArray [R,G,B] - Values: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_DisplayName">
-            <English>Lightpoint Ambient Color</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointAmbientColor_Tooltip">
-            <English>Color of the ambient light around the lightpoint.\n\nArray [R,G,B] - Values: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_DisplayName">
-            <English>Lightpoint Intensity</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightpointIntensity_Tooltip">
-            <English>Overall brightness of the lightpoint.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_DisplayName">
-            <English>Use Flare</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseFlare_Tooltip">
-            <English>Enable flare at lightpoint position.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_DisplayName">
-            <English>Flare Size</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareSize_Tooltip">
-            <English>Size in meters of the flare.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_DisplayName">
-            <English>Flare Max Distance</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_FlareMaxDistance_Tooltip">
-            <English>Maximum distance in meters that the flare is rendered.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_DisplayName">
-            <English>Use Lightcone</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_UseLightCone_Tooltip">
-            <English>Use a lightcone to create directional light.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_DisplayName">
-            <English>Lightcone Color</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeColor_Tooltip">
-            <English>Color of the lightcone itself.\n\nArray [R,G,B] - Values: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_DisplayName">
-            <English>Lightcone Ambient Color</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeAmbientColor_Tooltip">
-            <English>Color of the ambient light around the lightcone.\n\nArray [R,G,B] - Values: 0-1</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_DisplayName">
-            <English>Lightcone Intensity</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConeIntensity_Tooltip">
-            <English>Overall brightness of the lightcone.\n\nNumber &gt; 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_DisplayName">
-            <English>Lightcone Params</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_LightConePars_Tooltip">
-            <English>Sets the lightcone params.\n\nArray of Numbers [outerAngle, innerAngle, fadeCoef]</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ModuleDescription_Description">
-            <English>This module creates a lightpoint at the position that can be viewed, in real time, in 3DEN. Direction of the module as well as the pitch/yaw also are shown (lightcones). Delete by deleting the module mid-mission.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_DisplayName">
-            <English>Show During Daylight</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_ShowDaytime_Tooltip">
-            <English>Sets if light can be seen during the day. Only for the light itself, not the flare.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectLightpoint_Reminder">
-            <English>Reminder: The Effect - Lightpoint Module is best seen when the scenario is set to a darker time of the day!</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_DisplayName">
-            <English>Create Minefield</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_DisplayName">
-            <English>Placed By</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_East_Name">
-            <English>OPFOR</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_West_Name">
-            <English>BLUFOR</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Independent_Name">
-            <English>GUER</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Civilian_Name">
-            <English>CIVILIAN</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Values_Unknown_Name">
-            <English>UNKNOWN</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_DisplayName">
-            <English>Mine Classes</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineClasses_Tooltip">
-            <English>Array of mine classnames.\n\nArray of Strings</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_DisplayName">
-            <English>Mine Density</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_DisplayName">
-            <English>Mark On Map For</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_None_Name">
-            <English>None</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Allies_Name">
-            <English>Allies</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Values_Everyone_Name">
-            <English>Everyone</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_PlacedBy_Tooltip">
-            <English>What side placed the mines.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_Tooltip">
-            <English>Density of the mines.\nMines / 100 meters^2</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MarkMap_Tooltip">
-            <English>What sides can see the minefield's area.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
-            <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_DisplayName">
-            <English>Register Teleporter</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_DisplayName">
-            <English>Name</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Name_Tooltip">
-            <English>Name of the teleporter that will show in list menu.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_DisplayName">
-            <English>Side</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Tooltip">
-            <English>What side can access this teleporter?</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_East">
-            <English>Opfor</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_West">
-            <English>Blufor</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Resistance">
-            <English>Independent</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Side_Civilian">
-            <English>Civilian</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_DisplayName">
-            <English>Bi-Directional</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_Bidirectional_Tooltip">
-            <English>Can the teleporter be traveled through a second time?</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_DisplayName">
-            <English>Travel Time</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_TravelTime_Tooltip">
-            <English>Time in seconds of how long it takes to reach this destination.\n-1 to calculate based on distance\nNumber &gt;= 0</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_DisplayName">
-            <English>Lightning Storm</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_DisplayName">
-            <English>Time Between Strikes</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_TimeBetweenStrikes_Tooltip">
-            <English>Time (seconds) between each strike of lightning.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_DisplayName">
-            <English>Strike Randomness</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_StrikeRandomness_Tooltip">
-            <English>Time (seconds) to add to "Time Between Shots". Randomly between input 0 and input value.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_DisplayName">
-            <English>Damage Area</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_AreaDamage_Tooltip">
-            <English>Area around each strike to vaporize objects.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleLightningStorm_ModuleDescription_Description">
-            <English>Module that creates a lightning storm in the designated area.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_DisplayName">
-            <English>Multiplayer Sync</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_DisplayName">
-            <English>Minimum Players</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_MinPlayers_Tooltip">
-            <English>Minimum players to start the game.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_DisplayName">
-            <English>Timeout</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_Timeout_Tooltip">
-            <English>Max time (s) to wait before starting mission.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_ModuleDescription_Description">
-            <English>The Multiplayer Sync module disables players until the required player count is loaded and spawned. This is so any scripted elements can be experienced by all players, no matter their load times.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_DisplayName">
-            <English>Variable To Set</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleMPSync_VariableToPass_Tooltip">
-            <English>The variable to set TRUE when sync is complete. Use this variable to start your mission scripts.\n\nExample:\n\nwaitUntil { myVariable }</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleRegisterTeleporter_ModuleDescription_Description">
-            <English>Registers the synchronized object to the teleporter pool. Activates the teleporter system if it has not been activated yet. Synchronized objects can be static, or vehicle.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCommunicationJammer_DisplayName">
-            <English>Communication Jammer</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleCommunicationJammer_ModuleDescription_Description">
-            <English>The communication jammer module creates a jamming field around an object/area. As the player gets closer to the center of the field, map/GPS will begin to be unreadable and comms will be scrambled.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_DisplayName">
-            <English>Smoke Class</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleEffectSmoke_Class_Tooltip">
-            <English>Preset smoke class to modify</English>
+        <Key ID="STR_MEH_Modules_ModuleVehicleRefuel_TimeDelay_Tooltip">
+            <English>Time (seconds) between vehicle rearms.\n0 to disable repeating.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_Default_DisplayName">
             <English>Default</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilSmall_DisplayName">
-            <English>Oil - Small</English>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilLrg_DisplayName">
+            <English>Oil - Large</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilMed_DisplayName">
             <English>Oil - Medium</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilLrg_DisplayName">
-            <English>Oil - Large</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodSmall_DisplayName">
-            <English>Wood - Small</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodMed_DisplayName">
-            <English>Wood - Medium</English>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_OilSmall_DisplayName">
+            <English>Oil - Small</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodLrg_DisplayName">
             <English>Wood - Large</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_DisplayName">
-            <English>Healing Area</English>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodMed_DisplayName">
+            <English>Wood - Medium</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_DisplayName">
-            <English>Affected Units</English>
+        <Key ID="STR_MEH_Modules_ModulesEffectSmoke_Class_Values_WoodSmall_DisplayName">
+            <English>Wood - Small</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Tooltip">
-            <English>Types of units the healing area will affect.</English>
+        <Key ID="STR_MEH_Modules_TrapInventory_Action_DisableTrap">
+            <English>Disable Trap</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_Affected_Values_FootSoldiers_DisplayName">
-            <English>Foot Soldiers</English>
+        <Key ID="STR_MEH_Modules_TrapInventory_SuccessFailed">
+            <English>A wire trips as you open.\nGood thing it didn't go off.\nIt looks like its still active though...</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_DisplayName">
-            <English>Healing Rate</English>
+        <Key ID="STR_MEH_Modules_TrapInventory_SuccessUnknown">
+            <English>A wire trips as you open.\nGood thing it didn't go off!</English>
         </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_Tooltip">
-            <English>Healing percent per second.</English>
-        </Key>
-        <Key ID="STR_MEH_Modules_ModuleHealingArea_ModuleDescription_Description">
-            <English>This module creates a healing area in game. Every second, affected units are healed by given percent.</English>
+        <Key ID="STR_MEH_Modules_TrapInventory_TrapDisabled">
+            <English>Trap Disabled</English>
         </Key>
     </Package>
 </Project>
