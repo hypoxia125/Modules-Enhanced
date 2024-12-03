@@ -47,7 +47,7 @@ switch _mode do {
                 _module set3DENAttribute ["position", (_object get3DENAttribute "position") select 0];
             }];
 
-            _object setvariable [QGVAR(communicationjammer_lockedObject_EH), _handle];
+            _object setVariable [QGVAR(communicationjammer_lockedObject_EH), _handle];
 
             TRACE_2("Reapplied locked event handler",_object,_handle);
         };
@@ -86,12 +86,12 @@ switch _mode do {
         // ----- Lock object ----- //
         private _lockedObject = _module getVariable [QGVAR(communicationjammer_lockedObject), objNull];
         private _handle = _lockedObject getVariable [QGVAR(communicationjammer_lockedObject_EH), -1];
-        
+
         // Remove locked object eventhandler
         if !(isNull _lockedObject) then {
             _lockedObject removeEventHandler ["AttributesChanged3DEN", _handle];
             _lockedObject setVariable [QGVAR(communicationjammer_lockedObject_EH), nil];
-            _lockedObject setvariable [QGVAR(communicationjammer_lockedObject), nil];
+            _lockedObject setVariable [QGVAR(communicationjammer_lockedObject), nil];
             _module setVariable [QGVAR(communicationjammer_lockedObject), nil];
 
             TRACE_2("Removed locked object handler",_lockedObject,_handle);

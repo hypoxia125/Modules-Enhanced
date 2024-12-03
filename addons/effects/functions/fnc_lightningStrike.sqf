@@ -43,7 +43,7 @@ _lightning setPos position _dummy;
     } else {
         _lightning hideObject true;
         _light setLightBrightness 0;
-        
+
         _flickers = _flickers + 1;
         _lightning setVariable [QGVAR(lightningStrike_flickers), _flickers];
     };
@@ -63,7 +63,7 @@ _lightning setPos position _dummy;
         deleteVehicle _dummy;
         deleteVehicle _lightning;
         deleteVehicle _light;
-        
+
         _handle call CBA_fnc_removePerFrameHandler;
     };
 }, 0, [_dummy, _lightning, _light, diag_tickTime]] call CBA_fnc_addPerFrameHandler;

@@ -1,8 +1,11 @@
 class Cfg3DEN {
     class Attributes {
-        class Title;
+        class Default;
+        class Title: Default {
+            class Controls;
+        };
         class Edit: Title {
-            class Controls {
+            class Controls: Controls {
                 class Title;
                 class Value;
             };
