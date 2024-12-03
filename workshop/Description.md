@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.9.4[/h1]
+[h1]Current Version - v0.9.5[/h1]
 
 Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
@@ -72,11 +72,17 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
+[h3]Other Mods[/h3]
+Want these flares for your weapons? Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3364788586]Colorful Flares[/url]
+
 [h3]Contact Me:[/h3]
 Message Me On Discord: [b]hypoxic[/b]
 For Scripting/Modding Help:
 - Visit [url=https://discord.gg/arma]Official Arma Discord[/url]
 - Ping Me [b]@hypoxic[/b] in the [b]#arma3_scripting[/b] channel
+
+[h3]Want Help Organizing Your Group Roles During An OP?[/h3]
+Check out [url=https://hypoxia125.github.io/ArmaSquadGenerator/]Arma Squad Generator[/url]
 
 [h3]Current Bugs:[/h3]
 Communication Jammer
