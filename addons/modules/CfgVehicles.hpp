@@ -1,8 +1,19 @@
 class CfgVehicles {
     class Logic;
     class Module_F: Logic {
-        class AttributesBase
-        {
+        class AttributesBase;
+        class ModuleDescription;
+    };
+    class MEH_ModuleBase: Module_F {
+        author = "Hypoxic";
+        scope = 0;
+        scopeCurator = 0;
+        is3DEN = 0;
+        isGlobal = 0;
+        isTriggerActivated = 1;
+        curatorCanAttach = 0;
+
+        class AttributesBase: AttributesBase {
             class Default;
             class Edit;
             class EditCodeMulti5;
@@ -14,17 +25,6 @@ class CfgVehicles {
             class ModuleDescription;
             class Units;
         };
-
-        class ModuleDescription;
-    };
-    class MEH_ModuleBase: Module_F {
-        author = "Hypoxic";
-        scope = 0;
-        scopeCurator = 0;
-        is3DEN = 0;
-        isGlobal = 0;
-        isTriggerActivated = 1;
-        curatorCanAttach = 0;
 
         class ModuleDescription: ModuleDescription {
             duplicate = 0;

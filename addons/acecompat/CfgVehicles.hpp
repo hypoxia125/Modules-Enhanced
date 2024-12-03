@@ -1,8 +1,10 @@
 class CfgVehicles {
     class Logic;
     class Module_F: Logic {
-        class AttributesBase
-        {
+        class AttributesBase;
+    };
+    class MEH_ModuleBase: Module_F {
+        class AttributesBase: AttributesBase {
             class Default;
             class Edit;
             class EditCodeMulti5;
@@ -14,10 +16,6 @@ class CfgVehicles {
             class ModuleDescription;
             class Units;
         };
-    };
-    class MEH_ModuleBase: Module_F {
-        class Attributes;
-        class AttributesBase;
         class ModuleDescription;
     };
 
