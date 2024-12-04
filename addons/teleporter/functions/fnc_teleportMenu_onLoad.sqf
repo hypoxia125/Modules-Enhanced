@@ -5,7 +5,7 @@ params [
     "_config"
 ];
 
-LOG_1("Display Created: %1", _display);
+LOG_1("Display Created: %1",_display);
 
 disableSerialization;
 
@@ -31,7 +31,7 @@ _data apply {
     ) then {
         continue;
     };
-    
+
     private _index = (_display displayCtrl IDC_LOCLIST) lbAdd _name;
 
     if (

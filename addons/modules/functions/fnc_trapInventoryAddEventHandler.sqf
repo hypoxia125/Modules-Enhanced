@@ -14,7 +14,7 @@ private _handle = _unit addEventHandler ["InventoryOpened", {
 
     // Check if trap is active
     _trapData params ["_explosiveType", "_explodeChance", "_canDisable", "_persist", "_active"];
-    if (!_active) exitWith {INFO_1("Inventory Trap: %1 is no longer active", _container)};
+    if (!_active) exitWith {INFO_1("Inventory Trap: %1 is no longer active",_container)};
 
     // Check explode chance - if exploding, exit early
     private _explode = _explodeChance >= random 1;

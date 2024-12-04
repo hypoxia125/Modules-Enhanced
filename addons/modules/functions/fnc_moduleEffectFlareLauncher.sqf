@@ -103,17 +103,17 @@ switch _mode do {
                 ]};
                 // Cycle (Order of Rainbow)
                 case 24: {[
-                    "MEH_40mm_Red_60", "MEH_40mm_Orange_60", "MEH_40mm_Yellow_60", 
+                    "MEH_40mm_Red_60", "MEH_40mm_Orange_60", "MEH_40mm_Yellow_60",
                     "MEH_40mm_Green_60", "MEH_40mm_Blue_60", "MEH_40mm_Purple_60",
                     "MEH_40mm_White_60"
                 ]};
                 case 25: {[
-                    "MEH_40mm_Red_180", "MEH_40mm_Orange_180", "MEH_40mm_Yellow_180", 
+                    "MEH_40mm_Red_180", "MEH_40mm_Orange_180", "MEH_40mm_Yellow_180",
                     "MEH_40mm_Green_180", "MEH_40mm_Blue_180", "MEH_40mm_Purple_180",
                     "MEH_40mm_White_180"
                 ]};
                 case 26: {[
-                    "MEH_40mm_Red_300", "MEH_40mm_Orange_300", "MEH_40mm_Yellow_300", 
+                    "MEH_40mm_Red_300", "MEH_40mm_Orange_300", "MEH_40mm_Yellow_300",
                     "MEH_40mm_Green_300", "MEH_40mm_Blue_300", "MEH_40mm_Purple_300",
                     "MEH_40mm_White_300"
                 ]};
@@ -129,7 +129,7 @@ switch _mode do {
             private _handle = [{
                 params ["_args", "_handle"];
                 _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
-                
+
                 if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
                 if (isGamePaused) exitWith {};
 
@@ -144,7 +144,7 @@ switch _mode do {
                 if (_cycle) then {
                     private _currentFlareIndex = _module getVariable [QGVAR(ModuleEffectFlareLauncher_CurrentFlareIndex), 0];
                     _flareClass = _flareClasses#_currentFlareIndex;
-                    
+
                     _currentFlareIndex = _currentFlareIndex + 1;
                     if !(_currentFlareIndex < count _flareClasses) then {
                         _currentFlareIndex = 0;

@@ -29,19 +29,19 @@ switch _type do {
     };
     // launch
     case 4: {
-        private _missile = createVehicle ["ammo_Missile_Cruise_01", getposATL _player vectorAdd [0,0,3], [], 0, "NONE"];
+        private _missile = createVehicle ["ammo_Missile_Cruise_01", getPosATL _player vectorAdd [0,0,3], [], 0, "NONE"];
         _missile setVectorDirAndUp [[0, 0, 1], [1, 0, 0]];
 
         [QGVAR(setRocketAnimation), [_player]] call CBA_fnc_globalEvent;
         [QGVAR(attachPlayerToRocket), [_player, _missile], _player] call CBA_fnc_targetEvent;
-        
+
         [{
             params ["_missile", "_player"];
 
             detach _player;
             [QGVAR(startRagdoll), [_player], _player] call CBA_fnc_targetEvent;
             triggerAmmo _missile;
-                      
+
         }, [_missile, _player], 5] call CBA_fnc_waitAndExecute;
     };
 };

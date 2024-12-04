@@ -13,26 +13,7 @@ class CfgPatches {
             "meh_common",
             "meh_effects"
         };
-        units[] = {
-            "MEH_ModuleAmbientArtillery",
-            "MEH_ModuleAntiTroll",
-            "MEH_ModuleCreateMinefield",
-            "MEH_ModuleDeleteRespawnPosition",
-            "MEH_ModuleEffectFire",
-            "MEH_ModuleEffectLightpoint.hpp",
-            "MEH_ModuleEffectSmoke",
-            "MEH_ModuleEnableDisableGunLights",
-            "MEH_ModuleLightningStorm",
-            "MEH_ModuleMoveOnCombat",
-            "MEH_ModuleMPSync",
-            "MEH_ModuleParadropVehicle",
-            "MEH_ModuleRegisterTeleporter",
-            "MEH_ModuleSpeedLimiter",
-            "MEH_ModuleTrapInventory",
-            "MEH_ModuleVehicleMineJammer",
-            "MEH_ModuleVehicleRearm",
-            "MEH_ModuleVehicleRefuel"
-        };
+        units[] = {};
         weapons[] = {};
 
         skipWhenMissingDependencies = 1;

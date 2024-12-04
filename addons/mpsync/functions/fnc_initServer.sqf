@@ -11,7 +11,7 @@ params ["_minPlayers","_timeout", "_variableToPass"];
     private _enoughPlayersSpawned = ({ (_x getVariable [QGVAR(playerSpawned), false]) } count _players >= _minPlayers);
 
     _playersNotEmpty && { _aPlayerHasSpawned && { _enoughPlayersSpawned}};
-    
+
 }, {
     params ["_minPlayers", "_timeout", "_variableToPass"];
 

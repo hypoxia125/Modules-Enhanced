@@ -97,7 +97,7 @@ private _stopArtillery = {
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
-        
+
         if (_isActivated) then {
             private _handle = [
                 _module, _area, _shell, _salvoSize, _salvoInterval,
@@ -109,6 +109,6 @@ switch _mode do {
             [_module] call _stopArtillery;
         };
     };
-    
+
     default {};
 };

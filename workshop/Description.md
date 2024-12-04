@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.9.4[/h1]
+[h1]Current Version - v0.9.6[/h1]
 
 Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
@@ -33,50 +33,58 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
     [tr]
         [td]Ambient Artillery (Virtual)[/td]
         [td]Anti-Troll[/td]
-        [td]Communication Jammer[/td]
+        [td]Change Flag[/td]
     [/tr]
     [tr]
+        [td]Communication Jammer[/td]
         [td]Create Minefield[/td]
         [td]Create Paradrop Troop Transport[/td]
-        [td]Delete BI Respawn Position[/td]
     [/tr]
     [tr]
+        [td]Delete BI Respawn Position[/td]
         [td]Effect - Fire[/td]
         [td]Effect - Flare Launcher[/td]
-        [td]Effect - Lightpoint[/td]
     [/tr]
     [tr]
+        [td]Effect - Lightpoint[/td]
         [td]Effect - Smoke[/td]
         [td]Enable/Disable Gun Lights[/td]
-        [td]Healing Area[/td]
     [/tr]
     [tr]
+        [td]Healing Area[/td]
         [td]Lightning Storm[/td]
         [td]Move On Combat[/td]
-        [td]Multiplayer Sync[/td]
     [/tr]
     [tr]
+        [td]Multiplayer Sync[/td]
         [td]Paradrop Vehicle/Crate[/td]
         [td]Register Teleporter[/td]
-        [td]Speed Limiter[/td]
     [/tr]
     [tr]
+        [td]Speed Limiter[/td]
         [td]Trap Inventory[/td]
         [td]Vehicle Mine Jammer[/td]
-        [td]Vehicle Rearm[/td]
     [/tr]
     [tr]
+        [td]Vehicle Rearm[/td]
         [td]Vehicle Refuel[/td]
     [/tr]
 [/table]
 
+
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
+
+[h3]Other Mods[/h3]
+Want these flares for your weapons? Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3364788586]Colorful Flares[/url]
 
 [h3]Contact Me:[/h3]
 Message Me On Discord: [b]hypoxic[/b]
 For Scripting/Modding Help:
 - Visit [url=https://discord.gg/arma]Official Arma Discord[/url]
 - Ping Me [b]@hypoxic[/b] in the [b]#arma3_scripting[/b] channel
+
+[h3]Want Help Organizing Your Group Roles During An OP?[/h3]
+Check out [url=https://hypoxia125.github.io/ArmaSquadGenerator/]Arma Squad Generator[/url]
 
 [h3]Current Bugs:[/h3]
 Communication Jammer

@@ -10,4 +10,4 @@ if (_missionVersion isEqualTo CURRENT_VERSION) exitWith {};
 // Save scenario
 do3DENAction "MissionSave";
 
-INFO(FORMAT_1("Modules Enhanced: Version %1 saved to mission", CURRENT_VERSION));
+INFO(FORMAT_1("Modules Enhanced: Version %1 saved to mission",CURRENT_VERSION));

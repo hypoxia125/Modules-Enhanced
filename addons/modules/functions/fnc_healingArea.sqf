@@ -80,7 +80,7 @@ if (_showArea3D) then {
     };
 
     private _affectedUnits = entities [["CAManBase"], [], false, true] select {_x inArea _area};
-    LOG_1("Healing Area - Affected Units:: %1", _affectedUnits);
+    LOG_1("Healing Area - Affected Units:: %1",_affectedUnits);
 
     if (_affectedUnits isEqualTo []) exitWith {};
     _affectedUnits apply {

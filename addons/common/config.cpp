@@ -6,3 +6,4 @@
 #include "Cfg3DEN.hpp"
 #include "CfgSounds.hpp"
 #include "CfgAmmo.hpp"
+#include "CfgVehicles.hpp"
