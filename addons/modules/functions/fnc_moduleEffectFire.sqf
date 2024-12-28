@@ -22,17 +22,22 @@ private _pos = ASLToAGL (getPosASL _module);
 private _colorRed = _module getVariable "ColorRed";
 private _colorGreen = _module getVariable "ColorGreen";
 private _colorBlue = _module getVariable "ColorBlue";
-private _fireDamage = _module getVariable [QUOTE(FireDamage), 1];
-private _effectSize = _module getVariable [QUOTE(EffectSize), 1];
-private _particleDensity = _module getVariable [QUOTE(ParticleDensity), 25];
-private _particleTime = _module getVariable [QUOTE(ParticleTime), 0.6];
-private _particleSize = _module getVariable [QUOTE(ParticleSize), 1];
-private _particleSpeed = _module getVariable [QUOTE(ParticleSpeed), 1];
-private _particleOrientation = _module getVariable [QUOTE(ParticleOrientation), 0];
+private _fireDamage = _module getVariable ["FireDamage", 1];
+private _effectSize = _module getVariable ["EffectSize", 1];
+private _particleDensity = _module getVariable ["ParticleDensity", 25];
+private _particleTime = _module getVariable ["ParticleTime", 0.6];
+private _particleSize = _module getVariable ["ParticleSize", 1];
+private _particleSpeed = _module getVariable ["ParticleSpeed", 1];
+private _particleOrientation = _module getVariable ["ParticleOrientation", 0];
 
 if ([_fireDamage, _effectSize, _particleDensity, _particleTime, _particleSpeed] findIf {_x < 0} != -1) then {[typeOf _module] call EFUNC(Error,invalidArgs)};
 
 private _args = [_module, _pos, _colorRed, _colorGreen, _colorBlue, _fireDamage, _effectSize, _particleDensity, _particleTime, _particleSize, _particleSpeed, _particleOrientation];
+
+LOG("Listing Variables For Fire Effect");
+{
+    LOG_2("Arg %1: %2",_forEachIndex,_x);
+} forEach _args;
 
 // Functions
 //------------------------------------------------------------------------------------------------
