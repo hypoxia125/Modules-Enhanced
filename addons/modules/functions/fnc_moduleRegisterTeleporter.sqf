@@ -36,8 +36,12 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
+        ///////////////////////
+        // Temp Duplicate Fix Start
+        ///////////////////////
+
         // Register if no synced object
-        if (isNil "_object") then {
+        if (isNil "_object" && isServer) then {
             // Create object
             private _flagClass = switch _side do {
                 case east: {"Flag_Red_F"};
@@ -51,7 +55,16 @@ switch _mode do {
             _object = _flag;
 
             INFO_2("(%1) No object synced, creating dummy flag for use: %2",QFUNC(moduleRegisterTeleporter),_object);
+
+            _module setVariable [QGVAR(teleporterObject), _object, true];
         };
+
+        waitUntil {!isNil {_module getVariable QGVAR(teleporterObject)}};
+        private _object = _module getVariable QGVAR(teleporterObject);
+
+        ///////////////////////
+        // Temp Duplicate Fix End
+        ///////////////////////
         
         INFO_2("(%1) Registering Teleporter: %2",QFUNC(moduleRegisterTeleporter),_object);
 
