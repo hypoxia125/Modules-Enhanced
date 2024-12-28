@@ -67,7 +67,7 @@ private _createJammers = {
                     [QGVAR(enableMine), [_x, true]] call CBA_fnc_serverEvent;
                 };
             };
-        }, 0.25, [_vehicle, _distance, _explode]] call CBA_fnc_addPerFrameHandler;
+        }, 0, [_vehicle, _distance, _explode]] call CBA_fnc_addPerFrameHandler;
     };
 };
 
@@ -78,7 +78,7 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
-        [_vehicles, _distance, _explode] call _createJammersw;
+        [_vehicles, _distance, _explode] call _createJammers;
     };
 
     case "connectionChanged3DEN": {
