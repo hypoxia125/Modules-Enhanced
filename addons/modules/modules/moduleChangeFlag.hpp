@@ -2,7 +2,7 @@ class MEH_ModuleChangeFlag: MEH_ModuleBase {
     scope = 2;
     displayName = "Change Flag";
     icon = "a3\ui_f\data\igui\cfg\actions\takeflag_ca.paa";
-    category = "MEH";
+    category = "MEH_Misc";
 
     function = QFUNC(ModuleChangeFlag);
     functionPriority = 1;
