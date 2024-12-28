@@ -31,7 +31,7 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             control = "MEH_ModuleLightning_StrikeTiming";
             property = QGVAR(ModuleLightningStorm_StrikeRandomness);
             displayName = CSTRING(ModuleLightningStorm_StrikeRandomness_DisplayName);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             tooltip = "Specifies the percentage of randomness applied to the base interval between strikees. The interval will vary within a range calculated as ±X% of the base interval. For example, if the base interval is 30 seconds and randomness is 20%, the strike interval will vary between 24 and 36 seconds. Use this parameter to simulate unpredictability in strike timing.";
             defaultValue = 1;
             typeName = "NUMBER";
@@ -41,7 +41,7 @@ class MEH_ModuleLightningStorm: MEH_ModuleBase {
             control = "MEH_ModuleLightning_DamageArea";
             property = QGVAR(ModuleLightningStorm_AreaDamage);
             displayName = CSTRING(ModuleLightningStorm_AreaDamage_DisplayName);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             tooltip = CSTRING(ModuleLightningStorm_AreaDamage_Tooltip);
             defaultValue = 15;
             typeName = "NUMBER";

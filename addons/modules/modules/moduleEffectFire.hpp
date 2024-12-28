@@ -15,7 +15,7 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
         class ColorRed {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorRed);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorRed_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorRed_Tooltip);
             defaultValue = 0.5;
@@ -25,7 +25,7 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
         class ColorGreen {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorGreen);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorGreen_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorGreen_Tooltip);
             defaultValue = 0.5;
@@ -35,7 +35,7 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
         class ColorBlue {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorBlue);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorBlue_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorBlue_Tooltip);
             defaultValue = 0.5;
@@ -93,7 +93,7 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
         class ParticleOrientation: Edit {
             control = "MEH_ModuleEffectFire_Orientation";
             property = QGVAR(ModuleEffectFire_ParticleOrientation);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ParticleOrientation_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ParticleOrientation_Tooltip);
             defaultValue = 0;

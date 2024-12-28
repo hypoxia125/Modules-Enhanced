@@ -157,7 +157,7 @@ class MEH_ModuleEffectFlareLauncher: MEH_ModuleBase {
 
         class LaunchRandomness: Edit {
             control = "MEH_ModuleEffectFlareLauncher_LaunchRandomness";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectFlareLauncher_LaunchRandomness);
             displayName = "Launch Randomness";
             tooltip = "Specifies the percentage of randomness applied to the base interval between launches. The interval will vary within a range calculated as ±X% of the base interval. For example, if the base interval is 30 seconds and randomness is 20%, the launch interval will vary between 24 and 36 seconds. Use this parameter to simulate unpredictability in launch timing.";
@@ -183,7 +183,7 @@ class MEH_ModuleEffectFlareLauncher: MEH_ModuleBase {
 
         class LaunchDispersion {
             control = "MEH_ModuleEffectFlareLauncher_LaunchDispersion";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectFlareLauncher_LaunchDispersion);
             displayName = "Launch Dispersion Angle";
             tooltip = "How much the shell direction can vary from a perfect 90* straight-up path.";

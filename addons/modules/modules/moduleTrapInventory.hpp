@@ -22,7 +22,7 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
 
         class ExplodeChance {
             control = "MEH_ModuleTrapInventory_ExplodeChance";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleTrapInventory_ExplodeChance);
             displayName = CSTRING(ModuleTrapInventory_ExplodeChance_DisplayName);
             tooltip = CSTRING(ModuleTrapInventory_ExplodeChance_Tooltip);

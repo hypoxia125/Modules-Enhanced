@@ -37,7 +37,7 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
         class Rate {
             control = "MEH_ModuleHealingArea_HealingRate";
             property = QGVAR(ModuleHealingArea_Rate);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleHealingArea_Rate_DisplayName);
             tooltip = CSTRING(ModuleHealingArea_Rate_Tooltip);
             defaultValue = 0.10;

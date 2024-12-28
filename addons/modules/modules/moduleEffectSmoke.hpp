@@ -52,7 +52,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
 
         class ColorRed {
             control = "MEH_ModuleEffectSmoke_Colors";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectSmoke_ColorRed);
             displayName = CSTRING(ModuleEffectSmoke_ColorRed_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorRed_Tooltip);
@@ -62,7 +62,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
 
         class ColorGreen {
             control = "MEH_ModuleEffectSmoke_Colors";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectSmoke_ColorGreen);
             displayName = CSTRING(ModuleEffectSmoke_ColorGreen_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorGreen_Tooltip);
@@ -72,7 +72,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
 
         class ColorBlue {
             control = "MEH_ModuleEffectSmoke_Colors";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectSmoke_ColorBlue);
             displayName = CSTRING(ModuleEffectSmoke_ColorBlue_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorBlue_Tooltip);
@@ -82,7 +82,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
 
         class ColorAlpha {
             control = "MEH_ModuleEffectSmoke_Colors";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectSmoke_ColorAlpha);
             displayName = CSTRING(ModuleEffectSmoke_ColorAlpha_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorAlpha_Tooltip);

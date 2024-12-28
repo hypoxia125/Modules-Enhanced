@@ -53,7 +53,7 @@ class MEH_ModuleCreateMinefield: MEH_ModuleBase {
             control = "MEH_ModuleInputArray";
             defaultValue = "['APERSMine']";
             displayName = CSTRING(ModuleCreateMinefield_MineClasses_DisplayName);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleCreateMinefield_MineClasses);
             tooltip = CSTRING(ModuleCreateMinefield_MineClasses_Tooltip);
             typeName = "ARRAY";
@@ -61,7 +61,7 @@ class MEH_ModuleCreateMinefield: MEH_ModuleBase {
 
         class MineDensity {
             control = "MEH_ModuleCreateMinefield_Density";
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleCreateMinefield_MineDensity);
             displayName = CSTRING(ModuleCreateMinefield_MineDensity_DisplayName);
             tooltip = CSTRING(ModuleCreateMinefield_MineDensity_Tooltip);

@@ -23,7 +23,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointColorRed {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointColorRed);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Color - Red";
             tooltip = "Red value for lightpoint color.";
             defaultValue = 1;
@@ -33,7 +33,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointColorGreen {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointColorGreen);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Color - Green";
             tooltip = "Green value for lightpoint color.";
             defaultValue = 1;
@@ -43,7 +43,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointColorBlue {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointColorBlue);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Color - Blue";
             tooltip = "Blue value for lightpoint color.";
             defaultValue = 1;
@@ -53,7 +53,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointAmbientColorRed {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointAmbientColorRed);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Ambient Color - Red";
             tooltip = "Red value for ambient color.";
             defaultValue = 1;
@@ -63,7 +63,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointAmbientColorGreen {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointAmbientColorGreen);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Ambient Color - Green";
             tooltip = "Green value for ambient color.";
             defaultValue = 1;
@@ -73,7 +73,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightpointAmbientColorBlue {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightpointAmbientColorBlue);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightpoint Ambient Color - Blue";
             tooltip = "Blue value for ambient color.";
             defaultValue = 1;
@@ -134,7 +134,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeColorRed {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeColorRed);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Color - Red";
             tooltip = "Red value for lightcone color.";
             defaultValue = 1;
@@ -144,7 +144,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeColorGreen {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeColorGreen);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Color - Green";
             tooltip = "Green value for lightcone color.";
             defaultValue = 1;
@@ -154,7 +154,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeColorBlue {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeColorBlue);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Color - Blue";
             tooltip = "Blue value for lightcone color.";
             defaultValue = 1;
@@ -164,7 +164,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeAmbientColorRed {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeAmbientColorRed);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Ambient Color - Red";
             tooltip = "Red value for ambient color.";
             defaultValue = 1;
@@ -174,7 +174,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeAmbientColorGreen {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeAmbientColorGreen);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Ambient Color - Green";
             tooltip = "Green value for ambient color.";
             defaultValue = 1;
@@ -184,7 +184,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeAmbientColorBlue {
             control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectLightpoint_LightconeAmbientColorBlue);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Ambient Color - Blue";
             tooltip = "Blue value for ambient color.";
             defaultValue = 1;
@@ -203,7 +203,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeOuter {
             control = "MEH_ModuleEffectLightpoint_LightconeParams";
             property = QGVAR(ModuleEffectLightpoint_LightconeOuter);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Outer Angle";
             tooltip = "The degrees of the outer edges from the center.";
             defaultValue = 120;
@@ -213,7 +213,7 @@ class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
         class LightconeInner {
             control = "MEH_ModuleEffectLightpoint_LightconeParams";
             property = QGVAR(ModuleEffectLightpoint_LightconeInner);
-            expression = "_this setVariable ['%s', _value]";
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = "Lightcone Inner Angle";
             tooltip = "The degrees of the inner edges from the center.";
             defaultValue = 30;
