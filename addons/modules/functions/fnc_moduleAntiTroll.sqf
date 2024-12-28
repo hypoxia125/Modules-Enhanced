@@ -172,6 +172,7 @@ FUNC(punish) = compileFinal {
 
     [QGVAR(punishmentMessage), [], _player] call CBA_fnc_targetEvent;
 };
+
 // Code Start
 //------------------------------------------------------------------------------------------------
 [
