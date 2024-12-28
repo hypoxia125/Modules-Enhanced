@@ -2,7 +2,7 @@ class MEH_ModuleParadropToopTransport: MEH_ModuleBase {
     scope = 2;
     displayName = "Create Paradrop Troop Transport";
     icon = "a3\air_f_beta\parachute_01\data\ui\map_parachute_01_ca.paa";
-    category = "MEH";
+    category = "MEH_Logistics";
 
     function = QFUNC(ModuleParadropTroopTransport);
     functionPriority = 1;
@@ -16,9 +16,8 @@ class MEH_ModuleParadropToopTransport: MEH_ModuleBase {
             property = QGVAR(ModuleParadropTroopTransport_ChuteOpenHeight);
             displayName = "Chute Open Height (AGL)";
             tooltip = "Sets what height the chute opens AGL.";
-            defaultValue = "100";
+            defaultValue = 100;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ChuteType: Combo {

@@ -23,6 +23,8 @@ if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 private _delay = _module getVariable [QUOTE(Delay), 0];
 private _units = synchronizedObjects _module select {_x isKindOf "CAManBase"};
 
+_delay = abs _delay;
+
 // Functions
 //------------------------------------------------------------------------------------------------
 private _execute = {

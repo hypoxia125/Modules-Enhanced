@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+#define MINECOUNTWARN   10000
+
 // Parameters
 //------------------------------------------------------------------------------------------------
 params [
@@ -21,13 +23,10 @@ if !(_mode in ["init", "registeredToWorld3DEN", "attributesChanged3DEN", "unregi
 //------------------------------------------------------------------------------------------------
 private _area = _module getVariable ["ObjectArea", [50, 50, 0, false, -1]];
 private _placedBy = _module getVariable ["PlacedBy", 4];
-private _mineClasses = _module getVariable ["MineClasses", "[APERSMine]"];
+private _mineClasses = _module getVariable ["MineClasses", "['APERSMine']"];
 private _mineDensity = _module getVariable ["MineDensity", 10];
 private _markMap = _module getVariable ["MarkMap", 0];
 
-diag_log format["Mineclasses: %1", _mineClasses];
-_mineClasses = _mineClasses call EFUNC(common,parseArrayOfClasses);
-diag_log format["Mineclasses: %1", _mineClasses];
 if (
     !(_mineClasses isEqualTypeAll "") ||
     _mineClasses findIf { (getText (configFile >> "CfgVehicles" >> _x >> "ammo") == "") } != -1
@@ -55,32 +54,57 @@ _markmap = switch _markmap do {
 // Functions
 //------------------------------------------------------------------------------------------------
 private _3DENCreateMarkers = {
-    params ["_module", "_mineDensity"];
+    _this spawn {
+        params ["_module", "_mineDensity"];
 
-    private _area = [_module] call FUNC(get3DENAreaModule);
-    _area params ["_center", "_a", "_b", "_angle", "_isRectangle", "_z"];
+        private _area = [_module] call FUNC(get3DENAreaModule);
+        _area params ["_center", "_a", "_b", "_angle", "_isRectangle", "_z"];
 
-    // Calculate total markers needed
-    private ["_totalMarkers"];
-    if (_isRectangle) then {
-        _totalMarkers = (_mineDensity * _a * _b) / 100;
-    } else {
-        _totalMarkers = (_mineDensity * pi * (_a/2) * (_b/2)) / 100;
+        // Calculate total markers needed
+        private ["_totalMarkers"];
+        if (_isRectangle) then {
+            _totalMarkers = (_mineDensity * _a * _b) / 100;
+        } else {
+            _totalMarkers = (_mineDensity * pi * (_a/2) * (_b/2)) / 100;
+        };
+
+        // Warn users if large amount of mines
+        if (_totalMarkers > MINECOUNTWARN && isNil "_skipWarning") then {
+            [
+                format["You are about to simulate %1 mine markers. This can severely impact hang time. Use at own risk! Select no to skip simulation.", _totalMarkers],
+                "Warning!",
+                ["Yes", { missionNamespace setVariable [QGVAR(ModuleCreateMinefield_MakeMarkers), true] }],
+                ["No", { missionNamespace setVariable [QGVAR(ModuleCreateMinefield_MakeMarkers), true] }],
+                "a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_fire_in_flame_ca.paa",
+                findDisplay 313
+            ] call BIS_fnc_3DENShowMessage;
+        } else {
+            missionNamespace setVariable [QGVAR(ModuleCreateMinefield_MakeMarkers), true]
+        };
+
+        waitUntil {!isNil {missionNamespace getVariable QGVAR(ModuleCreateMinefield_MakeMarkers)}};
+        if !(missionNamespace getVariable [QGVAR(ModuleCreateMinefield_MakeMarkers), true]) exitWith {};
+
+        // switch back to unscheduled
+        isNil {
+            // Create 3DEN markers
+            private _markerObj = "Sign_Sphere10cm_F";
+            private _createdMarkers = [];
+            for "_i" from 0 to _totalMarkers - 1 do {
+                private _pos = [[_area]] call BIS_fnc_randomPos;
+                _pos set [2, 0];
+
+                private _marker = createVehicle [_markerObj, _pos, [], 0, "NONE"];
+                _marker setObjectTextureGlobal [0, "#(rgb,8,8,3)color(1,0,0,1)"];
+                _marker setObjectScale 4;
+                _createdMarkers pushBackUnique _marker;
+            };
+
+            _module setVariable [QGVAR(moduleCreateMinefield_3DEN_Markers), _createdMarkers];
+
+            missionNamespace setVariable [QGVAR(ModuleCreateMinefield_MakeMarkers), nil];
+        };
     };
-
-    // Create 3DEN markers
-    private _markerObj = "Sign_Sphere10cm_F";
-    private _createdMarkers = [];
-    for "_i" from 0 to _totalMarkers - 1 do {
-        private _pos = [[_area]] call BIS_fnc_randomPos;
-        _pos set [2, 0];
-
-        private _marker = createVehicle [_markerObj, _pos, [], 0, "NONE"];
-        _marker setObjectTextureGlobal [0, "#(rgb,8,8,3)color(1,0,0,1)"];
-        _marker setObjectScale 4;
-        _createdMarkers pushBackUnique _marker;
-    };
-    _module setVariable [QGVAR(moduleCreateMinefield_3DEN_Markers), _createdMarkers];
 };
 
 private _3DENDeleteMarkers = {
@@ -96,9 +120,9 @@ private _createMinefield = {
 
     private _totalMines = 0;
     if (_isRectangle) then {
-        _totalMines = (_mineDensity * _a * _b) / 100;
+        _totalMines = round (_mineDensity * _a * _b) / 100;
     } else {
-        _totalMines = (_mineDensity * pi * (_a/2) * (_b/2)) / 100;
+        _totalMines = round (_mineDensity * pi * (_a/2) * (_b/2)) / 100;
     };
 
     private _createdMines = [];
@@ -142,6 +166,7 @@ private _createMinefield = {
 
 // Code Start
 //------------------------------------------------------------------------------------------------
+LOG_1("MEH_ModuleCreateMinefield: Mode: %1",_mode);
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};

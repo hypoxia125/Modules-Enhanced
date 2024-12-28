@@ -4,7 +4,7 @@
 
 // Events
 
-[QGVAR(hideObjectGlobal), {
+[QGVAR(HideObjectServer), {
     params ["_unit", "_value"];
 
     _unit hideObjectGlobal _value;
@@ -15,7 +15,7 @@
     params ["_unit", "_value"];
 
     _unit allowDamage (!_value);
-    [QGVAR(hideObjectGlobal), [_unit, _value]] call CBA_fnc_serverEvent;
+    [QGVAR(HideObjectServer), [_unit, _value]] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(updatelbColor), {

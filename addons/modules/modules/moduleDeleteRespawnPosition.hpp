@@ -2,7 +2,7 @@ class MEH_ModuleDeleteRespawnPosition: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleDeleteRespawnPosition_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_cancel_ca.paa";
-    category = "MEH";
+    category = "MEH_MultiplayerSystems";
 
     function = QFUNC(ModuleDeleteRespawnPosition);
     functionPriority = 1;

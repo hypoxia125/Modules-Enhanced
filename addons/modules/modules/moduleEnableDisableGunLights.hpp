@@ -2,7 +2,7 @@ class MEH_ModuleEnableDisableGunLights: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleEnableDisableGunLights_DisplayName);
     icon = "a3\3den\data\displays\display3den\toolbar\flashlight_off_ca.paa";
-    category = "MEH";
+    category = "MEH_PlayerAndAI";
 
     function = QFUNC(ModuleEnableDisableGunLights);
     functionPriority = 1;

@@ -2,7 +2,7 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleHealingArea_DisplayName); // TODO: localize
     icon = "a3\ui_f\data\igui\cfg\actions\heal_ca.paa";
-    category = "MEH";
+    category = "MEH_Logistics";
 
     function = QFUNC(ModuleHealingArea);
     functionPriority = 1;
@@ -34,13 +34,14 @@ class MEH_ModuleHealingArea: MEH_ModuleBase {
             };
         };
 
-        class Rate: Edit {
+        class Rate {
+            control = "MEH_ModuleHealingArea_HealingRate";
             property = QGVAR(ModuleHealingArea_Rate);
+            expression = "_this setVariable ['%s', _value]";
             displayName = CSTRING(ModuleHealingArea_Rate_DisplayName);
             tooltip = CSTRING(ModuleHealingArea_Rate_Tooltip);
             defaultValue = 0.10;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ShowAreaMarker: Checkbox {

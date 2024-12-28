@@ -2,11 +2,11 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleTrapInventory_DisplayName);
     icon = "a3\ui_f_curator\data\rsccommon\rscattributeinventory\filter_6_ca.paa";
-    category = "MEH";
+    category = "MEH_Explosives";
 
     function = QFUNC(ModuleTrapInventory);
     functionPriority = 1;
-    isGlobal = 2;
+    isGlobal = 0;
     isTriggerActivated = 0;
     isDisposable = 1;
     is3DEN = 1;
@@ -18,16 +18,16 @@ class MEH_ModuleTrapInventory: MEH_ModuleBase {
             tooltip = CSTRING(ModuleTrapInventory_ExplosiveType_Tooltip);
             defaultValue = """GrenadeHand""";
             typeName = "STRING";
-            validate = "STRING";
         };
 
-        class ExplodeChance: Edit {
+        class ExplodeChance {
+            control = "MEH_ModuleTrapInventory_ExplodeChance";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleTrapInventory_ExplodeChance);
             displayName = CSTRING(ModuleTrapInventory_ExplodeChance_DisplayName);
             tooltip = CSTRING(ModuleTrapInventory_ExplodeChance_Tooltip);
-            defaultValue = 0.5;
+            defaultValue = 0.25;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class CanDisable: Combo {

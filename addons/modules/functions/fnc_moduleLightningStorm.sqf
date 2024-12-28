@@ -22,13 +22,12 @@ if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 //------------------------------------------------------------------------------------------------
 private _area = _module getVariable ["ObjectArea", [100, 100, 0, false, -1]];
 private _timeBetweenStrikes = _module getVariable ["TimeBetweenStrikes", 5];
-private _strikeRandomness = _module getVariable ["StrikeRandomness", 5];
+private _strikeRandomness = _module getVariable ["StrikeRandomness", 1];
 private _areaDamage = _module getVariable ["AreaDamage", 15];
 
-if (_timeBetweenStrikes < 0) then { _timeBetweenStrikes = 0 };
-if (_strikeRandomness < 0) then { _strikeRandomness = 0 };
-if (_areaDamage < 0) then { _areaDamage = 0 };
+_timeBetweenStrikes = abs _timeBetweenStrikes;
 
+if (_areaDamage < 0) then { _areaDamage = 0 };
 _area = [getPosATL _module] + _area;
 
 // Functions
@@ -51,37 +50,41 @@ private _startStorm = {
         };
 
         private _strikes = 1;
-        if (random 1 < 0.10) then {_strikes = 2};
+        if (random 1 < 0.10) then {
+            _strikes = selectRandom [2,3];
+        };
 
-        private _pos = [[_area]] call BIS_fnc_randomPos;
-        _pos set [2, 0];
+        for "_i" from 0 to _strikes - 1 do {
+            private _pos = [[_area]] call BIS_fnc_randomPos;
+            _pos set [2, 0];
 
-        // Play sound
-        private _bolt = createVehicle ["MEH_LightningBolt", [100,100,100], [], 0, "CAN_COLLIDE"];
-        _bolt setPosATL _pos;
-        _bolt setDamage 1;
+            // Play sound
+            private _bolt = createVehicle ["MEH_LightningBolt", [100,100,100], [], 0, "CAN_COLLIDE"];
+            _bolt setPosATL _pos;
+            _bolt setDamage 1;
 
-        // Call Event - Creates Lightning Effect
-        [QEGVAR(effects,lightningStrike_Local), [_pos, random 360, selectRandom ["Lightning1_F", "Lightning2_F"]]] call CBA_fnc_globalEvent;
+            // Call Event - Creates Lightning Effect
+            [QEGVAR(effects,lightningStrike_Local), [_pos, random 360, selectRandom ["Lightning1_F", "Lightning2_F"]]] call CBA_fnc_globalEvent;
 
-        // Damage things around the strike
-        private _nearObjects = _pos nearObjects _areaDamage;
-        private _terrainObjects = nearestTerrainObjects [_pos, [], _areaDamage];
+            // Damage things around the strike
+            private _nearObjects = _pos nearObjects _areaDamage;
+            private _terrainObjects = nearestTerrainObjects [_pos, [], _areaDamage];
 
-        _nearObjects insert [-1, _terrainObjects];
-        _nearObjects = _nearObjects select {!(_x isKindOf "Logic")};
-        _nearObjects apply {_x setDamage 1};
+            _nearObjects insert [-1, _terrainObjects];
+            _nearObjects = _nearObjects select {!(_x isKindOf "Logic")};
+            _nearObjects apply {_x setDamage 1};
 
-        _totalStrikes = _totalStrikes + 1;
-        _module setVariable [QGVAR(ModuleLightningStorm_TotalStrikes), _totalStrikes];
+            _totalStrikes = _totalStrikes + 1;
+            _module setVariable [QGVAR(ModuleLightningStorm_TotalStrikes), _totalStrikes];
+        };
 
         // Determine new wait time
         private _newValue = _timeBetweenStrikes;
         private _randomness = random _strikeRandomness;
         if (random 1 < 0.5) then {
-            _newValue = _newValue - _randomness;
+            _newValue = _newValue * (1 + _randomness);
         } else {
-            _newValue = _newValue + _randomness;
+            _newValue = _newValue * (1 - _randomness);
         };
         _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _newValue];
 

@@ -2,7 +2,7 @@ class MEH_ModuleVehicleRearm: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleVehicleRearm_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
-    category = "MEH";
+    category = "MEH_Logistics";
 
     function = QFUNC(ModuleVehicleRearm);
     functionPriority = 1;
@@ -12,13 +12,31 @@ class MEH_ModuleVehicleRearm: MEH_ModuleBase {
     is3DEN = 1;
 
     class Attributes: AttributesBase {
-        class TimeDelay: Edit {
+        class TimeDelay {
+            control = "MEH_ModuleEffectRearmVehicle_Delay";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleVehicleRearm_TimeDelay);
             displayName = CSTRING(ModuleVehicleRearm_TimeDelay_DisplayName);
             tooltip = CSTRING(ModuleVehicleRearm_TimeDelay_Tooltip);
-            defaultValue = 0;
+            defaultValue = 5;
             typeName = "NUMBER";
             validate = "NUMBER";
+        };
+
+        class RearmCount: Edit {
+            property = QGVAR(ModuleVehicleRearm_RearmCount);
+            displayName = "Rearm Tickets";
+            tooltip = "How many times this module will rearm the vehicle.";
+            defaultValue = 1;
+            typeName = "NUMBER";
+        };
+
+        class RunImmediately: Checkbox {
+            property = QGVAR(ModuleVehicleRearm_RunImmediately);
+            displayName = "Rearm Immediately When Triggered";
+            tooltip = "When this module is triggered, it will immediately rearm the vehicle rather than waiting for the delay. Will then continue with delay if rearm count allows.";
+            defaultValue = "false";
+            typeName = "BOOL";
         };
 
         class ModuleDescription: ModuleDescription {};

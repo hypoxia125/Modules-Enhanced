@@ -2,7 +2,7 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleEffectSmoke_DisplayName);
     icon = "a3\modules_f_curator\data\iconsmoke_ca.paa";
-    category = "MEH";
+    category = "MEH_Effects";
 
     function = QFUNC(ModuleEffectSmoke);
     functionPriority = 1;
@@ -50,40 +50,44 @@ class MEH_ModuleEffectSmoke: MEH_ModuleBase {
             };
         };
 
-        class ColorRed: Edit {
+        class ColorRed {
+            control = "MEH_ModuleEffectSmoke_Colors";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleEffectSmoke_ColorRed);
             displayName = CSTRING(ModuleEffectSmoke_ColorRed_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorRed_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class ColorGreen: Edit {
+        class ColorGreen {
+            control = "MEH_ModuleEffectSmoke_Colors";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleEffectSmoke_ColorGreen);
             displayName = CSTRING(ModuleEffectSmoke_ColorGreen_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorGreen_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class ColorBlue: Edit {
+        class ColorBlue {
+            control = "MEH_ModuleEffectSmoke_Colors";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleEffectSmoke_ColorBlue);
             displayName = CSTRING(ModuleEffectSmoke_ColorBlue_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorBlue_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class ColorAlpha: Edit {
+        class ColorAlpha {
+            control = "MEH_ModuleEffectSmoke_Colors";
+            expression = "_this setVariable ['%s', _value]";
             property = QGVAR(ModuleEffectSmoke_ColorAlpha);
             displayName = CSTRING(ModuleEffectSmoke_ColorAlpha_DisplayName);
             tooltip = CSTRING(ModuleEffectSmoke_ColorAlpha_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class EffectSize: Edit {

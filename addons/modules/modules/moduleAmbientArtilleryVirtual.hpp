@@ -2,7 +2,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleAmbientArtilleryVirtual_DisplayName);
     icon = "a3\ui_f\data\gui\cfg\communicationmenu\artillery_ca.paa";
-    category = "MEH";
+    category = "MEH_Effects";
 
     function = QFUNC(ModuleAmbientArtilleryVirtual);
     functionPriority = 1;

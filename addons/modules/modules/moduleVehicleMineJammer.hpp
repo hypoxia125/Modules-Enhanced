@@ -2,7 +2,7 @@ class MEH_ModuleVehicleMineJammer: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleVehicleMineJammer_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\mine_ca.paa";
-    category = "MEH";
+    category = "MEH_Explosives";
 
     function = QFUNC(ModuleVehicleMineJammer);
     functionPriority = 1;
