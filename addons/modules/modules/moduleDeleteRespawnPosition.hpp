@@ -1,15 +1,15 @@
 class MEH_ModuleDeleteRespawnPosition: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleDeleteRespawnPosition_DisplayName);
-    icon = "a3\ui_f\data\map\diary\icons\diaryunassigntask_ca.paa"; // Todo: Add image
-    category = "Multiplayer";
+    icon = "a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_cancel_ca.paa";
+    category = "MEH_MultiplayerSystems";
 
     function = QFUNC(ModuleDeleteRespawnPosition);
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 1;
     isDisposable = 1;
-    is3DEN = 0;
+    is3DEN = 1;
 
     class Attributes: AttributesBase {
         class ModuleDescription: ModuleDescription {};

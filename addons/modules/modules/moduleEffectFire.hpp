@@ -2,7 +2,7 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleEffectFire_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_fire_in_flame_ca.paa";
-    category = "MEH";
+    category = "MEH_Effects";
 
     function = QFUNC(ModuleEffectFire);
     functionPriority = 1;
@@ -12,31 +12,34 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
     is3DEN = 1;
 
     class Attributes: AttributesBase {
-        class ColorRed: Edit {
+        class ColorRed {
+            control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorRed);
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorRed_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorRed_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class ColorGreen: Edit {
+        class ColorGreen {
+            control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorGreen);
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorGreen_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorGreen_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class ColorBlue: Edit {
+        class ColorBlue {
+            control = "MEH_ModuleEffectFire_Colors";
             property = QGVAR(ModuleEffectFire_ColorBlue);
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ColorBlue_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ColorBlue_Tooltip);
             defaultValue = 0.5;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class FireDamage: Edit {
@@ -45,7 +48,6 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_FireDamage_Tooltip);
             defaultValue = 1;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class EffectSize: Edit {
@@ -54,7 +56,6 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_EffectSize_Tooltip);
             defaultValue = 1;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ParticleDensity: Edit {
@@ -63,7 +64,6 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_ParticleDensity_Tooltip);
             defaultValue = 25;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ParticleTime: Edit {
@@ -72,7 +72,6 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_ParticleTime_Tooltip);
             defaultValue = 0.6;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ParticleSize: Edit {
@@ -81,7 +80,6 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_ParticleSize_Tooltip);
             defaultValue = 1;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ParticleSpeed: Edit {
@@ -90,16 +88,16 @@ class MEH_ModuleEffectFire: MEH_ModuleBase {
             tooltip = CSTRING(ModuleEffectFire_ParticleSpeed_Tooltip);
             defaultValue = 1;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ParticleOrientation: Edit {
+            control = "MEH_ModuleEffectFire_Orientation";
             property = QGVAR(ModuleEffectFire_ParticleOrientation);
+            expression = "_this setVariable ['%s', _value, true]";
             displayName = CSTRING(ModuleEffectFire_ParticleOrientation_DisplayName);
             tooltip = CSTRING(ModuleEffectFire_ParticleOrientation_Tooltip);
             defaultValue = 0;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ModuleDescription: ModuleDescription {};

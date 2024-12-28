@@ -2,7 +2,7 @@ class MEH_ModuleCreateMinefield: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleCreateMinefield_DisplayName);
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\mine_ca.paa";
-    category = "MEH";
+    category = "MEH_Explosives";
 
     function = QFUNC(ModuleCreateMinefield);
     functionPriority = 1;
@@ -49,22 +49,24 @@ class MEH_ModuleCreateMinefield: MEH_ModuleBase {
             };
         };
 
-        class MineClasses: Edit {
-            property = QGVAR(ModuleCreateMinefield_MineClasses);
+        class MineClasses {
+            control = "MEH_ModuleInputArray";
+            defaultValue = "['APERSMine']";
             displayName = CSTRING(ModuleCreateMinefield_MineClasses_DisplayName);
+            expression = "_this setVariable ['%s', _value, true]";
+            property = QGVAR(ModuleCreateMinefield_MineClasses);
             tooltip = CSTRING(ModuleCreateMinefield_MineClasses_Tooltip);
-            defaultValue = """[""""APERSMine""""]""";
-            typeName = "STRING";
-            validate = "STRING";
+            typeName = "ARRAY";
         };
 
-        class MineDensity: Edit {
+        class MineDensity {
+            control = "MEH_ModuleCreateMinefield_Density";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleCreateMinefield_MineDensity);
             displayName = CSTRING(ModuleCreateMinefield_MineDensity_DisplayName);
             tooltip = CSTRING(ModuleCreateMinefield_MineDensity_Tooltip);
             defaultValue = 10;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class MarkMap: Combo {

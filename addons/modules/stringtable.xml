@@ -77,7 +77,7 @@
             <English>Mine Density</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleCreateMinefield_MineDensity_Tooltip">
-            <English>Density of the mines.\nMines / 100 meters^2</English>
+            <English>Density of the mines.\nMines / 100 meters^2\nThis can crash or cause extremely long wait times if you make it too large of an area with too large of a density!\nConsider yourself warned!</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleCreateMinefield_ModuleDescription_Description">
             <English>This module creates a minefield at the given location. Preview generated in 3DEN to represent the mine density. It DOES NOT tell you where the mines will be placed on mission start; just an example.</English>
@@ -419,7 +419,7 @@
             <English>Healing Area</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleHealingArea_ModuleDescription_Description">
-            <English>This module creates a healing area in game. Every second, affected units are healed by given percent.</English>
+            <English>This module creates a healing area in game. Every second, affected units are healed by given percent. Does not work if ACE is enabled.</English>
         </Key>
         <Key ID="STR_MEH_Modules_ModuleHealingArea_Rate_DisplayName">
             <English>Healing Rate</English>

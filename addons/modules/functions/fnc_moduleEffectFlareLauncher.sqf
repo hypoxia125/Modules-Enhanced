@@ -12,6 +12,8 @@
 
 #define TICKRATE    0.1
 
+// Parameters
+//------------------------------------------------------------------------------------------------
 params [
     ["_mode", "", [""]],
     ["_input", [], [[]]]
@@ -22,27 +24,30 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
+// Pre-Execution Checks
+//------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
 if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
-private _flareColor = _module getVariable ["FlareColor", DEFAULT_FLARECOLOR];
-private _timeBetweenLaunches = _module getVariable ["TimeBetweenLaunches", DEFAULT_TIMEBETWEENLAUNCHES];
-private _launchRandomness = _module getVariable ["LaunchRandomness", DEFAULT_LAUNCHRANDOMNESS];
-private _launchDispersion = _module getVariable ["LaunchDispersion", DEFAULT_LAUNCHDISPERSION];
-private _flareDeployHeight = parseSimpleArray (_module getVariable ["FlareDeployHeight", DEFAULT_FLAREDEPLOYHEIGHT]);
+// Variables
+//------------------------------------------------------------------------------------------------
+private _flareColor = _module getVariable ["FlareColor", 21];
+private _timeBetweenLaunches = _module getVariable ["TimeBetweenLaunches", 30];
+private _launchRandomness = _module getVariable ["LaunchRandomness", 0.1];
+private _launchDispersion = _module getVariable ["LaunchDispersion", 30];
+private _flareDeployHeight_Min = _module getVariable ["FlareDeployHeight_Min", 100];
+private _flareDeployHeight_Max = _module getVariable ["FlareDeployHeight_Max", 250];
 
-if !([_flareColor, _timeBetweenLaunches, _launchRandomness, _launchDispersion] isEqualTypeAll 0) exitWith {
-    [typeOf _module] call EFUNC(error,invalidArgs)
+_timeBetweenLaunches = abs _timeBetweenLaunches;
+_flareDeployHeight_Min = abs _flareDeployHeight_Min;
+_flareDeployHeight_Max = abs _flareDeployHeight_Max;
+
+if (_flareDeployHeight_Max < _flareDeployHeight_Min) then {
+    _flareDeployHeight_Max = _flareDeployHeight_Min
 };
-if (!(_flareDeployHeight isEqualTypeAll 0)) exitWith {
-    [typeOf _module] call EFUNC(error,invalidArgs)
-};
 
-if (_timeBetweenLaunches < 0) then {_timeBetweenLaunches = 0};
-if (_launchRandomness < 0) then {_launchRandomness = 0};
-if (_launchDispersion < 0) then {_launchDispersion = 0};
-if (_launchDispersion >= 90) then {_launchDispersion = 89};
-
+// Code Start
+//------------------------------------------------------------------------------------------------
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
@@ -120,7 +125,7 @@ switch _mode do {
             // Start per frame handler
             private _handle = [{
                 params ["_args", "_handle"];
-                _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
+                _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight_Min", "_flareDeployHeight_Max", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
 
                 if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
                 if (isGamePaused) exitWith {};
@@ -159,30 +164,29 @@ switch _mode do {
                 _module setVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), _flaresShot];
 
                 [{
-                    params ["_round", "_flareDeployHeight"];
-                    _flareDeployHeight params ["_min", "_max"];
+                    params ["_round", "_flareDeployHeight_Min", "_flareDeployHeight_Max"];
 
-                    private _height = [_min, _max] call BIS_fnc_randomInt;
+                    private _height = [_flareDeployHeight_Min, _flareDeployHeight_Max] call BIS_fnc_randomInt;
 
                     if !(alive _round) exitWith {true};
                     getPosATL _round # 2 >= _height;
                 }, {
-                    params ["_round", "_flareDeployHeight"];
+                    params ["_round", "_flareDeployHeight_Min", "_flareDeployHeight_Max"];
                     if !(alive _round) exitWith {true};
                     _round setVelocityModelSpace [0, -1, 0];
-                }, [_round, _flareDeployHeight], 20, {}] call CBA_fnc_waitUntilAndExecute;
+                }, [_round, _flareDeployHeight_Min, _flareDeployHeight_Min], 20, {}] call CBA_fnc_waitUntilAndExecute;
 
                 // Determine new wait time
                 private _newValue = _timeBetweenLaunches;
                 private _randomness = random _launchRandomness;
                 if (random 1 < 0.5) then {
-                    _newValue = _newValue - _randomness;
+                    _newValue = _newValue * (1 + _randomness);
                 } else {
-                    _newValue = _newValue + _randomness;
+                    _newValue = _newValue * (1 - _randomness);
                 };
                 _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _newValue];
 
-            }, TICKRATE, [_module, _flareClasses, _cycle, _random, _flareDeployHeight, _timeBetweenLaunches, _launchRandomness, _launchDispersion]] call CBA_fnc_addPerFrameHandler;
+            }, TICKRATE, [_module, _flareClasses, _cycle, _random, _flareDeployHeight_Min, _flareDeployHeight_Max, _timeBetweenLaunches, _launchRandomness, _launchDispersion]] call CBA_fnc_addPerFrameHandler;
 
             _module setVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), _handle];
         } else {

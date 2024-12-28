@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+// Parameters
+//------------------------------------------------------------------------------------------------
 params [
     ["_mode", "", [""]],
     ["_input", [], [[]]]
@@ -10,16 +12,20 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
+// Pre-Execution Checks
+//------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
 if !(_mode in ["init", "connectionChanged3DEN"]) exitWith {};
 
 // Variables
+//------------------------------------------------------------------------------------------------
 private _moduleMode = _module getVariable "Mode";
 private _flagToReplace = _module getVariable ["FlagToReplace", ""];
 private _customTexture = _module getVariable "CustomTexture";
 private _retainVarName = _module getVariable "RetainVarName";
 
 // Functions
+//------------------------------------------------------------------------------------------------
 private _getConnectedFlag = {
     params ["_module"];
 
@@ -74,6 +80,8 @@ private _replaceFlagTexture = {
     _originalFlag setFlagTexture _filePath;
 };
 
+// Code Start
+//------------------------------------------------------------------------------------------------
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};

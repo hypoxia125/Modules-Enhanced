@@ -2,7 +2,7 @@ class MEH_ModuleMPSync: MEH_ModuleBase {
 	scope = 2;
 	displayName = CSTRING(ModuleMPSync_DisplayName);
 	icon = "\a3\Modules_f\data\iconRespawn_ca.paa";
-	category = "MEH";
+	category = "MEH_MultiplayerSystems";
 
 	function = QFUNC(ModuleMPSync);
 	functionPriority = 1;
@@ -35,7 +35,7 @@ class MEH_ModuleMPSync: MEH_ModuleBase {
             property = QGVAR(ModuleMPSync_VariableToPass);
             displayName = CSTRING(ModuleMPSync_VariableToPass_DisplayName);
             tooltip = CSTRING(ModuleMPSync_VariableToPass_Tooltip);
-            defaultValue = """MEH_MPSync_SyncComplete""";
+            defaultValue = """MEH_Modules_MPSync_SyncComplete""";
             typeName = "STRING";
             validate = "STRING";
         };

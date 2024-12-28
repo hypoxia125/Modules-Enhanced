@@ -1,7 +1,6 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
 PREP(moduleChangeFlag);
-PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
@@ -22,21 +21,6 @@ PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 
-PREP(ambientArtilleryVirtual);
-PREP(createMinefield);
-PREP(deleteRespawnPosition);
-PREP(enableDisableGunLights);
-PREP(healingArea);
-PREP(lightningStorm);
 PREP(get3DENAreaModule);
-PREP(moveOnCombat);
-PREP(paradropTroopTransport);
-PREP(paradropVehicle);
-PREP(speedLimiter);
-PREP(trapInventory);
-PREP(trapInventoryActionShow);
-PREP(vehicleMineJammer);
-PREP(vehicleRearm);
-PREP(vehicleRefuel);
 
 INFO("PREP: Functions loaded successfully");

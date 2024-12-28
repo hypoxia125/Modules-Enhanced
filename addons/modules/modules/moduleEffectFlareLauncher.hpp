@@ -1,8 +1,8 @@
 class MEH_ModuleEffectFlareLauncher: MEH_ModuleBase {
     scope = 2;
-    displayName = "Effect - Flare Launcher";
+    displayName = "Flare Launcher";
     icon = "a3\modules_f_curator\data\iconflare_ca.paa";
-    category = "MEH";
+    category = "MEH_Effects";
 
     function = QFUNC(ModuleEffectFlareLauncher);
     functionPriority = 1;
@@ -16,7 +16,7 @@ class MEH_ModuleEffectFlareLauncher: MEH_ModuleBase {
             property = QGVAR(ModuleEffectFlareLauncher_FlareColor);
             displayName = "Flare Color";
             tooltip = "Color of the flare to be launched.";
-            defaultValue = DEFAULT_FLARECOLOR;
+            defaultValue = 21;
             typeName = "NUMBER";
             class Values {
                 // Blue Flares
@@ -151,36 +151,44 @@ class MEH_ModuleEffectFlareLauncher: MEH_ModuleBase {
             property = QGVAR(ModuleEffectFlareLauncher_TimeBetweenLaunches);
             displayName = "Time Between Launches";
             tooltip = "Time between each of the flare launches (seconds).";
-            defaultValue = DEFAULT_TIMEBETWEENLAUNCHES;
+            defaultValue = 30;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class LaunchRandomness: Edit {
+            control = "MEH_ModuleEffectFlareLauncher_LaunchRandomness";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectFlareLauncher_LaunchRandomness);
             displayName = "Launch Randomness";
-            tooltip = "Max time to add or subtract from 'Time Between Launches' (seconds). Randomly between 0 and input given.";
-            defaultValue = DEFAULT_LAUNCHRANDOMNESS;
+            tooltip = "Specifies the percentage of randomness applied to the base interval between launches. The interval will vary within a range calculated as ±X% of the base interval. For example, if the base interval is 30 seconds and randomness is 20%, the launch interval will vary between 24 and 36 seconds. Use this parameter to simulate unpredictability in launch timing.";
+            defaultValue = 0.10;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
-        class FlareDeployHeight: Edit {
-            property = QGVAR(ModuleEffectFlareLauncher_FlareDeployHeight);
-            displayName = "Flare Deploy Height";
-            tooltip = "Height (ATL) that the flares deploy. Random between given inputs: [min, max]";
-            defaultValue = DEFAULT_FLAREDEPLOYHEIGHT_CONFIG;
-            typeName = "STRING";
-            validate = "STRING";
+        class FlareDeployHeight_Min: Edit {
+            property = QGVAR(ModuleEffectFlareLauncher_FlareDeployHeight_Min);
+            displayName = "Flare Deploy Height - Min";
+            tooltip = "Minimum height the flare will deploy at.";
+            defaultValue = 100;
+            typeName = "NUMBER";
         };
 
-        class LaunchDispersion: Edit {
+        class FlareDeployHeight_Max: Edit {
+            property = QGVAR(ModuleEffectFlareLauncher_FlareDeployHeight_Max);
+            displayName = "Flare Deploy Height - Min";
+            tooltip = "Maximum height the flare will deploy at.";
+            defaultValue = 250;
+            typeName = "NUMBER";
+        };
+
+        class LaunchDispersion {
+            control = "MEH_ModuleEffectFlareLauncher_LaunchDispersion";
+            expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleEffectFlareLauncher_LaunchDispersion);
             displayName = "Launch Dispersion Angle";
-            tooltip = "How much the shell direction can vary from a perfect 90* straight-up path. Example: Input 20* = 70* through 90* launch angle.";
-            defaultValue = DEFAULT_LAUNCHDISPERSION;
+            tooltip = "How much the shell direction can vary from a perfect 90* straight-up path.";
+            defaultValue = 30;
             typeName = "NUMBER";
-            validate = "NUMBER";
         };
 
         class ModuleDescription: ModuleDescription {};

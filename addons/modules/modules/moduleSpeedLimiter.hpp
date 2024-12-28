@@ -2,7 +2,7 @@ class MEH_ModuleSpeedLimiter: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleSpeedLimiter_DisplayName);
     icon = "\z\meh\addons\modules\data\iconSpeedLimiter_ca.paa";
-    category = "MEH";
+    category = "MEH_PlayerAndAI";
 
     function = QFUNC(ModuleSpeedLimiter);
     functionPriority = 1;
