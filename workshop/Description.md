@@ -1,14 +1,14 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v0.9.6[/h1]
+[h1]Current Version - v1.0.0[/h1]
 
-Please Read Before Asking: [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
+[h2]With the v1.0.0 Release, this means that all previous versions are now incompatible with this version. Update your mods and missions ASAP! Check all your modules and make sure they have the settings you want.[/h2]
+
+[url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
 [h1]Description[/h1]
 
 Modules Enhanced is an editor extension that seeks to provide useful new modules to the 3DEN editor as well as potentially fix/recreate broken/inconsistent/outdated vanilla Arma 3 modules.
-
-This is currently the beta version as there are many modules still in development.
 
 [h2]Features[/h2]
 - Many new modules ranging from ambient artillery and paradropping vehicles to trapping inventories and creating mine jammers.
