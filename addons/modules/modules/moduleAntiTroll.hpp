@@ -1,7 +1,7 @@
 class MEH_ModuleAntiTroll: MEH_ModuleBase {
     scope = 2;
     displayName = "Anti-Troll";
-    icon = "\z\meh\addons\common\data\textures\icons\TrollFaceIcon_64x64.paa";
+    icon = "\z\meh\addons\modules\data\TrollFaceIcon_64x64.paa";
     category = "MEH_MultiplayerSystems";
 
     function = QFUNC(ModuleAntiTroll);
