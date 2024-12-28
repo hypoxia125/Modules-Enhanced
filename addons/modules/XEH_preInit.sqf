@@ -64,7 +64,7 @@
         };
     };
 
-    LOG_2("EnableDisableGunLights:: Unit [%1] - WeaponLightState [%2]", _unit, _lightState);
+    LOG_2("EnableDisableGunLights:: Unit [%1] - WeaponLightState [%2]",_unit,_lightState);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(AddFlashlightAttachment), {
