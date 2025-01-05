@@ -3,7 +3,7 @@ name: Version Check
 on:
   pull_request:
     paths:
-      - 'addons\main\script_version.hpp'
+      - 'addons/main/script_version.hpp'
 
 jobs:
   version-check:
