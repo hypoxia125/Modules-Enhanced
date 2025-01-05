@@ -4,7 +4,7 @@ from packaging import version
 
 def get_version_from_file(branch):
     result = subprocess.run(
-        ["git", "show", f"{branch}:script_version.hpp"], 
+        ["git", "show", f"{branch}:addons/main/script_version.hpp"], 
         capture_output=True, text=True
     )
     content = result.stdout
@@ -15,9 +15,20 @@ def get_version_from_file(branch):
         return match.group(1)
     else:
         raise ValueError(f"Version not found in {branch} branch.")
+    
+def debug_git_show(branch, path):
+    result = subprocess.run(
+        ["git", "show", f"{branch}:{path}"], 
+        capture_output=True, text=True
+    )
+    print(f"Contents of {path} in {branch}:")
+    print(result.stdout)
+
+debug_git_show('main', 'addons/main/script_version.hpp')
+debug_git_show('HEAD', 'addons/main/script_version.hpp')
 
 # Get versions from the main branch and the PR branch
-main_version = get_version_from_file('origin/main')
+main_version = get_version_from_file('main')
 pr_version = get_version_from_file('HEAD')
 
 # Compare versions

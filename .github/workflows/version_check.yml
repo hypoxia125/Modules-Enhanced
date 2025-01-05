@@ -3,7 +3,7 @@ name: Version Check
 on:
   pull_request:
     paths:
-      - 'script_version.hpp'
+      - 'addons\main\script_version.hpp'
 
 jobs:
   version-check:
@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,8 +23,15 @@ jobs:
     - name: Install dependencies
       run: pip install packaging
 
+    # - name: Debug Git Branches and Files
+    #   run: |
+    #     git branch -a
+    #     git log --oneline
+    #     git show main:addons/main/script_version.hpp
+    #     git show HEAD:addons/main/script_version.hpp
+
     - name: Run external version check script
-      run: python version_check.py
+      run: python .github/workflows/version_check.py
 
     - name: Success message
       run: echo "Version check passed!"
