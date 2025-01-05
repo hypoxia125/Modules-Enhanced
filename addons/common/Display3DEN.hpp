@@ -14,7 +14,8 @@ class Display3DEN
                         "MEH_About_Contributing",
                         "MEH_About_Documentation",
                         "MEH_About_Credits",
-                        "MEH_About_BugReport"
+                        "MEH_About_BugReport",
+                        "MEH_About_Discord"
                     };
                 };
                 class MEH_About_Changelog {
@@ -42,6 +43,10 @@ class Display3DEN
                 class MEH_About_BugReport: MEH_About_Changelog {
                     text = CSTRING(About_BugReport);
                     weblink = "https://github.com/hypoxia125/Modules-Enhanced/issues";
+                };
+                class MEH_About_Discord: MEH_About_Changelog {
+                    text = "Discord";
+                    weblink = "https://discord.gg/dn4eGEf4m8";
                 };
             };
         };
