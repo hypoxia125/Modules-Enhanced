@@ -19,8 +19,12 @@ def get_version_details(branch, path, use_working_dir=False):
     major = int(re.search(r'#define MAJOR (\d+)', content).group(1))
     minor = int(re.search(r'#define MINOR (\d+)', content).group(1))
     patch = int(re.search(r'#define PATCH (\d+)', content).group(1))
-    current_version = re.search(r'#define CURRENT_VERSION "([0-9]+\.[0-9]+\.[0-9]+)"', content).group(1)
-
+    current_version = re.search(r'#define CURRENT_VERSION "([0-9]+\.[0-9]+\.[0-9]+)"', content)
+    
+    if not current_version:
+        raise ValueError("CURRENT_VERSION not found in file content.")
+    current_version = current_version.group(1)
+    
     return major, minor, patch, current_version
 
 def debug_git_show(branch, path):
