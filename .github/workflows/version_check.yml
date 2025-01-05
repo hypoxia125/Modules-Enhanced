@@ -1,0 +1,28 @@
+name: Version Check
+
+on:
+  pull_request:
+    paths:
+      - 'script_version.hpp'
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install packaging
+
+    - name: Run external version check script
+      run: python version_check.py
+
+    - name: Success message
+      run: echo "Version check passed!"
