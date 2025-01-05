@@ -13,10 +13,16 @@ addMissionEventHandler ["Draw3D", {
     {
         private _module = _x;
         private _pos = ASLtoAGL getPosASL _module;
+
         private _distance = _pos distance get3DENCamera;
         if (_distance >= [QGVAR(ModuleMarkerDistanceLimit), "priority"] call CBA_settings_fnc_get) then { continue };
-        private _textSize = (1 * (50 / _distance) max 0.2) min 0.03;
 
+        private _text = getText (configFile >> "CfgVehicles" >> typeOf _module >> "displayName");
+        if (_text == "") then {
+            _text = typeOf _module;
+        };
+
+        private _textSize = (1 * (50 / _distance) max 0.2) min 0.03;
         private _color = [QGVAR(ModuleMarkerColor), "priority"] call CBA_settings_fnc_get;
 
         drawIcon3D [
@@ -26,7 +32,7 @@ addMissionEventHandler ["Draw3D", {
             1 * (50 / _distance) max 0.5,
             1 * (50 / _distance) max 0.5,
             0,
-            typeOf _module,
+            _text,
             0,
             _textSize
         ]
