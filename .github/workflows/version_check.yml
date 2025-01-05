@@ -23,13 +23,6 @@ jobs:
     - name: Install dependencies
       run: pip install packaging
 
-    # - name: Debug Git Branches and Files
-    #   run: |
-    #     git branch -a
-    #     git log --oneline
-    #     git show main:addons/main/script_version.hpp
-    #     git show HEAD:addons/main/script_version.hpp
-
     - name: Run external version check script
       run: python .github/workflows/version_check.py
 
