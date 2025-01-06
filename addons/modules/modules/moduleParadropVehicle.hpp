@@ -74,7 +74,7 @@ class MEH_ModuleParadropVehicle: MEH_ModuleBase {
         };
 
         class Expression: Edit {
-            control = QUOTE(EditMulti3);
+            control = QUOTE(EditCodeMulti5);
             property = QGVAR(ModuleParadropVehicle_Expression);
             displayName = CSTRING(ModuleParadropVehicle_Expression_DisplayName);
             tooltip = CSTRING(ModuleParadropVehicle_Expression_Tooltip);
