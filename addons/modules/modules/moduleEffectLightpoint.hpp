@@ -1,6 +1,6 @@
 class MEH_ModuleEffectLightpoint: MEH_ModuleBase {
     scope = 2;
-    displayName = CSTRING(ModuleEffectLightpoint_DisplayName);
+    displayName = "Lightpoint";
     icon = "a3\modules_f_curator\data\portraitflare_ca.paa";
     category = "MEH_Effects";
 

@@ -1,6 +1,6 @@
 class MEH_ModuleEffectFire: MEH_ModuleBase {
     scope = 2;
-    displayName = CSTRING(ModuleEffectFire_DisplayName);
+    displayName = "Fire";
     icon = "a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_fire_in_flame_ca.paa";
     category = "MEH_Effects";
 

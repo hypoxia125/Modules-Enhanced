@@ -1,6 +1,6 @@
 class MEH_ModuleEffectSmoke: MEH_ModuleBase {
     scope = 2;
-    displayName = CSTRING(ModuleEffectSmoke_DisplayName);
+    displayName = "Smoke";
     icon = "a3\modules_f_curator\data\iconsmoke_ca.paa";
     category = "MEH_Effects";
 
