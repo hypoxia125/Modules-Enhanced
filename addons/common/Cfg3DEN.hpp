@@ -102,30 +102,6 @@ class Cfg3DEN {
             };
         };
 
-        class MEH_ModuleSlider_Min: Slider {
-            attributeLoad = "\
-                _ctrlGroup = _this;\
-                [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,' min',_value] call bis_fnc_initSliderValue;\
-            ";
-            attributeSave = "\
-                sliderPosition (_this controlsGroupCtrl 100);\
-            ";
-            onLoad = "\
-                _ctrlGroup = _this select 0;\
-                [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,' min'] call bis_fnc_initSliderValue;\
-            ";
-
-            class Controls: Controls {
-                class Title: Title {};
-                class Edit: Edit {};
-                class Value: Value {
-                    sliderRange[] = {1, 10};
-                    sliderPosition = 5;
-                    sliderStep = 1;
-                };
-            };
-        };
-
         class MEH_ModuleSlider_Time: SliderTime {
             class Controls: Controls {
                 class Frame: Frame {};
@@ -299,15 +275,19 @@ class Cfg3DEN {
             };
         };
 
-        class MEH_ModuleEffectRearmVehicle_Delay: MEH_ModuleSlider_Min {
+        class MEH_ModuleEffectRearmVehicle_Delay: MEH_ModuleSlider_Time {
             class Controls: Controls {
                 class Title: Title {};
-                class Edit: Edit {};
                 class Value: Value {
-                    sliderRange[] = {1, 60};
-                    sliderPosition = 5;
-                    sliderStep = 1;
+                    sliderRange[] = {60, 60*60};
+                    sliderPosition = 5*60;
+                    sliderStep = 60;
                 };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
             };
         };
 

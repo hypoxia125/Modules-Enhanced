@@ -18,7 +18,7 @@ class MEH_ModuleVehicleRearm: MEH_ModuleBase {
             property = QGVAR(ModuleVehicleRearm_TimeDelay);
             displayName = CSTRING(ModuleVehicleRearm_TimeDelay_DisplayName);
             tooltip = CSTRING(ModuleVehicleRearm_TimeDelay_Tooltip);
-            defaultValue = 5;
+            defaultValue = 5*60;
             typeName = "NUMBER";
             validate = "NUMBER";
         };

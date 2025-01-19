@@ -20,8 +20,7 @@ if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
-private _timeDelay = _module getVariable ["TimeDelay", 5];
-_timeDelay = _timeDelay * 60;
+private _timeDelay = _module getVariable ["TimeDelay", 5*60];
 private _rearmCountMax = _module getVariable ["RearmCount", -1];
 private _runImmediately = _module getVariable "RunImmediately";
 
