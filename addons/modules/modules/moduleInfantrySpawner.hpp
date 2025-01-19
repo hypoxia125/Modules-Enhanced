@@ -115,11 +115,11 @@ class MEH_ModuleInfantrySpawner: MEH_ModuleBase {
             typeName = "NUMBER";
             class Values {
                 class PatrolPosition {
-                    name = "Patrol Position";
+                    name = "Patrol";
                     value = 0;
                 };
                 class Garrison {
-                    name = "Garrison Units";
+                    name = "Garrison";
                     value = 1;
                 };
                 class UseConnectedWPModules {
