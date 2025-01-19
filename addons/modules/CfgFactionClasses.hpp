@@ -27,4 +27,8 @@ class CfgFactionClasses {
         displayName = "Modules Enhanced - Misc";
         side = 7;
     };
+    class MEH_Spawners {
+        displayName = "Modules Enhanced - Spawners";
+        side = 7;
+    };
 };

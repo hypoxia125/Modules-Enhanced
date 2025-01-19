@@ -29,6 +29,8 @@ if (isNil QFUNC(mpsync_blankScreen)) then {
     FUNC(mpsync_blankScreen) = compileFinal {
         params ["_state", "_text"];
 
+        LOG_1("ModuleMPSync:: Setting blank screen state: %1",_state);
+
         switch _state do {
             case 0: {
                 private _layer = uiNamespace getVariable QGVAR(mpsync_blankScreen);
@@ -105,7 +107,7 @@ if (isNil QFUNC(mpsync_clientConditionals)) then {
                     INFO("All previous steps completed, disabling player");
 
                     // Initialize blanks screen
-                    [1, LLSTRING(client_waitingForPlayers)] call FUNC(mpsync_blankScreen);
+                    [1, "Modules Enhanced: Waiting for players..."] call FUNC(mpsync_blankScreen);
                     // Mute client
                     [true] call FUNC(mpsync_muteClient);
 
@@ -123,6 +125,8 @@ if (isNil QFUNC(mpsync_clientConditionals)) then {
 if (isNil QFUNC(mpsync_getRespawnConfig)) then {
     FUNC(mpsync_getRespawnConfig) = compileFinal {
         if (isServer && !hasInterface) exitWith {};
+
+        LOG("ModuleMPSync:: Finding respawn config settings...");
 
         private _side = side group player;
         private _respawnOnStart = getNumber (missionConfigFile >> "respawnOnStart");
@@ -144,7 +148,11 @@ if (isNil QFUNC(mpsync_init)) then {
             ["_variableToPass", QGVAR(mpsync_syncComplete), [""]]
         ];
 
-        if (!isMultiplayer) exitWith {};
+        LOG("ModuleMPSync:: Initializing...");
+
+        if (!isMultiplayer) exitWith {
+            systemChat format["ModuleMPSync:: Module not compatible with singleplayer. isMultiplayer=%1",isMultiplayer];
+        };
 
         // Initialize variable
         if (isServer) then { missionNamespace setVariable [_variableToPass, false, true] };
@@ -161,6 +169,8 @@ if (isNil QFUNC(mpsync_initClient)) then {
     FUNC(mpsync_initClient) = compileFinal {
         params ["_minPlayers", "_timeout", "_variableToPass"];
 
+        LOG("ModuleMPSync:: Initializing client...");
+
         // Get respawn templates
         private _respawnCfg = call FUNC(mpsync_getRespawnConfig);
         _respawnCfg params ["_respawnOnStart", "_templates"];
@@ -175,14 +185,14 @@ if (isNil QFUNC(mpsync_initClient)) then {
             missionNamespace getVariable [_variableToPass, false];
         }, {
             // Wake up player
-            [0, LLSTRING(client_syncComplete)] call FUNC(mpsync_blankScreen);
+            [0, "Mission Starting..."] call FUNC(mpsync_blankScreen);
             [false] call FUNC(mpsync_muteClient);
             // Allow shooting
             [player, "enable"] call FUNC(mpsync_playerLMB);
             player enableSimulation true;
         }, [_timeOut, _variableToPass], _timeOut, {
             // Wake up player
-            [0, LLSTRING(client_syncComplete)] call FUNC(mpsync_blankScreen);
+            [0, "Mission Starting..."] call FUNC(mpsync_blankScreen);
             [false] call FUNC(mpsync_muteClient);
             // Allow shooting
             [player, "enable"] call FUNC(mpsync_playerLMB);
@@ -194,6 +204,8 @@ if (isNil QFUNC(mpsync_initClient)) then {
 if (isNil QFUNC(mpsync_initServer)) then {
     FUNC(mpsync_initServer) = compileFinal {
         params ["_minPlayers","_timeout", "_variableToPass"];
+
+        LOG("ModuleMPSync:: Initializing server...");
 
         [{
             params ["_minPlayers", "_timeout", "_variableToPass"];
@@ -220,6 +232,8 @@ if (isNil QFUNC(mpsync_initServer)) then {
 if (isNil QFUNC(mpsync_muteClient)) then {
     FUNC(mpsync_muteClient) = compileFinal {
         params [["_state", false, [true]]];
+
+        LOG_1("ModuleMPSync:: Muting client state: %1",_state);
 
         // Set ACE hearing state
         if (isClass (configFile >> "CfgPatches" >> "ace_hearing")) then {
@@ -264,7 +278,7 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
-        [_minPlayers, _timeout, _variableToPass] call EFUNC(MPSync,init);
+        [_minPlayers, _timeout, _variableToPass] call FUNC(mpsync_init);
     };
 
     case "connectionChanged3DEN": {

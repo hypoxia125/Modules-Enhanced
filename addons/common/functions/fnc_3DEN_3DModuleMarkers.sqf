@@ -21,6 +21,12 @@ addMissionEventHandler ["Draw3D", {
         if (_text == "") then {
             _text = typeOf _module;
         };
+        // Add text if it is a spawner waypoint
+        if (typeOf _module == "MEH_ModuleSpawnerWaypoint") then {
+            private _index = _module getVariable ["WaypointIndex", 0];
+            if (_index < 0) then { _index = "ERROR" };
+            _text = format["%1 - Index: %2", _text, _index];
+        };
 
         private _textSize = (1 * (50 / _distance) max 0.2) min 0.03;
         private _color = [QGVAR(ModuleMarkerColor), "priority"] call CBA_settings_fnc_get;
@@ -35,6 +41,6 @@ addMissionEventHandler ["Draw3D", {
             _text,
             0,
             _textSize
-        ]
+        ];
     } forEach _modules;
 }];

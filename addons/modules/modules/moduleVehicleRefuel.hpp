@@ -18,7 +18,7 @@ class MEH_ModuleVehicleRefuel: MEH_ModuleBase {
             property = QGVAR(ModuleVehicleRefuel_TimeDelay);
             displayName = CSTRING(ModuleVehicleRefuel_TimeDelay_DisplayName);
             tooltip = CSTRING(ModuleVehicleRefuel_TimeDelay_Tooltip);
-            defaultValue = 5;
+            defaultValue = 5*60;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
