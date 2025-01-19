@@ -1,8 +1,10 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.0.0[/h1]
+[h1]Current Version - v1.3.0[/h1]
 
-[h2]With the v1.0.0 Release, this means that all previous versions are now incompatible with this version. Update your mods and missions ASAP! Check all your modules and make sure they have the settings you want.[/h2]
+Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
+
+Porting Pre v1.0 Missions to v1.0: [url=https://steamcommunity.com/workshop/filedetails/discussion/3043987264/591759121392360915/]Steam Discussion[/url]
 
 [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Module Documentation[/url]
 
@@ -41,34 +43,37 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
         [td]Delete BI Respawn Position[/td]  
     [/tr]  
     [tr]  
-        [td]Effect - Fire[/td]  
-        [td]Effect - Flare Launcher[/td]  
-        [td]Effect - Lightpoint[/td]  
+        [td]Fire[/td]  
+        [td]Flare Launcher[/td]  
+        [td]Lightpoint[/td]  
     [/tr]  
     [tr]  
-        [td]Effect - Smoke[/td]  
+        [td]Smoke[/td]  
         [td]Enable/Disable Gun Lights[/td]  
         [td]Healing Area[/td]  
     [/tr]  
     [tr]  
+        [td]Infantry Spawner[/td]  
         [td]Lightning Storm[/td]  
         [td]Move On Combat[/td]  
-        [td]Multiplayer Sync[/td]  
     [/tr]  
     [tr]  
+        [td]Multiplayer Sync[/td]  
         [td]Paradrop Vehicle/Crate[/td]  
         [td]Register Teleporter[/td]  
-        [td]Speed Limiter[/td]  
     [/tr]  
     [tr]  
+        [td]Spawner Waypoint[/td]  
+        [td]Speed Limiter[/td]  
         [td]Trap Inventory[/td]  
+    [/tr]  
+    [tr]  
         [td]Vehicle Mine Jammer[/td]  
         [td]Vehicle Rearm[/td]  
-    [/tr]  
-    [tr]  
         [td]Vehicle Refuel[/td]  
     [/tr]  
 [/table]
+
 
 For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
@@ -77,6 +82,7 @@ Want these flares for your weapons? Check out [url=https://steamcommunity.com/sh
 
 [h3]Contact Me:[/h3]
 Message Me On Discord: [b]hypoxic[/b]
+Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 For Scripting/Modding Help:
 - Visit [url=https://discord.gg/arma]Official Arma Discord[/url]
 - Ping Me [b]@hypoxic[/b] in the [b]#arma3_scripting[/b] channel

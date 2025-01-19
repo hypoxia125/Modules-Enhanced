@@ -25,6 +25,18 @@ class Cfg3DEN {
             };
         };
 
+        class SliderTime: Title {
+            class Controls: Controls {
+                class Frame;
+                class Hour;
+                class Minute;
+                class Second;
+                class Separator;
+                class Title;
+                class Value;
+            };
+        };
+
         class MEH_MissionVersionReadOnly: Edit {
             class Controls: Controls {
                 class Title: Title {
@@ -110,6 +122,22 @@ class Cfg3DEN {
                     sliderRange[] = {1, 10};
                     sliderPosition = 5;
                     sliderStep = 1;
+                };
+            };
+        };
+
+        class MEH_ModuleSlider_Time: SliderTime {
+            class Controls: Controls {
+                class Frame: Frame {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+                class Separator: Separator {};
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {0, 300};
+                    sliderPosition = 0;
+                    lineSize = 5;
                 };
             };
         };
@@ -290,6 +318,34 @@ class Cfg3DEN {
                 class Value: Value {
                     sliderRange[] = {0, 180};
                     sliderPosition = 90;
+                    sliderStep = 1;
+                };
+            };
+        };
+
+        class MEH_ModuleInfantrySpawner_UnitRespawnTime: MEH_ModuleSlider_Time {
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {60, 60*60};
+                    sliderPosition = 15*60;
+                    sliderStep = 60;
+                };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+            };
+        };
+
+        class MEH_ModuleInfantrySpawner_DeactivationRadius: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1000};
+                    sliderPosition = 100;
                     sliderStep = 1;
                 };
             };
