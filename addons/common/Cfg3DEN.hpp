@@ -331,6 +331,34 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleRepairVehicle_Delay: MEH_ModuleSlider_Time {
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {0, 60*60};
+                    sliderPosition = 5*60;
+                    sliderStep = 1;
+                };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+            };
+        };
+
+        class MEH_ModuleVehicleRepair_Percent: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 1;
+                    sliderStep = 0.01;
+                };
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944
