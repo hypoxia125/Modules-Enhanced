@@ -275,7 +275,7 @@ class Cfg3DEN {
             };
         };
 
-        class MEH_ModuleEffectRearmVehicle_Delay: MEH_ModuleSlider_Time {
+        class MEH_ModuleRearmVehicle_Delay: MEH_ModuleSlider_Time {
             class Controls: Controls {
                 class Title: Title {};
                 class Value: Value {
