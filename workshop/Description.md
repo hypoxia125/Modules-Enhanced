@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.3.0[/h1]
+[h1]Current Version - v1.4.0[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -15,7 +15,6 @@ Modules Enhanced is an editor extension that seeks to provide useful new modules
 [h2]Features[/h2]
 - Many new modules ranging from ambient artillery and paradropping vehicles to trapping inventories and creating mine jammers.
 - Utilizes CBA's event system and per frame handlers.
-- All module functions have a public version that mission makers can execute mid mission, without a module, using scripting!
 
 ... for a full list, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
@@ -31,51 +30,33 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 
 [h2]Current Module List[/h2]
 
-[table]  
-    [tr]  
-        [td]Ambient Artillery (Virtual)[/td]  
-        [td]Anti-Troll[/td]  
-        [td]Change Flag[/td]  
-    [/tr]  
-    [tr]  
-        [td]Create Minefield[/td]  
-        [td]Create Paradrop Troop Transport[/td]  
-        [td]Delete BI Respawn Position[/td]  
-    [/tr]  
-    [tr]  
-        [td]Fire[/td]  
-        [td]Flare Launcher[/td]  
-        [td]Lightpoint[/td]  
-    [/tr]  
-    [tr]  
-        [td]Smoke[/td]  
-        [td]Enable/Disable Gun Lights[/td]  
-        [td]Healing Area[/td]  
-    [/tr]  
-    [tr]  
-        [td]Infantry Spawner[/td]  
-        [td]Lightning Storm[/td]  
-        [td]Move On Combat[/td]  
-    [/tr]  
-    [tr]  
-        [td]Multiplayer Sync[/td]  
-        [td]Paradrop Vehicle/Crate[/td]  
-        [td]Register Teleporter[/td]  
-    [/tr]  
-    [tr]  
-        [td]Spawner Waypoint[/td]  
-        [td]Speed Limiter[/td]  
-        [td]Trap Inventory[/td]  
-    [/tr]  
-    [tr]  
-        [td]Vehicle Mine Jammer[/td]  
-        [td]Vehicle Rearm[/td]  
-        [td]Vehicle Refuel[/td]  
-    [/tr]  
-[/table]
+- Ambient Artillery (Virtual)
+- Anti-Troll
+- Change Flag
+- Communication Jammer
+- Create Minefield
+- Create Paradrop Troop Transport
+- Delete BI Respawn Position
+- Fire
+- Flare Launcher
+- Lightpoint
+- Smoke
+- Enable/Disable Gun Lights
+- Healing Area
+- Infantry Spawner
+- Spawner Waypoint
+- Lightning Storm
+- Move On Combat
+- Multiplayer Sync
+- Paradrop Vehicle/Crate
+- Register Teleporter
+- Speed Limiter
+- Trap Inventory
+- Vehicle Mine Jammer
+- Vehicle Rearm
+- Vehicle Refuel
 
-
-For an explaination on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
+For an explanation on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
 [h3]Other Mods[/h3]
 Want these flares for your weapons? Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3364788586]Colorful Flares[/url]
@@ -91,5 +72,3 @@ For Scripting/Modding Help:
 Check out [url=https://hypoxia125.github.io/ArmaSquadGenerator/]Arma Squad Generator[/url]
 
 [h3]In Development[/h3]
-Communication Jammer
-- Due to its complexity at the time of original write, I am rewriting this module. It has been disabled until then.
