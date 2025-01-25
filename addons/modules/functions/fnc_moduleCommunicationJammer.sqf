@@ -171,7 +171,7 @@ private _updateJamAmount = compileFinal {
 
         case 1: {
             // Power Fall-Off
-            // suggested k = 1
+            // suggested k = 2
             _jamAmount = 1 - (_normalizedDistance ^ _k);
         };
 
