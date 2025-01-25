@@ -22,6 +22,7 @@ PREP(moduleTrapInventory);
 PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
+PREP(moduleVehicleRepair);
 
 PREP(get3DENAreaModule);
 

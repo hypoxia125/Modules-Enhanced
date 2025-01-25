@@ -58,4 +58,5 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleVehicleMineJammer.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRearm.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRefuel.hpp"
+    #include "\z\meh\addons\modules\modules\moduleVehicleRepair.hpp"
 };

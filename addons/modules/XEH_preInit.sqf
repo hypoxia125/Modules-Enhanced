@@ -26,6 +26,23 @@
     _vehicle setVehicleAmmo 1;
 }] call CBA_fnc_addEventHandler;
 
+// RepairVehicle
+//------------------------------------------------------------------------------------------------
+[QGVAR(repairVehicle), {
+    params ["_vehicle", "_repairPercent"];
+
+    LOG_2("ModuleVehicleRepair:: Repairing vehicle: %1 by %2",_vehicle,_repairPercent);
+
+    getAllHitpointsDamage _vehicle params ["_names", "_selections", "_damageVal"];
+    
+    {
+        private _value = _x;
+        _value = _value - _repairPercent;
+        
+        _vehicle setHitPointDamage [_names#_forEachIndex, _value max 0];
+    } forEach _damageVal;
+}] call CBA_fnc_addEventHandler;
+
 // VehicleMineJammer
 //------------------------------------------------------------------------------------------------
 [QGVAR(enableMine), {
