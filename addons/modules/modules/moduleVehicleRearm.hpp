@@ -13,7 +13,7 @@ class MEH_ModuleVehicleRearm: MEH_ModuleBase {
 
     class Attributes: AttributesBase {
         class TimeDelay {
-            control = "MEH_ModuleEffectRearmVehicle_Delay";
+            control = "MEH_ModuleRearmVehicle_Delay";
             expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleVehicleRearm_TimeDelay);
             displayName = CSTRING(ModuleVehicleRearm_TimeDelay_DisplayName);

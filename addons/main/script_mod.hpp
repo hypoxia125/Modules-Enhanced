@@ -18,6 +18,9 @@
 #define HR_TO_SEC(hr) (hr * 60 * 60)
 #define HR_TO_MIN(hr) (hr * 60)
 
+#define CM_TO_M(cm) (cm / 100)
+#define MM_TO_M(mm) (mm / 1000)
+
 #ifdef DISABLE_COMPILE_CACHE
     #undef PREP
     #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)

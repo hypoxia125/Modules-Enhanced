@@ -1,6 +1,7 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
 PREP(moduleChangeFlag);
+PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
@@ -22,6 +23,7 @@ PREP(moduleTrapInventory);
 PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
+PREP(moduleVehicleRepair);
 
 PREP(get3DENAreaModule);
 

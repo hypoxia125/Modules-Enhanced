@@ -67,7 +67,7 @@ private _createRefueler = {
                 if !(alive _vehicle) then { continue };
 
                 private _refuelCountCurrent = _vehicle getVariable [QGVAR(VehicleRefuel_RefuelCount), 0];
-                if !(_refuelCountCurrent < _refuelCountMax) then { continue };
+                if (_refuelCountCurrent >= _refuelCountMax) then { continue };
 
                 // Refuel vehicle locally
                 [QGVAR(refuelVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;

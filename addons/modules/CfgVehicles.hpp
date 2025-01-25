@@ -37,6 +37,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleAmbientArtilleryVirtual.hpp"
     #include "\z\meh\addons\modules\modules\moduleAntiTroll.hpp"
     #include "\z\meh\addons\modules\modules\moduleChangeFlag.hpp"
+    #include "\z\meh\addons\modules\modules\moduleCommunicationJammer.hpp"
     #include "\z\meh\addons\modules\modules\moduleCreateMinefield.hpp"
     #include "\z\meh\addons\modules\modules\moduleDeleteRespawnPosition.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectFire.hpp"
@@ -58,4 +59,5 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleVehicleMineJammer.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRearm.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRefuel.hpp"
+    #include "\z\meh\addons\modules\modules\moduleVehicleRepair.hpp"
 };

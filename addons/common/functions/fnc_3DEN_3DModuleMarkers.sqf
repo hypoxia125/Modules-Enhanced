@@ -12,7 +12,7 @@ addMissionEventHandler ["Draw3D", {
 
     {
         private _module = _x;
-        private _pos = ASLtoAGL getPosASL _module;
+        private _pos = ASLToAGL getPosASL _module;
 
         private _distance = _pos distance get3DENCamera;
         if (_distance >= [QGVAR(ModuleMarkerDistanceLimit), "priority"] call CBA_settings_fnc_get) then { continue };
