@@ -29,7 +29,7 @@ private _deleteRespawnPosition = {
 
         private _respawn = (_module getVariable [QUOTE(respawn), []]) param [0, [], [[], ""]];
         if (!(_respawn isEqualType [])) exitWith {false};
-        if (!(count _respawn == 2)) exitWith {false};
+        if (count _respawn != 2) exitWith {false};
 
         _respawn call BIS_fnc_removeRespawnPosition;
 

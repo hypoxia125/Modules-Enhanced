@@ -132,7 +132,7 @@ switch _mode do {
 
                 private _timeTillNextLaunch = _module getVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeBetweenLaunches];
                 private _flaresShot = _module getVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), 0];
-                if (_flaresShot > 0 && !(_timeTillNextLaunch <= 0)) exitWith {
+                if (_flaresShot > 0 && _timeTillNextLaunch > 0) exitWith {
                     _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeTillNextLaunch - TICKRATE];
                 };
 
@@ -143,7 +143,7 @@ switch _mode do {
                     _flareClass = _flareClasses#_currentFlareIndex;
 
                     _currentFlareIndex = _currentFlareIndex + 1;
-                    if !(_currentFlareIndex < count _flareClasses) then {
+                    if (_currentFlareIndex >= count _flareClasses) then {
                         _currentFlareIndex = 0;
                     };
                     _module setVariable [QGVAR(ModuleEffectFlareLauncher_CurrentFlareIndex), _currentFlareIndex];

@@ -67,7 +67,7 @@ private _createRearmer = {
                 if !(alive _vehicle) then { continue };
 
                 private _rearmCountCurrent = _vehicle getVariable [QGVAR(VehicleRearm_RearmCount), 0];
-                if !(_rearmCountCurrent < _rearmCountMax) then { continue };
+                if (_rearmCountCurrent >= _rearmCountMax) then { continue };
 
                 // Rearm vehicle locally
                 [QGVAR(rearmVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;

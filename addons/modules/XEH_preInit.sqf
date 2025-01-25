@@ -33,7 +33,7 @@
 
     LOG_2("ModuleVehicleRepair:: Repairing vehicle: %1 by %2",_vehicle,_repairPercent);
 
-    getAllHitpointsDamage _vehicle params ["_names", "_selections", "_damageVal"];
+    getAllHitPointsDamage _vehicle params ["_names", "_selections", "_damageVal"];
     
     {
         private _value = _x;

@@ -40,7 +40,7 @@ private _calcDropHeight = {
     params ["_module", "_paraHeight"];
 
     private _pos = getPosATL _module;
-    if !(_paraHeight == -1) then {
+    if (_paraHeight != -1) then {
         _pos set [2, 0];
         _pos = _pos vectorAdd [0, 0, _paraHeight];
     };

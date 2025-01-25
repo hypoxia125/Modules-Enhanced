@@ -73,7 +73,7 @@ private _createRepairer = {
                 if !(alive _vehicle) then { continue };
 
                 private _repairCountCurrent = _vehicle getVariable [QGVAR(VehicleRepair_RepairCount), 0];
-                if !(_repairCountCurrent < _repairCountMax) then { continue };
+                if (_repairCountCurrent >= _repairCountMax) then { continue };
 
                 // Repair vehicle locally
                 [QGVAR(repairVehicle), [_vehicle, _repairPercent], _vehicle] call CBA_fnc_targetEvent;

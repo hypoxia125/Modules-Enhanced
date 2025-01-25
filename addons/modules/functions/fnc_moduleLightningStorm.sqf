@@ -45,7 +45,7 @@ private _startStorm = {
 
         private _timeTillNextStrike = _module getVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeBetweenStrikes];
         private _totalStrikes = _module getVariable [QGVAR(ModuleLightningStorm_TotalStrikes), 0];
-        if (_totalStrikes > 0 && !(_timeTillNextStrike <= 0)) exitWith {
+        if ((_totalStrikes > 0 && _timeTillNextStrike > 0)) exitWith {
             _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeTillNextStrike - TICKRATE];
         };
 
