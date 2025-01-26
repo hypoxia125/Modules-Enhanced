@@ -254,7 +254,7 @@ private _init = compileFinal {
         ) then {
             LOG("ModuleInfantrySpawner:: Spawning infantry (not waiting for full squad)...");
 
-            _unitsToSpawn = _self call ["GetUnitsToSpawn", [_numSlots]];
+            _unitsToSpawn = _self call ["GetUnitsToSpawn", [_numSlots min (_self get "unitsPerSquad")]];
         };
 
         // Spawn group and units
