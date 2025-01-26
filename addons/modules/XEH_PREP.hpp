@@ -3,6 +3,7 @@ PREP(moduleAntiTroll);
 PREP(moduleChangeFlag);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
+PREP(moduleCreateRemoteTarget);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
 PREP(moduleEffectFlareLauncher);
