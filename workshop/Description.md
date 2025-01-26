@@ -55,6 +55,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Vehicle Mine Jammer
 - Vehicle Rearm
 - Vehicle Refuel
+- Vehicle Repair
 
 For an explanation on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
