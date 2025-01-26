@@ -1,6 +1,7 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
 PREP(moduleChangeFlag);
+PREP(moduleClearMapLocationNames);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleCreateRemoteTarget);
