@@ -359,6 +359,18 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleVehicleFuelCoef_Coef: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1000};
+                    sliderPosition = 0;
+                    sliderStep = 1;
+                };
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944
