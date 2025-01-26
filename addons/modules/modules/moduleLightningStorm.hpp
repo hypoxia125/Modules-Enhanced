@@ -1,7 +1,7 @@
 class MEH_ModuleLightningStorm: MEH_ModuleBase {
     scope = 2;
     displayName = CSTRING(ModuleLightningStorm_DisplayName);
-    icon = "a3\modules_f_curator\data\portraitlightning_ca.paa";
+    icon = "a3\ui_f\data\gui\rsc\rscdisplayarcademap\stormy_ca.paa";
     category = "MEH_Effects";
 
     function = QFUNC(ModuleLightningStorm);
