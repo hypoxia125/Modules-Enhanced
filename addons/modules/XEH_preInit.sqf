@@ -43,6 +43,14 @@
     } forEach _damageVal;
 }] call CBA_fnc_addEventHandler;
 
+// VehicleFuelCoef
+//------------------------------------------------------------------------------------------------
+[QGVAR(VehicleFuelCoef_SetCoef), {
+    params ["_vehicle", "_coef"];
+
+    _vehicle setFuelConsumptionCoef _coef;
+}] call CBA_fnc_addEventHandler;
+
 // VehicleMineJammer
 //------------------------------------------------------------------------------------------------
 [QGVAR(enableMine), {

@@ -20,6 +20,7 @@ PREP(moduleRegisterTeleporter);
 PREP(moduleSpawnerWaypoint);
 PREP(moduleSpeedLimiter);
 PREP(moduleTrapInventory);
+PREP(moduleVehicleFuelCoef);
 PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);

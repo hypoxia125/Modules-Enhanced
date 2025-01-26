@@ -52,6 +52,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Register Teleporter
 - Speed Limiter
 - Trap Inventory
+- Vehicle Fuel Coefficient
 - Vehicle Mine Jammer
 - Vehicle Rearm
 - Vehicle Refuel
