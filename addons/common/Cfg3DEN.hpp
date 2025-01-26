@@ -371,6 +371,22 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleCreateRemoteTarget_Time: MEH_ModuleSlider_Time {
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {60, 99*60*60};
+                    sliderPosition = 15*60;
+                    sliderStep = 60;
+                };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944

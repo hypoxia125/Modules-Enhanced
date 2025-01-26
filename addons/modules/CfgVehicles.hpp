@@ -39,6 +39,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleChangeFlag.hpp"
     #include "\z\meh\addons\modules\modules\moduleCommunicationJammer.hpp"
     #include "\z\meh\addons\modules\modules\moduleCreateMinefield.hpp"
+    #include "\z\meh\addons\modules\modules\moduleCreateRemoteTarget.hpp"
     #include "\z\meh\addons\modules\modules\moduleDeleteRespawnPosition.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectFire.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectFlareLauncher.hpp"

@@ -2,6 +2,14 @@
 
 #include "XEH_PREP.hpp"
 
+// CreateRemoteTarget
+//------------------------------------------------------------------------------------------------
+[QGVAR(CreateRemoteTarget_ReportTarget), {
+    params ["_vehicle", "_side", "_time"];
+
+    _side reportRemoteTarget [_vehicle, _time];
+}] call CBA_fnc_addEventHandler;
+
 // Misc
 //------------------------------------------------------------------------------------------------
 [QGVAR(HideObjectServer), {

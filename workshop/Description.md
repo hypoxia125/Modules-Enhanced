@@ -35,6 +35,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Change Flag
 - Communication Jammer
 - Create Minefield
+- Create Remote Target
 - Create Paradrop Troop Transport
 - Delete BI Respawn Position
 - Fire
