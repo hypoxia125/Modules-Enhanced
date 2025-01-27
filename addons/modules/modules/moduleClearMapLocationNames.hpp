@@ -1,7 +1,7 @@
 class MEH_ModuleClearMapLocationNames: MEH_ModuleBase {
     scope = 2;
     displayName = "Clear Map Location Names";
-    // icon = "";
+    icon = "a3\modules_f\data\iconstrategicmapimage_ca.paa";
     category = "MEH_Misc";
 
     function = QFUNC(ModuleClearMapLocationNames);
