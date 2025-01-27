@@ -1,8 +1,10 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
 PREP(moduleChangeFlag);
+PREP(moduleClearMapLocationNames);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
+PREP(moduleCreateRemoteTarget);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
 PREP(moduleEffectFlareLauncher);
@@ -20,6 +22,7 @@ PREP(moduleRegisterTeleporter);
 PREP(moduleSpawnerWaypoint);
 PREP(moduleSpeedLimiter);
 PREP(moduleTrapInventory);
+PREP(moduleVehicleFuelCoef);
 PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);

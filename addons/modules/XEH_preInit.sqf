@@ -2,6 +2,14 @@
 
 #include "XEH_PREP.hpp"
 
+// CreateRemoteTarget
+//------------------------------------------------------------------------------------------------
+[QGVAR(CreateRemoteTarget_ReportTarget), {
+    params ["_vehicle", "_side", "_time"];
+
+    _side reportRemoteTarget [_vehicle, _time];
+}] call CBA_fnc_addEventHandler;
+
 // Misc
 //------------------------------------------------------------------------------------------------
 [QGVAR(HideObjectServer), {
@@ -41,6 +49,14 @@
         
         _vehicle setHitPointDamage [_names#_forEachIndex, _value max 0];
     } forEach _damageVal;
+}] call CBA_fnc_addEventHandler;
+
+// VehicleFuelCoef
+//------------------------------------------------------------------------------------------------
+[QGVAR(VehicleFuelCoef_SetCoef), {
+    params ["_vehicle", "_coef"];
+
+    _vehicle setFuelConsumptionCoef _coef;
 }] call CBA_fnc_addEventHandler;
 
 // VehicleMineJammer
