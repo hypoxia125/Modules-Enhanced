@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.4.0[/h1]
+[h1]Current Version - v1.5.0[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -33,6 +33,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Ambient Artillery (Virtual)
 - Anti-Troll
 - Change Flag
+- Clear Map Location Names
 - Communication Jammer
 - Create Minefield
 - Create Remote Target
@@ -73,5 +74,3 @@ For Scripting/Modding Help:
 
 [h3]Want Help Organizing Your Group Roles During An OP?[/h3]
 Check out [url=https://hypoxia125.github.io/ArmaSquadGenerator/]Arma Squad Generator[/url]
-
-[h3]In Development[/h3]
