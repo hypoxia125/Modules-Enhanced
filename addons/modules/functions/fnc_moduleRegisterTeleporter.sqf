@@ -57,6 +57,10 @@ switch _mode do {
             INFO_2("(%1) No object synced, creating dummy flag for use: %2",QFUNC(moduleRegisterTeleporter),_object);
 
             _module setVariable [QGVAR(teleporterObject), _object, true];
+        } else {
+            if (isServer) then {
+                _module setVariable [QGVAR(teleporterObject), _object, true];
+            };
         };
 
         waitUntil {!isNil {_module getVariable QGVAR(teleporterObject)}};
