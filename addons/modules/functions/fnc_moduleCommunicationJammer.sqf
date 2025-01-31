@@ -661,6 +661,8 @@ private _init = compileFinal {
             _handle call CBA_fnc_removePerFrameHandler;
             (_self get "mapCtrl") ctrlRemoveEventHandler ["Draw", _self get "mapCtrlHandler"];
             (_self get "gpsCtrl") ctrlRemoveEventHandler ["Draw", _self get "gpsCtrlHandler"];
+            _self call ["ZeroJamAmount"];
+            _self call ["UpdateJamAmountGlobal"];
         };
 
         // Update position
@@ -677,6 +679,13 @@ private _init = compileFinal {
     }, TICKRATE, [_self]] call CBA_fnc_addPerFrameHandler;
 };
 _moduleObject set ["Init", _init];
+
+// ZeroJamAmount
+// -- Zero's out the module's jam amount
+private _zeroJamAmount = compileFinal {
+    _self set ["jamAmount", 0];
+};
+_moduleObject set ["ZeroJamAmount", _zeroJamAmount];
 
 // Code Start
 //------------------------------------------------------------------------------------------------
