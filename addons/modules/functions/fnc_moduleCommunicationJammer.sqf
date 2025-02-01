@@ -55,10 +55,10 @@ private _moduleObject = createHashMapObject [[
     ["position", getPosASL _module],
     ["area", _area],
     ["connectedObject", objNull],
-    ["mapCtrl", _mapCtrl],
+    ["mapCtrl", controlNull],
     ["mapCtrlHandler", -1],
     ["gpsCtrlHandler", -1],
-    ["gpsCtrl", _gpsCtrl],
+    ["gpsCtrl", controlNull],
     ["scrambleCharacters", _scrambleCharacters],
     ["jamAmount", 0],
     ["timeSinceStart", 0],
@@ -70,6 +70,31 @@ _module setVariable [QGVAR(CommunicationJammer_ModuleObject), _moduleObject];
 
 // Functions
 //------------------------------------------------------------------------------------------------
+
+// GetMapControl
+// -- Getter for the map control
+private _getMapControl = compileFinal {
+    private _mapCtrl = (findDisplay IDD_MAIN_MAP) displayCtrl IDC_MAP;
+    if (isNil "_mapCtrl" || {isNull _mapCtrl}) exitWith {controlNull};
+
+    _self set ["mapCtrl", _mapCtrl];
+
+    // Return
+    _mapCtrl;
+};
+_moduleObject set ["GetMapControl", _getMapControl];
+
+// Get GPS Control
+private _getGPSContrl = compileFinal {
+    private _gpsCtrl = ((uiNamespace getVariable ["RscCustomInfoMiniMap", displayNull]) displayCtrl 13301) controlsGroupCtrl 101;
+    if (isNil "_gpsCtrl" || {isNull _gpsCtrl}) exitWith { controlNull };
+
+    _self set ["gpsCtrl", _gpsCtrl];
+
+    // Return
+    _gpsCtrl;
+};
+_moduleObject set ["GetGPSControl", _getGPSContrl];
 
 // EnableDisableVoiceChannel
 // -- Enables or disables voice channels
@@ -257,6 +282,9 @@ _moduleObject set ["UpdateAllJamAmounts_Player", _updateAllJamAmounts_Player];
 private _updateTFARInterference = compileFinal {
     private _allJamAmounts = _self call ["GetAllJamAmounts"];
     private _maxJam = selectMax _allJamAmounts;
+
+    // Get compliment
+    _maxJam = 1 - _maxJam;
 
     player setVariable ["tf_receivingDistanceMultiplicator", _maxJam];
     player setVariable ["tf_sendingDistanceMultiplicator", _maxJam];
@@ -559,43 +587,54 @@ _moduleObject set ["CalculateDistanceFromJamAmount", _calculateDistanceFromJamAm
 private _init = compileFinal {
     LOG("ModuleCommunicationJammer:: Initializing...");
 
-    // Map Icon Handler
-    private _mapCtrl = _self get "mapCtrl";
-    private _mapCtrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
-        params ["_mapCtrl"];
+    [{
+        params ["_self"];
 
-        private _allJamAmounts = player getVariable [QGVAR(CommunicationJammer_AllJamAmounts), [0]];
+        private _mapExists = !isNull (_self call ["GetMapControl"]);
+        private _gpsExists = !isNull (_self call ["GetGPSControl"]);
 
-        // UI Stuff
-        private _mapCenter = _mapCtrl ctrlMapScreenToWorld [0.5, 0.5];
-        private _screenSize = 640 * safeZoneWAbs;
+        _mapExists && _gpsExists
+    }, {
+        params ["_self"];
 
-        private _maxAmount = selectMax _allJamAmounts;
+        // Map Icon Handler
+        private _mapCtrl = _self get "mapCtrl";
+        private _mapCtrlHandler = _mapCtrl ctrlAddEventHandler ["Draw", {
+            params ["_mapCtrl"];
 
-        // Texture + Icon
-        private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
-        _mapCtrl drawIcon [_texture, [1,1,1,_maxAmount], _mapCenter, _screenSize, _screenSize, 0, "", 0];
-    }];
-    _self set ["mapCtrlHandler", _mapCtrlHandler];
+            private _allJamAmounts = player getVariable [QGVAR(CommunicationJammer_AllJamAmounts), [0]];
 
-    // GPS Icon
-    private _gpsCtrl = _self get "gpsCtrl";
-    private _gpsCtrlHandler = _gpsCtrl ctrlAddEventHandler ["Draw", {
-        params ["_ctrl"];
+            // UI Stuff
+            private _mapCenter = _mapCtrl ctrlMapScreenToWorld [0.5, 0.5];
+            private _screenSize = 640 * safeZoneWAbs;
 
-        private _allJamAmounts = player getVariable [QGVAR(CommunicationJammer_AllJamAmounts), [0]];
+            private _maxAmount = selectMax _allJamAmounts;
 
-        // UI stuff
-        private _center = _ctrl ctrlMapScreenToWorld (ctrlPosition _ctrl select [0,2]);
-        private _size = 512;
+            // Texture + Icon
+            private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
+            _mapCtrl drawIcon [_texture, [1,1,1,_maxAmount], _mapCenter, _screenSize, _screenSize, 0, "", 0];
+        }];
+        _self set ["mapCtrlHandler", _mapCtrlHandler];
 
-        private _maxAmount = selectMax _allJamAmounts;
+        // GPS Icon
+        private _gpsCtrl = _self get "gpsCtrl";
+        private _gpsCtrlHandler = _gpsCtrl ctrlAddEventHandler ["Draw", {
+            params ["_ctrl"];
 
-        // Texture + Icon
-        private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
-        _ctrl drawIcon [_texture, [1,1,1,_maxAmount], _center, _size, _size, 0, "", 0];
-    }];
-    _self set ["gpsCtrlHandler", _gpsCtrlHandler];
+            private _allJamAmounts = player getVariable [QGVAR(CommunicationJammer_AllJamAmounts), [0]];
+
+            // UI stuff
+            private _center = _ctrl ctrlMapScreenToWorld (ctrlPosition _ctrl select [0,2]);
+            private _size = 512;
+
+            private _maxAmount = selectMax _allJamAmounts;
+
+            // Texture + Icon
+            private _texture = "#(rgb,8,8,3)color(0,0,0,1)";
+            _ctrl drawIcon [_texture, [1,1,1,_maxAmount], _center, _size, _size, 0, "", 0];
+        }];
+        _self set ["gpsCtrlHandler", _gpsCtrlHandler];
+    }, [_self], 30] call CBA_fnc_waitUntilAndExecute;
 
     // Handle Chat Messages
     addMissionEventHandler ["HandleChatMessage", {
