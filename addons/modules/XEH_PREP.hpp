@@ -4,6 +4,7 @@ PREP(moduleChangeFlag);
 PREP(moduleClearMapLocationNames);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
+PREP(moduleCreateMapLocation);
 PREP(moduleCreateRemoteTarget);
 PREP(moduleDeleteRespawnPosition);
 PREP(moduleEffectFire);
