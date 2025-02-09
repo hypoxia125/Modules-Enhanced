@@ -42,6 +42,8 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleCreateMinefield.hpp"
     #include "\z\meh\addons\modules\modules\moduleCreateRemoteTarget.hpp"
     #include "\z\meh\addons\modules\modules\moduleDeleteRespawnPosition.hpp"
+    #include "\z\meh\addons\modules\modules\moduleEarthquakeDamageArea.hpp"
+    #include "\z\meh\addons\modules\modules\moduleEarthquakeEpicenter.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectFire.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectFlareLauncher.hpp"
     #include "\z\meh\addons\modules\modules\moduleEffectLightpoint.hpp"

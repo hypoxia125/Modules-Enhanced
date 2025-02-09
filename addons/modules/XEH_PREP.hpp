@@ -6,6 +6,8 @@ PREP(moduleCommunicationJammer);
 PREP(moduleCreateMinefield);
 PREP(moduleCreateRemoteTarget);
 PREP(moduleDeleteRespawnPosition);
+PREP(ModuleEarthquakeDamageArea);
+PREP(moduleEarthquakeEpicenter);
 PREP(moduleEffectFire);
 PREP(moduleEffectFlareLauncher);
 PREP(moduleEffectLightpoint);
