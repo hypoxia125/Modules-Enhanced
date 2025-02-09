@@ -1,7 +1,7 @@
 class MEH_ModuleCreateMapLocation: MEH_ModuleBase {
     scope = 2;
     displayName = "Create Map Location";
-    // icon = "";
+    icon = "a3\modules_f\data\iconstrategicmapimage_ca.paa";
     category = "MEH_Misc";
 
     function = QFUNC(ModuleCreateMapLocation);
@@ -32,7 +32,7 @@ class MEH_ModuleCreateMapLocation: MEH_ModuleBase {
             property = QGVAR(ModuleCreateMapLocation_Type);
             displayName = "Location Type";
             tooltip = "CfgLocationType selection to use for the created location.";
-            defaultValue = 0;
+            defaultValue = 11;
             typeName = "NUMBER";
             class Values {
                 class Area {

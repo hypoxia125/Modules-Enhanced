@@ -43,7 +43,7 @@ private _getType = {
         case 8: { "FlatAreaCitySmall" };
         case 9: { "Hill" };
         case 10: { "Invisible" };
-        case 12: { "Name" };
+        case 11: { "Name" };
         case 12: { "NameCity" };
         case 13: { "NameCityCapital" };
         case 14: { "NameLocal" };
@@ -65,7 +65,7 @@ private _createLocation = {
     params ["_area", "_name", "_type", "_importance"];
 
     // TODO: Verify ASL works
-    private _location = createLocation [getPosASL _module, _area#0, _area#1, _area#2];
+    private _location = createLocation [_type, _area#0, _area#1, _area#2];
     _location setDirection _area#3;
     _location setRectangular _area#4;
 
@@ -90,22 +90,25 @@ switch _mode do {
 
         private _type = [_type] call _getType;
         private _location = [_area, _name, _type, _importance] call _createLocation;
+        _module setVariable [QGVAR(CreateMapLocation_Location), _location];
     };
 
-    case "registeredToWorld3DEN";
-    case "attributesChanged3DEN": {
-        // reset previous location
-        private _location = _module getVariable [QGVAR(CreateMapLocation_Location), objNull];
-        [_location] call _deleteLocation;
+    // DOES NOT WORK WITH 3DEN. KEEPING CODE HERE INCASE IT EVER CHANGES
+    // case "registeredToWorld3DEN";
+    // case "attributesChanged3DEN": {
+    //     // reset previous location
+    //     private _location = _module getVariable QGVAR(CreateMapLocation_Location);
+    //     [_location] call _deleteLocation;
 
-        // build new location
-        private _type = [_type] call _getType;
-        private _location = [_area, _name, _type, _importance] call _createLocation;
-    };
+    //     // build new location
+    //     private _type = [_type] call _getType;
+    //     private _location = [_area, _name, _type, _importance] call _createLocation;
+    //     _module setVariable [QGVAR(CreateMapLocation_Location), _location];
+    // };
 
-    case "unregisteredFromWorld3DEN": {
-        // reset previous location
-        private _location = _module getVariable [QGVAR(CreateMapLocation_Location), objNull];
-        [_location] call _deleteLocation;
-    };
+    // case "unregisteredFromWorld3DEN": {
+    //     // reset previous location
+    //     private _location = _module getVariable QGVAR(CreateMapLocation_Location);
+    //     [_location] call _deleteLocation;
+    // };
 };
