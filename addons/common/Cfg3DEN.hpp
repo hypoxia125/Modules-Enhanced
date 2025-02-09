@@ -78,6 +78,30 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleSlider_Multi: Slider {
+            attributeLoad = "\
+                _ctrlGroup = _this;\
+                [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,'x',_value] call bis_fnc_initSliderValue;\
+            ";
+            attributeSave = "\
+                sliderPosition (_this controlsGroupCtrl 100);\
+            ";
+            onLoad = "\
+                _ctrlGroup = _this select 0;\
+                [_ctrlGroup controlsgroupctrl 100,_ctrlGroup controlsgroupctrl 101,'x'] call bis_fnc_initSliderValue;\
+            ";
+
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {1, 10};
+                    sliderPosition = 1;
+                    sliderStep = 1;
+                };
+            };
+        };
+
         class MEH_ModuleSlider_Percent: Slider {
             attributeLoad = "\
                 _ctrlGroup = _this;\
@@ -384,6 +408,42 @@ class Cfg3DEN {
                 class Hour: Hour {};
                 class Minute: Minute {};
                 class Second: Second {};
+            };
+        };
+
+        class MEH_ModuleEarthquakeEpicenter_Power: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 20};
+                    sliderPosition = 10;
+                    sliderStep = 0.1;
+                };
+            };
+        };
+
+        class MEH_ModuleEarthquakeEpicenter_Frequency: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 100};
+                    sliderPosition = 10;
+                    sliderStep = 0.1;
+                };
+            };
+        };
+
+        class MEH_ModuleEarthquakeDamageArea_DamageBuildings: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 0;
+                    sliderStep = 0.1;
+                };
             };
         };
 
