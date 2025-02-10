@@ -118,7 +118,7 @@ private _damageBuildings = compileFinal {
     params ["_buildings", "_magnitude", "_duration"];
 
     private _buildingCount = count _buildings;
-    private _rate = _duration / _buildingCount;
+    private _rate = _duration / (_buildingCount max 1);
     private _buildingDestroyChance = 1 * (_magnitude / 10);
 
     [{

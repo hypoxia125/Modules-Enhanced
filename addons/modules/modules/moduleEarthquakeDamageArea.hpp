@@ -19,34 +19,42 @@ class MEH_ModuleEarthquakeDamageArea: MEH_ModuleBase {
     };
 
     class Attributes: AttributesBase {
+        class TypeMissionBuilding: Checkbox {
+            property = QGVAR(ModuleEarthquakeDamageArea_TypeMissionBuilding);
+            displayName = "Mission Buildings";
+            tooltip = "Add user placed buildings to the list of damage/destroyed buildings in this area.";
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
+
         class TypeBuilding: Checkbox {
             property = QGVAR(ModuleEarthquakeDamageArea_TypeBuilding);
-            displayName = "Buildings";
-            tooltip = "Add buildings to the list of damage/destroyed buildings in this area.";
+            displayName = "Terrain Buildings";
+            tooltip = "Add terrain buildings to the list of damage/destroyed buildings in this area.";
             defaultValue = "true";
             typeName = "BOOL";
         };
 
         class TypeWall: Checkbox {
             property = QGVAR(ModuleEarthquakeDamageArea_TypeWall);
-            displayName = "Walls";
-            tooltip = "Add walls to the list of damage/destroyed buildings in this area.\n\n**RESOURCE INTENSIVE**";
+            displayName = "Terrain Walls";
+            tooltip = "Add terrain walls to the list of damage/destroyed buildings in this area.\n\n**RESOURCE INTENSIVE**";
             defaultValue = "false";
             typeName = "BOOL";
         };
 
         class TypeTree: Checkbox {
             property = QGVAR(ModuleEarthquakeDamageArea_TypeTree);
-            displayName = "Trees";
-            tooltip = "Add trees to the list of damage/destroyed buildings in this area.\n\n**RESOURCE INTENSIVE**";
+            displayName = "Terrain Trees";
+            tooltip = "Add terrain trees to the list of damage/destroyed buildings in this area.\n\n**RESOURCE INTENSIVE**";
             defaultValue = "false";
             typeName = "BOOL";
         };
 
         class TypePowerlines: Checkbox {
             property = QGVAR(ModuleEarthquakeDamageArea_TypePowerlines);
-            displayName = "Powerlines";
-            tooltip = "Add powerlines to the list of damage/destroyed buildings in this area.";
+            displayName = "Terrain Powerlines";
+            tooltip = "Add terrain powerlines to the list of damage/destroyed buildings in this area.";
             defaultValue = "false";
             typeName = "BOOL";
         };
