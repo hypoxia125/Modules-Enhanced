@@ -2,7 +2,7 @@ class MEH_ModuleEarthquakeEpicenter: MEH_ModuleBase {
     scope = 2;
     displayName = "Earthquake Epicenter";
     icon = "a3\data_f_argo\logos\arma3_argo_logo_small_ca.paa";
-    category = "MEH_Effects";
+    category = "MEH_Earthquakes";
 
     function = QFUNC(ModuleEarthquakeEpicenter);
     functionPriority = 1;
