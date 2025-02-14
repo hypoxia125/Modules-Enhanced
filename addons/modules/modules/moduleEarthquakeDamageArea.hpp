@@ -2,7 +2,7 @@ class MEH_ModuleEarthquakeDamageArea: MEH_ModuleBase {
     scope = 2;
     displayName = "Earthquake Damage Area";
     icon = "a3\data_f_argo\logos\arma3_argo_logo_small_ca.paa";
-    category = "MEH_Effects";
+    category = "MEH_Earthquakes";
 
     function = QFUNC(ModuleEarthquakeDamageArea);
     functionPriority = 1;

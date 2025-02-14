@@ -54,7 +54,7 @@ switch _mode do {
 
     case "connectionChanged3DEN": {
         private _synced = get3DENConnections _module apply {_x#1};
-        private _invalid = _synced select {!(_x isKindOf "ModuleRespawnPosition_F")};
+        private _invalid = _synced select {!(_x isKindOf "ModuleRespawnPosition_F") && !(_x isKindOf "EmptyDetector")};
         if (_invalid isNotEqualTo []) then {
             [typeOf _module] call EFUNC(Error,invalidSync);
 

@@ -31,4 +31,8 @@ class CfgFactionClasses {
         displayName = "Modules Enhanced - Spawners";
         side = 7;
     };
+    class MEH_Earthquakes {
+        displayName = "Modules Enhanced - Earthquakes";
+        side = 7;
+    };
 };
