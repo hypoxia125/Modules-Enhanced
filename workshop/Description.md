@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.5.3[/h1]
+[h1]Current Version - v1.6.2[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -35,10 +35,13 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Change Flag
 - Clear Map Location Names
 - Communication Jammer
+- Create Map Location
 - Create Minefield
 - Create Remote Target
 - Create Paradrop Troop Transport
 - Delete BI Respawn Position
+- Earthquake Damage Area
+- Earthquake Epicenter
 - Fire
 - Flare Launcher
 - Lightpoint

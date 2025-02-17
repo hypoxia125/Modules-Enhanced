@@ -129,9 +129,14 @@ private _execute = {
                     _args params ["_chuteOpenHeight", "_chuteType", "_trailingSmoke", "_paradrop"];
 
                     private _leader = leader group _caller;
+                    private _paradropVehicle = _target;
 
                     if (_leader == _caller) then {
                         units group _caller apply {
+                            if !(_x in _paradropVehicle) then {
+                                LOG_1("ParadropTroopTransport:: Unit [%1] not in paradrop vehicle, skipping...",_x);
+                                continue;
+                            };
                             [_x, _chuteOpenHeight, _chuteType, _trailingSmoke] call _paradrop;
                             sleep 1;
                         };
