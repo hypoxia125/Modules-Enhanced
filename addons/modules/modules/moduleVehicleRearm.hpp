@@ -1,6 +1,6 @@
 class MEH_ModuleVehicleRearm: MEH_ModuleBase {
     scope = 2;
-    displayName = CSTRING(ModuleVehicleRearm_DisplayName);
+    displayName = "Vehicle Auto-Rearm";
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
     category = "MEH_Logistics";
 

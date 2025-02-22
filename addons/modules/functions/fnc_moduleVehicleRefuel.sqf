@@ -15,22 +15,24 @@ _input params [
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
-if (!is3DEN && {!_isActivated}) exitWith {};
 if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
 private _timeDelay = _module getVariable ["TimeDelay", 5*60];
 private _refuelCountMax = _module getVariable ["RefuelCount", -1];
+private _refuelPercent = _module getVariable "Percent";
 private _runImmediately = _module getVariable "RunImmediately";
 
 // Functions
 //------------------------------------------------------------------------------------------------
 private _createRefueler = {
     params [
+        "_module",
         ["_vehicles", [], [[], objNull]],
         ["_timeDelay", 600, [-1]],
         ["_refuelCountMax", 1, [-1]],
+        ["_refuelPercent", 1, [-1]],
         "_runImmediately"
     ];
 
@@ -43,7 +45,7 @@ private _createRefueler = {
             private _vehicle = _x;
 
             // Refuel locally
-            [QGVAR(refuelVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
+            [QGVAR(refuelVehicle), [_vehicle, _refuelPercent], _vehicle] call CBA_fnc_targetEvent;
 
             _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), 1];
         } forEach _vehicles;
@@ -51,11 +53,11 @@ private _createRefueler = {
 
     // Repeat loop
     [{
-        params ["_vehicles", "_timeDelay", "_refuelCountMax"];
+        params ["_module", "_vehicles", "_timeDelay", "_refuelCountMax", "_refuelPercent"];
 
-        [{
+        private _handle = [{
             params ["_args", "_handle"];
-            _args params ["_vehicles", "_timeDelay", "_refuelCountMax"];
+            _args params ["_module", "_vehicles", "_timeDelay", "_refuelCountMax", "_refuelPercent"];
 
             if (isGamePaused) exitWith {};
 
@@ -70,11 +72,13 @@ private _createRefueler = {
                 if (_refuelCountCurrent >= _refuelCountMax) then { continue };
 
                 // Refuel vehicle locally
-                [QGVAR(refuelVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
+                [QGVAR(refuelVehicle), [_vehicle, _refuelPercent], _vehicle] call CBA_fnc_targetEvent;
                 _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), _refuelCountCurrent + 1];
             };
-        }, _timeDelay, [_vehicles, _timeDelay, _refuelCountMax]] call CBA_fnc_addPerFrameHandler;
-    }, [_vehicles, _timeDelay, _refuelCountMax], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
+        }, _timeDelay, [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent]] call CBA_fnc_addPerFrameHandler;
+
+        _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), _handle];
+    }, [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
 };
 
 // Code Start
@@ -85,8 +89,14 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
-        if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
-        [_vehicles, _timeDelay, _refuelCountMax, _runImmediately] call _createRefueler;
+        if (_isActivated) then {
+            [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent, _runImmediately] call _createRefueler;
+        };
+
+        if !(_isActivated) then {
+            private _handle = _module getVariable [QGVAR(ModuleVehicleRefuel_Handle), -1];
+            _handle call CBA_fnc_removePerFrameHandler;
+        };
     };
 
     case "connectionChanged3DEN": {

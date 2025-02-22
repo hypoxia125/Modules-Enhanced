@@ -1,6 +1,6 @@
 class MEH_ModuleVehicleRefuel: MEH_ModuleBase {
     scope = 2;
-    displayName = CSTRING(ModuleVehicleRefuel_DisplayName);
+    displayName = "Vehicle Auto-Refuel";
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\refuel_ca.paa";
     category = "MEH_Logistics";
 
@@ -31,10 +31,20 @@ class MEH_ModuleVehicleRefuel: MEH_ModuleBase {
             typeName = "NUMBER";
         };
 
+        class Percent {
+            control = "MEH_ModuleVehicleRepair_Percent";
+            expression = "_this setVariable ['%s', _value, true]";
+            property = QGVAR(ModuleVehicleRefuel_Percent);
+            displayName = "Refuel Percent";
+            tooltip = "Percent to add to the current fuel of the vehicle per tick.";
+            defaultValue = 1;
+            typeName = "NUMBER";
+        };
+
         class RunImmediately: Checkbox {
             property = QGVAR(ModuleVehicleRefuel_RunImmediately);
             displayName = "Refuel Immediately When Triggered";
-            tooltip = "When this module is triggered, it will immediately refuel the vehicle rather than waiting for the delay. Will then continue with delay if refuel count allows.";
+            tooltip = "When this module is triggered, it will immediately refuel the vehicle rather than waiting for the delay. Will then continue with delay if refuel count allows. You should only use this if using large time delays.";
             defaultValue = "false";
             typeName = "BOOL";
         };

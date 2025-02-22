@@ -303,9 +303,9 @@ class Cfg3DEN {
             class Controls: Controls {
                 class Title: Title {};
                 class Value: Value {
-                    sliderRange[] = {60, 60*60};
+                    sliderRange[] = {0, 60*60};
                     sliderPosition = 5*60;
-                    sliderStep = 60;
+                    sliderStep = 1;
                 };
                 class Frame: Frame {};
                 class Separator: Separator {};
