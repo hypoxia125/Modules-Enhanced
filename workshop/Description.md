@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.6.2[/h1]
+[h1]Current Version - v1.7.0[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -62,6 +62,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Vehicle Rearm
 - Vehicle Refuel
 - Vehicle Repair
+- Vehicle Service Station
 
 For an explanation on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
