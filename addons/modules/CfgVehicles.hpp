@@ -66,4 +66,5 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleVehicleRearm.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRefuel.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRepair.hpp"
+    #include "\z\meh\addons\modules\modules\moduleVehicleServiceStation.hpp"
 };

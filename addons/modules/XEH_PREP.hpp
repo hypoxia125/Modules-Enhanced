@@ -30,6 +30,7 @@ PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 PREP(moduleVehicleRepair);
+PREP(ModuleVehicleServiceStation);
 
 PREP(get3DENAreaModule);
 

@@ -15,7 +15,6 @@ _input params [
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
-if (!is3DEN && {!_isActivated}) exitWith {};
 if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
@@ -29,6 +28,7 @@ private _runImmediately = _module getVariable "RunImmediately";
 //------------------------------------------------------------------------------------------------
 private _createRepairer = {
     params [
+        "_module",
         ["_vehicles", [], [[], objNull]],
         ["_timeDelay", 600, [-1]],
         ["_repairCountMax", 1, [-1]],
@@ -54,13 +54,13 @@ private _createRepairer = {
 
     // Repeat loop
     [{
-        params ["_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
+        params ["_module", "_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
 
         LOG("ModuleVehicleRepair:: Starting repair loop...");
 
-        [{
+        private _handle = [{
             params ["_args", "_handle"];
-            _args params ["_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
+            _args params ["_module", "_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
 
             if (isGamePaused) exitWith {};
 
@@ -79,8 +79,10 @@ private _createRepairer = {
                 [QGVAR(repairVehicle), [_vehicle, _repairPercent], _vehicle] call CBA_fnc_targetEvent;
                 _vehicle setVariable [QGVAR(VehicleRepair_RepairCount), _repairCountCurrent + 1];
             };
-        }, _timeDelay, [_vehicles, _timeDelay, _repairCountMax, _repairPercent]] call CBA_fnc_addPerFrameHandler;
-    }, [_vehicles, _timeDelay, _repairCountMax, _repairPercent], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
+        }, _timeDelay, [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent]] call CBA_fnc_addPerFrameHandler;
+
+        _module setVariable [QGVAR(ModuleVehicleRepair_Handle), _handle];
+    }, [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
 };
 
 // Code Start
@@ -91,8 +93,14 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
-        if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
-        [_vehicles, _timeDelay, _repairCountMax, _repairPercent, _runImmediately] call _createRepairer;
+        if (_isActivated) then {
+            [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent, _runImmediately] call _createRepairer;
+        };
+
+        if !(_isActivated) then {
+            private _handle = _module getVariable [QGVAR(ModuleVehicleRepair_Handle), -1];
+            _handle call CBA_fnc_removePerFrameHandler;
+        };
     };
 
     case "connectionChanged3DEN": {

@@ -21,9 +21,14 @@
 // RefuelVehicle
 //------------------------------------------------------------------------------------------------
 [QGVAR(refuelVehicle), {
-    params ["_vehicle"];
+    params ["_vehicle", ["_refuelPercent", 1]];
 
-    _vehicle setFuel 1;
+    private _currentFuel = fuel _vehicle;
+    if (_currentFuel >= 1) exitWith {};
+
+    LOG_2("Refueling vehicle: %1 by %2",_vehicle,_refuelPercent);
+
+    _vehicle setFuel ((_currentFuel + _refuelPercent) min 1);
 }] call CBA_fnc_addEventHandler;
 
 // RearmVehicle
@@ -37,11 +42,13 @@
 // RepairVehicle
 //------------------------------------------------------------------------------------------------
 [QGVAR(repairVehicle), {
-    params ["_vehicle", "_repairPercent"];
-
-    LOG_2("ModuleVehicleRepair:: Repairing vehicle: %1 by %2",_vehicle,_repairPercent);
+    params ["_vehicle", ["_repairPercent", 1]];
 
     getAllHitPointsDamage _vehicle params ["_names", "_selections", "_damageVal"];
+
+    if (_damageVal findIf {_x > 0} == -1) exitWith {};
+    
+    LOG_2("Repairing vehicle: %1 by %2",_vehicle,_repairPercent);
     
     {
         private _value = _x;

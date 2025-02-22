@@ -1,6 +1,6 @@
 class MEH_ModuleVehicleRepair: MEH_ModuleBase {
     scope = 2;
-    displayName = "Vehicle Repair";
+    displayName = "Vehicle Auto-Repair";
     icon = "a3\ui_f\data\igui\cfg\simpletasks\types\repair_ca.paa";
     category = "MEH_Logistics";
 
@@ -34,7 +34,7 @@ class MEH_ModuleVehicleRepair: MEH_ModuleBase {
             control = "MEH_ModuleVehicleRepair_Percent";
             expression = "_this setVariable ['%s', _value, true]";
             property = QGVAR(ModuleVehicleRepair_Percent);
-            displayName = "Vehicle Repair";
+            displayName = "Repair Percent";
             tooltip = "Percent to add to the current HP of vehicle parts per tick.";
             defaultValue = 1;
             typeName = "NUMBER";
@@ -43,7 +43,7 @@ class MEH_ModuleVehicleRepair: MEH_ModuleBase {
         class RunImmediately: Checkbox {
             property = QGVAR(ModuleVehicleRepair_RunImmediately);
             displayName = "Repair Immediately When Triggered";
-            tooltip = "When this module is triggered, it will immediately repair the vehicle rather than waiting for the delay. Will then continue with delay if repair count allows.";
+            tooltip = "When this module is triggered, it will immediately repair the vehicle rather than waiting for the delay. Will then continue with delay if repair count allows. You should only use this if using large time delays.";
             defaultValue = "false";
             typeName = "BOOL";
 
