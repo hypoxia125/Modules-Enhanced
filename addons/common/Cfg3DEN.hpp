@@ -447,6 +447,61 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleVehicleServiceStation_RepairPerTick: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 0;
+                    sliderStep = 0.01;
+                };
+            };
+        };
+
+        class MEH_ModuleVehicleServiceStation_RefuelPerTick: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 0;
+                    sliderStep = 0.01;
+                };
+            };
+        };
+
+        class MEH_ModuleVehicleServiceStation_RearmPerTick: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {
+                    disabled = 1;
+                };
+                class Value: Value {
+                    disabled = 1;
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 0;
+                    sliderStep = 0.01;
+                };
+            };
+        };
+
+        class MEH_ModuleVehicleServiceStation_Tickrate: MEH_ModuleSlider_Time {
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {0, 60*60};
+                    sliderPosition = 5;
+                    sliderStep = 1;
+                };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944
