@@ -1,7 +1,7 @@
 class MEH_ModuleVehicleServiceStation: MEH_ModuleBase {
     scope = 2;
     displayName = "Vehicle Service Station";
-    // icon = "";
+    icon = "a3\ui_f\data\igui\cfg\simpletasks\types\repair_ca.paa";
     category = "MEH_Logistics";
 
     function = QFUNC(ModuleVehicleServiceStation);
@@ -13,6 +13,7 @@ class MEH_ModuleVehicleServiceStation: MEH_ModuleBase {
 
     canSetArea = 1;
     canSetAreaShape = 1;
+    canSetAreaHeight = 1;
     class AttributeValues {
         size3[] = {50, 50, -1};
         isRectangle = 0;
@@ -107,6 +108,14 @@ class MEH_ModuleVehicleServiceStation: MEH_ModuleBase {
             expression = "_this setVariable ['%s', _value, true]";
             defaultValue = 1;
             typeName = "NUMBER";
+        };
+
+        class ShowMapMarker: Checkbox {
+            property = QGVAR(ModuleVehicleServiceStation_ShowMapMarker);
+            displayName = "Show Global Map Marker";
+            tooltip = "Show map marker on map for faction, or all factions.";
+            defaultValue = "false";
+            typeName = "BOOL";
         };
 
         class ModuleDescription: ModuleDescription {};

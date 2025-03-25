@@ -43,6 +43,7 @@ private _refuel = _module getVariable "Refuel";
 private _refuelPerTick = _module getVariable "RefuelPerTick";
 private _tickrate = _module getVariable "TickRate";
 private _area = _module getVariable "ObjectArea";
+private _showMapMarker = _module getVariable "ShowMapMarker";
 _area = [ASLToAGL getPosASL _module] + _area;
 
 private _self = createHashMapObject [[
@@ -57,7 +58,8 @@ private _self = createHashMapObject [[
     ["refuelPerTick", _refuelPerTick],
     ["tickrate", _tickrate],
     ["area", _area],
-    ["activated", false]
+    ["activated", false],
+    ["showMapMarker", _showMapMarker]
 ]];
 if (_isActivated) then {
     _module setVariable [QGVAR(ModuleVehicleServiceStation_ModuleObject), _self];
@@ -104,6 +106,8 @@ private _startSystem = compileFinal {
 _self set ["StartSystem", _startSystem];
 
 private _createMapMarker = compileFinal {
+    if !(_self get "showMapMarker") exitWith {};
+
     // area marker
     private _markerName = format[QGVAR(VehicleServiceStationArea_%1),_self get "module"];
     private _marker = createMarkerLocal [_markerName, (_self get "area") # 0];
