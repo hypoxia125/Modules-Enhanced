@@ -144,6 +144,9 @@ private _createGroup = compileFinal {
         private _unitType = _x;
         private _unit = _group createUnit [_unitType, _position, [], _minimumRadius, "NONE"];
 
+        // safety check for correct side - remove in case bug is fixed: TODO
+        [_unit] joinSilent _group;
+
         _self call ["AddUnitsToActiveUnits", [[_unit]]];
     } forEach _unitsToSpawn;
 
