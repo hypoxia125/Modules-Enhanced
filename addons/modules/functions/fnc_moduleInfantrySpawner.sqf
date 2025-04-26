@@ -382,7 +382,12 @@ private _taskGarrison = compileFinal {
     private _maxRadius = (_area#1 max _area#2) * 2;
 
     private _nearbyBuildings = nearestTerrainObjects [_position, ["House"], _maxRadius, false, true];
+    private _nearbyPlacedBuildings = (_position nearObjects ["House", _maxRadius]) select {(count (_x buildingPos -1)) > 0};
+
     LOG_1("ModuleInfantrySpawner:: TaskGarrison: Nearby buildings: %1",_nearbyBuildings);
+    LOG_1("ModuleInfantrySpawner:: TaskGarrison: Nearby placed buildings: %1",_nearbyPlacedBuildings);
+
+    _nearbyBuildings = _nearbyBuildings + _nearbyPlacedBuildings;
 
     // filter out buildings outside of area
     _nearbyBuildings = _nearbyBuildings select {_x inArea _area};
