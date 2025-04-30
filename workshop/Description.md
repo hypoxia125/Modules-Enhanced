@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.7.2[/h1]
+[h1]Current Version - v1.7.4[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -47,8 +47,10 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Lightpoint
 - Smoke
 - Enable/Disable Gun Lights
+- Fade Screen
 - Healing Area
 - Infantry Spawner
+- Intro Text
 - Spawner Waypoint
 - Lightning Storm
 - Move On Combat
