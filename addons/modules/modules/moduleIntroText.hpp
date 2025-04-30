@@ -1,7 +1,7 @@
 class MEH_ModuleIntroText: MEH_ModuleBase {
     scope = 2;
     displayName = "Intro Text";
-    icon = "DBUG\pictures\text.paa";
+    icon = "a3\ui_f\data\gui\rsc\rscdisplayarcademap\icon_clear_ca.paa";
     category = "MEH_Cinematics";
 
     function = QFUNC(ModuleIntroText);
