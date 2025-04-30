@@ -35,4 +35,9 @@ class CfgFactionClasses {
         displayName = "Modules Enhanced - Earthquakes";
         side = 7;
     };
+
+    class MEH_Cinematics {
+        displayName = "Modules Enhanced - Cinematics";
+        side = 7;
+    };
 };
