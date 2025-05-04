@@ -50,7 +50,7 @@ class MEH_ModuleFadeScreen: MEH_ModuleBase {
 
         class Duration: Edit {
             property = QGVAR(ModuleFadeScreen_Duration);
-            displayName = "Duration (s)";
+            displayName = "Fade Duration (s)";
             tooltip = "How long it takes for the screen to fade";
             defaultValue = 1;
             typeName = "NUMBER";
