@@ -55,6 +55,8 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleInfantrySpawner.hpp"
     #include "\z\meh\addons\modules\modules\moduleIntroText.hpp"
     #include "\z\meh\addons\modules\modules\moduleLightningStorm.hpp"
+    #include "\z\meh\addons\modules\modules\moduleMapAnimationAdd.hpp"
+    #include "\z\meh\addons\modules\modules\moduleMapAnimationStart.hpp"
     #include "\z\meh\addons\modules\modules\moduleMoveOnCombat.hpp"
     #include "\z\meh\addons\modules\modules\moduleParadropTroopTransport.hpp"
     #include "\z\meh\addons\modules\modules\moduleMPSync.hpp"
