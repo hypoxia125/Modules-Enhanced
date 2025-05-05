@@ -19,6 +19,7 @@ PREP(moduleHealingArea);
 PREP(moduleInfantrySpawner);
 PREP(moduleIntroText);
 PREP(moduleLightningStorm);
+PREP(moduleMapAnimationStart);
 PREP(moduleMoveOnCombat);
 PREP(moduleParadropTroopTransport);
 PREP(moduleMPSync);

@@ -569,6 +569,18 @@ class Cfg3DEN {
 				};
             };
         };
+
+        class MEH_ModuleMapAnimationAdd_Zoom: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0.01, 1};
+                    sliderPosition = 0.25;
+                    sliderStep = 0.01;
+                };
+            };
+        };
     };
 
     class EventHandlers {
