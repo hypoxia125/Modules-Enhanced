@@ -296,3 +296,33 @@
 
     _unit setVariable [QGVAR(HitHandlerIndex), _handle, true];
 }] call CBA_fnc_addEventHandler;
+
+// InventorySync
+//------------------------------------------------------------------------------------------------
+[QGVAR(UpdateInventories), {
+    params ["_identifier", "_inventoryData"];
+
+    private _inventories = missionNamespace getVariable [QGVAR(InventorySync_Inventories), []];
+    {
+        if (_x getVariable [QGVAR(InventorySync_Identifier), ""] != _identifier) then { continue };
+
+        private _items = itemCargo _x +
+            magazineCargo _x +
+            backpackCargo _x +
+            weaponCargo _x;
+
+        private _itemsToAdd = _inventoryData select {!(_x in _items)};
+        private _itemsToRemove = _items select {!(_x in _inventoryData)};
+
+        {
+            private _index = _items find _x;
+            if (_index != -1) then { _items deleteAt _x };
+        } forEach _itemsToRemove;
+
+        {
+            _items addItemCargoGlobal [_x, 1];
+        } forEach _itemsToAdd;
+    } forEach _inventories;
+}] call CBA_fnc_addEventHandler;
+
+// TODO: InventorySync Send Data Event
