@@ -10,7 +10,7 @@ private _sync = [];
 if ("TRIGGER" in _types) then {
     _sync insert [-1, _syncTemp select {_x isKindOf "EmptyDetector"}];
 };
-if ("AMMOCRATE" in _types) then {
+if ("AMMOBOX" in _types) then {
     _sync insert [-1, _syncTemp select {_x isKindOf "ReammoBox_F"}];
 };
 if ("MAN" in _types) then {
