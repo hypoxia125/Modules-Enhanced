@@ -8,7 +8,7 @@ class MEH_ModuleInventorySync : MEH_ModuleBase {
     functionPriority = 1;
     isGlobal = 0;
     isTriggerActivated = 0;
-    isDisposable = 0;
+    isDisposable = 1;
     is3DEN = 1;
 
     class Attributes : AttributesBase {
@@ -20,8 +20,16 @@ class MEH_ModuleInventorySync : MEH_ModuleBase {
             typeName = "STRING";
         };
 
+        class ClearIdentifier : Checkbox {
+            property = QGVAR(ModuleInventorySync_ClearIdentifier);
+            displayName = "Clear Identifier";
+            tooltip = "Clears all data in the above identifier upon mission start.";
+            defaultValue = "false";
+            typeName = "BOOL";
+        };
+
         class SaveLocation : Combo {
-            property = QGVAR(ModuleInventorySave_SaveLocation);
+            property = QGVAR(ModuleInventorySync_SaveLocation);
             displayName = "Save Location";
             tooltip = "In what namespace do we save this data?";
             defaultValue = 0;
@@ -31,10 +39,18 @@ class MEH_ModuleInventorySync : MEH_ModuleBase {
                     value = 0;
                 };
                 class AllClients {
-                    name = "All Clients";
+                    name = "Server + All Clients (Experimental)";
                     value = 1;
                 };
             };
+        };
+
+        class RefreshRate: Edit {
+            defaultValue = 0.5;
+            displayName = "Tick Rate For Inventory Sync";
+            tooltip = "Delay between Inventory Sync. Lower numbers update faster at a cost of performance.";
+            typeName = "NUMBER";
+            property = QGVAR(ModuleInventorySync_RefreshRate);
         };
 
         class ModuleDescription: ModuleDescription {};

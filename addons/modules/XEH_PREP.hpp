@@ -18,6 +18,7 @@ PREP(moduleFadeScreen);
 PREP(moduleHealingArea);
 PREP(moduleInfantrySpawner);
 PREP(moduleIntroText);
+PREP(moduleInventorySync);
 PREP(moduleLightningStorm);
 PREP(moduleMapAnimationStart);
 PREP(moduleMoveOnCombat);
@@ -36,5 +37,6 @@ PREP(moduleVehicleRepair);
 PREP(ModuleVehicleServiceStation);
 
 PREP(get3DENAreaModule);
+PREP(getSynchronizedObjectsFiltered);
 
 INFO("PREP: Functions loaded successfully");
