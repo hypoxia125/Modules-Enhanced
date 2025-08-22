@@ -54,6 +54,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleHealingArea.hpp"
     #include "\z\meh\addons\modules\modules\moduleInfantrySpawner.hpp"
     #include "\z\meh\addons\modules\modules\moduleIntroText.hpp"
+    #include "\z\meh\addons\modules\modules\moduleInventorySync.hpp"
     #include "\z\meh\addons\modules\modules\moduleLightningStorm.hpp"
     #include "\z\meh\addons\modules\modules\moduleMapAnimationAdd.hpp"
     #include "\z\meh\addons\modules\modules\moduleMapAnimationStart.hpp"
