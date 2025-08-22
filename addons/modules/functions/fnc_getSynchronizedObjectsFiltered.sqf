@@ -19,10 +19,10 @@ if ("MAN" in _types) then {
 if ("LANDVEHICLE" in _types) then {
     _sync insert [-1, _syncTemp select {_x isKindOf "LandVehicle"}];
 };
-if ("Plane" in _types) then {
+if ("PLANE" in _types) then {
     _sync insert [-1, _syncTemp select {_x isKindOf "Plane"}];
 };
-if ("Helicopter" in _types) then {
+if ("HELICOPTER" in _types) then {
     _sync insert [-1, _syncTemp select {_x isKindOf "Helicopter"}];
 };
 
