@@ -296,3 +296,101 @@
 
     _unit setVariable [QGVAR(HitHandlerIndex), _handle, true];
 }] call CBA_fnc_addEventHandler;
+
+// InventorySync
+//------------------------------------------------------------------------------------------------
+[QGVAR(UpdateInventories), {
+    params ["_identifier", "_inventoryData"];
+    
+    private _fnc_addOrRemove = {
+        params ["_container", "_item", "_amount"];
+
+        private _config = _item call CBA_fnc_getItemConfig;
+        if (isNull _config) exitWith { false };
+
+        private _cfgType = configName ((configHierarchy _config) param [1, configNull]);
+        private _config = configFile >> _cfgType >> _item;
+        private _type = getNumber (_config >> "type");
+        private _isBackpack = getNumber (_config >> "isbackpack");
+
+        // For removal, we don't need to check canAdd
+        if (_amount > 0 && {!(_container canAdd [_item, _amount])}) exitWith { false };
+        
+        switch true do {
+            case (_cfgType == "CfgMagazines"): {
+                _container addMagazineCargoGlobal [_item, _amount];
+            };
+            case (_type in [TYPE_WEAPON_PRIMARY, TYPE_WEAPON_HANDGUN, TYPE_WEAPON_SECONDARY]): {
+                _container addWeaponCargoGlobal [_item, _amount];
+            };
+            case (_isBackpack): {
+                _container addBackpackCargoGlobal [_item, _amount];
+            };
+            default {
+                _container addItemCargoGlobal [_item, _amount];
+            };
+        };
+
+        true;
+    };
+
+    private _inventories = missionNamespace getVariable [QGVAR(InventorySync_Inventories), []];
+    {
+        private _box = _x;
+        if (_box getVariable [QGVAR(InventorySync_Identifier), ""] != _identifier) then { continue };
+
+        LOG_1("ModuleInventorySync::UpdateInventories | Updating inventory for container: %1",_box);
+
+        // Get current inventory as arrays with duplicates
+        private _currentItems = 
+            (itemCargo _box) +
+            (magazineCargo _box) + 
+            (backpackCargo _box) +
+            (weaponCargo _box);
+
+        // Count items in both arrays
+        private _targetCounts = createHashMap;
+        private _currentCounts = createHashMap;
+        
+        { _targetCounts set [_x, (_targetCounts getOrDefault [_x, 0]) + 1] } forEach _inventoryData;
+        { _currentCounts set [_x, (_currentCounts getOrDefault [_x, 0]) + 1] } forEach _currentItems;
+
+        LOG_2("ModuleInventorySync::UpdateInventories | Target counts for container %1: %2",_box,_targetCounts);
+        LOG_2("ModuleInventorySync::UpdateInventories | Current counts for container %1: %2",_box,_currentCounts);
+
+        // Process all unique items
+        private _allItems = (keys _targetCounts) + (keys _currentCounts);
+        _allItems = _allItems arrayIntersect _allItems; // Remove duplicates
+        
+        {
+            private _item = _x;
+            private _targetCount = _targetCounts getOrDefault [_item, 0];
+            private _currentCount = _currentCounts getOrDefault [_item, 0];
+            private _difference = _targetCount - _currentCount;
+            
+            if (_difference != 0) then {
+                LOG_3("ModuleInventorySync::UpdateInventories | Adjusting item %1 by %2 (current: %3)",_item,_difference,_currentCount);
+                private _success = [_box, _item, _difference] call _fnc_addOrRemove;
+                if !(_success) then {
+                    LOG_2("ModuleInventorySync::UpdateInventories | Failed to adjust item %1 by %2",_item,_difference);
+                };
+            };
+        } forEach _allItems;
+    } forEach _inventories;
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(InventorySync_SendData), {
+    params ["_identifier", "_inventoryData"];
+
+    if (isNil {profileNamespace getVariable QGVAR(InventorySyncData)}) then {
+        profileNamespace setVariable [QGVAR(InventorySyncData), createHashMap];
+    };
+
+    private _data = profileNamespace getVariable QGVAR(InventorySyncData);
+    
+    if (_identifier == "") exitWith {};
+    if (_inventoryData isEqualTo []) exitWith {};
+
+    _data set [_identifier, _inventoryData];
+    profileNamespace setVariable [QGVAR(InventorySyncData), _data];
+}] call CBA_fnc_addEventHandler;

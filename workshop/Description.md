@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.9.0[/h1]
+[h1]Current Version - v1.9.1[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -37,26 +37,27 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - Communication Jammer
 - Create Map Location
 - Create Minefield
-- Create Remote Target
 - Create Paradrop Troop Transport
+- Create Remote Target
 - Delete BI Respawn Position
 - Earthquake Damage Area
 - Earthquake Epicenter
-- Fire
-- Flare Launcher
-- Lightpoint
-- Smoke
 - Enable/Disable Gun Lights
 - Fade Screen
+- Fire
+- Flare Launcher
 - Healing Area
 - Infantry Spawner
 - Intro Text
-- Spawner Waypoint
+- Inventory Sync
+- Lightpoint
 - Lightning Storm
 - Move On Combat
 - Multiplayer Sync
 - Paradrop Vehicle/Crate
 - Register Teleporter
+- Smoke
+- Spawner Waypoint
 - Speed Limiter
 - Trap Inventory
 - Vehicle Fuel Coefficient
