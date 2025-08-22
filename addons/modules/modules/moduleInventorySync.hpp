@@ -15,7 +15,7 @@ class MEH_ModuleInventorySync : MEH_ModuleBase {
         class Identifier : Edit {
             property = QGVAR(ModuleInventorySync_Identifier);
             displayName = "Unique Identifier";
-            tooltip = "Unique identifier for this inventory. Will sync with other inventories that share the same identifier.";
+            tooltip = "Unique identifier for this inventory. Will sync with other inventories that share the same identifier. This is CASE SENSITIVE!";
             defaultValue = """myIdentifier""";
             typeName = "STRING";
         };

@@ -20,7 +20,6 @@ if (is3DEN) exitWith {};
 if !(_mode in ["init"]) exitWith {};
 
 private _identifier = _module getVariable ["Identifier", ""];
-_identifier = toLowerANSI _identifier;
 if (_identifier == "") exitWith {};
 
 private _saveLocation = _module getVariable "SaveLocation";
