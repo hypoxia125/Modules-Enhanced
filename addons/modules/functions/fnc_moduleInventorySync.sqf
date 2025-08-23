@@ -28,6 +28,8 @@ switch _saveLocation do {
     case 1: { _saveLocation = "EVERYONE" };
 };
 
+private _addEditorInventory = _module getVariable "AddEditorInventory";
+
 private _clearIdentifier = _module getVariable "ClearIdentifier";
 private _refreshRate = _module getVariable ["RefreshRate", 0.5];
 if (_refreshRate < 0) then { _refreshRate = 0 };
@@ -56,23 +58,38 @@ LOG_1("ModuleInventorySync | Synced Objects: %1",count _syncedObjects);
 } forEach _syncedObjects;
 missionNamespace setVariable [QGVAR(InventorySync_Inventories), _synchronizedInventories, true];
 
+private _data = profileNamespace getVariable QGVAR(InventorySyncData);
+private _inventoryData = _data getOrDefault [_identifier, []];
 {
     private _container = _x;
 
-    // Sync inventories at start
-    INFO_1("moduleInventorySync | Container [%1], clearing inventory",_container);
-    clearItemCargo _container;
-    clearMagazineCargo _container;
-    clearWeaponCargo _container;
-    clearBackpackCargo _container;
-
     INFO_1("moduleInventorySync | Container [%1], syncing inventory",_container);
 
-    private _data = profileNamespace getVariable QGVAR(InventorySyncData);
-    private _inventoryData = _data getOrDefault [_identifier, []];
+    // Sync inventories at start
+    if (_addEditorInventory) then {
+        private _currentInventory =
+            magazineCargo _container +
+            itemCargo _container +
+            weaponCargo _container +
+            backpackCargo _container;
 
-    [QGVAR(UpdateInventories), [_identifier, _inventoryData]] call CBA_fnc_serverEvent;
+        _inventoryData append _currentInventory;
+        _data set [_identifier, _inventoryData];
+    } else {
+        INFO_1("moduleInventorySync | Container [%1], clearing inventory",_container);
+        clearItemCargo _container;
+        clearMagazineCargo _container;
+        clearWeaponCargo _container;
+        clearBackpackCargo _container;
+    };
+
+    if (_forEachIndex == count _syncedObjects - 1) then {
+        if (_mode == "EVERYONE") then {
+            [QGVAR(InventorySync_SendData), [_identifier, _inventoryData], format["%1: InventoryData", _container]] call CBA_fnc_globalEventJIP;
+        };
+    };
 } forEach _syncedObjects;
+[QGVAR(UpdateInventories), [_identifier, _inventoryData]] call CBA_fnc_serverEvent;
 
 // Per Frame Handler
 if (isNil { missionNamespace getVariable QGVAR(InventorySync_FrameHandler) }) then {
@@ -90,14 +107,14 @@ if (isNil { missionNamespace getVariable QGVAR(InventorySync_FrameHandler) }) th
             private _data = profileNamespace getVariable QGVAR(InventorySyncData);
             private _inventoryData = _data getOrDefault [_identifier, []];
 
-            LOG_1("ModuleInventorySync::PerFrameHandler | InventoryData: %1",_inventoryData);
+            // LOG_1("ModuleInventorySync::PerFrameHandler | InventoryData: %1",_inventoryData);
 
             private _currentInventory =
                 magazineCargo _container +
                 itemCargo _container +
                 weaponCargo _container +
                 backpackCargo _container;
-            LOG_2("ModuleInventorySync::PerFrameHandler | Current inventory for container %1: %2",_container,_currentInventory);
+            // LOG_2("ModuleInventorySync::PerFrameHandler | Current inventory for container %1: %2",_container,_currentInventory);
 
             // Check to see if inventory data is equal (but originals are out of order so you can't use isEqualTo)
             private _inventoryDataCount = createHashMap;
@@ -112,7 +129,7 @@ if (isNil { missionNamespace getVariable QGVAR(InventorySync_FrameHandler) }) th
 
             if (_isEqual) then { continue };
 
-            LOG_1("ModuleInventorySync::PerFrameHandler | Difference in inventory found for container [%1]",_container);
+            // LOG_1("ModuleInventorySync::PerFrameHandler | Difference in inventory found for container [%1]",_container);
 
             _data set [_identifier, _currentInventory];
             [QGVAR(UpdateInventories), [_identifier, _currentInventory]] call CBA_fnc_serverEvent;
