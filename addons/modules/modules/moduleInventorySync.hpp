@@ -45,6 +45,14 @@ class MEH_ModuleInventorySync : MEH_ModuleBase {
             };
         };
 
+        class AddEditorInventory : Checkbox {
+            property = QGVAR(ModuleInventorySync_AddEditorInventory);
+            displayName = "Add Editor Inventory";
+            tooltip = "If unselected, the container will be cleared before sync happens of all editor placed items.";
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
+
         class RefreshRate: Edit {
             defaultValue = 0.5;
             displayName = "Tick Rate For Inventory Sync";
