@@ -210,6 +210,8 @@ switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
         if (!_isActivated) exitWith {};
+        
+        waitUntil { time > 0 };
 
         _moduleObject call ["CreateEarthquake"];
     };
