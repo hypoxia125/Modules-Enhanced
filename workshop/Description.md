@@ -30,46 +30,49 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 
 [h2]Current Module List[/h2]
 
-- Ambient Artillery (Virtual)
-- Anti-Troll
-- Change Flag
-- Clear Map Location Names
-- Communication Jammer
-- Create Map Location
-- Create Minefield
-- Create Paradrop Troop Transport
-- Create Remote Target
-- Delete BI Respawn Position
-- Earthquake Damage Area
-- Earthquake Epicenter
-- Enable/Disable Gun Lights
-- Fade Screen
-- Fire
-- Flare Launcher
-- Healing Area
-- Infantry Spawner
-- Intro Text
-- Inventory Sync
-- Lightpoint
-- Lightning Storm
-- Move On Combat
-- Multiplayer Sync
-- Paradrop Vehicle/Crate
-- Register Teleporter
-- Smoke
-- Spawner Waypoint
-- Speed Limiter
-- Trap Inventory
-- Vehicle Fuel Coefficient
-- Vehicle Mine Jammer
-- Vehicle Rearm
-- Vehicle Refuel
-- Vehicle Repair
-- Vehicle Service Station
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Ambient-Artillery-Virtual]Ambient Artillery (Virtual)[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Anti-Troll]Anti-Troll[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Change-Flag]Change Flag[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Clear-Map-Location-Names]Clear Map Location Names[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Communication-Jammer]Communication Jammer[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Map-Location]Create Map Location[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Minefield]Create Minefield[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Paradrop-Troop-Transport]Create Paradrop Troop Transport[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Remote-Target]Create Remote Target[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Delete-BI-Respawn-Position]Delete BI Respawn Position[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Earthquake-Damage-Area]Earthquake Damage Area[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Earthquake-Epicenter]Earthquake Epicenter[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Enable-Disable-Gun-Lights]Enable/Disable Gun Lights[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Fade-Screen]Fade Screen[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Fire]Fire[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Flare-Launcher]Flare Launcher[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Healing-Area]Healing Area[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Infantry-Spawner]Infantry Spawner[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Intro-Text]Intro Text[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Inventory-Sync]Inventory Sync[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Lightpoint]Lightpoint[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Lightning-Storm]Lightning Storm[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Map-Animation-Add]Map Animation Add[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Map-Animation-Start]Map Animation Start[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Move-On-Combat]Move On Combat[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Multiplayer-Sync]Multiplayer Sync[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Paradrop-Vehicle-Crate]Paradrop Vehicle/Crate[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Register-Teleporter]Register Teleporter[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Smoke]Smoke[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Spawner-Waypoint]Spawner Waypoint[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Speed-Limiter]Speed Limiter[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Trap-Inventory]Trap Inventory[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Fuel-Coefficient]Vehicle Fuel Coefficient[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Mine-Jammer]Vehicle Mine Jammer[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Rearm]Vehicle Rearm[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Refuel]Vehicle Refuel[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Repair]Vehicle Repair[/url]
+- [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Service-Station]Vehicle Service Station[/url]
 
 For an explanation on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
 [h3]Other Mods[/h3]
+BF2142 Titan Mode Recreation: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3488401821]Carrier Strike[/url]
 Want these flares for your weapons? Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3364788586]Colorful Flares[/url]
 
 [h3]Contact Me:[/h3]
