@@ -48,6 +48,11 @@ class Cfg3DEN {
             };
         };
 
+        // Modify Module Info
+        class ModuleInfo: Default {
+            attributeLoad = "[_this,_config] call MEH_Common_fnc_3DEN_ModuleDescription;";
+        };
+
         /*
             ----- Slider Controls -----
             -- These need to explicitly inherit the Title | Value | Edit classes from their base classes
