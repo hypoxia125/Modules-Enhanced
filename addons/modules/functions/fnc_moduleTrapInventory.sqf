@@ -130,6 +130,7 @@ private _trapInventory = {
     // Make these persist on respawns
     private _respawnEHHandler = addMissionEventHandler ["EntityRespawned", {
         params ["_newEntity", "_oldEntity"];
+        _thisArgs params [["_InventoryOpenedEHCode", {}]];
 
         if !(isPlayer _newEntity) exitWith {};
 
