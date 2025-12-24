@@ -99,7 +99,13 @@ switch _mode do {
 
     case "connectionChanged3DEN": {
         private _synced = get3DENConnections _module apply {_x select 1};
-        private _invalid = _synced select {!(_x isKindOf "Tank" || _x isKindOf "Ship" || _x isKindOf "Air" || _x isKindOf "Car" || _x isKindOf "EmptyDetector")};
+        private _invalid = _synced select {!(_x isKindOf "Tank" ||
+                                             _x isKindOf "Ship" ||
+                                             _x isKindOf "Air" ||
+                                             _x isKindOf "Car" ||
+                                             _x isKindOf "EmptyDetector" ||
+                                             _x isKindOf "StaticWeapon")};
+                                            
         if (_invalid isNotEqualTo []) then {
             [typeOf _module] call EFUNC(Error,invalidSync);
 
