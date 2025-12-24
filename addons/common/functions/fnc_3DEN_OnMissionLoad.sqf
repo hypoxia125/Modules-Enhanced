@@ -9,7 +9,7 @@ if (_missionVersion isEqualTo "") exitWith {
 if (_missionVersion isEqualTo CURRENT_VERSION) exitWith {
     INFO("Mission version and current version match");
 };
-if (count (allMissionObjects "Logic" select {_x isKindOf "MEH_ModuleBase"}) == 0) exitWith {
+if (allMissionObjects "Logic" select {_x isKindOf "MEH_ModuleBase"} isEqualTo []) exitWith {
     INFO("Mission has no MEH Modules. Aborting warning...");
 };
 
