@@ -6,8 +6,8 @@ params [
     ["_data", [], [[]], 6]
 ];
 
-if (_data isEqualTo []) exitWith {};
-if !(_data isEqualTypeArray ["", objNull, sideUnknown, true, -1, true]) exitWith {};
+// if (_data isEqualTo []) exitWith {};
+// if !(_data isEqualTypeArray ["", objNull, sideUnknown, true, -1, true]) exitWith {};
 
 _searchIndex = switch toLowerANSI _target do {
     case "name": {0};
