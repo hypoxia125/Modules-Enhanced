@@ -88,7 +88,7 @@ private _init = {
     // Global tk event
     addMissionEventHandler ["EntityKilled", {
         params ["_unit", "_killer", "_instigator", "_useEffects"];
-        _thisArgs params ["_TKThreshold", "_TKPunishType"];
+        _thisArgs params ["_TKThreshold", "_TKPunishType", "_affectedSides"];
 
         if (side group _instigator isNotEqualTo side group _unit) exitWith {};
         if !(side group _instigator in _affectedSides) exitWith {};
