@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+#include "module_defaults.hpp"
 
 // Parameters
 //------------------------------------------------------------------------------------------------
@@ -15,26 +16,30 @@ _input params [
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
-if !(_mode in ["init"]) exitWith {};
+if !(_mode in ["init", "attributesChanged3DEN"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
-private _area = _module getVariable [QUOTE(ObjectArea), [100, 100, 0, false, -1]];
-private _shell = _module getVariable [QUOTE(Shell), "Sh_82mm_AMOS"];
-private _timeLength = _module getVariable [QUOTE(TimeLength), 60];
-private _salvoSize = _module getVariable [QUOTE(SalvoSize), 6];
-private _salvoInterval = _module getVariable [QUOTE(SalvoInterval), 10];
-private _salvoTimeVariation = _module getVariable [QUOTE(SalvoTimeVariation), 5];
-private _shotInterval = _module getVariable [QUOTE(ShotInterval), 1];
-private _shotTimeVariation = _module getVariable [QUOTE(ShotTimeVariation), 1];
+private _area = _module getVariable ["ObjectArea", [100, 100, 0, false, -1]];
+private _shell = _module getVariable ["Shell", AMBIENTARTILLERYVIRTUAL_SHELL];
+private _timeLength = _module getVariable ["TimeLength", AMBIENTARTILLERYVIRTUAL_TIMELENGTH];
+private _salvoSize = _module getVariable ["SalvoSize", AMBIENTARTILLERYVIRTUAL_SALVOSIZE];
+private _salvoInterval = _module getVariable ["SalvoInterval", AMBIENTARTILLERYVIRTUAL_SALVOINTERVAL];
+private _salvoTimeVariation = _module getVariable ["SalvoTimeVariation", AMBIENTARTILLERYVIRTUAL_SALVOTIMERVARIATION];
+private _shotInterval = _module getVariable ["ShotInterval", AMBIENTARTILLERYVIRTUAL_SHOTINTERVAL];
+private _shotTimeVariation = _module getVariable ["ShotTimeVariation", AMBIENTARTILLERYVIRTUAL_SHOTTIMEVARIATION];
 
-if (isNull _module) then {
-    _module = createVehicle ["Land_HelipadEmpty_F", _module];
-};
 _area = [getPosATL _module] + _area;
 
-if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
-if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
+if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {
+    private _additionalInfo = "User defined ammo type is not a defined ammo type in CfgAmmo";
+    [typeOf _module, _additionalInfo] call EFUNC(Error,invalidArgs);
+};
+
+if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {
+    private _additionalInfo = "User defined values for salvo and shot data are negative";
+    [typeOf _module, _additionalInfo] call EFUNC(Error,invalidArgs);
+};
 
 // Functions
 //------------------------------------------------------------------------------------------------
