@@ -70,7 +70,7 @@ private _createDrop = {
     private _vehicle = createVehicle [_vehicleClass, _pos, [], 0, "NONE"];
     private _crew = grpNull;
     if (_createCrew && {_vehicleClass isKindOf "LandVehicle"}) then {
-        _crew = createGroup [_crewSide, _true];
+        _crew = createGroup [_crewSide, true];
         _crew createVehicleCrew _vehicle;
     };
 

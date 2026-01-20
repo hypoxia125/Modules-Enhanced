@@ -17,7 +17,7 @@ addMissionEventHandler ["Draw3D", {
         private _distance = _pos distance get3DENCamera;
         if (_distance >= [QGVAR(ModuleMarkerDistanceLimit), "priority"] call CBA_settings_fnc_get) then { continue };
 
-        private _text = getText (configFile >> "CfgVehicles" >> typeOf _module >> "displayName");
+        private _text = getText (configOf _module >> "displayName");
         if (_text == "") then {
             _text = typeOf _module;
         };

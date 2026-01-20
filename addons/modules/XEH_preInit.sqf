@@ -127,7 +127,7 @@
 //------------------------------------------------------------------------------------------------
 [QGVAR(AddTrapInventoryEHLocal), {
     params [
-        ["_InventoryOpenedEHCode", {}, [{}]]
+        ["_InventoryOpenedEHCode", {}, [{}]] // currently no custom code options are implimented
     ];
 
     LOG_1("ModuleTrapInventory: Attempting to add Inventory Opened EH to unit [%1]",player);

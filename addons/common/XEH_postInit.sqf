@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 // Warn players of mismatched version on mission start - non editor
-private _hasModules = count (entities "" select {_x isKindOf "MEH_ModuleBase"}) > 0;
+private _hasModules = entities "" select {_x isKindOf "MEH_ModuleBase"} isNotEqualTo [];
 if (_hasModules) then {
     [{
         !is3DEN &&

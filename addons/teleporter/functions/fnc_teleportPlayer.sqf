@@ -72,11 +72,11 @@ _layer cutText [
 				private _onSurface = count (lineIntersectsSurfaces [_candidate vectorAdd [0,0,1], _candidate vectorAdd [0,0,-2], _unit, _object, true, 1, "GEOM", "NONE"]) > 0;
 
                 // Find if in building
-                private _inBuilding = count ((lineIntersectsSurfaces [_candidate vectorAdd [0,0,1], _candidate vectorAdd [0,0,50], _unit, _object, true, 1, "GEOM", "NONE"] apply {_x select 3}) select {_x isKindOf "House"}) > 0;
+                private _inBuilding = (lineIntersectsSurfaces [_candidate vectorAdd [0,0,1],_candidate vectorAdd [0,0,50],_unit,_object,true,1,"GEOM","NONE"] apply {_x select 3}) select {_x isKindOf "House"} isNotEqualTo [];
 
                 // Find if near an object
-                private _nearToTerrainObjects = count (nearestTerrainObjects [_candidate, [], 3, false, false]) > 0;
-                private _nearToObjects = count (_candidate nearObjects 3) > 0;
+                private _nearToTerrainObjects = nearestTerrainObjects [_candidate,[],3,false,false] isNotEqualTo [];
+                private _nearToObjects = _candidate nearObjects 3 isNotEqualTo [];
 
                 if !(_onSurface) then {continue};
 

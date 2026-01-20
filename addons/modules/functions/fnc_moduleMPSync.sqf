@@ -211,7 +211,7 @@ if (isNil QFUNC(mpsync_initServer)) then {
             params ["_minPlayers", "_timeout", "_variableToPass"];
 
             private _players = (allUnits + allDead) select {isPlayer _x};
-            private _playersNotEmpty = count _players > 0;
+            private _playersNotEmpty = _players isNotEqualTo [];
             private _aPlayerHasSpawned = _players findIf {_x getVariable [QGVAR(mpsync_layerSpawned), false]} != -1;
             private _enoughPlayersSpawned = ({ (_x getVariable [QGVAR(mpsync_playerSpawned), false]) } count _players >= _minPlayers);
 
