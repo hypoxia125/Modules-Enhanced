@@ -299,6 +299,22 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleAmbientArtilleryVirtual_TimeLength: MEH_ModuleSlider_Time {
+            class Controls: Controls {
+                class Title: Title {};
+                class Value: Value {
+                    sliderRange[] = {0, 60*60*10};
+                    sliderPosition = 60;
+                    sliderStep = 1;
+                };
+                class Frame: Frame {};
+                class Separator: Separator {};
+                class Hour: Hour {};
+                class Minute: Minute {};
+                class Second: Second {};
+            };
+        };
+
         class MEH_ModuleRearmVehicle_Delay: MEH_ModuleSlider_Time {
             class Controls: Controls {
                 class Title: Title {};

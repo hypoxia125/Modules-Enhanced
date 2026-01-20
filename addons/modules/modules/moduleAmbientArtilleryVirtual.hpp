@@ -28,6 +28,16 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             validate = "STRING";
         };
 
+        class TimeLength {
+            control = "MEH_ModuleAmbientArtilleryVirtual_TimeLength";
+            expression = "_this setVariable ['%s', _value, true]";
+            property = QGVAR(ModuleAmbientArtilleryVirtual_TimeLength);
+            displayName = "Length of Barrage";
+            defaultValue = 60;
+            typeName = "NUMBER";
+            validate = "NUMBER";
+        };
+
         class SalvoSize: Edit {
             property = QGVAR(ModuleAmbientArtilleryVirtual_SalvoSize);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName);
