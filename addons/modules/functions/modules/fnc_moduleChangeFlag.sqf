@@ -24,74 +24,22 @@ private _flagToReplace = _module getVariable ["FlagToReplace", ""];
 private _customTexture = _module getVariable "CustomTexture";
 private _retainVarName = _module getVariable "RetainVarName";
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _getConnectedFlag = {
-    params ["_module"];
-
-    private _synced = synchronizedObjects _module;
-    private _flag = _synced select {_x isKindOf "FlagCarrier"};
-    
-    _flag#0;
-};
-
-private _createNewFlag = {
-    params ["_originalFlag", "_flagToReplace", "_customTexture", "_retainVarName"];
-
-    private _pos = getPosASL _originalFlag;
-    private _dirAndUp = [vectorDir _originalFlag, vectorUp _originalFlag];
-    private _varName = vehicleVarName _originalFlag;
-
-    deleteVehicle _originalFlag;
-
-    private _newFlag = objNull;
-    if (_flagToReplace == "") then {
-        // custom flag texture setup - use default white pole
-        _flagToReplace = "flag_White_F";
-        _newFlag = createVehicle [_flagToReplace, [0,0,0], [], 0, "CAN_COLLIDE"];
-        _newFlag setPosASL _pos;
-        _newFlag setVectorDirAndUp _dirAndUp;
-        _newFlag setFlagTexture _customTexture;
-    } else {
-        _newFlag = createVehicle [_flagToReplace, [0,0,0], [], 0, "CAN_COLLIDE"];
-        _newFlag setPosASL _pos;
-        _newFlag setVectorDirAndUp _dirAndUp;
-    };
-
-    if (_retainVarName) then {
-        _newFlag setVehicleVarName _varName;
-        missionNamespace setVariable [_varName, _newFlag, true];
-    };
-};
-
-private _replaceFlagTexture = {
-    params ["_originalFlag", "_flagToReplace", "_customTexture"];
-
-    private _filePath = "";
-    if (_flagToReplace == "") then {
-        // custom flag texture
-        _filePath = _customTexture;
-    } else {
-        private _textureString = getText (configFile >> "CfgVehicles" >> _flagToReplace >> "EventHandlers" >> "init");
-        private _parts = _textureString splitString "'";
-        _filePath = _parts#1;
-    };
-
-    _originalFlag setFlagTexture _filePath;
-};
-
 // Code Start
 //------------------------------------------------------------------------------------------------
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
 
-        private _originalFlag = [_module] call _getConnectedFlag;
+        private _originalFlags = [_module] call FUNC(getConnectedFlags);
 
         if (_moduleMode == 0) then {
-            [_originalFlag, _flagToReplace, _customTexture] call _replaceFlagTexture;
+            {
+                [_x, _flagToReplace, _customTexture] call FUNC(replaceFlagTexture);
+            } forEach _originalFlags;
         } else {
-            [_originalFlag, _flagToReplace, _customTexture, _retainVarName] call _createNewFlag;
+            {
+                [_x, _flagToReplace, _customTexture, _retainVarName] call FUNC(createNewFlag);
+            } forEach _originalFlags;
         };
     };
 

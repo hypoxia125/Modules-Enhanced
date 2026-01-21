@@ -54,8 +54,11 @@ PREP(ModuleVehicleServiceStation);
     #define PREP(fncName) [QPATHTOF(functions\private\DOUBLES(fnc,fncName).sqf), QFUNC(fncName)] call CBA_fnc_compileFunction
 #endif
 
+PREP(createNewFlag);
 PREP(get3DENAreaModule);
+PREP(getConnectedFlags);
 PREP(getSynchronizedObjectsFiltered);
+PREP(replaceFlagTexture);
 
 // Public Functions
 #ifdef DISABLE_COMPILE_CACHE
