@@ -23,16 +23,26 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             property = QGVAR(ModuleAmbientArtilleryVirtual_Shell);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_Shell_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_Shell_Tooltip);
-            defaultValue = "'Sh_82mm_AMOS'";
+            defaultValue = QUOTE(AMBIENTARTILLERYVIRTUAL_SHELL);
             typeName = "STRING";
             validate = "STRING";
+        };
+
+        class TimeLength {
+            control = "MEH_ModuleAmbientArtilleryVirtual_TimeLength";
+            expression = "_this setVariable ['%s', _value, true]";
+            property = QGVAR(ModuleAmbientArtilleryVirtual_TimeLength);
+            displayName = "Length of Barrage";
+            defaultValue = AMBIENTARTILLERYVIRTUAL_TIMELENGTH;
+            typeName = "NUMBER";
+            validate = "NUMBER";
         };
 
         class SalvoSize: Edit {
             property = QGVAR(ModuleAmbientArtilleryVirtual_SalvoSize);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_SalvoSize_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_SalvoSize_Tooltip);
-            defaultValue = 6;
+            defaultValue = AMBIENTARTILLERYVIRTUAL_SALVOSIZE;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -41,7 +51,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             property = QGVAR(ModuleAmbientArtilleryVirtual_SalvoInterval);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_SalvoInterval_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_SalvoInterval_Tooltip);
-            defaultValue = 10;
+            defaultValue = AMBIENTARTILLERYVIRTUAL_SALVOINTERVAL;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -50,7 +60,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             property = QGVAR(ModuleAmbientArtilleryVirtual_SalvoTimeVariation);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_SalvoTimeVariation_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_SalvoTimeVariation_Tooltip);
-            defaultValue = 5;
+            defaultValue = AMBIENTARTILLERYVIRTUAL_SALVOTIMERVARIATION;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -59,7 +69,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             property = QGVAR(ModuleAmbientArtilleryVirtual_ShotInterval);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_ShotInterval_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_ShotInterval_Tooltip);
-            defaultValue = 1;
+            defaultValue = AMBIENTARTILLERYVIRTUAL_SHOTINTERVAL;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -68,7 +78,7 @@ class MEH_ModuleAmbientArtilleryVirtual: MEH_ModuleBase {
             property = QGVAR(ModuleAmbientArtilleryVirtual_ShotTimeVariation);
             displayName = CSTRING(ModuleAmbientArtilleryVirtual_ShotTimeVariation_DisplayName);
             tooltip = CSTRING(ModuleAmbientArtilleryVirtual_ShotTimeVariation_Tooltip);
-            defaultValue = 1;
+            defaultValue = AMBIENTARTILLERYVIRTUAL_SHOTTIMEVARIATION;
             typeName = "NUMBER";
             validate = "NUMBER";
         };

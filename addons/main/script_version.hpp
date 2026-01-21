@@ -1,6 +1,6 @@
-#define MAJOR 1
-#define MINOR 9
-#define PATCH 2
+#define MAJOR 2
+#define MINOR 0
+#define PATCH 0
 #define BUILD 0
 
-#define CURRENT_VERSION "1.9.2"
+#define CURRENT_VERSION "2.0.0"

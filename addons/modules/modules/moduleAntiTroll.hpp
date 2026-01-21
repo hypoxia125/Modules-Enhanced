@@ -16,7 +16,7 @@ class MEH_ModuleAntiTroll: MEH_ModuleBase {
             property = QGVAR(ModuleAntiTroll_AffectedSide);
             displayName = "Affected Side";
             tooltip = "Sets the following rules for the selected side.";
-            defaultValue = 1;
+            defaultValue = AFFECTEDSIDE;
             typeName = "NUMBER";
             class Values {
                 class West {
@@ -50,7 +50,7 @@ class MEH_ModuleAntiTroll: MEH_ModuleBase {
             property = QGVAR(ModuleAntiTroll_TeamkillTreshold);
             displayName = "Teamkill Threshold";
             tooltip = "Number of teamkills needed for punishment.";
-            defaultValue = "1";
+            defaultValue = TEAMKILLTHRESHOLD;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -59,7 +59,7 @@ class MEH_ModuleAntiTroll: MEH_ModuleBase {
             property = QGVAR(ModuleAntiTroll_TeamkillPunishType);
             displayName = "Teamkill Punish Type";
             tooltip = "Type of punishment for teamkillers";
-            defaultValue = 0;
+            defaultValue = TEAMKILLPUNISHTYPE;
             typeName = "NUMBER";
             class Values {
                 class None {
@@ -93,7 +93,7 @@ class MEH_ModuleAntiTroll: MEH_ModuleBase {
             property = QGVAR(ModuleAntiTroll_TeamDamageThreshold);
             displayName = "Team Damage Threshold";
             tooltip = "Number of team hits for punishment.";
-            defaultValue = "10";
+            defaultValue = TEAMDAMAGETHRESHOLD;
             typeName = "NUMBER";
             validate = "NUMBER";
         };
@@ -102,7 +102,7 @@ class MEH_ModuleAntiTroll: MEH_ModuleBase {
             property = QGVAR(ModuleAntiTroll_TeamDamagePunishType);
             displayName = "Team Damage Punish Type";
             tooltip = "Type of punishment for team damage";
-            defaultValue = 0;
+            defaultValue = TEAMDAMAGEPUNISHTYPE;
             typeName = "NUMBER";
             class Values {
                 class None {

@@ -252,11 +252,13 @@
 [QGVAR(PunishServer), {
     params ["_instigator", "_punishType"];
 
-    [_instigator, _punishType] call FUNC(punish);
+    [_instigator, _punishType] call FUNC(punishPlayer);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(punishmentMessage), {
-    hint "You have been punished for teamdamage!";
+    params [["_message", "", [""]]];
+
+    hint _message;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(addHitEventHandler), {

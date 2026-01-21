@@ -2,10 +2,13 @@
 <Project name="Modules Enhanced">
     <Package name="error">
         <Key ID="STR_MEH_Error_InvalidArgs">
-            <English>Modules Enhanced | %1 | Invalid Argument Detected</English>
+            <English>Modules Enhanced | %1 | Invalid Argument Detected&lt;br/&gt;Additional Info: %2</English>
+        </Key>
+        <Key ID="STR_MEH_Error_InvalidArgsRPT">
+            <English>Modules Enhanced | %1 | Invalid Argument Detected | Additional Info: %2</English>
         </Key>
         <Key ID="STR_MEH_Error_InvalidArgs_Short">
-            <English>%1 | Invalid Argument Detected</English>
+            <English>%1 | Invalid Argument Detected | See RPT</English>
         </Key>
         <Key ID="STR_MEH_Error_InvalidSync">
             <English>Modules Enhanced | %1 | Invalid Object Synced to Module</English>
@@ -15,6 +18,9 @@
         </Key>
         <Key ID="STR_MEH_Error_MismatchedVersions">
             <English>Modules Enhanced&lt;br/&gt;Your mission has saved modules from an older version: %1! Upon saving, version will be updated to: %2.&lt;br/&gt;Make sure to check modules for changes!</English>
+        </Key>
+        <Key ID="STR_MEH_Error_OnlyOneCanExist">
+            <English>Modules Enhanced | %1 | Issue Detected&lt;br/&gt;Only one of these modules can be used in a mission</English>
         </Key>
         <Key ID="STR_MEH_Error_MismatchedVersions_Player">
             <English>Modules Enhanced | Your mission has saved modules from an older version: %1! Some modules may not work as the creator intended!</English>
