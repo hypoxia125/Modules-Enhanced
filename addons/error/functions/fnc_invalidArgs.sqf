@@ -2,7 +2,7 @@
 
 params [
     ["_module", "", [objNull, ""]],
-    ["_additionalInfo", "", [""]]
+    ["_additionalInfo", "None", [""]]
 ];
 
 if (is3DEN) then {
