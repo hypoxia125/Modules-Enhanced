@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleChangeFlag
+Function: meh_modules_fnc_moduleChangeFlag
 
 Author: Hypoxic
 

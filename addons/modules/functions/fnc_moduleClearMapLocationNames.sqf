@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleClearMapLocationNames
+Function: meh_modules_fnc_moduleClearMapLocationNames
 
 Author: Hypoxic
 

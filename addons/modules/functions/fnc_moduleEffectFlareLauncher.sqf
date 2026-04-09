@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEffectFlareLauncher
+Function: meh_modules_fnc_moduleEffectFlareLauncher
 
 Author: Hypoxic
 

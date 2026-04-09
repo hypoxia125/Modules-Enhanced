@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEnableDisableGunLights
+Function: meh_modules_fnc_moduleEnableDisableGunLights
 
 Author: Hypoxic
 

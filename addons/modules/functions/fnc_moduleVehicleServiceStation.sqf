@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleVehicleServiceStation
+Function: meh_modules_fnc_moduleVehicleServiceStation
 
 Author: Hypoxic
 

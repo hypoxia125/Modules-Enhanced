@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleInventorySync
+Function: meh_modules_fnc_moduleInventorySync
 
 Author: Hypoxic
 

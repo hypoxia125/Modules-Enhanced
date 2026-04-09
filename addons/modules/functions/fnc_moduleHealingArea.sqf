@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleHealingArea
+Function: meh_modules_fnc_moduleHealingArea
 
 Author: Hypoxic
 

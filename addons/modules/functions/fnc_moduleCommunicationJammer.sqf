@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleCommunicationJammer
+Function: meh_modules_fnc_moduleCommunicationJammer
 
 Author: Hypoxic
 

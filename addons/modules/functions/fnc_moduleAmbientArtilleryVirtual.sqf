@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleAmbientArtilleryVirtual
+Function: meh_modules_fnc_moduleAmbientArtilleryVirtual
 
 Author: Hypoxic
 

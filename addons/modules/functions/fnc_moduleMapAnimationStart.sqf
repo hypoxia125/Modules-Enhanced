@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleAnimationStart
+Function: meh_modules_fnc_moduleAnimationStart
 
 Author: Hypoxic
 

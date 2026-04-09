@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleVehicleRefuel
+Function: meh_modules_fnc_moduleVehicleRefuel
 
 Author: Hypoxic
 

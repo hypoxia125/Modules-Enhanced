@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleInfantrySpawner
+Function: meh_modules_fnc_moduleInfantrySpawner
 
 Author: Hypoxic
 

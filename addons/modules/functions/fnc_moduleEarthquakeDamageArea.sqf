@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEarthquakeDamageArea
+Function: meh_modules_fnc_moduleEarthquakeDamageArea
 
 Author: Hypoxic
 

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleCreateMapLocation
+Function: meh_modules_fnc_moduleCreateMapLocation
 
 Author: Hypoxic
 

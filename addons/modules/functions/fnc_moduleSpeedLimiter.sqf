@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleSpeedLimiter
+Function: meh_modules_fnc_moduleSpeedLimiter
 
 Author: Hypoxic
 

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleSpawnerWaypoint
+Function: meh_modules_fnc_moduleSpawnerWaypoint
 
 Author: Hypoxic
 

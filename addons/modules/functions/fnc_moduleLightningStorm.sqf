@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleLightningStorm
+Function: meh_modules_fnc_moduleLightningStorm
 
 Author: Hypoxic
 

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEffectFire
+Function: meh_modules_fnc_moduleEffectFire
 
 Author: Hypoxic
 

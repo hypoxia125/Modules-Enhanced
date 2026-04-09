@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleDeleteRespawnPosition
+Function: meh_modules_fnc_moduleDeleteRespawnPosition
 
 Author: Hypoxic
 

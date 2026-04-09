@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleVehicleRearm
+Function: meh_modules_fnc_moduleVehicleRearm
 
 Author: Hypoxic
 

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEffectSmoke
+Function: meh_modules_fnc_moduleEffectSmoke
 
 Author: Hypoxic
 

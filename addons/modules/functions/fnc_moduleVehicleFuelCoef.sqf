@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleVehicleFuelCoef
+Function: meh_modules_fnc_moduleVehicleFuelCoef
 
 Author: Hypoxic
 

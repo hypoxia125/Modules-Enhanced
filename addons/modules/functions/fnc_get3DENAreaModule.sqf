@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_get3DENAreaModule
+Function: meh_modules_fnc_get3DENAreaModule
 
 Author: Hypoxic
 

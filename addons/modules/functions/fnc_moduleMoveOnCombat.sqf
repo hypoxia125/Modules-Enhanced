@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleMoveOnCombat
+Function: meh_modules_fnc_moduleMoveOnCombat
 
 Author: Hypoxic
 

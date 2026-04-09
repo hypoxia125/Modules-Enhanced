@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleRegisterTeleporter
+Function: meh_modules_fnc_moduleRegisterTeleporter
 
 Author: Hypoxic
 

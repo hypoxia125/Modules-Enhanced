@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleTrapInventory
+Function: meh_modules_fnc_moduleTrapInventory
 
 Author: Hypoxic
 

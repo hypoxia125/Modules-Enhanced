@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleVehicleMineJammer
+Function: meh_modules_fnc_moduleVehicleMineJammer
 
 Author: Hypoxic
 

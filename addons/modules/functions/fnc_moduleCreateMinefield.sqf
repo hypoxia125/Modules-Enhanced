@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleCreateMinefield
+Function: meh_modules_fnc_moduleCreateMinefield
 
 Author: Hypoxic
 

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleIntroText
+Function: meh_modules_fnc_moduleIntroText
 
 Author: Hypoxic
 

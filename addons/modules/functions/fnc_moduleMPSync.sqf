@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleMPSync
+Function: meh_modules_fnc_moduleMPSync
 
 Author: Hypoxic
 

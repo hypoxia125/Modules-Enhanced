@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEarthquakeEpicenter
+Function: meh_modules_fnc_moduleEarthquakeEpicenter
 
 Author: Hypoxic
 

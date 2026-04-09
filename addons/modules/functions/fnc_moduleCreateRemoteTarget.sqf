@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleCreateRemoteTarget
+Function: meh_modules_fnc_moduleCreateRemoteTarget
 
 Author: Hypoxic
 

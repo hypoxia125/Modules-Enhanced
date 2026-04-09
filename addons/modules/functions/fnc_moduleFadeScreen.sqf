@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleFadeScreen
+Function: meh_modules_fnc_moduleFadeScreen
 
 Author: Hypoxic
 

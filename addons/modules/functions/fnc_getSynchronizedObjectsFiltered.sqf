@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_getSynchronizedObjectsFiltered
+Function: meh_modules_fnc_getSynchronizedObjectsFiltered
 
 Author: Hypoxic
 

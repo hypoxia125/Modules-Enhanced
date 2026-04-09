@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleEffectLightpoint
+Function: meh_modules_fnc_moduleEffectLightpoint
 
 Author: Hypoxic
 

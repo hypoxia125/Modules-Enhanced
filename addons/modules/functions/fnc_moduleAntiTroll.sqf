@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_moduleAntiTroll
+Function: meh_modules_fnc_moduleAntiTroll
 
 Author: Hypoxic
 
