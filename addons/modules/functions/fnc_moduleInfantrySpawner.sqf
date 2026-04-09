@@ -1,3 +1,14 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_moduleInfantrySpawner
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Function that the module calls upon initialization.
+---------------------------------------------------------------------------- */
+
 // TODO - Need to script the task functions for the unit behavior logic
 
 #include "script_component.hpp"

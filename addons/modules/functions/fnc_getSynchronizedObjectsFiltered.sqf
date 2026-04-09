@@ -1,3 +1,20 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_getSynchronizedObjectsFiltered
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Helper function that gets all synced objects of a type during runtime.
+
+Parameters:
+    0: Object
+
+Returns:
+    0: ARRAY - Array of synced objects
+---------------------------------------------------------------------------- */
+
 #include "script_component.hpp"
 
 params ["_object", ["_types", []]];
