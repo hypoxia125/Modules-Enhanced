@@ -41,7 +41,7 @@ class MEH_ModuleCreateCapturePoint: MEH_ModuleBase {
     function = QFUNC(ModuleCreateCapturePoint);
     functionPriority = 1;
     isGlobal = 0;
-    isTriggerActivated = 0;
+    isTriggerActivated = 1;
     isDisposable = 0;
     is3DEN = 1;
 
@@ -53,6 +53,14 @@ class MEH_ModuleCreateCapturePoint: MEH_ModuleBase {
     };
 
     class Attributes: AttributesBase {
+        class ActiveOnStart: Checkbox {
+            property = QGVAR(ModuleCreateCapturePoint_ActiveOnStart);
+            displayName = "Active On Start";
+            tooltip = "Capturable upon game start. You can toggle capturability by setting on the server: \n_module setVariable [MEH_Modules_CapturePoint_Active, true];\nor\n_module setVariable [MEH_Modules_CapturePoint_Active, false];";
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
+
         class CaptureTime: Edit {
             property = QGVAR(ModuleCreateCapturePoint_CaptureTime);
             displayName = "Capture Time";

@@ -14,6 +14,7 @@ _input params [
 
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
+if (!isServer) exitWith {};
 if !(_mode in ["init"]) exitWith {};
 
 LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Initializing Capture Point module: %1",_module);
@@ -48,19 +49,17 @@ private _markerLetter = _module getVariable "CapturePointLetter";
 
 // Build Object
 //------------------------------------------------------------------------------------------------
-if (isServer) then {
-    private _timeOut = 10;
-    while { _timeOut > 0 } do {
-        if (!isNil QGVAR(CapturePointSystem)) exitWith {};
-        _timeOut = _timeOut - 1;
-        sleep 1;
-    };
+private _timeOut = 10;
+while { _timeOut > 0 } do {
+    if (!isNil QGVAR(CapturePointSystem)) exitWith {};
+    _timeOut = _timeOut - 1;
+    sleep 1;
+};
 
-    if (isNil QGVAR(CapturePointSystem)) then {
-        ERROR_1("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem not found after waiting 10 seconds! Timeout: %1",_timeOut);
-    } else {
-        LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem found, creating module object");
-    };
+if (isNil QGVAR(CapturePointSystem)) then {
+    ERROR_1("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem not found after waiting 10 seconds! Timeout: %1",_timeOut);
+} else {
+    LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem found, creating module object");
 };
 
 private _moduleObject = createHashMapObject [[
@@ -136,10 +135,32 @@ private _moduleObject = createHashMapObject [[
         LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Marker colors set for owner: %1",_owner);
     }],
 
+    ["#delete", {
+        private _mapMarkers = _self get "_mapMarkers";
+        {
+            deleteMarker _x;
+        } forEach _mapMarkers;
+    }],
+
     ["Update", {
         LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: Updating point...");
+
+        // Change marker if its not active
+        private _module = _self get "_module";
+
+        private _markers = _self get "_mapMarkers";
+        private _marker = _markers # 2;
+        if !(_module getVariable [QGVAR(CapturePoint_Active), true]) exitWith {
+            _marker setMarkerType "mil_objective";
+        };
+
+        if (getMarkerType _marker != (_self call ["GetMarkerLetter", [_self get "_markerLetter"]])) then {
+            _marker setMarkerType (_self call ["GetMarkerLetter", [_self get "_markerLetter"]]);
+        };            
+
         _self call ["UpdateCaptureOwner"];
         _self call ["UpdateCaptureNoOwner"];
+
         LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: Updating point completed.");
     }],
 
@@ -460,7 +481,14 @@ _module setVariable [QGVAR(CreateCapturePoint_ModuleObject), _moduleObject];
 if (!isServer) exitWith {};
 
 if (!isNil QGVAR(CapturePointSystem)) then {
+    if (!_isActivated) exitWith {
+        GVAR(CapturePointSystem) call ["Unregister", _module];
+        _moduleObject call ["#delete"];
+        _module setVariable [QGVAR(CreateCapturePoint_ModuleObject), nil];
+    };
+
     LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Registering module %1 with CapturePointSystem",_module);
+
     GVAR(CapturePointSystem) call ["Register", _module];
 } else {
     ERROR("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem not found, cannot register module!");

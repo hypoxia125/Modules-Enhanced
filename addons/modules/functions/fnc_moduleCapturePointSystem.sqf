@@ -53,6 +53,7 @@ GVAR(CapturePointSystem) = createHashMapObject [[
             private _moduleObject = _module getVariable QGVAR(CreateCapturePoint_ModuleObject);
 
             LOG_1(QFUNC(moduleCapturePointSystem) + ":: Attempting to update module object - %1",_moduleObject);
+
             _moduleObject call ["Update"];
         } forEach _modules;
     }],
