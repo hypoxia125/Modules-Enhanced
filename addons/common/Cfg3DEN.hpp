@@ -502,6 +502,18 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleCreateCapturePoint_CaptureRateMultiplier: MEH_ModuleSlider_Percent {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {0, 1};
+                    sliderPosition = 0.1;
+                    sliderStep = 0.01;
+                };
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944
