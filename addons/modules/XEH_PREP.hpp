@@ -1,8 +1,10 @@
 PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
+PREP(moduleCapturePointSystem);
 PREP(moduleChangeFlag);
 PREP(moduleClearMapLocationNames);
 PREP(moduleCommunicationJammer);
+PREP(moduleCreateCapturePoint);
 PREP(moduleCreateMinefield);
 PREP(moduleCreateMapLocation);
 PREP(moduleCreateRemoteTarget);

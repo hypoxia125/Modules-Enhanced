@@ -40,4 +40,9 @@ class CfgFactionClasses {
         displayName = "Modules Enhanced - Cinematics";
         side = 7;
     };
+
+    class MEH_GamemodeHelpers {
+        displayName = "Modules Enhanced - Gamemode Helpers";
+        side = 7;
+    };
 };
