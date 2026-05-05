@@ -84,7 +84,7 @@ class MEH_ModuleCreateCapturePoint: MEH_ModuleBase {
             property = QGVAR(ModuleCreateCapturePoint_CapturePointLetter);
             displayName = "Capture Point Letter";
             tooltip = "Letter for the capture point icon.";
-            defaultValue = 0;
+            defaultValue = "'A'";
             typeName = "STRING";
             class Values {
                 ALL_LETTERS

@@ -57,7 +57,8 @@ while { _timeOut > 0 } do {
 };
 
 if (isNil QGVAR(CapturePointSystem)) then {
-    ERROR_1("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem not found after waiting 10 seconds! Timeout: %1",_timeOut);
+    systemChat "MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem module not found after waiting 10 seconds!";
+    ERROR("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem not found after waiting 10 seconds!");
 } else {
     LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: CapturePointSystem found, creating module object");
 };
@@ -65,6 +66,7 @@ if (isNil QGVAR(CapturePointSystem)) then {
 private _moduleObject = createHashMapObject [[
     ["#type", QGVAR(CreateCapturePoint)],
     ["#str", {str _module}],
+    ["#flags", "unscheduled", "sealed"],
     ["_updateRate", GVAR(CapturePointSystem) get "_updateRate"],
     ["_captureArea", _captureArea],
     ["_captureTime", _captureTime],
@@ -143,6 +145,8 @@ private _moduleObject = createHashMapObject [[
     }],
 
     ["Update", {
+        if (!isServer) exitWith {};
+
         LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: Updating point...");
 
         // Change marker if its not active
@@ -353,8 +357,8 @@ private _moduleObject = createHashMapObject [[
                 
                 // Fire events for full capture
                 LOG_2("MEH_Modules_fnc_moduleCreateCapturePoint:: Firing owner changed events: %1 -> %2",_currentOwner,_newOwner);
-                [missionNamespace, QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, _newOwner]] call BIS_fnc_callScriptedEventHandler;
-                [QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, _newOwner]] call CBA_fnc_globalEvent;
+                [missionNamespace, QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, _newOwner, _self get "_markerLetter"]] call BIS_fnc_callScriptedEventHandler;
+                [QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, _newOwner, _self get "_markerLetter"]] call CBA_fnc_globalEvent;
             };
         } else {
             // No side has reached 100%
@@ -366,8 +370,8 @@ private _moduleObject = createHashMapObject [[
                 
                 // Fire events for neutral reset
                 LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Firing owner changed events: %1 -> sideUnknown",_currentOwner);
-                [missionNamespace, QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, sideUnknown]] call BIS_fnc_callScriptedEventHandler;
-                [QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, sideUnknown]] call CBA_fnc_globalEvent;
+                [missionNamespace, QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, sideUnknown, _self get "_markerLetter"]] call BIS_fnc_callScriptedEventHandler;
+                [QGVAR(CapturePoint_OwnerChanged), [_self get "_module", _currentOwner, sideUnknown, _self get "_markerLetter"]] call CBA_fnc_globalEvent;
             };
         };
     }],
@@ -478,8 +482,6 @@ _module setVariable [QGVAR(CreateCapturePoint_ModuleObject), _moduleObject];
 
 // Add to System
 //------------------------------------------------------------------------------------------------
-if (!isServer) exitWith {};
-
 if (!isNil QGVAR(CapturePointSystem)) then {
     if (!_isActivated) exitWith {
         GVAR(CapturePointSystem) call ["Unregister", _module];

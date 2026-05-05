@@ -6,12 +6,20 @@ class MEH_ModuleCapturePointSystem: MEH_ModuleBase {
 
     function = QFUNC(ModuleCapturePointSystem);
     functionPriority = 1;
-    isGlobal = 0;
+    isGlobal = 2;
     isTriggerActivated = 0;
     isDisposable = 0;
     is3DEN = 1;
 
     class Attributes: AttributesBase {
+        class Debug: Checkbox {
+            property = QGVAR(ModuleCapturePointSystem_Debug);
+            displayName = "SystemChat Debug";
+            tooltip = "Enables systemchat messages on all clients.";
+            defaultValue = "false";
+            typeName = "BOOL";
+        };
+
         class UpdateRate: Edit {
             property = QGVAR(ModuleCapturePointSystem_UpdateRate);
             displayName = "Update Rate";
@@ -27,7 +35,7 @@ class MEH_ModuleCapturePointSystem: MEH_ModuleBase {
             displayName = "Scripted Event Handler (Vanilla) Sample";
             tooltip = "Use this as a template on setting up your event. Just think of it like a normal Arma 3 event handler. Copypasta this into your code editor.";
             defaultValue = """[missionNameSpace, 'MEH_Modules_CapturePoint_OwnerChanged', {
-    params ['_module', '_oldOwner', '_newOwner'];
+    params ['_module', '_oldOwner', '_newOwner', '_pointLetter'];
 
     comment """"This example, lets kill all enemy units in the capture point that don't belong to the capturing side"""";
     comment """"Say the variable of the CreateCapturePoint module is 'CapturePoint_A'"""";
@@ -50,7 +58,7 @@ class MEH_ModuleCapturePointSystem: MEH_ModuleBase {
             displayName = "CBA Event Handler Sample";
             tooltip = "Use this as a template on setting up your event. Just think of it like a normal Arma 3 event handler. Copypasta this into your code editor.";
             defaultValue = """['MEH_Modules_CapturePoint_OwnerChanged', { 
-    params ['_module', '_oldOwner', '_newOwner']; 
+    params ['_module', '_oldOwner', '_newOwner', '_pointLetter']; 
 
     comment """"This example, lets kill all enemy units in the capture point that don't belong to the capturing side"""";
     comment """"Say the variable of the CreateCapturePoint module is 'CapturePoint_A'"""";

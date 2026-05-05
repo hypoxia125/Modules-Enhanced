@@ -14,13 +14,21 @@ _input params [
 
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
-if (!isServer) exitWith {};
 if !(_mode in ["init"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
 private _updateRate = _module getVariable "UpdateRate";
 _updateRate = _updateRate / 1000;
+
+// Debugging setting
+if (_module getVariable ["Debug", false]) then {
+    [QGVAR(CapturePoint_OwnerChanged), {
+        params ["_module", "_currentOwner", "_newOwner", "_pointLetter"];
+
+        systemChat format ["Point: %1 - Ownership changed: %2", _pointLetter, _newOwner];
+    }] call cba_fnc_addEventHandler;
+};
 
 // System
 //------------------------------------------------------------------------------------------------
@@ -30,16 +38,20 @@ GVAR(CapturePointSystem) = createHashMapObject [[
     ["#type", QGVAR(CapturePointSystem)],
     ["#str", {str _module}],
     
+    ["_debug", _module getVariable ["Debug", false]],
+    
     ["_updateRate", _updateRate],
     ["_modules", []],
 
     ["#create", {
+        if (!isServer) exitWith {};
         if ((_self get "#type" select 0) == "SystemBase") exitWith {};
 
         _self call ["SystemStart"];
     }],
 
     ["Update", {
+        if (!isServer) exitWith {};
         LOG(QFUNC(moduleCapturePointSystem) + ":: Attempting to update all module objects");
         private _modules = _self get "_modules";
         LOG_1(QFUNC(moduleCapturePointSystem) + ":: Total objects: %1",count _modules);
@@ -87,6 +99,7 @@ GVAR(CapturePointSystem) = createHashMapObject [[
     }],
 
     ["SystemStart", {
+        if (!isServer) exitWith {};
         private _handle = [{
             params ["_args", "_handle"];
             _args params ["_self"];
