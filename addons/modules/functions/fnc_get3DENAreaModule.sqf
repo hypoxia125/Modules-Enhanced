@@ -1,3 +1,22 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_fnc_get3DENAreaModule
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Gets the 3DEN area attribute of a module. Important for in-editor operations.
+
+Parameters:
+    0: Object | Module Object
+
+Returns:
+    None
+---------------------------------------------------------------------------- */
+
+#include "script_component.hpp"
+
 params ["_module"];
 
 private _center = ASLToAGL (getPosASL _module);

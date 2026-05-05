@@ -1,3 +1,14 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_fnc_moduleParadropTroopTransport
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Function that the module calls upon initialization.
+---------------------------------------------------------------------------- */
+
 #include "script_component.hpp"
 
 // Parameters

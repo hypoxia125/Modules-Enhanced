@@ -1,3 +1,14 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_fnc_moduleParadropVehicle
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Function that the module calls upon initialization.
+---------------------------------------------------------------------------- */
+
 #include "script_component.hpp"
 
 // Parameters
@@ -25,8 +36,10 @@ private _createCrew = _module getVariable [QUOTE(CreateCrew), true];
 private _crewSide = _module getVariable [QUOTE(CrewSide), 1];
 private _paraHeight = _module getVariable [QUOTE(ParadropHeight), 200];
 private _parachuteHeight = _module getVariable [QUOTE(ParachuteHeight), 150];
-private _code = if (!is3DEN) then {
-    compile (_module getVariable [QUOTE(Expression), "true"])
+
+private _code = {};
+if (!is3DEN) then {
+    _code = compile (_module getVariable [QUOTE(Expression), "true"])
 };
 
 // Verify variables

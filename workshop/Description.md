@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.9.2[/h1]
+[h1]Current Version - v1.9.3[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -32,9 +32,11 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Ambient-Artillery-Virtual]Ambient Artillery (Virtual)[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Anti-Troll]Anti-Troll[/url]
+- Capture Point System
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Change-Flag]Change Flag[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Clear-Map-Location-Names]Clear Map Location Names[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Communication-Jammer]Communication Jammer[/url]
+- Create Capture Point
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Map-Location]Create Map Location[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Minefield]Create Minefield[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Create-Paradrop-Troop-Transport]Create Paradrop Troop Transport[/url]

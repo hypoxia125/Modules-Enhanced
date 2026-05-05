@@ -1,11 +1,13 @@
-/*
-    moduleEffectFlareLauncher.sqf
-    Author: Hypoxic
+/* ----------------------------------------------------------------------------
+Function: meh_modules_fnc_moduleEffectFlareLauncher
 
-    Public: no
+Author: Hypoxic
 
-    As long as the module is alive, this will continually launch flare rounds from the module's location.
-*/
+Public: False - Requires internal data
+
+Description:
+    Function that the module calls upon initialization.
+---------------------------------------------------------------------------- */
 
 #include "script_component.hpp"
 #include "\z\meh\addons\modules\moduleDefaults.inc"

@@ -1,6 +1,18 @@
+/* ----------------------------------------------------------------------------
+Function: meh_modules_fnc_moduleLightningStorm
+
+Author: Hypoxic
+
+Public: False - Requires internal data
+
+Description:
+    Function that the module calls upon initialization.
+---------------------------------------------------------------------------- */
+
 #include "script_component.hpp"
 
 #define TICKRATE 0.1
+
 // Parameters
 //------------------------------------------------------------------------------------------------
 params [
