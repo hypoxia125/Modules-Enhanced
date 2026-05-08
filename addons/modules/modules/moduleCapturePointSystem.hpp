@@ -23,7 +23,7 @@ class MEH_ModuleCapturePointSystem: MEH_ModuleBase {
         class UpdateRate: Edit {
             property = QGVAR(ModuleCapturePointSystem_UpdateRate);
             displayName = "Update Rate";
-            tooltip = "Rate at which the system updates all capture points (ms)";
+            tooltip = "Rate at which the system updates all capture points (ms) - min 1000ms";
             defaultValue = 1000;
             typeName = "NUMBER";
             validate = "NUMBER";

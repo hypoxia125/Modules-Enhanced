@@ -14,15 +14,109 @@ _input params [
 
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
-if (!isServer) exitWith {};
 if !(_mode in ["init"]) exitWith {};
 
 LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Initializing Capture Point module: %1",_module);
 
+// Event Initialization For All Clients
+//------------------------------------------------------------------------------------------------
+if (hasInterface && !(missionNamespace getVariable [QGVAR(CapturePoint_EventInit), false])) then {
+    [QGVAR(CapturePoint_ProgressTick), {
+        params ["_module", "_area", "_markerLetter", "_owner", "_data"];
+
+        // If player isn't in the area, do nothing
+        private _inValidArea = false;
+        {
+            if (player inArea _x) exitWith { _inValidArea = true };
+        } forEach (missionNamespace getVariable [QGVAR(CapturePointSystem_AllAreas), []]);
+
+        if !(_inValidArea) exitWith {
+            if !(isNil QGVAR(CapturePoint_HUDLayer)) then {
+                GVAR(CapturePoint_HUDLayer) cutFadeOut 1;
+                GVAR(CapturePoint_HUDLayer) = nil;
+            };
+        };
+
+        if !(player inArea _area) exitWith {};
+
+        private _display = uiNamespace getVariable [QGVAR(CapturePointHUD), displayNull];
+        // If ui doesn't exist, create it
+        if (isNull _display) then {
+            GVAR(CapturePoint_HUDLayer) = QGVAR(CapturePoint_HUDLayer) call BIS_fnc_rscLayer;
+            GVAR(CapturePoint_HUDLayer) cutRsc ["MEH_Modules_CapturePointHUD", "PLAIN", 1, true];
+
+            [_markerLetter, _owner] spawn {
+                params ["_markerLetter", "_owner"];
+                private _display = uiNamespace getVariable [QGVAR(CapturePointHUD), displayNull];
+                waitUntil {!isNull _display};
+                private _idcTitle = (_display displayCtrl 900);
+                _idcTitle ctrlSetText format["Capture Point: %1", _markerLetter];
+
+                private _color = switch _owner do {
+                    case east: { [0.5,0,0,1] };
+                    case west: { [0,0.3,0.6,1] };
+                    case independent: { [0,0.5,0,1] };
+                    case civilian: { [0.4,0,0.5,1] };
+                    default { [0,0,0,1] };
+                };
+                _idcTitle ctrlSetBackgroundColor _color;
+            };
+        };
+
+        {
+            _x params ["_side", "_percent"];
+            private _idcBar = -1;
+            private _idcPercent = -1;
+            switch _side do {
+                case west: {
+                    _idcBar = 100;
+                    _idcPercent = 102;
+                };
+                case east: {
+                    _idcBar = 200;
+                    _idcPercent = 202;
+                };
+                case independent: {
+                    _idcBar = 300;
+                    _idcPercent = 302;
+                };
+                case civilian: {
+                    _idcBar = 400;
+                    _idcPercent = 402;
+                };
+            };
+
+            if (_idcBar != -1) then {
+                _idcBar = (_display displayCtrl _idcBar);
+                _idcBar progressSetPosition _percent;
+            };
+
+            if (_idcPercent != -1) then {
+                _idcPercent = (_display displayCtrl _idcPercent);
+                _idcPercent ctrlSetText format["%1%%", _percent * 100];
+            };
+        } forEach _data;
+
+        private _color = switch _owner do {
+            case east: { [0.5,0,0,1] };
+            case west: { [0,0.3,0.6,1] };
+            case independent: { [0,0.5,0,1] };
+            case civilian: { [0.4,0,0.5,1] };
+            default { [0,0,0,1] };
+        };
+        private _idcTitle = (_display displayCtrl 900);
+        _idcTitle ctrlSetBackgroundColor _color;
+    }] call CBA_fnc_addEventHandler;
+
+    missionNamespace setVariable [QGVAR(CapturePoint_EventInit), true];
+};
 // Variables
 //------------------------------------------------------------------------------------------------
 private _captureArea = _module getVariable "ObjectArea";
 _captureArea = [getPosASL _module] + _captureArea;
+
+if (isNil QGVAR(CapturePointSystem_AllAreas)) then { GVAR(CapturePointSystem_AllAreas) = [] };
+GVAR(CapturePointSystem_AllAreas) pushBackUnique _captureArea;
 
 private _captureTime = _module getVariable "CaptureTime";
 
@@ -49,6 +143,7 @@ private _markerLetter = _module getVariable "CapturePointLetter";
 
 // Build Object
 //------------------------------------------------------------------------------------------------
+if (!isServer) exitWith {};
 private _timeOut = 10;
 while { _timeOut > 0 } do {
     if (!isNil QGVAR(CapturePointSystem)) exitWith {};
@@ -90,6 +185,7 @@ private _moduleObject = createHashMapObject [[
     ]],
     ["_markerLetter", _markerLetter],
     ["_smokeEmitter", nil],
+    ["_area", _captureArea],
 
     ["#create", {
         LOG_1("MEH_Modules_fnc_moduleCreateCapturePoint:: Create method called for module: %1",_self get "_module");
@@ -164,6 +260,13 @@ private _moduleObject = createHashMapObject [[
 
         _self call ["UpdateCaptureOwner"];
         _self call ["UpdateCaptureNoOwner"];
+
+        // Build data for network sent
+        private _data = [];
+        {
+            _data insert [-1, [[_x, _y]]];
+        } forEach (_self get "_captureProgress");
+        [QGVAR(CapturePoint_ProgressTick), [_self get "_module", _self get "_area", _self get "_markerLetter", _self get "_owner", _data]] call CBA_fnc_globalEvent;
 
         LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: Updating point completed.");
     }],

@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-#include "\z\meh\addons\teleporter\ui\DisplayIDDs.hpp"
+#include "\z\meh\addons\common\ui\DisplayIDDs.hpp"
 
 disableSerialization;
 // Create display

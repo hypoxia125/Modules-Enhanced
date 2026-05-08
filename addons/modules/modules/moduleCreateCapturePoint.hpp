@@ -39,8 +39,8 @@ class MEH_ModuleCreateCapturePoint: MEH_ModuleBase {
     category = "MEH_GamemodeHelpers";
 
     function = QFUNC(ModuleCreateCapturePoint);
-    functionPriority = 1;
-    isGlobal = 0;
+    functionPriority = 2;
+    isGlobal = 2;
     isTriggerActivated = 1;
     isDisposable = 0;
     is3DEN = 1;
