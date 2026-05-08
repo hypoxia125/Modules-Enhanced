@@ -18,20 +18,25 @@ if !(_mode in ["init"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
-private _updateRate = _module getVariable "UpdateRate";
+private _updateRate = (_module getVariable "UpdateRate") max 1000;
 _updateRate = _updateRate / 1000;
 
 // Debugging setting
-if (_module getVariable ["Debug", false]) then {
-    [QGVAR(CapturePoint_OwnerChanged), {
-        params ["_module", "_currentOwner", "_newOwner", "_pointLetter"];
+if !(missionNamespace getVariable [QGVAR(CapturePointSystemDebug), false]) then {
+    if (_module getVariable ["Debug", false]) then {
+        [QGVAR(CapturePoint_OwnerChanged), {
+            params ["_module", "_currentOwner", "_newOwner", "_pointLetter"];
 
-        systemChat format ["Point: %1 - Ownership changed: %2", _pointLetter, _newOwner];
-    }] call cba_fnc_addEventHandler;
+            systemChat format ["Point: %1 - Ownership changed: %2", _pointLetter, _newOwner];
+        }] call cba_fnc_addEventHandler;
+
+        missionNamespace setVariable [QGVAR(CapturePointSystemDebug), true];
+    };
 };
 
 // System
 //------------------------------------------------------------------------------------------------
+if (!isServer) exitWith {};
 if (!isNil QGVAR(CapturePointSystem)) exitWith {};
 
 GVAR(CapturePointSystem) = createHashMapObject [[

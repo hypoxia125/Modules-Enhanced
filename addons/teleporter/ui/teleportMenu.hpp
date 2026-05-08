@@ -4,222 +4,218 @@
 #include "\z\meh\addons\common\ui\ControlTypes.hpp"
 
 class MEH_TeleportMenu {
-
     idd = 5165189;
-
     onLoad = "_this call MEH_Teleporter_fnc_teleportMenu_onLoad";
 
     class Controls {
-        class MenuBackground: RscText
-        {
+        class MenuBackground: RscText {
             idc = 1000;
-            x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-8.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(33 * GUI_GRID_W);
-            h = QUOTE(18 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-16.5));
+            y = QUOTE(CENTER_Y(-8.5));
+            w = QUOTE(GRID_W(33));
+            h = QUOTE(GRID_H(18));
             colorBackground[] = {0,0,0,0.5};
         };
-        class AvailLocFrame: RscFrame
-        {
+        
+        class AvailLocFrame: RscFrame {
             idc = 1801;
-            x = QUOTE(-15.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(14.5 * GUI_GRID_W);
-            h = QUOTE(13 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-15.5));
+            y = QUOTE(CENTER_Y(-5));
+            w = QUOTE(GRID_W(14.5));
+            h = QUOTE(GRID_H(13));
         };
-        class DestFrame: RscFrame
-        {
+        
+        class DestFrame: RscFrame {
             idc = 1800;
-            x = QUOTE(1 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(14.5 * GUI_GRID_W);
-            h = QUOTE(13 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(1));
+            y = QUOTE(CENTER_Y(-5));
+            w = QUOTE(GRID_W(14.5));
+            h = QUOTE(GRID_H(13));
         };
-        class MenuTxt: RscText
-        {
+        
+        class MenuTxt: RscText {
             idc = 1001;
             text = CSTRING(TeleportMenu_MenuTxt);
-            x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-9.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(33 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-16.5));
+            y = QUOTE(CENTER_Y(-9.5));
+            w = QUOTE(GRID_W(33));
+            h = QUOTE(GRID_H(1));
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
             style = QUOTE(ST_CENTER);
         };
-        class CurrBack: RscText
-        {
+        
+        class CurrBack: RscText {
             idc = 1002;
-            x = QUOTE(-8.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-8 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(17.5 * GUI_GRID_W);
-            h = QUOTE(2 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-8.5));
+            y = QUOTE(CENTER_Y(-8));
+            w = QUOTE(GRID_W(17.5));
+            h = QUOTE(GRID_H(2));
             colorBackground[] = {-1,-1,-1,0.5};
         };
-        class CurrGridTxt: RscText
-        {
+        
+        class CurrGridTxt: RscText {
             idc = 1003;
             text = CSTRING(TeleportMenu_CurrentGrid);
-            x = QUOTE(-8 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-7.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(7.5 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-8));
+            y = QUOTE(CENTER_Y(-7.5));
+            w = QUOTE(GRID_W(7.5));
+            h = QUOTE(GRID_H(1));
             style = QUOTE(ST_CENTER);
         };
-        class CurrGrid: RscText
-        {
+        
+        class CurrGrid: RscText {
             idc = 1004;
             text = CSTRING(TeleportMenu_NA);
-            x = QUOTE(0.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-7.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(7.5 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(0.5));
+            y = QUOTE(CENTER_Y(-7.5));
+            w = QUOTE(GRID_W(7.5));
+            h = QUOTE(GRID_H(1));
             style = QUOTE(ST_CENTER);
         };
-        class AvailLocTxt: RscText
-        {
+        
+        class AvailLocTxt: RscText {
             idc = 1007;
             text = CSTRING(TeleportMenu_AvailableLocations);
-            x = QUOTE(-15.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(14.5 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
-            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};ackground[] = {-1,-1,-1,-1};
+            x = QUOTE(CENTER_X(-15.5));
+            y = QUOTE(CENTER_Y(-5));
+            w = QUOTE(GRID_W(14.5));
+            h = QUOTE(GRID_H(1));
+            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
             style = QUOTE(ST_CENTER);
         };
-        class DestInfoTxt: RscText
-        {
+        
+        class DestInfoTxt: RscText {
             idc = 1008;
             text = CSTRING(TeleportMenu_DestinationInfo);
-            x = QUOTE(1 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(14.5 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
-            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};ackground[] = {-1,-1,-1,-1};
+            x = QUOTE(CENTER_X(1));
+            y = QUOTE(CENTER_Y(-5));
+            w = QUOTE(GRID_W(14.5));
+            h = QUOTE(GRID_H(1));
+            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
             style = QUOTE(ST_CENTER);
         };
-        class AvailLocListbox: RscListBox
-        {
+        
+        class AvailLocListbox: RscListBox {
             idc = 1500;
-            x = QUOTE(-15 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-3.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(13.5 * GUI_GRID_W);
-            h = QUOTE(11 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(-15));
+            y = QUOTE(CENTER_Y(-3.5));
+            w = QUOTE(GRID_W(13.5));
+            h = QUOTE(GRID_H(11));
             colorBackground[] = {-1,-1,-1,0.5};
             onLBSelChanged = "_this call MEH_Teleporter_fnc_teleportMenu_updateInfo";
         };
-        class DestBack: RscText
-        {
+        
+        class DestBack: RscText {
             idc = 1009;
-            x = QUOTE(1.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-3.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(13.5 * GUI_GRID_W);
-            h = QUOTE(11 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(1.5));
+            y = QUOTE(CENTER_Y(-3.5));
+            w = QUOTE(GRID_W(13.5));
+            h = QUOTE(GRID_H(11));
             colorBackground[] = {-1,-1,-1,0.5};
         };
-        class DestTxt: RscText
-        {
+        
+        class DestTxt: RscText {
             idc = 1010;
             text = CSTRING(TeleportMenu_Destination);
-            x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-3 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(2));
+            y = QUOTE(CENTER_Y(-3));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class DestGrid: RscText
-        {
+        
+        class DestGrid: RscText {
             idc = 1011;
             text = CSTRING(TeleportMenu_NA);
-            x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(-3 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(8.5));
+            y = QUOTE(CENTER_Y(-3));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class DistTxt: RscText
-        {
+        
+        class DistTxt: RscText {
             idc = 1012;
             text = CSTRING(TeleportMenu_Distance);
-            x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(0 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(2));
+            y = QUOTE(CENTER_Y(0));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class Dist: RscText
-        {
+        
+        class Dist: RscText {
             idc = 1013;
             text = CSTRING(TeleportMenu_NA);
-            x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(0 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(8.5));
+            y = QUOTE(CENTER_Y(0));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class TravelTimeTxt: RscText
-        {
+        
+        class TravelTimeTxt: RscText {
             idc = 1014;
             text = CSTRING(TeleportMenu_TravelTime);
-            x = QUOTE(2 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(3 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(2));
+            y = QUOTE(CENTER_Y(3));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class TravelTime: RscText
-        {
+        
+        class TravelTime: RscText {
             idc = 1015;
             text = CSTRING(TeleportMenu_NA);
-            x = QUOTE(8.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(3 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(6 * GUI_GRID_W);
-            h = QUOTE(2.5 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(8.5));
+            y = QUOTE(CENTER_Y(3));
+            w = QUOTE(GRID_W(6));
+            h = QUOTE(GRID_H(2.5));
             colorBackground[] = {-1,-1,-1,-1};
             style = QUOTE(ST_CENTER);
         };
-        class ViewOnMap: RscButtonMenu
-        {
+        
+        class ViewOnMap: RscButtonMenu {
             idc = 1016;
             text = CSTRING(TeleportMenu_ViewOnMap);
-            x = QUOTE(2.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(5.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(11.5 * GUI_GRID_W);
-            h = QUOTE(1 * GUI_GRID_H);
+            x = QUOTE(CENTER_X(2.5));
+            y = QUOTE(CENTER_Y(5.5));
+            w = QUOTE(GRID_W(11.5));
+            h = QUOTE(GRID_H(1));
             colorBackground[] = {-1,-1,-1,-1};
             onButtonClick = "_this call MEH_Teleporter_fnc_teleportMenu_onViewMap";
             style = QUOTE(ST_CENTER);
 
-            class Attributes
-            {
+            class Attributes {
                 font = "RobotoCondensed";
                 align = "center";
                 shadow = "false";
             };
         };
-        class RscButtonMenuOK_2600: RscShortcutButton
-        {
-            x = QUOTE(11.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(9.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(5 * GUI_GRID_W);
-            h = QUOTE(1.5 * GUI_GRID_H);
+        
+        class RscButtonMenuOK_2600: RscShortcutButton {
+            x = QUOTE(CENTER_X(11.5));
+            y = QUOTE(CENTER_Y(9.5));
+            w = QUOTE(GRID_W(5));
+            h = QUOTE(GRID_H(1.5));
 
             text = "Confirm";
             class TextPos {
-                left = QUOTE(0.5 * GUI_GRID_W);
-                top = QUOTE(0.25 * GUI_GRID_H);
+                left = QUOTE(GRID_W(0.5));
+                top = QUOTE(GRID_H(0.25));
                 right = 0;
                 bottom = 0;
             };
             class ShortcutPos {
-                left = QUOTE(3.75 * GUI_GRID_W);
-                top = QUOTE(0.125 * GUI_GRID_H);
-                w = QUOTE(1 * GUI_GRID_W);
-                h = QUOTE(1 * GUI_GRID_H);
+                left = QUOTE(GRID_W(3.75));
+                top = QUOTE(GRID_H(0.125));
+                w = QUOTE(GRID_W(1));
+                h = QUOTE(GRID_H(1));
             };
 
             colorBackground[] = {0,0.5,0,1};
@@ -229,30 +225,30 @@ class MEH_TeleportMenu {
 
             #pragma hemtt suppress pw3_padded_arg
             onButtonClick = QUOTE(\
-                params ['_ctrl'];
+                params ['_ctrl'];\
                 _this call MEH_Teleporter_fnc_teleportMenu_onConfirm;\
                 ctrlParent _ctrl closeDisplay 1;\
             );
         };
-        class RscButtonMenuCancel_2700: RscShortcutButton
-        {
-            x = QUOTE(-16.5 * GUI_GRID_W + GUI_GRID_X);
-            y = QUOTE(9.5 * GUI_GRID_H + GUI_GRID_Y);
-            w = QUOTE(5 * GUI_GRID_W);
-            h = QUOTE(1.5 * GUI_GRID_H);
+        
+        class RscButtonMenuCancel_2700: RscShortcutButton {
+            x = QUOTE(CENTER_X(-16.5));
+            y = QUOTE(CENTER_Y(9.5));
+            w = QUOTE(GRID_W(5));
+            h = QUOTE(GRID_H(1.5));
 
             text = "Cancel";
             class TextPos {
-                left = QUOTE(0.5 * GUI_GRID_W);
-                top = QUOTE(0.25 * GUI_GRID_H);
+                left = QUOTE(GRID_W(0.5));
+                top = QUOTE(GRID_H(0.25));
                 right = 0;
                 bottom = 0;
             };
             class ShortcutPos {
-                left = QUOTE(3.75 * GUI_GRID_W);
-                top = QUOTE(0.4 * GUI_GRID_H);
-                w = QUOTE(0.75 * GUI_GRID_W);
-                h = QUOTE(0.75 * GUI_GRID_H);
+                left = QUOTE(GRID_W(3.75));
+                top = QUOTE(GRID_H(0.4));
+                w = QUOTE(GRID_W(0.75));
+                h = QUOTE(GRID_H(0.75));
             };
 
             colorBackground[] = {0.5,0,0,1};
@@ -262,7 +258,7 @@ class MEH_TeleportMenu {
 
             #pragma hemtt suppress pw3_padded_arg
             onButtonClick = QUOTE(\
-                params ['_ctrl'];
+                params ['_ctrl'];\
                 ctrlParent _ctrl closeDisplay 2;\
             );
         };
