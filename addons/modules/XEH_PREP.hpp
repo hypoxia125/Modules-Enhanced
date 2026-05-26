@@ -36,7 +36,8 @@ PREP(moduleVehicleMineJammer);
 PREP(moduleVehicleRearm);
 PREP(moduleVehicleRefuel);
 PREP(moduleVehicleRepair);
-PREP(ModuleVehicleServiceStation);
+PREP(moduleVehicleServiceStation);
+PREP(moduleWorldTimeScale);
 
 PREP(get3DENAreaModule);
 PREP(getSynchronizedObjectsFiltered);

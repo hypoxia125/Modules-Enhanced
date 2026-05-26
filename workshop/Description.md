@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.9.4[/h1]
+[h1]Current Version - v1.9.5[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -70,6 +70,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Refuel]Vehicle Refuel[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Repair]Vehicle Repair[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Vehicle-Service-Station]Vehicle Service Station[/url]
+- World Time Scale
 
 For an explanation on what these modules do and how to use them, visit the [url=https://github.com/hypoxia125/Modules-Enhanced/wiki]Wiki[/url]
 
