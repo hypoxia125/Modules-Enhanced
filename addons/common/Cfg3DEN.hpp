@@ -514,6 +514,18 @@ class Cfg3DEN {
             };
         };
 
+        class MEH_ModuleWorldTimeScale_Time: MEH_ModuleSlider_Int {
+            class Controls: Controls {
+                class Title: Title {};
+                class Edit: Edit {};
+                class Value: Value {
+                    sliderRange[] = {MIN_TO_HR(12), 240};
+                    sliderPosition = 12.0;
+                    sliderStep = 0.1;
+                };
+            };
+        };
+
         /*
             Array Input Controls
             Modified From Spearhead 1944

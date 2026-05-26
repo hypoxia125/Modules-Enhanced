@@ -14,7 +14,7 @@
 #define SEC_TO_MIN(sec) (sec / 60)
 #define SEC_TO_HR(sec) (sec / 60 / 60)
 #define MIN_TO_SEC(min) (min * 60)
-#define MIN_TO_HR(hr) (min / 60)
+#define MIN_TO_HR(min) (min / 60)
 #define HR_TO_SEC(hr) (hr * 60 * 60)
 #define HR_TO_MIN(hr) (hr * 60)
 

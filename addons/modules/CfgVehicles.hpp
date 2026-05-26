@@ -74,4 +74,5 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleVehicleRefuel.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleRepair.hpp"
     #include "\z\meh\addons\modules\modules\moduleVehicleServiceStation.hpp"
+    #include "\z\meh\addons\modules\modules\moduleWorldTimeScale.hpp"
 };
