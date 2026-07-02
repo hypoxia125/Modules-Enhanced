@@ -41,7 +41,7 @@ if (hasInterface && !(missionNamespace getVariable [QGVAR(CapturePoint_EventInit
 
         private _display = uiNamespace getVariable [QGVAR(CapturePointHUD), displayNull];
         // If ui doesn't exist, create it
-        if (isNull _display) then {
+        if (isNull _display && GVAR(CapturePointSystem) get "_showUI") then {
             GVAR(CapturePoint_HUDLayer) = QGVAR(CapturePoint_HUDLayer) call BIS_fnc_rscLayer;
             GVAR(CapturePoint_HUDLayer) cutRsc ["MEH_Modules_CapturePointHUD", "PLAIN", 1, true];
 

@@ -20,6 +20,7 @@ if !(_mode in ["init"]) exitWith {};
 //------------------------------------------------------------------------------------------------
 private _updateRate = (_module getVariable "UpdateRate") max 1000;
 _updateRate = _updateRate / 1000;
+private _showUI = _module getVariable "ShowUI";
 
 // Debugging setting
 if !(missionNamespace getVariable [QGVAR(CapturePointSystemDebug), false]) then {
@@ -46,6 +47,7 @@ GVAR(CapturePointSystem) = createHashMapObject [[
     ["_debug", _module getVariable ["Debug", false]],
     
     ["_updateRate", _updateRate],
+    ["_showUI", _showUI],
     ["_modules", []],
 
     ["#create", {

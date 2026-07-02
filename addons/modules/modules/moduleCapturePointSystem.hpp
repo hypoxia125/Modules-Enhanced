@@ -29,6 +29,14 @@ class MEH_ModuleCapturePointSystem: MEH_ModuleBase {
             validate = "NUMBER";
         };
 
+        class ShowUI: Checkbox {
+            property = QGVAR(ModuleCapturePointSystem_ShowUI);
+            displayName = "Show UI";
+            tooltip = "Toggles the in-game capture UI for all capture points.";
+            defaultValue = "true";
+            typeName = "BOOL";
+        };
+
         class ScriptedEventHandlerSample {
             control = "EditCodeMulti5";
             property = QGVAR(ModuleCapturePointSystem_ScriptedEventHandlerSample);
