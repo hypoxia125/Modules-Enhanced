@@ -64,7 +64,7 @@ class MEH_ModuleCreateCapturePoint: MEH_ModuleBase {
         class CaptureTime: Edit {
             property = QGVAR(ModuleCreateCapturePoint_CaptureTime);
             displayName = "Capture Time";
-            tooltip = "Time (s) until point is fully captured.";
+            tooltip = "Time (s) to fully capture a neutral point, or to fully decapture an owned point. Total flip time is 2x this value.";
             defaultValue = 60;
             typeName = "NUMBER";
             validate = "NUMBER";

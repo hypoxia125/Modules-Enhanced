@@ -504,7 +504,7 @@ private _moduleObject = createHashMapObject [[
         } forEach [east, west, independent, civilian];
         
         private _captureProgress = _self get "_captureProgress";
-        private _baseProgressPerTick = (_self get "_updateRate") / ((_self get "_captureTime") * 2);
+        private _baseProgressPerTick = (_self get "_updateRate") / ((_self get "_captureTime"));
 
         private _hasAdvantage = _ownerUnitCount > _enemyUnitCount;
         private _isStalemate = _ownerUnitCount == _enemyUnitCount;
@@ -547,7 +547,7 @@ private _moduleObject = createHashMapObject [[
 
         LOG("MEH_Modules_fnc_moduleCreateCapturePoint:: Point has NO owner. Updating based on that...");
 
-        private _progressPerTick = (_self get "_updateRate") / ((_self get "_captureTime") * 2);
+        private _progressPerTick = (_self get "_updateRate") / ((_self get "_captureTime"));
         private _captureProgress = _self get "_captureProgress";
         private _captureUnits = _self call ["GetCaptureUnits"];
         

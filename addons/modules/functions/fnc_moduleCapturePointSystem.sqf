@@ -79,6 +79,7 @@ GVAR(CapturePointSystem) = createHashMapObject [[
 
     ["Register", {
         params ["_module"];
+        if (!isServer) exitWith {};
         if (isNil "_module") exitWith {};
 
         private _modules = _self get "_modules";
@@ -93,6 +94,7 @@ GVAR(CapturePointSystem) = createHashMapObject [[
 
     ["Unregister", {
         params ["_module"];
+        if (!isServer) exitWith {};
         if (isNil "_module") exitWith {};
 
         private _modules = _self get "_modules";
@@ -121,3 +123,5 @@ GVAR(CapturePointSystem) = createHashMapObject [[
         _self set ["_frameSystemHandle", _handle];
     }]
 ]];
+
+publicVariable QGVAR(CapturePointSystem);
