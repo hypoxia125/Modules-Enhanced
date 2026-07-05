@@ -2,6 +2,7 @@ PREP(moduleAmbientArtilleryVirtual);
 PREP(moduleAntiTroll);
 PREP(moduleCapturePointSystem);
 PREP(moduleChangeFlag);
+PREP(moduleChangeSides);
 PREP(moduleClearMapLocationNames);
 PREP(moduleCommunicationJammer);
 PREP(moduleCreateCapturePoint);

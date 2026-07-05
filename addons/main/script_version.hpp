@@ -3,4 +3,4 @@
 #define PATCH 6
 #define BUILD 0
 
-#define CURRENT_VERSION "1.9.6"
+#define CURRENT_VERSION "1.9.7"

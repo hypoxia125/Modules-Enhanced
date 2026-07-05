@@ -1,6 +1,6 @@
 [img]https://i.imgur.com/NrstAKw.gif[/img]
 
-[h1]Current Version - v1.9.6[/h1]
+[h1]Current Version - v1.9.7[/h1]
 
 Join the [url=https://discord.gg/dn4eGEf4m8]Modules Enhanced Discord[/url]
 
@@ -34,6 +34,7 @@ Visit the [url=https://github.com/hypoxia125/Modules-Enhanced/issues]GitHub Issu
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Anti-Troll]Anti-Troll[/url]
 - Capture Point System
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Change-Flag]Change Flag[/url]
+- Change Sides
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Clear-Map-Location-Names]Clear Map Location Names[/url]
 - [url=https://github.com/hypoxia125/Modules-Enhanced/wiki/Communication-Jammer]Communication Jammer[/url]
 - Create Capture Point
