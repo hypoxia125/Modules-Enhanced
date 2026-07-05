@@ -38,6 +38,7 @@ class CfgVehicles {
     #include "\z\meh\addons\modules\modules\moduleAntiTroll.hpp"
     #include "\z\meh\addons\modules\modules\moduleCapturePointSystem.hpp"
     #include "\z\meh\addons\modules\modules\moduleChangeFlag.hpp"
+    #include "\z\meh\addons\modules\modules\moduleChangeSides.hpp"
     #include "\z\meh\addons\modules\modules\moduleClearMapLocationNames.hpp"
     #include "\z\meh\addons\modules\modules\moduleCommunicationJammer.hpp"
     #include "\z\meh\addons\modules\modules\moduleCreateCapturePoint.hpp"
