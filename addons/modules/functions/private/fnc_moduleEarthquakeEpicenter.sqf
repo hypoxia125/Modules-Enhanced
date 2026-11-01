@@ -132,28 +132,27 @@ private _damageBuildings = compileFinal {
     private _rate = _duration / (_buildingCount max 1);
     private _buildingDestroyChance = 1 * (_magnitude / 10);
 
-    [{
-        params ["_args", "_handle"];
-        _args params ["_self", "_magnitude", "_buildings", "_buildingDestroyChance"];
+    [_self, _magnitude, _buildings, _buildingDestroyChance, _rate] spawn {
+        params ["_self", "_magnitude", "_buildings", "_buildingDestroyChance", "_rate"];
+        while {_buildings isNotEqualTo []} do {
+            sleep (_rate max 0.01);
+            if (_buildings isEqualTo []) exitWith {};
 
-        if (_buildings isEqualTo []) exitWith {
-            _handle call CBA_fnc_removePerFrameHandler;
-        };
+            private _building = selectRandom _buildings;
+            TRACE_1("ModuleEarthquakeEpicenter.DamageBuildings:: Selected building:",_building);
+            private _destroy = _buildingDestroyChance <= random 1;
+            if (_destroy) then {
+                _building setDamage 1;
+            } else {
+                _building setDamage (_magnitude / 10);
+            };
 
-        private _building = selectRandom _buildings;
-        TRACE_1("ModuleEarthquakeEpicenter.DamageBuildings:: Selected building:",_building);
-        private _destroy = _buildingDestroyChance <= random 1;
-        if (_destroy) then {
-            _building setDamage 1;
-        } else {
-            _building setDamage (_magnitude / 10);
+            private _index = _buildings find _building;
+            if (_index != -1) then {
+                _buildings deleteAt _index;
+            };
         };
-
-        private _index = _buildings find _building;
-        if (_index != -1) then {
-            _buildings deleteAt _index;
-        };
-    }, _rate, [_self, _magnitude, _buildings, _buildingDestroyChance]] call CBA_fnc_addPerFrameHandler;
+    };
 };
 _moduleObject set ["DamageBuildings", _damageBuildings];
 
@@ -197,21 +196,19 @@ private _earthquakeEffectLocal = compileFinal {
     addCamShake [_power, _duration*2, _frequency];
 
     // start the fade off effects after offset time
-    [{
-        params ["_self", "_power", "_duration", "_frequency"];
+    [_self, _duration, _offset] spawn {
+        params ["_self", "_duration", "_offset"];
+        sleep _offset;
 
         if (player inArea (_self get "effectRange")) then {
             "DynamicBlur" ppEffectAdjust [0];
             "DynamicBlur" ppEffectCommit _duration;
         };
 
-        [{
-            params ["_self"];
-
+        sleep _duration;
             player forceWalk false;
             _self set ["quakeActive", false];
-        }, [_self], _duration] call CBA_fnc_waitAndExecute;
-    }, [_self, _power, _duration, _frequency], _offset] call CBA_fnc_waitAndExecute;
+    };
 };
 _moduleObject set ["EarthquakeEffectLocal", _earthquakeEffectLocal];
 

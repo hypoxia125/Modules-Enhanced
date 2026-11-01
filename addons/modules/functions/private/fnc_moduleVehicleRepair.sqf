@@ -63,37 +63,28 @@ private _createRepairer = {
         } forEach _vehicles;
     };
 
-    // Repeat loop
-    [{
+    private _handle = [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent] spawn {
         params ["_module", "_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
 
-        LOG("ModuleVehicleRepair:: Starting repair loop...");
-
-        private _handle = [{
-            params ["_args", "_handle"];
-            _args params ["_module", "_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
-
-            if (isGamePaused) exitWith {};
-
-            if (_vehicles findIf {alive _x} == -1) exitWith {_handle call CBA_fnc_removePerFrameHandler};
+        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
+            sleep (_timeDelay max 0.1);
+            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
+            if (isGamePaused) then { continue };
 
             LOG_1("ModuleVehicleRepair:: Repairing vehicles: %1",_vehicles);
-            _vehicles apply {
+            {
                 private _vehicle = _x;
-
                 if !(alive _vehicle) then { continue };
 
                 private _repairCountCurrent = _vehicle getVariable [QGVAR(VehicleRepair_RepairCount), 0];
                 if (_repairCountCurrent >= _repairCountMax) then { continue };
 
-                // Repair vehicle locally
                 [_vehicle, _repairPercent] call FUNC(vehicleRepair_repair);
                 _vehicle setVariable [QGVAR(VehicleRepair_RepairCount), _repairCountCurrent + 1];
-            };
-        }, _timeDelay, [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent]] call CBA_fnc_addPerFrameHandler;
-
-        _module setVariable [QGVAR(ModuleVehicleRepair_Handle), _handle];
-    }, [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
+            } forEach _vehicles;
+        };
+    };
+    _module setVariable [QGVAR(ModuleVehicleRepair_Handle), _handle];
 };
 
 // Code Start
@@ -109,8 +100,8 @@ switch _mode do {
         };
 
         if !(_isActivated) then {
-            private _handle = _module getVariable [QGVAR(ModuleVehicleRepair_Handle), -1];
-            _handle call CBA_fnc_removePerFrameHandler;
+            private _handle = _module getVariable [QGVAR(ModuleVehicleRepair_Handle), scriptNull];
+            terminate _handle;
         };
     };
 

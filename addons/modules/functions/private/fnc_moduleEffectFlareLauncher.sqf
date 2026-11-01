@@ -124,18 +124,19 @@ switch _mode do {
             private _random = false;
             if (_flareColor in [21, 22, 23]) then { _random = true };
 
-            // Start per frame handler
-            private _handle = [{
-                params ["_args", "_handle"];
-                _args params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight_Min", "_flareDeployHeight_Max", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
+            private _handle = [_module, _flareClasses, _cycle, _random, _flareDeployHeight_Min, _flareDeployHeight_Max, _timeBetweenLaunches, _launchRandomness, _launchDispersion] spawn {
+                params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight_Min", "_flareDeployHeight_Max", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
 
-                if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-                if (isGamePaused) exitWith {};
+                while {alive _module} do {
+                    sleep TICKRATE;
+                    if (!alive _module) exitWith {};
+                    if (isGamePaused) then { continue };
 
                 private _timeTillNextLaunch = _module getVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeBetweenLaunches];
                 private _flaresShot = _module getVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), 0];
-                if (_flaresShot > 0 && _timeTillNextLaunch > 0) exitWith {
+                if (_flaresShot > 0 && _timeTillNextLaunch > 0) then {
                     _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _timeTillNextLaunch - TICKRATE];
+                    continue;
                 };
 
                 // Determine round to launch
@@ -165,18 +166,15 @@ switch _mode do {
                 _flaresShot = _flaresShot + 1;
                 _module setVariable [QGVAR(ModuleEffectFlareLauncher_FlaresShot), _flaresShot];
 
-                [{
-                    params ["_round", "_flareDeployHeight_Min", "_flareDeployHeight_Max"];
-
-                    private _height = [_flareDeployHeight_Min, _flareDeployHeight_Max] call BIS_fnc_randomInt;
-
-                    if !(alive _round) exitWith {true};
-                    getPosATL _round # 2 >= _height;
-                }, {
-                    params ["_round", "_flareDeployHeight_Min", "_flareDeployHeight_Max"];
-                    if !(alive _round) exitWith {true};
-                    _round setVelocityModelSpace [0, -1, 0];
-                }, [_round, _flareDeployHeight_Min, _flareDeployHeight_Min], 20, {}] call CBA_fnc_waitUntilAndExecute;
+                [_round, _flareDeployHeight_Min, _flareDeployHeight_Max] spawn {
+                    params ["_round", "_min", "_max"];
+                    private _height = [_min, _max] call BIS_fnc_randomInt;
+                    private _deadline = time + 20;
+                    waitUntil {sleep 0.025; !alive _round || {getPosATL _round # 2 >= _height} || {time >= _deadline}};
+                    if (alive _round && {time < _deadline}) then {
+                        _round setVelocityModelSpace [0, -1, 0];
+                    };
+                };
 
                 // Determine new wait time
                 private _newValue = _timeBetweenLaunches;
@@ -188,13 +186,14 @@ switch _mode do {
                 };
                 _module setVariable [QGVAR(ModuleEffectFlareLauncher_TimeTillNextLaunch), _newValue];
 
-            }, TICKRATE, [_module, _flareClasses, _cycle, _random, _flareDeployHeight_Min, _flareDeployHeight_Max, _timeBetweenLaunches, _launchRandomness, _launchDispersion]] call CBA_fnc_addPerFrameHandler;
+                };
+            };
 
             _module setVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), _handle];
         } else {
 
-            private _handle = _module getVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), -1];
-            _handle call CBA_fnc_removePerFrameHandler;
+            private _handle = _module getVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), scriptNull];
+            terminate _handle;
         };
     };
 

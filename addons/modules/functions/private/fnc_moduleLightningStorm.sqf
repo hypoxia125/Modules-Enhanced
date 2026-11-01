@@ -47,18 +47,19 @@ _area = [getPosATL _module] + _area;
 private _startStorm = {
     params ["_module", "_area", "_timeBetweenStrikes", "_strikeRandomness", "_areaDamage"];
 
-    private _handle = [{
-        params ["_args", "_handle"];
-        _args params ["_module", "_area", "_timeBetweenStrikes", "_strikeRandomness", "_areaDamage"];
+    private _handle = [_module, _area, _timeBetweenStrikes, _strikeRandomness, _areaDamage] spawn {
+        params ["_module", "_area", "_timeBetweenStrikes", "_strikeRandomness", "_areaDamage"];
 
-        // Exit code if module is dead
-        if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-        if (isGamePaused) exitWith {};
+        while {alive _module} do {
+            sleep TICKRATE;
+            if (!alive _module) exitWith {};
+            if (isGamePaused) then { continue };
 
         private _timeTillNextStrike = _module getVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeBetweenStrikes];
         private _totalStrikes = _module getVariable [QGVAR(ModuleLightningStorm_TotalStrikes), 0];
-        if ((_totalStrikes > 0 && _timeTillNextStrike > 0)) exitWith {
+        if ((_totalStrikes > 0 && _timeTillNextStrike > 0)) then {
             _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeTillNextStrike - TICKRATE];
+            continue;
         };
 
         private _strikes = 1;
@@ -86,7 +87,8 @@ private _startStorm = {
         };
         _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _newValue];
 
-    }, TICKRATE, [_module, _area, _timeBetweenStrikes, _strikeRandomness, _areaDamage]] call CBA_fnc_addPerFrameHandler;
+        };
+    };
 
     // Return
     _handle
@@ -104,7 +106,7 @@ switch _mode do {
         } else {
             private _handle = _module getVariable [QGVAR(lightningStorm_Handle), nil];
             if (!isNil "_handle") then {
-                _handle call CBA_fnc_removePerFrameHandler;
+                terminate _handle;
                 _module setVariable [QGVAR(lightningStorm_Handle), nil];
             };
         };

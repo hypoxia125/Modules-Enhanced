@@ -102,13 +102,16 @@ private _inventoryData = _data getOrDefault [_identifier, []];
 } forEach _syncedObjects;
 [QGVAR(UpdateInventories), [_identifier, _inventoryData]] call CBA_fnc_serverEvent;
 
-// Per Frame Handler
+// Poll inventory changes on a scheduled interval.
 if (isNil { missionNamespace getVariable QGVAR(InventorySync_FrameHandler) }) then {
-    private _handle = [{
-        params ["_args", "_handle"];
+    private _handle = [_refreshRate] spawn {
+        params ["_refreshRate"];
+
+        while {true} do {
+            sleep (_refreshRate max 0.1);
         
         private _inventories = missionNamespace getVariable [QGVAR(InventorySync_Inventories), []];
-        if (_inventories isEqualTo []) exitWith {};
+        if (_inventories isEqualTo []) then { continue };
 
         {
             private _container = _x;
@@ -149,7 +152,8 @@ if (isNil { missionNamespace getVariable QGVAR(InventorySync_FrameHandler) }) th
                 [QGVAR(InventorySync_SendData), [_identifier, _currentInventory], format["%1: InventoryData", _container]] call CBA_fnc_globalEventJIP;
             };
         } forEach _inventories;
-    }, _refreshRate, []] call CBA_fnc_addPerFrameHandler;
+        };
+    };
 
     missionNamespace setVariable [QGVAR(InventorySync_FrameHandler), _handle];
 };

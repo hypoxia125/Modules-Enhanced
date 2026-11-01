@@ -134,15 +134,12 @@ switch _mode do {
 
         // Destruction
         if (!is3DEN) then {
-            [{
-                params ["_args", "_handle"];
-                _args params ["_module", "_lightpoint", "_lightcone"];
-
-                if (isNull _module) then {
-                    deleteVehicle _lightpoint;
-                    _handle call CBA_fnc_removePerFrameHandler;
-                };
-            }, 0, [_module, _lightpoint, _lightcone]] call CBA_fnc_addPerFrameHandler;
+            [_module, _lightpoint, _lightcone] spawn {
+                params ["_module", "_lightpoint", "_lightcone"];
+                waitUntil {sleep 0.1; isNull _module};
+                deleteVehicle _lightpoint;
+                deleteVehicle _lightcone;
+            };
         };
     };
 

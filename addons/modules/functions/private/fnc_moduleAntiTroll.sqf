@@ -170,14 +170,13 @@ FUNC(punish) = compileFinal {
             [QGVAR(setRocketAnimation), [_player]] call CBA_fnc_globalEvent;
             [QGVAR(attachPlayerToRocket), [_player, _missile], _player] call CBA_fnc_targetEvent;
 
-            [{
+            [_missile, _player] spawn {
                 params ["_missile", "_player"];
-
+                sleep 5;
                 detach _player;
                 [QGVAR(startRagdoll), [_player], _player] call CBA_fnc_targetEvent;
                 triggerAmmo _missile;
-
-            }, [_missile, _player], 5] call CBA_fnc_waitAndExecute;
+            };
         };
     };
 

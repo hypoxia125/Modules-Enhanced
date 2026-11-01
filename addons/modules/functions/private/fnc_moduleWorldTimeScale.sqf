@@ -71,14 +71,14 @@ if (isNil QGVAR(WorldTimeScaleSystem)) then {
 
         ["SystemStart", {
             if (!isServer) exitWith {};
-            private _handle = [{
-                params ["_args", "_handle"];
-                _args params ["_self"];
-
-                if (!isMultiplayer && isGamePaused) exitWith {};
-
-                _self call ["Update", []];
-            }, _self get "_updateRate", [_self]] call CBA_fnc_addPerFrameHandler;
+            private _handle = [_self] spawn {
+                params ["_self"];
+                while {true} do {
+                    sleep ((_self get "_updateRate") max 0.01);
+                    if (!isMultiplayer && isGamePaused) then { continue };
+                    _self call ["Update", []];
+                };
+            };
 
             LOG(QFUNC(moduleWorldTimeScaleSystem) + ":: System started...");
 

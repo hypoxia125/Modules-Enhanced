@@ -49,21 +49,14 @@ _lightning setPos position _dummy;
     };
 }, 0.025, [_lightning, _light]] call CBA_fnc_addPerFrameHandler;
 
-// Delete lightning + dummy
-[{
-    params ["_args", "_handle"];
-
-    _args params ["_dummy", "_lightning", "_light", "_tickTime"];
-
-    if (
-        _lightning getVariable [QGVAR(lightningStrike_delete), false] ||
-        // failsafe
-        {diag_tickTime >= _tickTime + 5}
-    ) then {
-        deleteVehicle _dummy;
-        deleteVehicle _lightning;
-        deleteVehicle _light;
-
-        _handle call CBA_fnc_removePerFrameHandler;
+// Delete lightning + dummy when the flicker completes (or after the failsafe timeout).
+[_dummy, _lightning, _light, diag_tickTime + 5] spawn {
+    params ["_dummy", "_lightning", "_light", "_deadline"];
+    waitUntil {
+        sleep 0.05;
+        (_lightning getVariable [QGVAR(lightningStrike_delete), false]) || {diag_tickTime >= _deadline}
     };
-}, 0, [_dummy, _lightning, _light, diag_tickTime]] call CBA_fnc_addPerFrameHandler;
+    deleteVehicle _dummy;
+    deleteVehicle _lightning;
+    deleteVehicle _light;
+};

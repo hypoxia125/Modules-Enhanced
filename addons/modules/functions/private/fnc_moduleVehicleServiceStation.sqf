@@ -81,35 +81,33 @@ if (_isActivated) then {
 private _startSystem = compileFinal {
     _self set ["activated", true];
 
-    [{
-        params ["_args", "_handle"];
-        _args params ["_self"];
+    private _handle = [_self] spawn {
+        params ["_self"];
 
-        if (isGamePaused) exitWith {};
-        if !(_self get "activated") exitWith {
-            _handle call CBA_fnc_removePerFrameHandler;
+        while {_self get "activated" && {alive (_self get "module")}} do {
+            sleep ((_self get "tickrate") max 0.1);
+            if !(_self get "activated" && {alive (_self get "module")}) exitWith {};
+            if (isGamePaused) then { continue };
+
+            private _vehicles = vehicles select {alive _x && _x inArea (_self get "area")};
+            if (_vehicles isEqualTo []) then { continue };
+
+            {
+                private _vehicle = _x;
+
+                if (_self get "repair") then {
+                    [QGVAR(repairVehicle), [_vehicle, _self get "repairPerTick"], _vehicle] call CBA_fnc_targetEvent;
+                };
+                if (_self get "refuel") then {
+                    [QGVAR(refuelVehicle), [_vehicle, _self get "refuelPerTick"], _vehicle] call CBA_fnc_targetEvent;
+                };
+                if (_self get "rearm") then {
+                    [QGVAR(rearmVehicle), [_vehicle, _self get "rearmPerTick"], _vehicle] call CBA_fnc_targetEvent;
+                };
+            } forEach _vehicles;
         };
-        if (!alive (_self get "module")) exitWith {
-            _handle call CBA_fnc_removePerFrameHandler;
-        };
-
-        private _vehicles = vehicles select {alive _x && _x inArea (_self get "area")};
-        if (_vehicles isEqualTo []) exitWith {};
-
-        {
-            private _vehicle = _x;
-
-            if (_self get "repair") then {
-                [QGVAR(repairVehicle), [_vehicle, _self get "repairPerTick"], _vehicle] call CBA_fnc_targetEvent;
-            };
-            if (_self get "refuel") then {
-                [QGVAR(refuelVehicle), [_vehicle, _self get "refuelPerTick"], _vehicle] call CBA_fnc_targetEvent;
-            };
-            if (_self get "rearm") then {
-                [QGVAR(rearmVehicle), [_vehicle, _self get "rearmPerTick"], _vehicle] call CBA_fnc_targetEvent;
-            };
-        } forEach _vehicles;
-    }, _self get "tickrate", [_self]] call CBA_fnc_addPerFrameHandler;
+    };
+    _self set ["handle", _handle];
 
     // Map Markers
     _self call ["CreateMapMarker"];
@@ -188,6 +186,7 @@ switch _mode do {
         };
         if !(_isActivated) then {
             _moduleObject set ["activated", false];
+            terminate (_moduleObject getOrDefault ["handle", scriptNull]);
             _moduleObject call ["RemoveMapMarker"]
         };
     };

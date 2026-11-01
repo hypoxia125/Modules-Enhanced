@@ -71,49 +71,53 @@ if (isNil QFUNC(mpsync_clientConditionals)) then {
 
         switch _mode do {
             case "register": {
-                [{
-                    !isNull player
-                }, {
+                _args spawn {
                     params ["_respawnOnStart", "_templates", "_timeout"];
+                    private _deadline = time + _timeout;
+                    waitUntil {sleep 0.1; !isNull player || {time >= _deadline}};
+                    if (isNull player) exitWith {};
 
                     INFO("Player is registered and not null");
 
                     switch true do {
                         case (_respawnOnStart == 1 && "MenuPosition" in _templates): {
                             INFO("RespawnOnStart is 1 && 'MenuPosition' is a valid template");
-                            ["menuposition", _this] call FUNC(mpsync_clientConditionals)
+                            ["menuposition", _this] call FUNC(mpsync_clientConditionals);
                         };
                         case (_respawnOnStart == 1): {
                             INFO("RespawnOnStart is 1");
                             ["respawnonstart", _this] call FUNC(mpsync_clientConditionals);
                         };
-                        default { [""] call FUNC(mpsync_clientConditionals) };
+                        default { ["", _this] call FUNC(mpsync_clientConditionals) };
                     };
-                }, _args, _timeout] call CBA_fnc_waitUntilAndExecute;
+                };
             };
 
             case "respawnonstart": {
-                [{
-                    !alive player
-                }, {
+                _args spawn {
+                    private _deadline = time + (_this#2);
+                    waitUntil {sleep 0.1; !alive player || {time >= _deadline}};
+                    if (alive player) exitWith {};
                     INFO("Player has respawned");
                     ["", _this] call FUNC(mpsync_clientConditionals);
-                }, _args, _timeout] call CBA_fnc_waitUntilAndExecute;
+                };
             };
 
             case "menuposition": {
-                [{
-                    !alive player && { visibleMap };
-                }, {
+                _args spawn {
+                    private _deadline = time + (_this#2);
+                    waitUntil {sleep 0.1; (!alive player && {visibleMap}) || {time >= _deadline}};
+                    if (alive player || {!visibleMap}) exitWith {};
                     INFO("Player has respawned and map is open");
                     ["", _this] call FUNC(mpsync_clientConditionals);
-                }, _args, _timeout] call CBA_fnc_waitUntilAndExecute;
+                };
             };
 
             default {
-                [{
-                    alive player;
-                }, {
+                _args spawn {
+                    private _deadline = time + (_this#2);
+                    waitUntil {sleep 0.1; alive player || {time >= _deadline}};
+                    if (!alive player) exitWith {};
 
                     INFO("All previous steps completed, disabling player");
 
@@ -127,7 +131,7 @@ if (isNil QFUNC(mpsync_clientConditionals)) then {
                     [player, "disable"] call FUNC(mpsync_playerLMB);
                     player enableSimulation false;
 
-                }, _args, _timeout] call CBA_fnc_waitUntilAndExecute;
+                };
             };
         };
     };
@@ -179,6 +183,7 @@ if (isNil QFUNC(mpsync_init)) then {
 if (isNil QFUNC(mpsync_initClient)) then {
     FUNC(mpsync_initClient) = compileFinal {
         params ["_minPlayers", "_timeout", "_variableToPass"];
+        if (!hasInterface) exitWith {};
 
         LOG("ModuleMPSync:: Initializing client...");
 
@@ -190,53 +195,43 @@ if (isNil QFUNC(mpsync_initClient)) then {
         ["register", [_respawnOnStart, _templates, _timeout]] call FUNC(mpsync_clientConditionals);
 
         // Wait for server response
-        [{
+        [_timeout, _variableToPass] spawn {
             params ["_timeout", "_variableToPass"];
-
-            missionNamespace getVariable [_variableToPass, false];
-        }, {
+            private _deadline = time + _timeout;
+            waitUntil {
+                sleep 0.1;
+                (missionNamespace getVariable [_variableToPass, false]) || {time >= _deadline}
+            };
             // Wake up player
             [0, "Mission Starting..."] call FUNC(mpsync_blankScreen);
             [false] call FUNC(mpsync_muteClient);
             // Allow shooting
             [player, "enable"] call FUNC(mpsync_playerLMB);
             player enableSimulation true;
-        }, [_timeOut, _variableToPass], _timeOut, {
-            // Wake up player
-            [0, "Mission Starting..."] call FUNC(mpsync_blankScreen);
-            [false] call FUNC(mpsync_muteClient);
-            // Allow shooting
-            [player, "enable"] call FUNC(mpsync_playerLMB);
-            player enableSimulation true;
-        }] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 };
 
 if (isNil QFUNC(mpsync_initServer)) then {
     FUNC(mpsync_initServer) = compileFinal {
         params ["_minPlayers","_timeout", "_variableToPass"];
+        if (!isServer) exitWith {};
 
         LOG("ModuleMPSync:: Initializing server...");
 
-        [{
+        [_minPlayers, _timeout, _variableToPass] spawn {
             params ["_minPlayers", "_timeout", "_variableToPass"];
-
-            private _players = (allUnits + allDead) select {isPlayer _x};
-            private _playersNotEmpty = _players isNotEqualTo [];
-            private _aPlayerHasSpawned = _players findIf {_x getVariable [QGVAR(mpsync_layerSpawned), false]} != -1;
-            private _enoughPlayersSpawned = ({ (_x getVariable [QGVAR(mpsync_playerSpawned), false]) } count _players >= _minPlayers);
-
-            _playersNotEmpty && { _aPlayerHasSpawned && { _enoughPlayersSpawned}};
-
-        }, {
-            params ["_minPlayers", "_timeout", "_variableToPass"];
-
+            private _deadline = time + _timeout;
+            waitUntil {
+                sleep 0.1;
+                private _players = (allUnits + allDead) select {isPlayer _x};
+                (_players isNotEqualTo [] &&
+                    {_players findIf {_x getVariable [QGVAR(mpsync_layerSpawned), false]} != -1} &&
+                    {{_x getVariable [QGVAR(mpsync_playerSpawned), false]} count _players >= _minPlayers}) ||
+                    {time >= _deadline}
+            };
             missionNamespace setVariable [_variableToPass, true, true];
-        }, [_minPlayers, _timeout, _variableToPass], _timeOut, {
-            params ["_minPlayers", "_timeout", "_variableToPass"];
-            // Timeout
-            missionNamespace setVariable [_variableToPass, true, true];
-        }] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 };
 

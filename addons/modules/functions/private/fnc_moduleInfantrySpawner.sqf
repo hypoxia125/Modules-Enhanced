@@ -215,32 +215,32 @@ _moduleObject set ["HasBeenDisabledByEnemy", _hasBeenDisabledByEnemy];
 private _init = compileFinal {
     LOG("ModuleInfantrySpawner:: Starting Module Init...");
 
-    [{
-        params ["_args", "_handle"];
-        _args params ["_self"];
+    [_self] spawn {
+        params ["_self"];
+
+        while {true} do {
+            sleep TICKRATE;
 
         LOG_1("---------- ModuleInfantrySpawner:: %1 ----------",_self get "#type");
 
-        if (isGamePaused) exitWith {};
+        if (isGamePaused) then { continue };
         if (!alive (_self get "module")) exitWith {
             LOG_1("ModuleInfantrySpawner:: Module %1 is no longer alive... stopping backend.",_self get "module");
-            _handle call CBA_fnc_removePerFrameHandler;
         };
         if (_self call ["HasBeenDisabledByEnemy"]) exitWith {
             LOG("ModuleInfantrySpawner:: Enemies too close to spawner... disabling...");
-            _handle call CBA_fnc_removePerFrameHandler;
         };
         if (_self get "respawnTickets" <= 0) exitWith {
             LOG_1("ModuleInfantrySpawner:: Module %1 no longer has respawn tickets... Destroying system.",_self get "module");
-            _handle call CBA_fnc_removePerFrameHandler;
         };
 
         // Exit if its not time to spawn the units
         private _respawnTimeLeft = _self get "unitRespawnTimeLeft";
-        if (_respawnTimeLeft > 0) exitWith {
+        if (_respawnTimeLeft > 0) then {
             LOG_1("ModuleInfantrySpawner:: Current Respawn Time Left: %1",_respawnTimeLeft);
             _respawnTimeLeft = _respawnTimeLeft - TICKRATE;
             _self set ["unitRespawnTimeLeft", _respawnTimeLeft];
+            continue;
         };
 
         // Clear all dead units from system
@@ -299,7 +299,8 @@ private _init = compileFinal {
         // Reset timer
         _self call ["ResetUnitRespawnTimeLeft"];
 
-    }, TICKRATE, [_moduleObject]] call CBA_fnc_addPerFrameHandler;
+        };
+    };
 };
 _moduleObject set ["Init", _init];
 

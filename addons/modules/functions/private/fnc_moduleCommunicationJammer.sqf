@@ -598,15 +598,15 @@ _moduleObject set ["CalculateDistanceFromJamAmount", _calculateDistanceFromJamAm
 private _init = compileFinal {
     LOG("ModuleCommunicationJammer:: Initializing...");
 
-    [{
+    [_self] spawn {
         params ["_self"];
-
-        private _mapExists = !isNull (_self call ["GetMapControl"]);
-        private _gpsExists = !isNull (_self call ["GetGPSControl"]);
-
-        _mapExists && _gpsExists
-    }, {
-        params ["_self"];
+        private _deadline = time + 30;
+        waitUntil {
+            sleep 0.1;
+            (!isNull (_self call ["GetMapControl"]) && {!isNull (_self call ["GetGPSControl"])}) ||
+            {time >= _deadline} || {!alive (_self get "module")}
+        };
+        if (time >= _deadline || {!alive (_self get "module")}) exitWith {};
 
         // Map Icon Handler
         private _mapCtrl = _self get "mapCtrl";
@@ -645,7 +645,7 @@ private _init = compileFinal {
             _ctrl drawIcon [_texture, [1,1,1,_maxAmount], _center, _size, _size, 0, "", 0];
         }];
         _self set ["gpsCtrlHandler", _gpsCtrlHandler];
-    }, [_self], 30] call CBA_fnc_waitUntilAndExecute;
+    };
 
     // Handle Chat Messages
     addMissionEventHandler ["HandleChatMessage", {
@@ -682,51 +682,54 @@ private _init = compileFinal {
     private _handle = player getVariable QGVAR(CommunicationJammer_GlobalJamUpdater);
     if (isNil "_handle") then {
         LOG("ModuleCommunicationJammer:: Starting global jam updater for player");
-        _handle = [{
-            params ["_args", "_handle"];
-            _args params ["_self"];
-
-            private _allJammerModules = entities "MEH_ModuleCommunicationJammer";
-            if (_allJammerModules findIf {alive _x} == -1) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-
-            // Update jam amount globally, at a longer interval
-            LOG_1("ModuleCommunicationJammer:: Updating jam amount globally: frameNo: %1",diag_frameNo);
-            _self call ["UpdateJamAmountGlobal"];
-        }, TICKRATE_NETWORK, [_self]] call CBA_fnc_addPerFrameHandler;
+        _handle = [_self] spawn {
+            params ["_self"];
+            while {true} do {
+                sleep TICKRATE_NETWORK;
+                if ((entities "MEH_ModuleCommunicationJammer") findIf {alive _x} == -1) exitWith {};
+                _self call ["UpdateJamAmountGlobal"];
+            };
+            player setVariable [QGVAR(CommunicationJammer_GlobalJamUpdater), nil];
+        };
         player setVariable [QGVAR(CommunicationJammer_GlobalJamUpdater), _handle];
     };
 
     // System Logic
-    [{
-        params ["_args", "_handle"];
-        _args params ["_self"];
+    [_self] spawn {
+        params ["_self"];
+        while {true} do {
+            sleep TICKRATE;
+            if (isGamePaused) then { continue };
 
-        // Early exits + destruction of handlers
-        if (isGamePaused) exitWith {};
-        if (
-            !alive (_self get "module") ||
-            {!alive (_self get "object")}
-        ) exitWith {
-            LOG("Module Or Object Deleted - Destroying handlers...");
-            _handle call CBA_fnc_removePerFrameHandler;
-            (_self get "mapCtrl") ctrlRemoveEventHandler ["Draw", _self get "mapCtrlHandler"];
-            (_self get "gpsCtrl") ctrlRemoveEventHandler ["Draw", _self get "gpsCtrlHandler"];
-            _self call ["ZeroJamAmount"];
-            _self call ["UpdateJamAmountGlobal"];
+            // Early exits + destruction of handlers
+            if (
+                !alive (_self get "module") ||
+                {!alive (_self get "object")}
+            ) exitWith {
+                LOG("Module Or Object Deleted - Destroying handlers...");
+                if (!isNil {_self get "mapCtrlHandler"} && {!isNull (_self get "mapCtrl")}) then {
+                    (_self get "mapCtrl") ctrlRemoveEventHandler ["Draw", _self get "mapCtrlHandler"];
+                };
+                if (!isNil {_self get "gpsCtrlHandler"} && {!isNull (_self get "gpsCtrl")}) then {
+                    (_self get "gpsCtrl") ctrlRemoveEventHandler ["Draw", _self get "gpsCtrlHandler"];
+                };
+                _self call ["ZeroJamAmount"];
+                _self call ["UpdateJamAmountGlobal"];
+            };
+
+            // Update position
+            _self call ["UpdatePosition"];
+
+            // Update global jam amounts
+            _self call ["UpdateAllJamAmounts_Player"];
+
+            // Update jam amount for this module
+            _self call ["UpdateJamAmount"];
+
+            // Update TFAR Jam Amounts
+            _self call ["UpdateTFARInterference"];
         };
-
-        // Update position
-        _self call ["UpdatePosition"];
-
-        // Update global jam amounts
-        _self call ["UpdateAllJamAmounts_Player"];
-
-        // Update jam amount for this module
-        _self call ["UpdateJamAmount"];
-
-        // Update TFAR Jam Amounts
-        _self call ["UpdateTFARInterference"];
-    }, TICKRATE, [_self]] call CBA_fnc_addPerFrameHandler;
+    };
 };
 _moduleObject set ["Init", _init];
 

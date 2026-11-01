@@ -112,12 +112,12 @@ private _trapInventory = {
             } else {
                 if !(_explosiveType isKindOf "Grenade") then {
                     _explosive enableSimulationGlobal false;
-                    [{
+                    [_explosive] spawn {
                         params ["_explosive"];
-
+                        sleep 2.5;
                         _explosive enableSimulationGlobal true;
                         triggerAmmo _explosive;
-                    }, [_explosive], 2.5] call CBA_fnc_waitAndExecute;
+                    };
                 };
             };
 

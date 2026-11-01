@@ -50,7 +50,6 @@ private _moduleObject = createHashMapObject [[
     ["m_forced", _forced],
     ["m_affectedUnits", _affectedUnits],
     ["m_addModulesOrdered", []],
-    ["m_timeStack", 0],
     ["m_finalDelay", _finalDelay],
 
     ["FindAllModules", {
@@ -79,6 +78,8 @@ private _moduleObject = createHashMapObject [[
         openMap [true, _self get "m_forced"];
         private _modules = _self get "m_addModulesOrdered";
 
+        [_modules, _self get "m_finalDelay"] spawn {
+            params ["_modules", "_finalDelay"];
         {
             private _module = _x;
 
@@ -88,24 +89,15 @@ private _moduleObject = createHashMapObject [[
             private _expression = _module getVariable ["Expression", "true"];
             private _position = ASLToAGL (getPosASL _module);
             
-            private _timeStack = _self get "m_timeStack";
-            private _delay = _timeStack + _timeUntilStart;
-            _self set ["m_timeStack", _delay];
-
-            [{
-                params ["_time", "_zoom", "_position", "_expression"];
-                mapAnimAdd [_time, _zoom, _position];
-                mapAnimCommit;
-                call compile _expression;
-            }, [_time, _zoom, _position, _expression], _delay] call CBA_fnc_waitAndExecute;
+            sleep (_timeUntilStart max 0);
+            mapAnimAdd [_time, _zoom, _position];
+            mapAnimCommit;
+            call compile _expression;
         } forEach _modules;
 
-        private _finalDelay = (_self get "m_timeStack") + (_self get "m_finalDelay");
-        [{
-            params ["_self"];
-
+            sleep (_finalDelay max 0);
             openMap [false, false];
-        }, [_self], _finalDelay] call CBA_fnc_waitAndExecute;
+        };
     }]
 ]];
 

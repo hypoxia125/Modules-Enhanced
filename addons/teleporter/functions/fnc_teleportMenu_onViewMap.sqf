@@ -42,14 +42,16 @@ _endPos setMarkerTextLocal LLSTRING(TeleportMenu_Marker_EndPos);
 _markers pushBack _endPos;
 
 // Move end pos with object if it is a vehicle
-private _handle = -1;
+private _handle = scriptNull;
 if (_object isKindOf "AllVehicles") then {
-    _handle = [{
-        params ["_args", "_handle"];
-        _args params ["_object", "_endPos"];
-
-        _endPos setMarkerPosLocal _object;
-    }, 0.25, [_object, _endPos]] call CBA_fnc_addPerFrameHandler;
+    _handle = [_object, _endPos] spawn {
+        params ["_object", "_endPos"];
+        while {true} do {
+            sleep 0.25;
+            if (isNull _object) exitWith {};
+            _endPos setMarkerPosLocal _object;
+        };
+    };
 };
 
 if (!(_object isKindOf "AllVehicles")) then {
@@ -72,16 +74,17 @@ mapAnimAdd [2, 0.5, _object];
 mapAnimAdd [2, 0.25, _object];
 mapAnimCommit;
 
-[{
+[_data, _savedSel, _markers, _handle] spawn {
     params ["_data", "_savedSel", "_markers", "_handle"];
     _data params ["_name", "_object", "_side", "_bidirectional", "_travelTime", "_active"];
+    sleep 8;
 
     // Close map
     openMap [false, false];
     [QGVAR(teleportMenu_ViewOnMap), [false]] call CBA_fnc_localEvent;
 
     // If vehicle, stop per frame handler
-    if (_handle isNotEqualTo -1) then {_handle call CBA_fnc_removePerFrameHandler};
+    terminate _handle;
 
     // Delete markers
     _markers apply {deleteMarkerLocal _x};
@@ -91,4 +94,4 @@ mapAnimCommit;
 
     private _lbControl = findDisplay IDD_TELEPORTMENU displayCtrl IDC_LOCLIST;
     _lbControl lbSetCurSel _savedSel;
-}, [_data, _savedSel, _markers, _handle], 8] call CBA_fnc_waitAndExecute;
+};

@@ -60,34 +60,27 @@ private _createRearmer = {
         } forEach _vehicles;
     };
 
-    // Repeat loop
-    [{
+    private _handle = [_module, _vehicles, _timeDelay, _rearmCountMax] spawn {
         params ["_module", "_vehicles", "_timeDelay", "_rearmCountMax"];
 
-        private _handle = [{
-            params ["_args", "_handle"];
-            _args params ["_module", "_vehicles", "_timeDelay", "_rearmCountMax"];
+        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
+            sleep (_timeDelay max 0.1);
+            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
+            if (isGamePaused) then { continue };
 
-            if (isGamePaused) exitWith {};
-
-            if (_vehicles findIf {alive _x} == -1) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-
-            _vehicles apply {
+            {
                 private _vehicle = _x;
-
                 if !(alive _vehicle) then { continue };
 
                 private _rearmCountCurrent = _vehicle getVariable [QGVAR(VehicleRearm_RearmCount), 0];
                 if (_rearmCountCurrent >= _rearmCountMax) then { continue };
 
-                // Rearm vehicle locally
                 [_vehicle] call FUNC(vehicleRearm_rearm);
                 _vehicle setVariable [QGVAR(VehicleRearm_RearmCount), _rearmCountCurrent + 1];
-            };
-        }, _timeDelay, [_module, _vehicles, _timeDelay, _rearmCountMax]] call CBA_fnc_addPerFrameHandler;
-
-        _module setVariable [QGVAR(ModuleVehicleRearm_Handle), _handle];
-    }, [_module, _vehicles, _timeDelay, _rearmCountMax], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
+            } forEach _vehicles;
+        };
+    };
+    _module setVariable [QGVAR(ModuleVehicleRearm_Handle), _handle];
 };
 
 // Code Start
@@ -103,8 +96,8 @@ switch _mode do {
         };
 
         if !(_isActivated) then {
-            private _handle = _module getVariable [QGVAR(ModuleVehicleRearm_Handle), -1];
-            _handle call CBA_fnc_removePerFrameHandler;
+            private _handle = _module getVariable [QGVAR(ModuleVehicleRearm_Handle), scriptNull];
+            terminate _handle;
         };
     };
 

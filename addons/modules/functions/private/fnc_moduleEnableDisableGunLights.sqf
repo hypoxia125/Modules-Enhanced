@@ -83,12 +83,11 @@ switch _mode do {
 
         // Wait for mission to start and execute. Won't work otherwise
         private _args = [_groups, _state, _addAttachment, _attachment, _enableGunLights];
-        [{
-            time > 0;
-        }, {
+        _args spawn {
             params ["_groups", "_state", "_addAttachment", "_attachment", "_enableGunLights"];
+            waitUntil {sleep 0.1; time > 0};
             _this call _enableGunLights;
-        }, _args] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 
     case "connectionChanged3DEN": {

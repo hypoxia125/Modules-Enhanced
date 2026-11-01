@@ -88,17 +88,10 @@ private _createDrop = {
     };
 
     // Wait for parachute altitude to be reached
-    [{
+    [_vehicle, _parachuteHeight] spawn {
         params ["_vehicle", "_parachuteHeight"];
-
-        if (isNull _vehicle) exitWith { true };
-
-        private _pos = getPosATL _vehicle;
-        _pos#2 <= _parachuteHeight;
-    }, {
-        params ["_vehicle"];
-
-        if (isNull _vehicle) exitWith { true };
+        waitUntil {sleep 0.05; isNull _vehicle || {getPosATL _vehicle # 2 <= _parachuteHeight}};
+        if (isNull _vehicle) exitWith {};
 
         private _parachute = createVehicle ["B_Parachute_02_F", getPosATL _vehicle, [], 0, "CAN_COLLIDE"];
         _parachute setVelocityModelSpace (velocityModelSpace _vehicle);
@@ -106,20 +99,11 @@ private _createDrop = {
         _vehicle attachTo [_parachute, _attachPoint];
 
         // Wait for vehicle to reach the ground
-        [{
-            params ["_vehicle", "_parachute"];
-
-            if (isNull _vehicle) exitWith { true };
-
-            private _pos = getPosATL _vehicle;
-            _pos#2 <= 5
-        }, {
-            params ["_vehicle", "_parachute"];
-
+        waitUntil {sleep 0.05; isNull _vehicle || {getPosATL _vehicle # 2 <= 5}};
+        if (isNull _vehicle) exitWith {};
             detach _vehicle;
             [QGVAR(ParadropVehicle_ParachuteDetached), [_vehicle, _parachute]] call CBA_fnc_globalEvent;
-        }, [_vehicle, _parachute]] call CBA_fnc_waitUntilAndExecute;
-    }, [_vehicle, _parachuteHeight]] call CBA_fnc_waitUntilAndExecute;
+    };
 
     // Call user code on vehicle
     [_vehicle, _crew] spawn _code;

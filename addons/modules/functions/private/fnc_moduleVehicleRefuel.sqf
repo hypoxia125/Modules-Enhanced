@@ -62,34 +62,28 @@ private _createRefueler = {
         } forEach _vehicles;
     };
 
-    // Repeat loop
-    [{
+    // The first tick follows the delay; the optional immediate tick above is separate.
+    private _handle = [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent] spawn {
         params ["_module", "_vehicles", "_timeDelay", "_refuelCountMax", "_refuelPercent"];
 
-        private _handle = [{
-            params ["_args", "_handle"];
-            _args params ["_module", "_vehicles", "_timeDelay", "_refuelCountMax", "_refuelPercent"];
+        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
+            sleep (_timeDelay max 0.1);
+            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
+            if (isGamePaused) then { continue };
 
-            if (isGamePaused) exitWith {};
-
-            if (_vehicles findIf {alive _x} == -1) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-
-            _vehicles apply {
+            {
                 private _vehicle = _x;
-
                 if !(alive _vehicle) then { continue };
 
                 private _refuelCountCurrent = _vehicle getVariable [QGVAR(VehicleRefuel_RefuelCount), 0];
                 if (_refuelCountCurrent >= _refuelCountMax) then { continue };
 
-                // Refuel vehicle locally
                 [_vehicle, _refuelPercent] call FUNC(vehicleRefuel_refuel);
                 _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), _refuelCountCurrent + 1];
-            };
-        }, _timeDelay, [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent]] call CBA_fnc_addPerFrameHandler;
-
-        _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), _handle];
-    }, [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent], [_timeDelay, 0] select (_runImmediately)] call CBA_fnc_waitAndExecute;
+            } forEach _vehicles;
+        };
+    };
+    _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), _handle];
 };
 
 // Code Start
@@ -105,8 +99,8 @@ switch _mode do {
         };
 
         if !(_isActivated) then {
-            private _handle = _module getVariable [QGVAR(ModuleVehicleRefuel_Handle), -1];
-            _handle call CBA_fnc_removePerFrameHandler;
+            private _handle = _module getVariable [QGVAR(ModuleVehicleRefuel_Handle), scriptNull];
+            terminate _handle;
         };
     };
 

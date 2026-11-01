@@ -141,15 +141,11 @@ switch _mode do {
         _module setVariable [QGVAR(moduleEffectFire_Light), _light];
 
         // delete ingame when module is deleted
-        [{
-            params ["_args", "_handle"];
-            _args params ["_module", "_emitter", "_light"];
-
-            if (isNull _module) then {
-                [_emitter, _light] apply {deleteVehicle _x};
-                _handle call CBA_fnc_removePerFrameHandler;
-            };
-        }, 1, [_module, _emitter, _light]] call CBA_fnc_addPerFrameHandler;
+        [_module, _emitter, _light] spawn {
+            params ["_module", "_emitter", "_light"];
+            waitUntil {sleep 1; isNull _module};
+            [_emitter, _light] apply {deleteVehicle _x};
+        };
     };
 
     case "registeredToWorld3DEN": {

@@ -59,10 +59,11 @@ private _execute = {
 
                 private _delay = _group getVariable [QGVAR(moveOnCombat_delay), 0];
 
-                [{
-                    params ["_group"];
+                [_group, _delay] spawn {
+                    params ["_group", "_delay"];
+                    sleep _delay;
                     units _group apply { _x enableAI "PATH" };
-                }, [_group], _delay] call CBA_fnc_waitAndExecute;
+                };
 
                 _group removeEventHandler [_thisEvent, _thisEventHandler];
             }];

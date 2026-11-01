@@ -95,33 +95,32 @@ private _buildHealingArea = {
         _module setVariable [QGVAR(HealingArea_Orbs), _orbs];
     };
 
-    [{
-        params ["_args", "_handle"];
-        _args params ["_module", "_area", "_rate"];
+    [_module, _area, _rate] spawn {
+        params ["_module", "_area", "_rate"];
 
-        // Early exits
-        if (!alive _module) exitWith {
-            _handle call CBA_fnc_removePerFrameHandler;
-        };
+        while {alive _module} do {
+            sleep 1;
+            if (!alive _module) exitWith {};
 
-        private _affectedUnits = entities [["CAManBase"], [], false, true] select {_x inArea _area};
-        LOG_1("Healing Area - Affected Units:: %1",_affectedUnits);
+            private _affectedUnits = entities [["CAManBase"], [], false, true] select {_x inArea _area};
+            LOG_1("Healing Area - Affected Units:: %1",_affectedUnits);
 
-        if (_affectedUnits isEqualTo []) exitWith {};
-        _affectedUnits apply {
-            private _unit = _x;
-            getAllHitPointsDamage _unit params ["_hitpoints", "_selections", "_values"];
+            if (_affectedUnits isEqualTo []) then { continue };
+            _affectedUnits apply {
+                private _unit = _x;
+                getAllHitPointsDamage _unit params ["_hitpoints", "_selections", "_values"];
 
-            for "_i" from 0 to (count _hitpoints - 1) do {
-                if (_values#_i < 1) then {
-                    [QGVAR(HealingArea_HealUnit), [_unit, _hitpoints # _i, (_values # _i - _rate) max 0], owner _unit] call CBA_fnc_ownerEvent;
+                for "_i" from 0 to (count _hitpoints - 1) do {
+                    if (_values#_i < 1) then {
+                        [QGVAR(HealingArea_HealUnit), [_unit, _hitpoints # _i, (_values # _i - _rate) max 0], owner _unit] call CBA_fnc_ownerEvent;
+                    };
+                };
+                if ({_x > 0} count _values == 1) then {
+                    _unit setDamage 0;
                 };
             };
-            if ({_x > 0} count _values == 1) then {
-                _unit setDamage 0;
-            };
         };
-    }, 1, [_module, _area, _rate]] call CBA_fnc_addPerFrameHandler;
+    };
 };
 
 // Code Start

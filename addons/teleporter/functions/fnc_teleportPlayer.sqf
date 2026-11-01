@@ -20,8 +20,9 @@ _layer cutText [
     "BLACK OUT", 3, true, true
 ];
 
-[{
+[_unit, _object, _travelTime] spawn {
     params ["_unit", "_object", "_travelTime"];
+    sleep 4;
 
     [QGVAR(hideObjectForTeleport), [_unit, true]] call CBA_fnc_localEvent;
 
@@ -37,8 +38,7 @@ _layer cutText [
         };
     };
 
-    [{
-        params ["_unit", "_object", "_travelTime"];
+    sleep (_travelTime max 0);
 
         private _openCargo = [_object, "cargo"] call FUNC(findOpenVehiclePosition) > 0;
         private _openCommander = [_object, "commander"] call FUNC(findOpenVehiclePosition) > 0;
@@ -126,5 +126,4 @@ _layer cutText [
             LLSTRING(teleportedNotification),
             "BLACK IN", 3, true, true
         ];
-    }, [_unit, _object, _travelTime], _travelTime] call CBA_fnc_waitAndExecute;
-}, [_unit, _object, _travelTime], 4] call CBA_fnc_waitAndExecute;
+};

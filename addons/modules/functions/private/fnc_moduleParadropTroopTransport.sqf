@@ -66,16 +66,14 @@ private _paradrop = {
         _smoke attachTo [_unit, [0,0,0], "rightleg"];
     };
 
-    [{
-        params ["_unit", "_chuteOpenHeight"];
-
-        ASLToAGL getPosASL _unit # 2 <= _chuteOpenHeight
-    }, {
+    [_unit, _chuteOpenHeight, _chuteType] spawn {
         params ["_unit", "_chuteOpenHeight", "_chuteType"];
-
+        private _deadline = time + 5*60;
+        waitUntil {sleep 0.05; !alive _unit || {(ASLToAGL getPosASL _unit) # 2 <= _chuteOpenHeight} || {time >= _deadline}};
+        if (!alive _unit || {time >= _deadline}) exitWith {};
         private _chute = createVehicle [_chuteType, getPosASL _unit, [], 0, "NONE"];
         _unit moveInAny _chute;
-    }, [_unit, _chuteOpenHeight, _chuteType], 5*60, {}] call CBA_fnc_waitUntilAndExecute;
+    };
 };
 
 private _execute = {
@@ -113,16 +111,14 @@ private _execute = {
             _smoke attachTo [_unit, [0,0,0], "rightleg"];
         };
 
-        [{
-            params ["_unit", "_chuteOpenHeight"];
-
-            ASLToAGL getPosASL _unit # 2 <= _chuteOpenHeight
-        }, {
+        [_unit, _chuteOpenHeight, _chuteType] spawn {
             params ["_unit", "_chuteOpenHeight", "_chuteType"];
-
+            private _deadline = time + 5*60;
+            waitUntil {sleep 0.05; !alive _unit || {(ASLToAGL getPosASL _unit) # 2 <= _chuteOpenHeight} || {time >= _deadline}};
+            if (!alive _unit || {time >= _deadline}) exitWith {};
             private _chute = createVehicle [_chuteType, getPosASL _unit, [], 0, "NONE"];
             _unit moveInAny _chute;
-        }, [_unit, _chuteOpenHeight, _chuteType], 5*60, {}] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 
     if (hasInterface) then {

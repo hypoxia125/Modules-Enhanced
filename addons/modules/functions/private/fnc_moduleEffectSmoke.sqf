@@ -130,15 +130,11 @@ switch _mode do {
         private _emitter = _args call _createSmoke;
         _module setVariable [QGVAR(moduleEffectFire_Emitter), _emitter];
 
-        [{
-            params ["_args", "_handle"];
-            _args params ["_module", "_emitter"];
-
-            if (isNull _module) then {
-                deleteVehicle _emitter;
-                _handle call CBA_fnc_removePerFrameHandler;
-            };
-        }, 1, [_module, _emitter]] call CBA_fnc_addPerFrameHandler;
+        [_module, _emitter] spawn {
+            params ["_module", "_emitter"];
+            waitUntil {sleep 1; isNull _module};
+            deleteVehicle _emitter;
+        };
     };
 
     case "registeredToWorld3DEN": {

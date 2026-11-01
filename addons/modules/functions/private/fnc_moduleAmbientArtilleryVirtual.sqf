@@ -51,44 +51,28 @@ if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVa
 private _startArtillery = {
     params ["_module", "_area", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_shotInterval", "_shotTimeVariation"];
 
-    private _handle = [{
-        params ["_args", "_handle"];
-        _args params ["_module", "_area", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_shotInterval", "_shotTimeVariation"];
+    private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] spawn {
+        params ["_module", "_area", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_shotInterval", "_shotTimeVariation"];
+        sleep 0.5;
 
-        // Exit code if module is dead or currently firing
-        if (!alive _module) exitWith {_handle call CBA_fnc_removePerFrameHandler};
-        private _isFiring = _module getVariable [QGVAR(ambientArtillery_firing), false];
-        if (_isFiring) exitWith {};
+        while {alive _module} do {
+            _module setVariable [QGVAR(ambientArtillery_firing), true];
 
-        // Salvos firing
-        _module setVariable [QGVAR(ambientArtillery_firing), true];
+            for "_i" from 1 to _salvoSize do {
+                private _shotDelay = _shotInterval + random [0, _shotTimeVariation / 2, _shotTimeVariation];
+                sleep (_shotDelay max 0.01);
+                if (!alive _module) exitWith {};
 
-        for "_i" from 1 to _salvoSize do {
-            private _pos = [[_area]] call BIS_fnc_randomPos;
-
-            private _shotDelay = _shotInterval + (random [0, _shotTimeVariation / 2, _shotTimeVariation]);
-
-            [{
-                params ["_module", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_pos", "_index"];
-
+                private _pos = [[_area]] call BIS_fnc_randomPos;
                 [_pos, _shell] call FUNC(ambientArtilleryVirtual_callArtillery);
+            };
 
-                // Exit after last shot in salvo
-                private _lastRound = _index == _salvoSize;
-                if (_lastRound) then {
-                    private _salvoDelay = _salvoInterval + (random [0, _salvoTimeVariation / 2, _salvoTimeVariation]);
-
-                    // Set module to not firing to trigger the next salvo
-                    [{
-                        params ["_module"];
-
-                        _module setVariable [QGVAR(ambientArtillery_firing), false];
-
-                    }, [_module], _salvoDelay] call CBA_fnc_waitAndExecute;
-                };
-            }, [_module, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _pos, _i], _shotDelay * _i] call CBA_fnc_waitAndExecute;
+            if (!alive _module) exitWith {};
+            private _salvoDelay = _salvoInterval + random [0, _salvoTimeVariation / 2, _salvoTimeVariation];
+            sleep (_salvoDelay max 0.01);
+            _module setVariable [QGVAR(ambientArtillery_firing), false];
         };
-    }, 0.5, [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation]] call CBA_fnc_addPerFrameHandler;
+    };
 
     // return
     _handle
@@ -97,8 +81,9 @@ private _startArtillery = {
 private _stopArtillery = {
     params ["_module"];
 
-    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), -1];
-    _handle call CBA_fnc_removePerFrameHandler;
+    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), scriptNull];
+    terminate _handle;
+    _module setVariable [QGVAR(ambientArtillery_firing), false];
 };
 
 // Code Start
