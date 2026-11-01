@@ -56,7 +56,7 @@ private _createRefueler = {
             private _vehicle = _x;
 
             // Refuel locally
-            [QGVAR(refuelVehicle), [_vehicle, _refuelPercent], _vehicle] call CBA_fnc_targetEvent;
+            [_vehicle, _refuelPercent] call FUNC(vehicleRefuel_refuel);
 
             _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), 1];
         } forEach _vehicles;
@@ -83,7 +83,7 @@ private _createRefueler = {
                 if (_refuelCountCurrent >= _refuelCountMax) then { continue };
 
                 // Refuel vehicle locally
-                [QGVAR(refuelVehicle), [_vehicle, _refuelPercent], _vehicle] call CBA_fnc_targetEvent;
+                [_vehicle, _refuelPercent] call FUNC(vehicleRefuel_refuel);
                 _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), _refuelCountCurrent + 1];
             };
         }, _timeDelay, [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent]] call CBA_fnc_addPerFrameHandler;

@@ -72,21 +72,6 @@ private _getType = {
     };
 };
 
-private _createLocation = {
-    params ["_area", "_name", "_type", "_importance"];
-
-    // TODO: Verify ASL works
-    private _location = createLocation [_type, _area#0, _area#1, _area#2];
-    _location setDirection _area#3;
-    _location setRectangular _area#4;
-
-    _location setText _name;
-    _location setImportance _importance;
-
-    // return
-    _location;
-};
-
 private _deleteLocation = {
     params ["_location"];
 
@@ -100,7 +85,7 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         private _type = [_type] call _getType;
-        private _location = [_area, _name, _type, _importance] call _createLocation;
+        private _location = [_area, _name, _type, _importance] call FUNC(createMapLocation_createLocation);
         _module setVariable [QGVAR(CreateMapLocation_Location), _location];
     };
 

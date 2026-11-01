@@ -70,21 +70,7 @@ private _startStorm = {
             private _pos = [[_area]] call BIS_fnc_randomPos;
             _pos set [2, 0];
 
-            // Play sound
-            private _bolt = createVehicle ["MEH_LightningBolt", [100,100,100], [], 0, "CAN_COLLIDE"];
-            _bolt setPosATL _pos;
-            _bolt setDamage 1;
-
-            // Call Event - Creates Lightning Effect
-            [QEGVAR(effects,lightningStrike_Local), [_pos, random 360, selectRandom ["Lightning1_F", "Lightning2_F"]]] call CBA_fnc_globalEvent;
-
-            // Damage things around the strike
-            private _nearObjects = _pos nearObjects _areaDamage;
-            private _terrainObjects = nearestTerrainObjects [_pos, [], _areaDamage];
-
-            _nearObjects insert [-1, _terrainObjects];
-            _nearObjects = _nearObjects select {!(_x isKindOf "Logic")};
-            _nearObjects apply {_x setDamage 1};
+            [_pos, _areaDamage] call FUNC(lightningStorm_strike);
 
             _totalStrikes = _totalStrikes + 1;
             _module setVariable [QGVAR(ModuleLightningStorm_TotalStrikes), _totalStrikes];

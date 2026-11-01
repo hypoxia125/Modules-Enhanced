@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_fnc_moduleSpeedLimiter
+Function: meh_modules_fnc_moduleCreateRemoteTarget
 
 Author: Hypoxic
 
@@ -26,54 +26,54 @@ _input params [
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
-if (!is3DEN && {!_isActivated}) exitWith {};
-if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
+if !(_mode in ["init", "registeredToWorld3DEN", "attributesChanged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
 
 // Variables
 //------------------------------------------------------------------------------------------------
-private _speed = _module getVariable [QUOTE(Speed), 0];
-private _affectPlayer = _module getVariable [QUOTE(AffectPlayer), true];
-private _affectAI = _module getVariable [QUOTE(AffectAI), true];
-
-private _vehicles = synchronizedObjects _module select {_x isKindOf "Tank" || _x isKindOf "Ship" || _x isKindOf "Air" || _x isKindOf "Car"};
-if (_speed < 0) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
-if ((!_affectPlayer) && (!_affectAI)) exitWith {};
+private _side = switch (_module getVariable ["Side", 0]) do {
+    case 0: {east};
+    case 1: {west};
+    case 2: {independent};
+    case 3: {civilian};
+    default {sideUnknown};
+};
+private _time = _module getVariable ["Time", 15*60];
 
 // Functions
 //------------------------------------------------------------------------------------------------
-private _limitSpeed = {
-    params [
-        ["_vehicles", [], [[], objNull]],
-        ["_speed", 0, [-1]],
-        ["_affectPlayer", true, [true]],
-        ["_affectAI", true, [true]]
-    ];
+private _reportTargets = {
+    params ["_vehicles", "_side", "_time"];
 
-    if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-    if (_speed < 0) then {_speed = abs _speed};
-    if ((!_affectPlayer) && (!_affectAI)) exitWith {};
+    {
+        [_x, _side, _time] call FUNC(createRemoteTarget_reportTarget);
+    } forEach _vehicles;
+};
 
-    _vehicles apply {
-        private _vehicle = _x;
+private _createDummyTarget = {
+    params ["_module"];
 
-        if (_affectPlayer) then {
-            [QGVAR(vehicleCruiseControl), [_vehicle, _speed], format[QGVAR(SpeedLimiter_%1), _vehicle]] call CBA_fnc_globalEventJIP;
-        };
+    private _position = ASLToAGL getPosASL _module;
+    private _dummy = createVehicle ["laserTarget", _position, [], 0, "CAN_COLLIDE"];
 
-        if (_affectAI) then {
-            _vehicle limitSpeed _speed;
-        };
-    };
+    // return
+    _dummy;
 };
 
 // Code Start
 //------------------------------------------------------------------------------------------------
+private _vehicles = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
+
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
+        if (!_isActivated) exitWith {};
 
-        if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
-        [_vehicles, _speed, _affectPlayer, _affectAI] call _limitSpeed;
+        if (_vehicles isEqualTo []) then {
+            private _dummy = [_module] call _createDummyTarget;
+            _vehicles pushBack _dummy;
+        };
+        
+        [_vehicles, _side, _time] call _reportTargets;
     };
 
     case "connectionChanged3DEN": {

@@ -65,15 +65,13 @@ private _startArtillery = {
 
         for "_i" from 1 to _salvoSize do {
             private _pos = [[_area]] call BIS_fnc_randomPos;
-            _pos set [2, 1000];
 
             private _shotDelay = _shotInterval + (random [0, _shotTimeVariation / 2, _shotTimeVariation]);
 
             [{
                 params ["_module", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_pos", "_index"];
 
-                private _round = createVehicle [_shell, _pos];
-                _round setVelocity [0, 0, -1000];
+                [_pos, _shell] call FUNC(ambientArtilleryVirtual_callArtillery);
 
                 // Exit after last shot in salvo
                 private _lastRound = _index == _salvoSize;
@@ -99,7 +97,7 @@ private _startArtillery = {
 private _stopArtillery = {
     params ["_module"];
 
-    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_PFHandler), -1];
+    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), -1];
     _handle call CBA_fnc_removePerFrameHandler;
 };
 

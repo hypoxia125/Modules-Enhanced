@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: meh_modules_fnc_moduleDeleteRespawnPosition
+Function: meh_modules_fnc_moduleVehicleFuelCoef
 
 Author: Hypoxic
 
@@ -26,46 +26,38 @@ _input params [
 // Pre-Execution Checks
 //------------------------------------------------------------------------------------------------
 if (!isServer) exitWith {};
-if !(_mode in ["init", "connectionChanged3DEN"]) exitWith {};
+if (!is3DEN && {!_isActivated}) exitWith {};
+if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
+
+// Variables
+//------------------------------------------------------------------------------------------------
+private _coef = _module getVariable ["Coef", 0];
 
 // Functions
 //------------------------------------------------------------------------------------------------
-private _deleteRespawnPosition = {
-    params ["_respawnModules"];
-
-    if (_respawnModules isEqualType objNull) then { _respawnModules = [_respawnModules] };
+private _setCoef = {
+    params ["_vehicles", "_coef"];
 
     {
-        private _module = _x;
-
-        private _respawn = (_module getVariable [QUOTE(respawn), []]) param [0, [], [[], ""]];
-        if (!(_respawn isEqualType [])) exitWith {false};
-        if (count _respawn != 2) exitWith {false};
-
-        _respawn call BIS_fnc_removeRespawnPosition;
-
-        // Module Respawn Position Cleanup
-        deleteVehicle _module;
-    } forEach _respawnModules;
+        [_x, _coef] call FUNC(vehicleFuelCoef_setCoef);
+    } forEach _vehicles;
 };
 
 // Code Start
 //------------------------------------------------------------------------------------------------
+private _vehicles = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
+
 switch _mode do {
     case "init": {
         if (is3DEN) exitWith {};
-        if (!_isActivated) exitWith {};
 
-        private _respawnModules = (_module call BIS_fnc_moduleModules) select {_x isKindOf "ModuleRespawnPosition_F"};
-        [_respawnModules] call _deleteRespawnPosition;
-
-        // Cleanup Module
-        deleteVehicle _module;
+        if (_vehicles isEqualTo []) then {[typeOf _module] call EFUNC(Error,requiresSync)};
+        [_vehicles, _coef] call _setCoef;
     };
 
     case "connectionChanged3DEN": {
-        private _synced = get3DENConnections _module apply {_x#1};
-        private _invalid = _synced select {!(_x isKindOf "ModuleRespawnPosition_F") && !(_x isKindOf "EmptyDetector")};
+        private _synced = get3DENConnections _module apply {_x select 1};
+        private _invalid = _synced select {!(_x isKindOf "Tank" || _x isKindOf "Ship" || _x isKindOf "Air" || _x isKindOf "Car" || _x isKindOf "EmptyDetector")};
         if (_invalid isNotEqualTo []) then {
             [typeOf _module] call EFUNC(Error,invalidSync);
 
