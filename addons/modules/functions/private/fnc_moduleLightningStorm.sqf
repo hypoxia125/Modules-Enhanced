@@ -49,44 +49,39 @@ private _startStorm = {
 
     private _handle = [_module, _area, _timeBetweenStrikes, _strikeRandomness, _areaDamage] spawn {
         params ["_module", "_area", "_timeBetweenStrikes", "_strikeRandomness", "_areaDamage"];
+        private _timeTillNextStrike = _timeBetweenStrikes;
+        private _totalStrikes = 0;
 
         while {alive _module} do {
             sleep TICKRATE;
             if (!alive _module) exitWith {};
             if (isGamePaused) then { continue };
 
-        private _timeTillNextStrike = _module getVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeBetweenStrikes];
-        private _totalStrikes = _module getVariable [QGVAR(ModuleLightningStorm_TotalStrikes), 0];
-        if ((_totalStrikes > 0 && _timeTillNextStrike > 0)) then {
-            _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _timeTillNextStrike - TICKRATE];
-            continue;
-        };
+            if (_totalStrikes > 0 && _timeTillNextStrike > 0) then {
+                _timeTillNextStrike = _timeTillNextStrike - TICKRATE;
+                continue;
+            };
 
-        private _strikes = 1;
-        if (random 1 < 0.10) then {
-            _strikes = selectRandom [2,3];
-        };
+            private _strikes = 1;
+            if (random 1 < 0.10) then {
+                _strikes = selectRandom [2,3];
+            };
 
-        for "_i" from 0 to _strikes - 1 do {
-            private _pos = [[_area]] call BIS_fnc_randomPos;
-            _pos set [2, 0];
+            for "_i" from 0 to _strikes - 1 do {
+                private _pos = [[_area]] call BIS_fnc_randomPos;
+                _pos set [2, 0];
 
-            [_pos, _areaDamage] call FUNC(lightningStorm_strike);
+                [_pos, _areaDamage] call FUNC(lightningStorm_strike);
+                _totalStrikes = _totalStrikes + 1;
+            };
 
-            _totalStrikes = _totalStrikes + 1;
-            _module setVariable [QGVAR(ModuleLightningStorm_TotalStrikes), _totalStrikes];
-        };
-
-        // Determine new wait time
-        private _newValue = _timeBetweenStrikes;
-        private _randomness = random _strikeRandomness;
-        if (random 1 < 0.5) then {
-            _newValue = _newValue * (1 + _randomness);
-        } else {
-            _newValue = _newValue * (1 - _randomness);
-        };
-        _module setVariable [QGVAR(ModuleLightningStorm_TimeTillNextStrike), _newValue];
-
+            // Determine new wait time
+            private _randomness = random _strikeRandomness;
+            if (random 1 < 0.5) then {
+                _timeTillNextStrike = _timeBetweenStrikes * (1 + _randomness);
+            } else {
+                _timeTillNextStrike = _timeBetweenStrikes * (1 - _randomness);
+            };
         };
     };
 

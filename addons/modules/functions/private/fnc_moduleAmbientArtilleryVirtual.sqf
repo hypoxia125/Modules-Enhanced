@@ -56,8 +56,6 @@ private _startArtillery = {
         sleep 0.5;
 
         while {alive _module} do {
-            _module setVariable [QGVAR(ambientArtillery_firing), true];
-
             for "_i" from 1 to _salvoSize do {
                 private _shotDelay = _shotInterval + random [0, _shotTimeVariation / 2, _shotTimeVariation];
                 sleep (_shotDelay max 0.01);
@@ -70,7 +68,6 @@ private _startArtillery = {
             if (!alive _module) exitWith {};
             private _salvoDelay = _salvoInterval + random [0, _salvoTimeVariation / 2, _salvoTimeVariation];
             sleep (_salvoDelay max 0.01);
-            _module setVariable [QGVAR(ambientArtillery_firing), false];
         };
     };
 
@@ -83,7 +80,6 @@ private _stopArtillery = {
 
     private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), scriptNull];
     terminate _handle;
-    _module setVariable [QGVAR(ambientArtillery_firing), false];
 };
 
 // Code Start
