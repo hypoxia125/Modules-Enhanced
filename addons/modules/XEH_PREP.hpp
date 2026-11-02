@@ -47,6 +47,7 @@ PREP_PRIVATE(clearMapLocationNames_getLocations);
 // Mission-maker APIs; all other registered functions are module callbacks/internal helpers.
 PREP_PUBLIC(ambientArtilleryVirtual_callArtillery);
 PREP_PUBLIC(ambientArtilleryVirtual_startArtillery);
+PREP_PUBLIC(antiTroll_punish);
 PREP_PUBLIC(createRemoteTarget_reportTarget);
 PREP_PUBLIC(vehicleRefuel_refuel);
 PREP_PUBLIC(vehicleRearm_rearm);

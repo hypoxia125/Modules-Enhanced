@@ -252,7 +252,7 @@
 [QGVAR(PunishServer), {
     params ["_instigator", "_punishType"];
 
-    [_instigator, _punishType] call FUNC(punish);
+    [_instigator, _punishType] call FUNC(antiTroll_punish);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(punishmentMessage), {
