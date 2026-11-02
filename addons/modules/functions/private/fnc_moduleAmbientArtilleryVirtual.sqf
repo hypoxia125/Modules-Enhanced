@@ -46,42 +46,6 @@ _area = [getPosATL _module] + _area;
 if (!isClass (configFile >> "CfgAmmo" >> _shell)) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
 if ([_salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] findIf {_x < 0} != -1) exitWith {[typeOf _module] call EFUNC(Error,invalidArgs)};
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _startArtillery = {
-    params ["_module", "_area", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_shotInterval", "_shotTimeVariation"];
-
-    private _handle = [_module, _area, _shell, _salvoSize, _salvoInterval, _salvoTimeVariation, _shotInterval, _shotTimeVariation] spawn {
-        params ["_module", "_area", "_shell", "_salvoSize", "_salvoInterval", "_salvoTimeVariation", "_shotInterval", "_shotTimeVariation"];
-        sleep 0.5;
-
-        while {alive _module} do {
-            for "_i" from 1 to _salvoSize do {
-                private _shotDelay = _shotInterval + random [0, _shotTimeVariation / 2, _shotTimeVariation];
-                sleep (_shotDelay max 0.01);
-                if (!alive _module) exitWith {};
-
-                private _pos = [[_area]] call BIS_fnc_randomPos;
-                [_pos, _shell] call FUNC(ambientArtilleryVirtual_callArtillery);
-            };
-
-            if (!alive _module) exitWith {};
-            private _salvoDelay = _salvoInterval + random [0, _salvoTimeVariation / 2, _salvoTimeVariation];
-            sleep (_salvoDelay max 0.01);
-        };
-    };
-
-    // return
-    _handle
-};
-
-private _stopArtillery = {
-    params ["_module"];
-
-    private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), scriptNull];
-    terminate _handle;
-};
-
 // Code Start
 //------------------------------------------------------------------------------------------------
 switch _mode do {
@@ -90,13 +54,15 @@ switch _mode do {
 
         if (_isActivated) then {
             private _handle = [
-                _module, _area, _shell, _salvoSize, _salvoInterval,
-                _salvoTimeVariation, _shotInterval, _shotTimeVariation
-            ] call _startArtillery;
+                _area, _shell, _salvoSize, _salvoInterval,
+                _salvoTimeVariation, _shotInterval, _shotTimeVariation, _module
+            ] call FUNC(ambientArtilleryVirtual_startArtillery);
 
             _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), _handle];
         } else {
-            [_module] call _stopArtillery;
+            private _handle = _module getVariable [QGVAR(ambientArtilleryVirtual_Handle), scriptNull];
+            terminate _handle;
+            _module setVariable [QGVAR(ambientArtilleryVirtual_Handle), nil];
         };
     };
 
