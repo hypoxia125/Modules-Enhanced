@@ -11,227 +11,106 @@ Description:
 
 #include "script_component.hpp"
 
-// Parameters
-//------------------------------------------------------------------------------------------------
-params [
-    ["_mode", "", [""]],
-    ["_input", [], [[]]]
-];
+params [["_mode", "", [""]], ["_input", [], [[]]]];
 _input params [
     ["_module", objNull, [objNull]],
     ["_isActivated", false, [true]],
     ["_isCuratorPlaced", false, [true]]
 ];
 
-// Pre-Execution Checks
-//------------------------------------------------------------------------------------------------
+if (_mode == "connectionChanged3DEN") exitWith {
+    private _synced = get3DENConnections _module apply {_x select 1};
+    private _invalid = _synced select {!(_x isKindOf "MEH_ModuleEarthquakeDamageArea") && {!(_x isKindOf "EmptyDetector")}};
+    if (_invalid isNotEqualTo []) then {
+        [typeOf _module] call EFUNC(Error,invalidSync);
+        remove3DENConnection ["Sync", _invalid, _module];
+    };
+};
+if (_mode != "init" || {is3DEN} || {!_isActivated}) exitWith {};
 
-// Variables
-//------------------------------------------------------------------------------------------------
 private _magnitude = _module getVariable "Magnitude";
+waitUntil {time > 0};
 
-private _moduleObject = createHashMapObject [[
-    ["module", _module],
-    ["magnitude", _magnitude],
-    ["activeSound", objNull],
-    ["quakeActive", false]
-]];
-
-_module setVariable [QGVAR(EarthquakeEpicenter_ModuleObject), _moduleObject];
-
-// Functions
-//------------------------------------------------------------------------------------------------
-private _createEarthquake = compileFinal {
-    // set variables for earthquake start
-    _self set ["quakeActive", true];
-
-    // start effects - locally
-    _self call ["EarthquakeEffectLocal"];
-    
-    // destroy buildings - server only
-    if (isServer) then {
-        private _duration = (_self call ["GetEarthquakeSoundParams"]) param [1];
-        _self call ["DamageBuildings", [
-            _self call ["GetConnectedDamageAreaBuildings"],
-            _self get "magnitude",
-            _duration
-        ]];
-    };
+private _soundParams = switch _magnitude do {
+    case 1;
+    case 2;
+    case 3: {["Earthquake_01", 10.012]};
+    case 4;
+    case 5;
+    case 6: {["Earthquake_02", 12.773]};
+    case 7;
+    case 8: {["Earthquake_03", 13.832]};
+    case 9;
+    case 10: {["Earthquake_04", 15.167]};
 };
-_moduleObject set ["CreateEarthquake", _createEarthquake];
+_soundParams params ["_soundPath", "_duration"];
 
-private _getEarthquakeSoundParams = compileFinal {
-    private _soundPathAndDuration = switch (_self get "magnitude") do {
-        case 1;
-        case 2;
-        case 3: { ["Earthquake_01", 10.012] };
-        case 4;
-        case 5;
-        case 6: { ["Earthquake_02", 12.773] };
-        case 7;
-        case 8: { ["Earthquake_03", 13.832] };
-        case 9;
-        case 10: { ["Earthquake_04", 15.167] };
-    };
+if (hasInterface) then {
+    private _power = 19 * log _magnitude + 1;
+    private _frequency = 99 * log _magnitude + 1;
+    private _distance = player distance (ASLToAGL getPosASL _module);
+    private _coef = 1 - (log (1 + _distance / (worldSize / 2)) / log 2);
+    _power = _power * _coef;
+    _frequency = _frequency * _coef;
 
-    // return
-    _soundPathAndDuration;
-};
-_moduleObject set ["GetEarthquakeSoundParams", _getEarthquakeSoundParams];
-
-private _getEarthquakeParams = compileFinal {
-    params ["_magnitude"];
-
-    // y = 19 * log(x) + 1
-    private _power = 19 * log(_magnitude) + 1;
-
-    // y = 99 * log(x) + 1
-    private _frequency = 99 * log(_magnitude) + 1;
-
-    // return
-    [_power, _frequency];
-};
-_moduleObject set ["GetEarthquakeParams", _getEarthquakeParams];
-
-private _getEarthquakeParamsCoef = compileFinal {
-    params ["_distance"];
-
-    private _worldSize = worldSize / 2;
-    private _normalizedDistance = _distance / _worldSize;
-
-    // y = 1 - (log(1 + x) / log(2));
-    private _coef = 1 - (log(1 + _normalizedDistance) / log(2));
-
-    // return
-    _coef;
-};
-_moduleObject set ["GetEarthquakeParamsCoef", _getEarthquakeParamsCoef];
-
-private _getConnectedDamageAreaBuildings = compileFinal {
-    private _synchronizedModules = synchronizedObjects (_self get "module");
-    _synchronizedModules = _synchronizedModules select {_x isKindOf "MEH_ModuleEarthquakeDamageArea"};
-
-    private _buildingsToDamage = [];
-    {
-        private _module = _x;
-        private _moduleObject = _x getVariable [QGVAR(EarthquakeDamageArea_ModuleObject), createHashMapObject [[]]];
-        private _buildings = _moduleObject call ["GetTerrainObjects"];
-
-        _buildingsToDamage insert [-1, _buildings];
-    } forEach _synchronizedModules;
-
-    // return
-    _buildingsToDamage;
-};
-_moduleObject set ["GetConnectedDamageAreaBuildings", _getConnectedDamageAreaBuildings];
-
-private _damageBuildings = compileFinal {
-    params ["_buildings", "_magnitude", "_duration"];
-
-    private _buildingCount = count _buildings;
-    private _rate = _duration / (_buildingCount max 1);
-    private _buildingDestroyChance = 1 * (_magnitude / 10);
-
-    [_self, _magnitude, _buildings, _buildingDestroyChance, _rate] spawn {
-        params ["_self", "_magnitude", "_buildings", "_buildingDestroyChance", "_rate"];
-        while {_buildings isNotEqualTo []} do {
-            sleep (_rate max 0.01);
-            if (_buildings isEqualTo []) exitWith {};
-
-            private _building = selectRandom _buildings;
-            TRACE_1("ModuleEarthquakeEpicenter.DamageBuildings:: Selected building:",_building);
-            private _destroy = _buildingDestroyChance <= random 1;
-            if (_destroy) then {
-                _building setDamage 1;
-            } else {
-                _building setDamage (_magnitude / 10);
-            };
-
-            private _index = _buildings find _building;
-            if (_index != -1) then {
-                _buildings deleteAt _index;
-            };
-        };
-    };
-};
-_moduleObject set ["DamageBuildings", _damageBuildings];
-
-// EarthquakeEffectLocal
-// -- Starts the earthquake effects locally
-private _earthquakeEffectLocal = compileFinal {
-    if (!hasInterface) exitWith {};
-
-    private _module = _self get "module";
-
-    // calculate the power and frequency from magnitude
-    private _earthquakeParams = _self call ["GetEarthquakeParams", [_self get "magnitude"]];
-    _earthquakeParams params [["_power", 1], ["_frequency", 1]];
-
-    // get player distance and use that to determine final outputs
-    private _positionAGL = ASLToAGL (getPosASL _module);
-    private _distance = player distance _positionAGL;
-    private _earthquakeParamsCoef = _self call ["GetEarthquakeParamsCoef", [_distance]];
-
-    _power = _power * _earthquakeParamsCoef;
-    _frequency = _frequency * _earthquakeParamsCoef;
-
-    // add a offset so that there is a delay before the drop off
-    // of the screen shake starts to end
     private _offset = 1;
-    
-    // play earthquake sound looping
-    private _soundPathAndDuration = _self call ["GetEarthquakeSoundParams"];
-    _soundPathAndDuration params ["_soundPath", "_duration"];
-    private _sound = playSound _soundPath;
-
-    // shake it baby
+    playSound _soundPath;
     enableCamShake true;
     player forceWalk true;
     "DynamicBlur" ppEffectEnable true;
-    "DynamicBlur" ppEffectAdjust [_power/2];
+    "DynamicBlur" ppEffectAdjust [_power / 2];
     "DynamicBlur" ppEffectCommit _offset;
-
     "DynamicBlur" ppEffectAdjust [0];
     "DynamicBlur" ppEffectCommit _duration;
-    addCamShake [_power, _duration*2, _frequency];
+    addCamShake [_power, _duration * 2, _frequency];
 
-    // start the fade off effects after offset time
-    [_self, _duration, _offset] spawn {
-        params ["_self", "_duration", "_offset"];
+    [_duration, _offset] spawn {
+        params ["_duration", "_offset"];
         sleep _offset;
-
-        if (player inArea (_self get "effectRange")) then {
-            "DynamicBlur" ppEffectAdjust [0];
-            "DynamicBlur" ppEffectCommit _duration;
-        };
-
         sleep _duration;
-            player forceWalk false;
-            _self set ["quakeActive", false];
+        player forceWalk false;
     };
 };
-_moduleObject set ["EarthquakeEffectLocal", _earthquakeEffectLocal];
 
-// Code Start
-//------------------------------------------------------------------------------------------------
-switch _mode do {
-    case "init": {
-        if (is3DEN) exitWith {};
-        if (!_isActivated) exitWith {};
-        
-        waitUntil { time > 0 };
+if (!isServer) exitWith {};
 
-        _moduleObject call ["CreateEarthquake"];
+private _buildings = [];
+{
+    private _damageModule = _x;
+    private _area = [ASLToAGL getPosASL _damageModule] + (_damageModule getVariable "ObjectArea");
+    private _radius = if (_area#4) then {sqrt ((_area#1)^2 + (_area#2)^2)} else {(_area#1) max (_area#2)};
+    private _types = [];
+    if (_damageModule getVariable "TypeBuilding") then {
+        _types append ["BUILDING", "BUNKER", "CHAPEL", "CHURCH", "FORTRESS", "FUELSTATION", "HOSPITAL", "HOUSE", "LIGHTHOUSE", "TOURISM", "WATERTOWER", "VIEW-TOWER", "TRANSMITTER"];
     };
+    if (_damageModule getVariable "TypeWall") then {_types append ["WALL", "FENCE"]};
+    if (_damageModule getVariable "TypeTree") then {_types pushBack "TREE"};
+    if (_damageModule getVariable "TypePowerlines") then {_types pushBack "POWERLINE"};
 
-    case "connectionChanged3DEN": {
-        private _synced = get3DENConnections _module apply {_x select 1};
-        private _invalid = _synced select {!(_x isKindOf "MEH_ModuleEarthquakeDamageArea") && !(_x isKindOf "EmptyDetector")};
-        if (_invalid isNotEqualTo []) then {
-            [typeOf _module] call EFUNC(Error,invalidSync);
+    private _objects = nearestTerrainObjects [_area#0, _types, _radius, false, false] select {_x inArea _area};
+    if (_damageModule getVariable "TypeMissionBuilding") then {
+        private _placed = [];
+        {_placed append (allMissionObjects _x)} forEach ["BUILDING", "HOUSE"];
+        _objects append (_placed select {_x inArea _area});
+    };
+    LOG_1("ModuleEarthquakeDamageArea.GetTerrainObjects:: Objects found: %1",count _objects);
+    _buildings append _objects;
+} forEach (synchronizedObjects _module select {_x isKindOf "MEH_ModuleEarthquakeDamageArea"});
 
-            // remove connection
-            remove3DENConnection ["Sync", _invalid, _module];
+private _rate = _duration / (count _buildings max 1);
+private _destroyChance = _magnitude / 10;
+[_buildings, _magnitude, _destroyChance, _rate] spawn {
+    params ["_buildings", "_magnitude", "_destroyChance", "_rate"];
+    while {_buildings isNotEqualTo []} do {
+        sleep (_rate max 0.01);
+        if (_buildings isEqualTo []) exitWith {};
+        private _building = selectRandom _buildings;
+        TRACE_1("ModuleEarthquakeEpicenter.DamageBuildings:: Selected building:",_building);
+        if (_destroyChance <= random 1) then {
+            _building setDamage 1;
+        } else {
+            _building setDamage (_magnitude / 10);
         };
+        _buildings deleteAt (_buildings find _building);
     };
 };

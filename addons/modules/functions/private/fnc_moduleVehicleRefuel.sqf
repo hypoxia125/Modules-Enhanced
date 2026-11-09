@@ -35,57 +35,6 @@ private _refuelCountMax = _module getVariable ["RefuelCount", -1];
 private _refuelPercent = _module getVariable "Percent";
 private _runImmediately = _module getVariable "RunImmediately";
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _createRefueler = {
-    params [
-        "_module",
-        ["_vehicles", [], [[], objNull]],
-        ["_timeDelay", 600, [-1]],
-        ["_refuelCountMax", 1, [-1]],
-        ["_refuelPercent", 1, [-1]],
-        "_runImmediately"
-    ];
-
-    if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-    if (_timeDelay < 0) then {_timeDelay = 0};
-    if (_refuelCountMax < 1) then { _refuelCountMax = 1 };
-
-    if (_runImmediately) then {
-        {
-            private _vehicle = _x;
-
-            // Refuel locally
-            [_vehicle, _refuelPercent] call FUNC(vehicleRefuel_refuel);
-
-            _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), 1];
-        } forEach _vehicles;
-    };
-
-    // The first tick follows the delay; the optional immediate tick above is separate.
-    private _handle = [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent] spawn {
-        params ["_module", "_vehicles", "_timeDelay", "_refuelCountMax", "_refuelPercent"];
-
-        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
-            sleep (_timeDelay max 0.1);
-            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
-            if (isGamePaused) then { continue };
-
-            {
-                private _vehicle = _x;
-                if !(alive _vehicle) then { continue };
-
-                private _refuelCountCurrent = _vehicle getVariable [QGVAR(VehicleRefuel_RefuelCount), 0];
-                if (_refuelCountCurrent >= _refuelCountMax) then { continue };
-
-                [_vehicle, _refuelPercent] call FUNC(vehicleRefuel_refuel);
-                _vehicle setVariable [QGVAR(VehicleRefuel_RefuelCount), _refuelCountCurrent + 1];
-            } forEach _vehicles;
-        };
-    };
-    _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), _handle];
-};
-
 // Code Start
 //------------------------------------------------------------------------------------------------
 private _vehicles = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
@@ -95,12 +44,14 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         if (_isActivated) then {
-            [_module, _vehicles, _timeDelay, _refuelCountMax, _refuelPercent, _runImmediately] call _createRefueler;
+            private _handle = [_vehicles, _timeDelay, _refuelCountMax, _refuelPercent, _runImmediately, _module] call FUNC(vehicleRefuel_startRefueling);
+            _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), _handle];
         };
 
         if !(_isActivated) then {
             private _handle = _module getVariable [QGVAR(ModuleVehicleRefuel_Handle), scriptNull];
             terminate _handle;
+            _module setVariable [QGVAR(ModuleVehicleRefuel_Handle), nil];
         };
     };
 

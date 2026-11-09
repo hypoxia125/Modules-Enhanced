@@ -11,8 +11,6 @@ Description:
 
 #include "script_component.hpp"
 
-// Parameters
-//------------------------------------------------------------------------------------------------
 params [
     ["_mode", "", [""]],
     ["_input", [], [[]]]
@@ -23,171 +21,85 @@ _input params [
     ["_isCuratorPlaced", false, [true]]
 ];
 
-// Pre-Execution Checks
-//------------------------------------------------------------------------------------------------
-if (!isServer) exitWith {};
-if (is3DEN) exitWith {};
-if (_mode in ["dragged3DEN", "unregisteredFromWorld3DEN"]) exitWith {};
+if (!isServer || {is3DEN} || {_mode != "init"}) exitWith {};
 
-// Variables
-//------------------------------------------------------------------------------------------------
-private _sideNum = _module getVariable "Side";
-private _side = switch (_sideNum) do {
-    case 0: { east };
-    case 1: { west };
-    case 2: { independent };
-    case 3: { civilian };
-    default { sideUnknown };
+private _markerNames = [
+    format [QGVAR(VehicleServiceStationArea_%1), _module],
+    format [QGVAR(VehicleServiceStationIcon_%1), _module],
+    format [QGVAR(VehicleServiceStationAreaBorder_%1), _module]
+];
+
+if (!_isActivated) exitWith {
+    terminate (_module getVariable [QGVAR(ModuleVehicleServiceStation_Handle), scriptNull]);
+    _module setVariable [QGVAR(ModuleVehicleServiceStation_Handle), nil];
+    {deleteMarkerLocal _x} forEach _markerNames;
 };
-private _sideColor = switch (_side) do {
-    case east: { "ColorEAST" };
-    case west: { "ColorWEST" };
-    case independent: { "ColorGUER" };
-    case civilian: { "ColorCIV" };
-    default { "ColorUNKNOWN" };
-};
+
+private _previousHandle = _module getVariable [QGVAR(ModuleVehicleServiceStation_Handle), scriptNull];
+if (_previousHandle isNotEqualTo scriptNull && {!scriptDone _previousHandle}) exitWith {};
+
+private _area = [ASLToAGL getPosASL _module] + (_module getVariable "ObjectArea");
 private _repair = _module getVariable "Repair";
 private _repairPerTick = _module getVariable "RepairPerTick";
 private _rearm = _module getVariable "Rearm";
-private _rearmPerTick = _module getVariable ["RearmPerTick", 1];
 private _refuel = _module getVariable "Refuel";
 private _refuelPerTick = _module getVariable "RefuelPerTick";
 private _tickrate = _module getVariable "TickRate";
-private _area = _module getVariable "ObjectArea";
-private _showMapMarker = _module getVariable "ShowMapMarker";
-_area = [ASLToAGL getPosASL _module] + _area;
 
-private _self = createHashMapObject [[
-    ["module", _module],
-    ["side", _side],
-    ["sideColor", _sideColor],
-    ["repair", _repair],
-    ["repairPerTick", _repairPerTick],
-    ["rearm", _rearm],
-    ["rearmPerTick", _rearmPerTick],
-    ["refuel", _refuel],
-    ["refuelPerTick", _refuelPerTick],
-    ["tickrate", _tickrate],
-    ["area", _area],
-    ["activated", false],
-    ["showMapMarker", _showMapMarker]
-]];
-if (_isActivated) then {
-    _module setVariable [QGVAR(ModuleVehicleServiceStation_ModuleObject), _self];
-};
+private _handle = [_module, _area, _tickrate, _repair, _repairPerTick, _rearm, _refuel, _refuelPerTick] spawn {
+    params ["_module", "_area", "_tickrate", "_repair", "_repairPerTick", "_rearm", "_refuel", "_refuelPerTick"];
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _startSystem = compileFinal {
-    _self set ["activated", true];
+    while {alive _module} do {
+        sleep (_tickrate max 0.1);
+        if (!alive _module) exitWith {};
+        if (isGamePaused) then { continue };
 
-    private _handle = [_self] spawn {
-        params ["_self"];
-
-        while {_self get "activated" && {alive (_self get "module")}} do {
-            sleep ((_self get "tickrate") max 0.1);
-            if !(_self get "activated" && {alive (_self get "module")}) exitWith {};
-            if (isGamePaused) then { continue };
-
-            private _vehicles = vehicles select {alive _x && _x inArea (_self get "area")};
-            if (_vehicles isEqualTo []) then { continue };
-
-            {
-                private _vehicle = _x;
-
-                if (_self get "repair") then {
-                    [QGVAR(repairVehicle), [_vehicle, _self get "repairPerTick"], _vehicle] call CBA_fnc_targetEvent;
-                };
-                if (_self get "refuel") then {
-                    [QGVAR(refuelVehicle), [_vehicle, _self get "refuelPerTick"], _vehicle] call CBA_fnc_targetEvent;
-                };
-                if (_self get "rearm") then {
-                    [QGVAR(rearmVehicle), [_vehicle, _self get "rearmPerTick"], _vehicle] call CBA_fnc_targetEvent;
-                };
-            } forEach _vehicles;
-        };
-    };
-    _self set ["handle", _handle];
-
-    // Map Markers
-    _self call ["CreateMapMarker"];
-};
-_self set ["StartSystem", _startSystem];
-
-private _createMapMarker = compileFinal {
-    if !(_self get "showMapMarker") exitWith {};
-
-    // area marker
-    private _markerName = format[QGVAR(VehicleServiceStationArea_%1),_self get "module"];
-    private _marker = createMarkerLocal [_markerName, (_self get "area") # 0];
-    _marker setMarkerShapeLocal (["ELLIPSE", "RECTANGLE"] select ((_self get "area") # 4));
-    _marker setMarkerBrushLocal "FDiagonal";
-    _marker setMarkerSizeLocal [
-        (_self get "area") # 1,
-        (_self get "area") # 2
-    ];
-    _marker setMarkerDirLocal ((_self get "area") # 3);
-    _marker setMarkerColor (_self get "sideColor");
-
-    _self set ["areaMarker", _marker];
-
-    // repair icon
-    private _markerName = format[QGVAR(VehicleServiceStationIcon_%1),_self get "module"];
-    private _marker = createMarkerLocal [_markerName, (_self get "area") # 0];
-    _marker setMarkerShapeLocal "ICON";
-    _marker setMarkerTypeLocal "loc_repair";
-    _marker setMarkerColor (_self get "sideColor");
-
-    _self set ["iconMarker", _marker];
-
-    // border marker
-    private _markerName = format[QGVAR(VehicleServiceStationAreaBorder_%1),_self get "module"];
-    private _marker = createMarkerLocal [_markerName, (_self get "area") # 0];
-    _marker setMarkerShapeLocal (["ELLIPSE", "RECTANGLE"] select ((_self get "area") # 4));
-    _marker setMarkerBrushLocal "Border";
-    _marker setMarkerSizeLocal [
-        (_self get "area") # 1,
-        (_self get "area") # 2
-    ];
-    _marker setMarkerDirLocal ((_self get "area") # 3);
-    _marker setMarkerColor (_self get "sideColor");
-
-    _self set ["areaBorderMarker", _marker];
-    
-};
-_self set ["CreateMapMarker", _createMapMarker];
-
-private _removeMapMarker = compileFinal {
-    private _markers = [
-        _self get "areaMarker",
-        _self get "iconMarker",
-        _self get "areaBorderMarker"
-    ];
-
-    {
-        deleteMarker _x;
-    } forEach _markers;
-
-    _self set ["areaMarker", nil];
-    _self set ["iconMarker", nil];
-    _self set ["areaBorderMarker", nil];
-};
-_self set ["RemoveMapMarker", _removeMapMarker];
-
-// Code Start
-//------------------------------------------------------------------------------------------------
-switch _mode do {
-    case "init": {
-        if (is3DEN) exitWith {};
-        private _moduleObject = _module getVariable QGVAR(ModuleVehicleServiceStation_ModuleObject);
-
-        if (_isActivated) then {
-            _moduleObject call ["StartSystem"];
-        };
-        if !(_isActivated) then {
-            _moduleObject set ["activated", false];
-            terminate (_moduleObject getOrDefault ["handle", scriptNull]);
-            _moduleObject call ["RemoveMapMarker"]
-        };
+        private _vehicles = vehicles select {alive _x && {_x inArea _area}};
+        {
+            private _vehicle = _x;
+            if (_repair) then {
+                [QGVAR(repairVehicle), [_vehicle, _repairPerTick], _vehicle] call CBA_fnc_targetEvent;
+            };
+            if (_refuel) then {
+                [QGVAR(refuelVehicle), [_vehicle, _refuelPerTick], _vehicle] call CBA_fnc_targetEvent;
+            };
+            if (_rearm) then {
+                [QGVAR(rearmVehicle), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
+            };
+        } forEach _vehicles;
     };
 };
+_module setVariable [QGVAR(ModuleVehicleServiceStation_Handle), _handle];
+
+if !(_module getVariable ["ShowMapMarker", false]) exitWith {};
+
+private _sideColor = switch (_module getVariable ["Side", 1]) do {
+    case 0: {"ColorEAST"};
+    case 1: {"ColorWEST"};
+    case 2: {"ColorGUER"};
+    case 3: {"ColorCIV"};
+    default {"ColorUNKNOWN"};
+};
+
+_markerNames params ["_areaName", "_iconName", "_borderName"];
+private _shape = ["ELLIPSE", "RECTANGLE"] select (_area#4);
+private _size = [_area#1, _area#2];
+
+private _areaMarker = createMarkerLocal [_areaName, _area#0];
+_areaMarker setMarkerShapeLocal _shape;
+_areaMarker setMarkerBrushLocal "FDiagonal";
+_areaMarker setMarkerSizeLocal _size;
+_areaMarker setMarkerDirLocal (_area#3);
+_areaMarker setMarkerColor _sideColor;
+
+private _iconMarker = createMarkerLocal [_iconName, _area#0];
+_iconMarker setMarkerShapeLocal "ICON";
+_iconMarker setMarkerTypeLocal "loc_repair";
+_iconMarker setMarkerColor _sideColor;
+
+private _borderMarker = createMarkerLocal [_borderName, _area#0];
+_borderMarker setMarkerShapeLocal _shape;
+_borderMarker setMarkerBrushLocal "Border";
+_borderMarker setMarkerSizeLocal _size;
+_borderMarker setMarkerDirLocal (_area#3);
+_borderMarker setMarkerColor _sideColor;

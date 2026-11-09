@@ -95,32 +95,7 @@ private _buildHealingArea = {
         _module setVariable [QGVAR(HealingArea_Orbs), _orbs];
     };
 
-    [_module, _area, _rate] spawn {
-        params ["_module", "_area", "_rate"];
-
-        while {alive _module} do {
-            sleep 1;
-            if (!alive _module) exitWith {};
-
-            private _affectedUnits = entities [["CAManBase"], [], false, true] select {_x inArea _area};
-            LOG_1("Healing Area - Affected Units:: %1",_affectedUnits);
-
-            if (_affectedUnits isEqualTo []) then { continue };
-            _affectedUnits apply {
-                private _unit = _x;
-                getAllHitPointsDamage _unit params ["_hitpoints", "_selections", "_values"];
-
-                for "_i" from 0 to (count _hitpoints - 1) do {
-                    if (_values#_i < 1) then {
-                        [QGVAR(HealingArea_HealUnit), [_unit, _hitpoints # _i, (_values # _i - _rate) max 0], owner _unit] call CBA_fnc_ownerEvent;
-                    };
-                };
-                if ({_x > 0} count _values == 1) then {
-                    _unit setDamage 0;
-                };
-            };
-        };
-    };
+    [_area, _rate, _module] call FUNC(healingArea_startHealing);
 };
 
 // Code Start

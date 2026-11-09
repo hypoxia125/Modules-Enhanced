@@ -34,55 +34,6 @@ private _timeDelay = _module getVariable ["TimeDelay", 5*60];
 private _rearmCountMax = _module getVariable ["RearmCount", -1];
 private _runImmediately = _module getVariable "RunImmediately";
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _createRearmer = {
-    params [
-        "_module",
-        ["_vehicles", [], [[], objNull]],
-        ["_timeDelay", 600, [-1]],
-        ["_rearmCountMax", 1, [-1]],
-        "_runImmediately"
-    ];
-
-    if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-    if (_timeDelay < 0) then {_timeDelay = 0};
-    if (_rearmCountMax < 1) then { _rearmCountMax = 1 };
-
-    if (_runImmediately) then {
-        {
-            private _vehicle = _x;
-
-            // Rearm locally
-            [_vehicle] call FUNC(vehicleRearm_rearm);
-
-            _vehicle setVariable [QGVAR(VehicleRearm_RearmCount), 1];
-        } forEach _vehicles;
-    };
-
-    private _handle = [_module, _vehicles, _timeDelay, _rearmCountMax] spawn {
-        params ["_module", "_vehicles", "_timeDelay", "_rearmCountMax"];
-
-        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
-            sleep (_timeDelay max 0.1);
-            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
-            if (isGamePaused) then { continue };
-
-            {
-                private _vehicle = _x;
-                if !(alive _vehicle) then { continue };
-
-                private _rearmCountCurrent = _vehicle getVariable [QGVAR(VehicleRearm_RearmCount), 0];
-                if (_rearmCountCurrent >= _rearmCountMax) then { continue };
-
-                [_vehicle] call FUNC(vehicleRearm_rearm);
-                _vehicle setVariable [QGVAR(VehicleRearm_RearmCount), _rearmCountCurrent + 1];
-            } forEach _vehicles;
-        };
-    };
-    _module setVariable [QGVAR(ModuleVehicleRearm_Handle), _handle];
-};
-
 // Code Start
 //------------------------------------------------------------------------------------------------
 private _vehicles = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
@@ -92,12 +43,14 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         if (_isActivated) then {
-            [_module, _vehicles, _timeDelay, _rearmCountMax, _runImmediately] call _createRearmer;
+            private _handle = [_vehicles, _timeDelay, _rearmCountMax, _runImmediately, _module] call FUNC(vehicleRearm_startRearming);
+            _module setVariable [QGVAR(ModuleVehicleRearm_Handle), _handle];
         };
 
         if !(_isActivated) then {
             private _handle = _module getVariable [QGVAR(ModuleVehicleRearm_Handle), scriptNull];
             terminate _handle;
+            _module setVariable [QGVAR(ModuleVehicleRearm_Handle), nil];
         };
     };
 

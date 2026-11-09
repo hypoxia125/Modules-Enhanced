@@ -35,58 +35,6 @@ private _repairCountMax = _module getVariable ["RepairCount", -1];
 private _repairPercent = _module getVariable ["Percent", 1];
 private _runImmediately = _module getVariable "RunImmediately";
 
-// Functions
-//------------------------------------------------------------------------------------------------
-private _createRepairer = {
-    params [
-        "_module",
-        ["_vehicles", [], [[], objNull]],
-        ["_timeDelay", 600, [-1]],
-        ["_repairCountMax", 1, [-1]],
-        ["_repairPercent", 1, [-1]],
-        "_runImmediately"
-    ];
-
-    if (_vehicles isEqualType objNull) then {_vehicles = [_vehicles]};
-    if (_timeDelay < 0) then {_timeDelay = 0};
-    if (_repairCountMax < 1) then { _repairCountMax = 1 };
-
-    if (_runImmediately) then {
-        {
-            private _vehicle = _x;
-
-            LOG("ModuleRepairVehicle:: Running immediately... repairing...");
-            // Repair locally
-            [_vehicle, _repairPercent] call FUNC(vehicleRepair_repair);
-
-            _vehicle setVariable [QGVAR(VehicleRepair_RepairCount), 1];
-        } forEach _vehicles;
-    };
-
-    private _handle = [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent] spawn {
-        params ["_module", "_vehicles", "_timeDelay", "_repairCountMax", "_repairPercent"];
-
-        while {alive _module && {_vehicles findIf {alive _x} != -1}} do {
-            sleep (_timeDelay max 0.1);
-            if (!alive _module || {_vehicles findIf {alive _x} == -1}) exitWith {};
-            if (isGamePaused) then { continue };
-
-            LOG_1("ModuleVehicleRepair:: Repairing vehicles: %1",_vehicles);
-            {
-                private _vehicle = _x;
-                if !(alive _vehicle) then { continue };
-
-                private _repairCountCurrent = _vehicle getVariable [QGVAR(VehicleRepair_RepairCount), 0];
-                if (_repairCountCurrent >= _repairCountMax) then { continue };
-
-                [_vehicle, _repairPercent] call FUNC(vehicleRepair_repair);
-                _vehicle setVariable [QGVAR(VehicleRepair_RepairCount), _repairCountCurrent + 1];
-            } forEach _vehicles;
-        };
-    };
-    _module setVariable [QGVAR(ModuleVehicleRepair_Handle), _handle];
-};
-
 // Code Start
 //------------------------------------------------------------------------------------------------
 private _vehicles = synchronizedObjects _module select {!(_x isKindOf "EmptyDetector" || _x isKindOf "Module_F")};
@@ -96,12 +44,14 @@ switch _mode do {
         if (is3DEN) exitWith {};
 
         if (_isActivated) then {
-            [_module, _vehicles, _timeDelay, _repairCountMax, _repairPercent, _runImmediately] call _createRepairer;
+            private _handle = [_vehicles, _timeDelay, _repairCountMax, _repairPercent, _runImmediately, _module] call FUNC(vehicleRepair_startRepairing);
+            _module setVariable [QGVAR(ModuleVehicleRepair_Handle), _handle];
         };
 
         if !(_isActivated) then {
             private _handle = _module getVariable [QGVAR(ModuleVehicleRepair_Handle), scriptNull];
             terminate _handle;
+            _module setVariable [QGVAR(ModuleVehicleRepair_Handle), nil];
         };
     };
 

@@ -46,41 +46,30 @@ private _affectedUnits = switch _affectedUnitsNum do {
 
 // Functions
 //------------------------------------------------------------------------------------------------
-private _moduleObject = createHashMapObject [[
-    ["m_forced", _forced],
-    ["m_affectedUnits", _affectedUnits],
-    ["m_addModulesOrdered", []],
-    ["m_finalDelay", _finalDelay],
+if !(player in _affectedUnits) exitWith {};
 
-    ["FindAllModules", {
-        params ["_startModuleObj", "_currModule", ["_lastModule", objNull]];
+private _modules = [];
+private _currentModule = _module;
+private _lastModule = objNull;
+while {true} do {
+    private _syncedModules = synchronizedObjects _currentModule select {
+        _x isKindOf "MEH_ModuleMapAnimationAdd" && {_x != _lastModule}
+    };
+    if (count _syncedModules > 1) exitWith {
+        systemChat format ["ModuleMapAnimationStart::FindAllModules | Too many modules connected to module: %1. You should only have a before and after MapAnimationStart module.", _currentModule];
+    };
+    if (_syncedModules isEqualTo []) exitWith {};
 
-        private _syncedModules = synchronizedObjects _currModule;
-        _syncedModules = _syncedModules select {_x isKindOf "MEH_ModuleMapAnimationAdd"};
-        _syncedModules = _syncedModules - [_lastModule];
+    private _nextModule = _syncedModules#0;
+    _modules insert [-1, [_nextModule]];
+    _lastModule = _currentModule;
+    _currentModule = _nextModule;
+};
 
-        if (count _syncedModules > 1) exitWith {
-            systemChat format["ModuleMapAnimationStart::FindAllModules | Too many modules connected to module: %1. You should only have a before and after MapAnimationStart module.", _currModule];
-        };
-        if (count _syncedModules <= 0) exitWith {};
-
-        private _nextModule = _syncedModules#0;
-
-        private _addModulesOrdered = _startModuleObj get "m_addModulesOrdered";
-        _addModulesOrdered insert [-1, [_nextModule]];
-        _startModuleObj set ["m_addModulesOrdered", _addModulesOrdered];
-
-        // recursive call
-        _startModuleObj call ["FindAllModules", [_startModuleObj, _nextModule, _currModule]];
-    }],
-
-    ["Execute", {
-        openMap [true, _self get "m_forced"];
-        private _modules = _self get "m_addModulesOrdered";
-
-        [_modules, _self get "m_finalDelay"] spawn {
-            params ["_modules", "_finalDelay"];
-        {
+openMap [true, _forced];
+[_modules, _finalDelay] spawn {
+    params ["_modules", "_finalDelay"];
+    {
             private _module = _x;
 
             private _time = _module getVariable ["Time", 3];
@@ -93,23 +82,8 @@ private _moduleObject = createHashMapObject [[
             mapAnimAdd [_time, _zoom, _position];
             mapAnimCommit;
             call compile _expression;
-        } forEach _modules;
+    } forEach _modules;
 
-            sleep (_finalDelay max 0);
-            openMap [false, false];
-        };
-    }]
-]];
-
-// Code Start
-//------------------------------------------------------------------------------------------------
-switch _mode do {
-    case "init": {
-        if (is3DEN) exitWith {};
-
-        if !(player in _affectedUnits) exitWith {};
-
-        _moduleObject call ["FindAllModules", [_moduleObject, _module, objNull]];
-        _moduleObject call ["Execute"];
-    };
+    sleep (_finalDelay max 0);
+    openMap [false, false];
 };

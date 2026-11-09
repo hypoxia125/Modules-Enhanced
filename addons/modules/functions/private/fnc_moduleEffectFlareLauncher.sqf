@@ -12,8 +12,6 @@ Description:
 #include "script_component.hpp"
 #include "\z\meh\addons\modules\moduleDefaults.inc"
 
-#define TICKRATE    0.1
-
 // Parameters
 //------------------------------------------------------------------------------------------------
 params [
@@ -124,72 +122,17 @@ switch _mode do {
             private _random = false;
             if (_flareColor in [21, 22, 23]) then { _random = true };
 
-            private _handle = [_module, _flareClasses, _cycle, _random, _flareDeployHeight_Min, _flareDeployHeight_Max, _timeBetweenLaunches, _launchRandomness, _launchDispersion] spawn {
-                params ["_module", "_flareClasses", "_cycle", "_random", "_flareDeployHeight_Min", "_flareDeployHeight_Max", "_timeBetweenLaunches", "_launchRandomness", "_launchDispersion"];
-                private _timeTillNextLaunch = _timeBetweenLaunches;
-                private _flaresShot = 0;
-                private _currentFlareIndex = 0;
+            private _handle = [
+                _module, _flareClasses, _cycle, _random, _flareDeployHeight_Min, _flareDeployHeight_Max,
+                _timeBetweenLaunches, _launchRandomness, _launchDispersion, _module
+            ] call FUNC(effectFlareLauncher_startLaunching);
 
-                while {alive _module} do {
-                    sleep TICKRATE;
-                    if (!alive _module) exitWith {};
-                    if (isGamePaused) then { continue };
-
-                    if (_flaresShot > 0 && _timeTillNextLaunch > 0) then {
-                        _timeTillNextLaunch = _timeTillNextLaunch - TICKRATE;
-                        continue;
-                    };
-
-                    // Determine round to launch
-                    private _flareClass = _flareClasses#0;
-                    if (_cycle) then {
-                        _flareClass = _flareClasses#_currentFlareIndex;
-
-                        _currentFlareIndex = _currentFlareIndex + 1;
-                        if (_currentFlareIndex >= count _flareClasses) then {
-                            _currentFlareIndex = 0;
-                        };
-                    };
-
-                    if (_random) then {_flareClass = selectRandom _flareClasses};
-
-                    // Launch round
-                    private _round = createVehicle [_flareClass, getPosATL _module vectorAdd [0,0,1]];
-                    private _dir = random 360;
-                    private _pitch = 90 - (random _launchDispersion);
-
-                    _round setDir _dir;
-                    [_round, _pitch, 0] call BIS_fnc_setPitchBank;
-                    _round setVelocityModelSpace [0, 900, 0];
-
-                    _flaresShot = _flaresShot + 1;
-
-                    [_round, _flareDeployHeight_Min, _flareDeployHeight_Max] spawn {
-                        params ["_round", "_min", "_max"];
-                        private _height = [_min, _max] call BIS_fnc_randomInt;
-                        private _deadline = time + 20;
-                        waitUntil {sleep 0.025; !alive _round || {getPosATL _round # 2 >= _height} || {time >= _deadline}};
-                        if (alive _round && {time < _deadline}) then {
-                            _round setVelocityModelSpace [0, -1, 0];
-                        };
-                    };
-
-                    // Determine new wait time
-                    private _randomness = random _launchRandomness;
-                    if (random 1 < 0.5) then {
-                        _timeTillNextLaunch = _timeBetweenLaunches * (1 + _randomness);
-                    } else {
-                        _timeTillNextLaunch = _timeBetweenLaunches * (1 - _randomness);
-                    };
-
-                };
-            };
-
-            _module setVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), _handle];
+            _module setVariable [QGVAR(ModuleEffectFlareLauncher_ScriptHandler), _handle];
         } else {
 
-            private _handle = _module getVariable [QGVAR(ModuleEffectFlareLauncher_PFHandler), scriptNull];
+            private _handle = _module getVariable [QGVAR(ModuleEffectFlareLauncher_ScriptHandler), scriptNull];
             terminate _handle;
+            _module setVariable [QGVAR(ModuleEffectFlareLauncher_ScriptHandler), nil];
         };
     };
 
